@@ -1,0 +1,23 @@
+{
+	"version": "3.0.0",
+	"elements": [
+		{
+			"element_type": "Quests",
+			"element_type_icon": "quest",
+			"quest_query": "nodes with ext:quest=yes",
+			"quests": [
+				{
+					"quest_id": 101,
+					"quest_title": "Component: Quest Answer Validation",
+					"quest_description": "Enter a number between 0 and 10, inclusive, to test the Numeric quest type's quest_answer_validation component.",
+					"quest_type": "Numeric",
+					"quest_tag": "ext:component:quest_answer_validation",
+					"quest_answer_validation": {
+						"min": 0,
+						"max": 10
+					}
+				}
+			]
+		}
+	]
+}
