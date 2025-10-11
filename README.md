@@ -18,7 +18,7 @@ Snapshots:
 
 ## Examples
 
-Long Form Quest Definition examples.
+Long Form Quest Definition JSON examples.
 
 Latest:
 
@@ -29,6 +29,10 @@ Snapshots:
 -   [example-1.0.0.json](schema/schema-1.0.0.json)
 -   [example-2.0.0.json](schema/schema-2.0.0.json)
 -   [example-3.0.0.json](schema/schema-3.0.0.json)
+
+## Components
+
+Long Form Quest Definition JSON files for testing components.
 
 ## Quests
 
