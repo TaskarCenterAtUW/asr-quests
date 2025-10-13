@@ -43,7 +43,7 @@
 				{
 					"quest_id": 103,
 					"quest_title": "Component: TextEntry Quest Type's Dependency (Multiple) 3",
-					"quest_description": "Select quest answer choice Choice 5 to test the TextEntry quest type's Dependency (Multiple) component.",
+					"quest_description": "Enter any text to test the TextEntry quest type's Dependency (Multiple) component.",
 					"quest_type": "TextEntry",
 					"quest_tag": "ext:component:quest_type-TextEntry-dependency-multiple",
 					"quest_answer_dependency": [
@@ -54,16 +54,6 @@
 						{
 							"question_id": 102,
 							"required_value": "choice_3"
-						}
-					],
-					"quest_answer_choices": [
-						{
-							"value": "choice_5",
-							"choice_text": "Choice 5"
-						},
-						{
-							"value": "choice_6",
-							"choice_text": "Choice 6"
 						}
 					]
 				}
