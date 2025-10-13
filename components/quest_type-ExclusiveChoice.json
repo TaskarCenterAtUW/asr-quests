@@ -9,7 +9,7 @@
 				{
 					"quest_id": 101,
 					"quest_title": "Component: Quest Type: Exclusive Choice",
-					"quest_description": "Select a quest answer choice to test the Eclusive Choice quest type component.",
+					"quest_description": "Select a quest answer choice to test the Exclusive Choice quest type component.",
 					"quest_type": "ExclusiveChoice",
 					"quest_tag": "ext:component:quest_type-ExclusiveChoice",
 					"quest_answer_choices": [
