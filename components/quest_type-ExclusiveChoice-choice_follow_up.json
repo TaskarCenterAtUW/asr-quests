@@ -1,0 +1,30 @@
+{
+	"version": "3.0.0",
+	"elements": [
+		{
+			"element_type": "Quests",
+			"element_type_icon": "quest",
+			"quest_query": "nodes with ext:quest=yes",
+			"quests": [
+				{
+					"quest_id": 101,
+					"quest_title": "Component: Exclusive Choice Quest Type's Choice Follow Up",
+					"quest_description": "Select quest answer choice Choice 1 to test the Exclusive Choice quest type's Choice Follow Up component.",
+					"quest_type": "ExclusiveChoice",
+					"quest_tag": "ext:component:quest_type-ExclusiveChoice-choice_follow_up",
+					"quest_answer_choices": [
+						{
+							"value": "choice_1",
+							"choice_text": "Choice 1",
+							"choice_follow_up": "Take a picture to test the Exclusive Choice Quest Type's Choice Follow Up component."
+						},
+						{
+							"value": "choice_2",
+							"choice_text": "Choice 2"
+						}
+					]
+				}
+			]
+		}
+	]
+}
