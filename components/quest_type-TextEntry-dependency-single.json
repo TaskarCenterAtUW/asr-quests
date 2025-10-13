@@ -29,7 +29,7 @@
 					"quest_description": "Enter a number to test the TextEntry quest type's Dependency (Single) component.",
 					"quest_type": "TextEntry",
 					"quest_tag": "ext:component:quest_type-TextEntry-dependency-single",
-					"dependency": {
+					"quest_answer_dependency": {
 						"question_id": 101,
 						"required_value": "choice_1"
 					}

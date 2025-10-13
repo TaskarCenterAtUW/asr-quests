@@ -29,7 +29,7 @@
 					"quest_description": "Select quest answer choice Choice 3 to test the Multiple Choice quest type's Dependency (Single) component.",
 					"quest_type": "MultipleChoice",
 					"quest_tag": "ext:component:quest_type-MultipleChoice-dependency-single",
-					"dependency": {
+					"quest_answer_dependency": {
 						"question_id": 101,
 						"required_value": "choice_1"
 					},
