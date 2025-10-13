@@ -16,9 +16,7 @@
 						{
 							"value": "choice_1",
 							"choice_text": "Choice 1",
-							"choice_follow_up": {
-								"description": "Take a picture to test the Multiple Choice Quest Type's Choice Follow Up component."
-							}
+							"choice_follow_up": "Take a picture to test the Multiple Choice Quest Type's Choice Follow Up component."
 						},
 						{
 							"value": "choice_2",
