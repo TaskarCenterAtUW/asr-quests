@@ -196,7 +196,7 @@
             {
               "value": "compacted_gravel",
               "choice_text": "Compacted Gravel",
-              "image_url": "https://github.com/TaskarCenterAtUW/tdei-tools/blob/main/images/sidewalk/surface/compacted_gravel_landscape.png"
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/sidewalk/surface/compacted_gravel_landscape.png"
             },
             {
               "value": "rubberized_surface",
@@ -262,7 +262,7 @@
           "quest_id": 110,
           "quest_title": "Are there frequent temporary obstructions on this sidewalk?",
           "quest_description": "Select the type of temporary or recurring obstructions that often block or reduce the usable width of this sidewalk.",
-          "quest_type": "ExclusiveChoice",
+          "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_temp_obstructions",
           "quest_answer_choices": [
             {
