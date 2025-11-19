@@ -32,9 +32,9 @@
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_condition_detail",
           "quest_answer_dependency": {
-						"question_id": 101,
-						"required_value": "no"
-					},
+            "question_id": 101,
+            "required_value": "no"
+          },
           "quest_answer_choices": [
             {
               "value": "cracked",
@@ -94,9 +94,9 @@
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_stop_ap_condition_detail",
           "quest_answer_dependency": {
-						"question_id": 103,
-						"required_value": "no"
-					},
+            "question_id": 103,
+            "required_value": "no"
+          },
           "quest_answer_choices": [
             {
               "value": "cracked",
@@ -646,13 +646,13 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_boarding_zone_present",
           "quest_answer_choices": [
-            { 
-              "value": "yes", 
-              "choice_text": "Yes" 
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -668,9 +668,9 @@
               "choice_text": "Yes",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/sidewalk/dimension/cross_slope_square.png"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -681,13 +681,13 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_zone_running_slope",
           "quest_answer_choices": [
-            { 
-              "value": "yes", 
-              "choice_text": "Yes" 
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -698,25 +698,25 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_shelter_type",
           "quest_answer_choices": [
-            { 
-              "value": "double_shelter", 
-              "choice_text": "Yes, double shelter" 
+            {
+              "value": "double_shelter",
+              "choice_text": "Yes, double shelter"
             },
-            { 
-              "value": "single_shelter", 
-              "choice_text": "Yes, single shelter" 
+            {
+              "value": "single_shelter",
+              "choice_text": "Yes, single shelter"
             },
-            { 
-              "value": "custom_shelter", 
-              "choice_text": "Yes, custom shelter" 
+            {
+              "value": "custom_shelter",
+              "choice_text": "Yes, custom shelter"
             },
-            { 
-              "value": "other", 
-              "choice_text": "Other" 
+            {
+              "value": "other",
+              "choice_text": "Other"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -727,13 +727,13 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_shelter_footing_present",
           "quest_answer_choices": [
-            { 
-              "value": "yes", 
-              "choice_text": "Yes" 
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -756,21 +756,21 @@
               "value": "combined_benches",
               "choice_text": "Metro shelter bench and standalone benches"
             },
-            { 
-              "value": "lean_rail", 
-              "choice_text": "Lean Rail" 
+            {
+              "value": "lean_rail",
+              "choice_text": "Lean Rail"
             },
-            { 
-              "value": "simmeseat", 
-              "choice_text": "SimmeSeat" 
+            {
+              "value": "simmeseat",
+              "choice_text": "SimmeSeat"
             },
             {
               "value": "other",
               "choice_text": "Other (concrete ledge, private bench, informal seating)"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -789,13 +789,13 @@
               "value": "front_plus_one",
               "choice_text": "Yes, at the front door and either the rear or middle door"
             },
-            { 
-              "value": "front_only", 
-              "choice_text": "Yes, at the front door" 
+            {
+              "value": "front_only",
+              "choice_text": "Yes, at the front door"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -806,13 +806,13 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_braille_schedule_present",
           "quest_answer_choices": [
-            { 
-              "value": "yes", 
-              "choice_text": "Yes" 
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -823,13 +823,13 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_led_real_time_info",
           "quest_answer_choices": [
-            { 
-              "value": "yes", 
-              "choice_text": "Yes" 
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -871,29 +871,29 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_ped_connection",
           "quest_answer_choices": [
-            { 
-              "value": "sidewalk", 
-              "choice_text": "Sidewalk" 
+            {
+              "value": "sidewalk",
+              "choice_text": "Sidewalk"
             },
-            { 
-              "value": "shared_use_path", 
-              "choice_text": "Shared-use path" 
+            {
+              "value": "shared_use_path",
+              "choice_text": "Shared-use path"
             },
-            { 
-              "value": "unpaved_path", 
-              "choice_text": "Unpaved path" 
+            {
+              "value": "unpaved_path",
+              "choice_text": "Unpaved path"
             },
-            { 
-              "value": "shoulder", 
-              "choice_text": "Road shoulder" 
+            {
+              "value": "shoulder",
+              "choice_text": "Road shoulder"
             },
-            { 
-              "value": "other", 
-              "choice_text": "Other" 
+            {
+              "value": "other",
+              "choice_text": "Other"
             },
-            { 
-              "value": "none", 
-              "choice_text": "No pedestrian connection" 
+            {
+              "value": "none",
+              "choice_text": "No pedestrian connection"
             }
           ]
         },
@@ -904,9 +904,9 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_bike_connection",
           "quest_answer_choices": [
-            { 
-              "value": "bike_lane", 
-              "choice_text": "On-street bike lane" 
+            {
+              "value": "bike_lane",
+              "choice_text": "On-street bike lane"
             },
             {
               "value": "protected_bike_lane",
@@ -916,17 +916,17 @@
               "value": "shared_lane",
               "choice_text": "Shared lane (sharrow or mixed traffic)"
             },
-            { 
-              "value": "shared_use_path", 
-              "choice_text": "Shared-use path" 
+            {
+              "value": "shared_use_path",
+              "choice_text": "Shared-use path"
             },
-            { 
-              "value": "other", 
-              "choice_text": "Other" 
+            {
+              "value": "other",
+              "choice_text": "Other"
             },
-            { 
-              "value": "none", 
-              "choice_text": "No direct bicycle connection" 
+            {
+              "value": "none",
+              "choice_text": "No direct bicycle connection"
             }
           ]
         },
@@ -937,13 +937,13 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_bike_infrastructure_present",
           "quest_answer_choices": [
-            { 
-              "value": "yes", 
-              "choice_text": "Yes" 
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -1019,13 +1019,13 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_restroom_nearby",
           "quest_answer_choices": [
-            { 
-              "value": "yes", 
-              "choice_text": "Yes" 
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
@@ -1065,13 +1065,13 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_to_sidewalk_centerline",
           "quest_answer_choices": [
-            { 
-              "value": "yes", 
-              "choice_text": "Yes" 
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             },
-            { 
-              "value": "no", 
-              "choice_text": "No" 
+            {
+              "value": "no",
+              "choice_text": "No"
             }
           ]
         },
