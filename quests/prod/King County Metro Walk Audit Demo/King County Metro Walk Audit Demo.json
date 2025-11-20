@@ -471,78 +471,35 @@
         },
         {
           "quest_id": 202,
-          "quest_title": "Is there a signal present at this crossing?",
-          "quest_description": "Select the type of pedestrian or traffic control present at this crossing. Include any pedestrian-specific signals or beacons if applicable.",
+          "quest_title": "Are there ADA curb ramps at this intersection?",
+          "quest_description": "Indicate the ADA compliance status of curb ramps at the corners of this intersection, including detectable warnings and appropriate slope.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing_signal_type",
+          "quest_tag": "ext:crossing_ada_curb_ramps",
           "quest_answer_choices": [
             {
-              "value": "no_signal_no_crosswalk",
-              "choice_text": "No Signal"
+              "value": "all_compliant",
+              "choice_text": "All corners are ADA-compliant"
             },
             {
-              "value": "full_signal",
-              "choice_text": "Yes, Full Signal"
+              "value": "some_compliant",
+              "choice_text": "Some corners are ADA-compliant"
             },
             {
-              "value": "half_signal",
-              "choice_text": "Yes, Half Signal"
+              "value": "all_non_compliant",
+              "choice_text": "All corners have non-compliant curb ramps"
             },
             {
-              "value": "hawk_signal",
-              "choice_text": "Yes, HAWK Signal"
+              "value": "some_non_compliant",
+              "choice_text": "Some corners have a non-compliant curb ramp"
             },
             {
-              "value": "rrfb",
-              "choice_text": "Yes, Rectangular Rapid Flashing Beacon (RRFB)"
-            },
-            {
-              "value": "stop_sign",
-              "choice_text": "Yes, Stop Sign"
-            },
-            {
-              "value": "unsignalled_painted_crosswalk",
-              "choice_text": "Yes, Unsignalled Intersection with Painted Crosswalk"
+              "value": "none_present",
+              "choice_text": "No corner has a curb ramp"
             }
           ]
         },
         {
           "quest_id": 203,
-          "quest_title": "Are there any ADA curb ramps at this crossing?",
-          "quest_description": "Indicate whether any corners of this crossing have curb ramps that appear to meet ADA accessibility standards, including detectable warnings and appropriate slope.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing_ada_curb_ramps_intersection",
-          "quest_answer_choices": [
-            {
-              "value": "yes",
-              "choice_text": "Yes"
-            },
-            {
-              "value": "no",
-              "choice_text": "No"
-            }
-          ]
-        },
-        {
-          "quest_id": 204,
-          "quest_title": "Are curb ramps present at both ends of this crossing?",
-          "quest_description": "Determine whether both ends of the crossing have curb ramps providing accessible connections across intersections.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing_curb_ramps_block_ends",
-          "quest_answer_choices": [
-            {
-              "value": "yes",
-              "choice_text": "Yes",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/alignment/both_square.png"
-            },
-            {
-              "value": "no",
-              "choice_text": "No"
-            }
-          ]
-        },
-        {
-          "quest_id": 205,
           "quest_title": "Does this crossing feel safe?",
           "quest_description": "Assess the overall sense of safety for pedestrians at this crossing. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
           "quest_type": "MultipleChoice",
@@ -575,7 +532,7 @@
           ]
         },
         {
-          "quest_id": 206,
+          "quest_id": 204,
           "quest_title": "What is the speed limit on the street being crossed?",
           "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
           "quest_type": "Numeric",
@@ -587,7 +544,7 @@
           }
         },
         {
-          "quest_id": 207,
+          "quest_id": 205,
           "quest_title": "What is the total number of motor vehicle travel lanes on the street being crossed?",
           "quest_description": "Enter the total number of motor vehicle travel lanes in both directions.",
           "quest_type": "Numeric",
@@ -598,7 +555,7 @@
           }
         },
         {
-          "quest_id": 208,
+          "quest_id": 206,
           "quest_title": "Is there adequate lighting at this crossing?",
           "quest_description": "This crossing feels well-lit and visible, especially in the evening or early morning.",
           "quest_type": "ExclusiveChoice",
@@ -615,7 +572,7 @@
           ]
         },
         {
-          "quest_id": 209,
+          "quest_id": 207,
           "quest_title": "Is there a path to this crosswalk?",
           "quest_description": "Determine whether there is an accessible, continuous connection from stop to nearest crossing.",
           "quest_type": "ExclusiveChoice",
@@ -1092,6 +1049,135 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "element_type": "Intersections",
+      "element_type_icon": "traffic_lights",
+      "quest_query": "nodes with (ext:intersection=yes)",
+      "quests": [
+        {
+          "quest_id": 401,
+          "quest_title": "Is there a signal present at this intersection?",
+          "quest_description": "Select the type of pedestrian or traffic control present at this intersection. Include any pedestrian-specific signals or beacons if applicable.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:intersection_signal_type",
+          "quest_answer_choices": [
+            {
+              "value": "no_signal_no_crosswalk",
+              "choice_text": "No Signal"
+            },
+            {
+              "value": "full_signal",
+              "choice_text": "Yes, Full Signal"
+            },
+            {
+              "value": "half_signal",
+              "choice_text": "Yes, Half Signal"
+            },
+            {
+              "value": "hawk_signal",
+              "choice_text": "Yes, HAWK Signal"
+            },
+            {
+              "value": "rrfb",
+              "choice_text": "Yes, Rectangular Rapid Flashing Beacon (RRFB)"
+            },
+            {
+              "value": "stop_sign",
+              "choice_text": "Yes, Stop Sign"
+            },
+            {
+              "value": "unsignalled_painted_crosswalk",
+              "choice_text": "Yes, Unsignalled Intersection with Painted Crosswalk"
+            }
+          ]
+        },
+        {
+          "quest_id": 402,
+          "quest_title": "Are there ADA curb ramps at this intersection?",
+          "quest_description": "Indicate the ADA compliance status of curb ramps at the corners of this intersection, including detectable warnings and appropriate slope.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:intersection_ada_curb_ramps",
+          "quest_answer_choices": [
+            {
+              "value": "all_compliant",
+              "choice_text": "All corners are ADA-compliant"
+            },
+            {
+              "value": "some_compliant",
+              "choice_text": "Some corners are ADA-compliant"
+            },
+            {
+              "value": "all_non_compliant",
+              "choice_text": "All corners have non-compliant curb ramps"
+            },
+            {
+              "value": "some_non_compliant",
+              "choice_text": "Some corners have a non-compliant curb ramp"
+            },
+            {
+              "value": "none_present",
+              "choice_text": "No corner has a curb ramp"
+            }
+          ]
+        },
+        {
+          "quest_id": 403,
+          "quest_title": "Does this intersection feel safe?",
+          "quest_description": "Assess the overall sense of safety for pedestrians at this intersection. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
+          "quest_type": "MultipleChoice",
+          "quest_tag": "ext:intersection_safety_perception",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "drivers_too_fast",
+              "choice_text": "No — Drivers Driving Too Fast"
+            },
+            {
+              "value": "low_visibility",
+              "choice_text": "No — Low Visibility"
+            },
+            {
+              "value": "lack_facilities",
+              "choice_text": "No — Lack of Pedestrian Facilities"
+            },
+            {
+              "value": "limited_separation",
+              "choice_text": "No — Limited Separation from Street"
+            },
+            {
+              "value": "crossing_distance_far",
+              "choice_text": "No — Crossing Distance Is Too Far"
+            }
+          ]
+        },
+        {
+          "quest_id": 404,
+          "quest_title": "What is the speed limit on this street?",
+          "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:intersection_speed_limit",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "quest_id": 405,
+          "quest_title": "What is the total number of motor vehicle travel lanes on this street?",
+          "quest_description": "Enter the total number of motor vehicle travel lanes in both directions.",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:intersection_lane_count",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 5
+          }
+        }      
       ]
     }
   ]
