@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # AVIV ScoutRoute Quests
 
 Repository for AVIV ScoutRoute (ASR) Long Form Quest Definition schema, examples, and quest definitions.

@@ -1,19 +1,19 @@
 {
-	"version": "3.0.0",
-	"elements": [
-		{
-			"element_type": "Quests",
-			"element_type_icon": "quest",
-			"quest_query": "nodes with ext:quest=yes",
-			"quests": [
-				{
-					"quest_id": 101,
-					"quest_title": "Component: Quest Type: Numeric",
-					"quest_description": "Enter a number to test the Numeric quest type component.",
-					"quest_type": "Numeric",
-					"quest_tag": "ext:component:quest_type-Numeric"
-				}
-			]
-		}
-	]
+  "version": "3.0.0",
+  "elements": [
+    {
+      "element_type": "Quests",
+      "element_type_icon": "quest",
+      "quest_query": "nodes with ext:quest=yes",
+      "quests": [
+        {
+          "quest_id": 101,
+          "quest_title": "Component: Quest Type: Numeric",
+          "quest_description": "Enter a number to test the Numeric quest type component.",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:component:quest_type-Numeric"
+        }
+      ]
+    }
+  ]
 }

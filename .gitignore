@@ -1,1 +1,4 @@
+.venv/
+local-storage/
 asr-quests.code-workspace
+*.wip

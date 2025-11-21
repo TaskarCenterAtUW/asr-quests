@@ -1,37 +1,37 @@
 {
-	"version": "3.0.0",
-	"elements": [
-		{
-			"element_type": "Quests",
-			"element_type_icon": "quest",
-			"quest_query": "nodes with ext:quest=yes",
-			"quests": [
-				{
-					"quest_id": 101,
-					"quest_title": "Component: Quest Type: Multiple Choice",
-					"quest_description": "Select quest answer choices to test the Multiple Choice quest type component.",
-					"quest_type": "MultipleChoice",
-					"quest_tag": "ext:component:quest_type-MultipleChoice",
-					"quest_answer_choices": [
-						{
-							"value": "choice_1",
-							"choice_text": "Choice 1"
-						},
-						{
-							"value": "choice_2",
-							"choice_text": "Choice 2"
-						},
-						{
-							"value": "choice_3",
-							"choice_text": "Choice 3"
-						},
-						{
-							"value": "choice_4",
-							"choice_text": "Choice 4"
-						}
-					]
-				}
-			]
-		}
-	]
+  "version": "3.0.0",
+  "elements": [
+    {
+      "element_type": "Quests",
+      "element_type_icon": "quest",
+      "quest_query": "nodes with ext:quest=yes",
+      "quests": [
+        {
+          "quest_id": 101,
+          "quest_title": "Component: Quest Type: Multiple Choice",
+          "quest_description": "Select quest answer choices to test the Multiple Choice quest type component.",
+          "quest_type": "MultipleChoice",
+          "quest_tag": "ext:component:quest_type-MultipleChoice",
+          "quest_answer_choices": [
+            {
+              "value": "choice_1",
+              "choice_text": "Choice 1"
+            },
+            {
+              "value": "choice_2",
+              "choice_text": "Choice 2"
+            },
+            {
+              "value": "choice_3",
+              "choice_text": "Choice 3"
+            },
+            {
+              "value": "choice_4",
+              "choice_text": "Choice 4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
