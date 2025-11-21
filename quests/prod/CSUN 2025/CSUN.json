@@ -258,8 +258,8 @@
       },
       {
         "quest_id": 14,
-        "quest_title": "Is there aqeuate lighting for this crossing?",
-        "quest_description": "Determine whether there is adequare lighting from streetlights for this crossing.",
+        "quest_title": "Is there adequate lighting for this crossing?",
+        "quest_description": "Determine whether there is adequate lighting from streetlights for this crossing.",
         "quest_type": "ExclusiveChoice",
         "quest_tag": "ext:crossing_lit",
         "quest_answer_choices": [

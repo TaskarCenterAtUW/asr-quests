@@ -65,7 +65,7 @@
         "quest_title": "Does this crossing have signals for pedestrians?",
         "quest_description": "Determine whether there are signals for pedestrians at this crossing.",
         "quest_type": "ExclusiveChoice",
-        "quest_tag": "ext:crossing_signals_pedestrianss",
+        "quest_tag": "ext:crossing_signals_pedestrians",
         "quest_answer_choices": [
           {
             "value": "yes",
