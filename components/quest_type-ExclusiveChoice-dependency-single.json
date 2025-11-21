@@ -1,50 +1,50 @@
 {
-	"version": "3.0.0",
-	"elements": [
-		{
-			"element_type": "Quests",
-			"element_type_icon": "quest",
-			"quest_query": "nodes with ext:quest=yes",
-			"quests": [
-				{
-					"quest_id": 101,
-					"quest_title": "Component: Exclusive Choice Quest Type's Dependency (Single) 1",
-					"quest_description": "Select quest answer choice Choice 1 to test the Exclusive Choice quest type's Dependency (Single) component.",
-					"quest_type": "ExclusiveChoice",
-					"quest_tag": "ext:quest_type-ExclusiveChoice-dependency-single_1",
-					"quest_answer_choices": [
-						{
-							"value": "choice_1",
-							"choice_text": "Choice 1"
-						},
-						{
-							"value": "choice_2",
-							"choice_text": "Choice 2"
-						}
-					]
-				},
-				{
-					"quest_id": 102,
-					"quest_title": "Component: Exclusive Choice Quest Type's Dependency (Single) 2",
-					"quest_description": "Select quest answer choice Choice 3 to test the Exclusive Choice quest type's Dependency (Single) component.",
-					"quest_type": "ExclusiveChoice",
-					"quest_tag": "ext:component:quest_type-ExclusiveChoice-dependency-single",
-					"quest_answer_dependency": {
-						"question_id": 101,
-						"required_value": "choice_1"
-					},
-					"quest_answer_choices": [
-						{
-							"value": "choice_3",
-							"choice_text": "Choice 3"
-						},
-						{
-							"value": "choice_4",
-							"choice_text": "Choice 4"
-						}
-					]
-				}
-			]
-		}
-	]
+  "version": "3.0.0",
+  "elements": [
+    {
+      "element_type": "Quests",
+      "element_type_icon": "quest",
+      "quest_query": "nodes with ext:quest=yes",
+      "quests": [
+        {
+          "quest_id": 101,
+          "quest_title": "Component: Exclusive Choice Quest Type's Dependency (Single) 1",
+          "quest_description": "Select quest answer choice Choice 1 to test the Exclusive Choice quest type's Dependency (Single) component.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:quest_type-ExclusiveChoice-dependency-single_1",
+          "quest_answer_choices": [
+            {
+              "value": "choice_1",
+              "choice_text": "Choice 1"
+            },
+            {
+              "value": "choice_2",
+              "choice_text": "Choice 2"
+            }
+          ]
+        },
+        {
+          "quest_id": 102,
+          "quest_title": "Component: Exclusive Choice Quest Type's Dependency (Single) 2",
+          "quest_description": "Select quest answer choice Choice 3 to test the Exclusive Choice quest type's Dependency (Single) component.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:component:quest_type-ExclusiveChoice-dependency-single",
+          "quest_answer_dependency": {
+            "question_id": 101,
+            "required_value": "choice_1"
+          },
+          "quest_answer_choices": [
+            {
+              "value": "choice_3",
+              "choice_text": "Choice 3"
+            },
+            {
+              "value": "choice_4",
+              "choice_text": "Choice 4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

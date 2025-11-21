@@ -1,63 +1,63 @@
 {
-	"version": "3.0.0",
-	"elements": [
-		{
-			"element_type": "Quests",
-			"element_type_icon": "quest",
-			"quest_query": "nodes with ext:quest=yes",
-			"quests": [
-				{
-					"quest_id": 101,
-					"quest_title": "Component: TextEntry Quest Type's Dependency (Multiple) 1",
-					"quest_description": "Select quest answer choice Choice 1 to test the TextEntry quest type's Dependency (Multiple) component.",
-					"quest_type": "MultipleChoice",
-					"quest_tag": "ext:quest_type-TextEntry-dependency-multiple_1",
-					"quest_answer_choices": [
-						{
-							"value": "choice_1",
-							"choice_text": "Choice 1"
-						},
-						{
-							"value": "choice_2",
-							"choice_text": "Choice 2"
-						}
-					]
-				},
-				{
-					"quest_id": 102,
-					"quest_title": "Component: TextEntry Quest Type's Dependency (Multiple) 2",
-					"quest_description": "Select quest answer choice Choice 3 to test the TextEntry quest type's Dependency (Multiple) component.",
-					"quest_type": "MultipleChoice",
-					"quest_tag": "ext:quest_type-TextEntry-dependency-multiple_2",
-					"quest_answer_choices": [
-						{
-							"value": "choice_3",
-							"choice_text": "Choice 3"
-						},
-						{
-							"value": "choice_4",
-							"choice_text": "Choice 4"
-						}
-					]
-				},
-				{
-					"quest_id": 103,
-					"quest_title": "Component: TextEntry Quest Type's Dependency (Multiple) 3",
-					"quest_description": "Enter any text to test the TextEntry quest type's Dependency (Multiple) component.",
-					"quest_type": "TextEntry",
-					"quest_tag": "ext:component:quest_type-TextEntry-dependency-multiple",
-					"quest_answer_dependency": [
-						{
-							"question_id": 101,
-							"required_value": "choice_1"
-						},
-						{
-							"question_id": 102,
-							"required_value": "choice_3"
-						}
-					]
-				}
-			]
-		}
-	]
+  "version": "3.0.0",
+  "elements": [
+    {
+      "element_type": "Quests",
+      "element_type_icon": "quest",
+      "quest_query": "nodes with ext:quest=yes",
+      "quests": [
+        {
+          "quest_id": 101,
+          "quest_title": "Component: TextEntry Quest Type's Dependency (Multiple) 1",
+          "quest_description": "Select quest answer choice Choice 1 to test the TextEntry quest type's Dependency (Multiple) component.",
+          "quest_type": "MultipleChoice",
+          "quest_tag": "ext:quest_type-TextEntry-dependency-multiple_1",
+          "quest_answer_choices": [
+            {
+              "value": "choice_1",
+              "choice_text": "Choice 1"
+            },
+            {
+              "value": "choice_2",
+              "choice_text": "Choice 2"
+            }
+          ]
+        },
+        {
+          "quest_id": 102,
+          "quest_title": "Component: TextEntry Quest Type's Dependency (Multiple) 2",
+          "quest_description": "Select quest answer choice Choice 3 to test the TextEntry quest type's Dependency (Multiple) component.",
+          "quest_type": "MultipleChoice",
+          "quest_tag": "ext:quest_type-TextEntry-dependency-multiple_2",
+          "quest_answer_choices": [
+            {
+              "value": "choice_3",
+              "choice_text": "Choice 3"
+            },
+            {
+              "value": "choice_4",
+              "choice_text": "Choice 4"
+            }
+          ]
+        },
+        {
+          "quest_id": 103,
+          "quest_title": "Component: TextEntry Quest Type's Dependency (Multiple) 3",
+          "quest_description": "Enter any text to test the TextEntry quest type's Dependency (Multiple) component.",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:component:quest_type-TextEntry-dependency-multiple",
+          "quest_answer_dependency": [
+            {
+              "question_id": 101,
+              "required_value": "choice_1"
+            },
+            {
+              "question_id": 102,
+              "required_value": "choice_3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
