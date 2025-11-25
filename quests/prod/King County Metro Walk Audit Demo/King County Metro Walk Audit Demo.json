@@ -430,20 +430,14 @@
         },
         {
           "quest_id": 116,
-          "quest_title": "Is there adequate lighting on this sidewalk?",
-          "quest_description": "This sidewalk feels well-lit and visible, especially in the evening or early morning.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:sidewalk_lighting",
-          "quest_answer_choices": [
-            {
-              "value": "no",
-              "choice_text": "No"
-            },
-            {
-              "value": "yes",
-              "choice_text": "Yes"
-            }
-          ]
+          "quest_title": "How many light poles are on this sidewalk segment?",
+          "quest_description": "Count the number of light poles located directly along this sidewalk segment.",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:sidewalk_light",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 20
+          }
         }
       ]
     },
@@ -472,7 +466,7 @@
         {
           "quest_id": 202,
           "quest_title": "Are there ADA curb ramps at this intersection?",
-          "quest_description": "Indicate the ADA compliance status of curb ramps at the corners of this intersection, including detectable warnings and appropriate slope.",
+          "quest_description": "ADA-compliant curb ramps include a gentle running slope (max should be 8.3%), a minimal cross-slope (max should be 2.1%), a 48″-wide usable surface, a level landing at the top, clear space at the bottom, detectable warnings, and smooth, flush transitions with no lips.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_ada_curb_ramps",
           "quest_answer_choices": [
@@ -556,21 +550,33 @@
         },
         {
           "quest_id": 206,
-          "quest_title": "Is there adequate lighting at this crossing?",
-          "quest_description": "This crossing feels well-lit and visible, especially in the evening or early morning.",
+          "quest_title": "In your opinion, is there adequate lighting at this crossing? (1 = very bad and 5 = very good)",
+          "quest_description": "Rate how well-lit this crossing appears, considering visibility and lighting conditions.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_lighting",
           "quest_answer_choices": [
             {
-              "value": "no",
-              "choice_text": "No"
+              "value": "1",
+              "choice_text": "1"
             },
             {
-              "value": "yes",
-              "choice_text": "Yes"
+              "value": "2",
+              "choice_text": "2"
+            },
+            {
+              "value": "3",
+              "choice_text": "3"
+            },
+            {
+              "value": "4",
+              "choice_text": "4"
+            },
+            {
+              "value": "5",
+              "choice_text": "5"
             }
           ]
-        },
+        },        
         {
           "quest_id": 207,
           "quest_title": "Is there a path to this crosswalk?",
@@ -792,20 +798,30 @@
         },
         {
           "quest_id": 310,
-          "quest_title": "Is there adequate lighting at this bus stop?",
+          "quest_title": "In your opinion, is there adequate lighting at this bus stop? (1 = very bad and 5 = very good)",
           "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_lighting",
           "quest_answer_choices": [
             {
-              "value": "no",
-              "choice_text": "No",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/bus_stop/lit/dim_original.png"
+              "value": "1",
+              "choice_text": "1"
             },
             {
-              "value": "yes",
-              "choice_text": "Yes",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/lit/yes_square.png"
+              "value": "2",
+              "choice_text": "2"
+            },
+            {
+              "value": "3",
+              "choice_text": "3"
+            },
+            {
+              "value": "4",
+              "choice_text": "4"
+            },
+            {
+              "value": "5",
+              "choice_text": "5"
             }
           ]
         },
@@ -1096,7 +1112,7 @@
         {
           "quest_id": 402,
           "quest_title": "Are there ADA curb ramps at this intersection?",
-          "quest_description": "Indicate the ADA compliance status of curb ramps at the corners of this intersection, including detectable warnings and appropriate slope.",
+          "quest_description": "ADA-compliant curb ramps include a gentle running slope (max should be 8.3%), a minimal cross-slope (max should be 2.1%), a 48″-wide usable surface, a level landing at the top, clear space at the bottom, detectable warnings, and smooth, flush transitions with no lips.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:intersection_ada_curb_ramps",
           "quest_answer_choices": [
