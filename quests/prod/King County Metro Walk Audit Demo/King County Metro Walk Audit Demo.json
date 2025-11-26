@@ -430,20 +430,14 @@
         },
         {
           "quest_id": 116,
-          "quest_title": "Is there adequate lighting on this sidewalk?",
-          "quest_description": "This sidewalk feels well-lit and visible, especially in the evening or early morning.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:sidewalk_lighting",
-          "quest_answer_choices": [
-            {
-              "value": "no",
-              "choice_text": "No"
-            },
-            {
-              "value": "yes",
-              "choice_text": "Yes"
-            }
-          ]
+          "quest_title": "How many light poles are on this sidewalk segment?",
+          "quest_description": "Count the number of light poles located directly along this sidewalk segment.",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:sidewalk_light",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 20
+          }
         }
       ]
     },
@@ -471,35 +465,6 @@
         },
         {
           "quest_id": 202,
-          "quest_title": "Are there ADA curb ramps at this intersection?",
-          "quest_description": "Indicate the ADA compliance status of curb ramps at the corners of this intersection, including detectable warnings and appropriate slope.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing_ada_curb_ramps",
-          "quest_answer_choices": [
-            {
-              "value": "all_compliant",
-              "choice_text": "All corners are ADA-compliant"
-            },
-            {
-              "value": "some_compliant",
-              "choice_text": "Some corners are ADA-compliant"
-            },
-            {
-              "value": "all_non_compliant",
-              "choice_text": "All corners have non-compliant curb ramps"
-            },
-            {
-              "value": "some_non_compliant",
-              "choice_text": "Some corners have a non-compliant curb ramp"
-            },
-            {
-              "value": "none_present",
-              "choice_text": "No corner has a curb ramp"
-            }
-          ]
-        },
-        {
-          "quest_id": 203,
           "quest_title": "Does this crossing feel safe?",
           "quest_description": "Assess the overall sense of safety for pedestrians at this crossing. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
           "quest_type": "MultipleChoice",
@@ -532,7 +497,7 @@
           ]
         },
         {
-          "quest_id": 204,
+          "quest_id": 203,
           "quest_title": "What is the speed limit on the street being crossed?",
           "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
           "quest_type": "Numeric",
@@ -544,7 +509,7 @@
           }
         },
         {
-          "quest_id": 205,
+          "quest_id": 204,
           "quest_title": "What is the total number of motor vehicle travel lanes on the street being crossed?",
           "quest_description": "Enter the total number of motor vehicle travel lanes in both directions.",
           "quest_type": "Numeric",
@@ -555,24 +520,36 @@
           }
         },
         {
-          "quest_id": 206,
-          "quest_title": "Is there adequate lighting at this crossing?",
-          "quest_description": "This crossing feels well-lit and visible, especially in the evening or early morning.",
+          "quest_id": 205,
+          "quest_title": "In your opinion, is there adequate lighting at this crossing? (1 = very bad and 5 = very good)",
+          "quest_description": "Rate how well-lit this crossing appears, considering visibility and lighting conditions.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_lighting",
           "quest_answer_choices": [
             {
-              "value": "no",
-              "choice_text": "No"
+              "value": "1",
+              "choice_text": "1"
             },
             {
-              "value": "yes",
-              "choice_text": "Yes"
+              "value": "2",
+              "choice_text": "2"
+            },
+            {
+              "value": "3",
+              "choice_text": "3"
+            },
+            {
+              "value": "4",
+              "choice_text": "4"
+            },
+            {
+              "value": "5",
+              "choice_text": "5"
             }
           ]
         },
         {
-          "quest_id": 207,
+          "quest_id": 206,
           "quest_title": "Is there a path to this crosswalk?",
           "quest_description": "Determine whether there is an accessible, continuous connection from stop to nearest crossing.",
           "quest_type": "ExclusiveChoice",
@@ -792,20 +769,30 @@
         },
         {
           "quest_id": 310,
-          "quest_title": "Is there adequate lighting at this bus stop?",
+          "quest_title": "In your opinion, is there adequate lighting at this bus stop? (1 = very bad and 5 = very good)",
           "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_lighting",
           "quest_answer_choices": [
             {
-              "value": "no",
-              "choice_text": "No",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/bus_stop/lit/dim_original.png"
+              "value": "1",
+              "choice_text": "1"
             },
             {
-              "value": "yes",
-              "choice_text": "Yes",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/lit/yes_square.png"
+              "value": "2",
+              "choice_text": "2"
+            },
+            {
+              "value": "3",
+              "choice_text": "3"
+            },
+            {
+              "value": "4",
+              "choice_text": "4"
+            },
+            {
+              "value": "5",
+              "choice_text": "5"
             }
           ]
         },
@@ -1095,35 +1082,6 @@
         },
         {
           "quest_id": 402,
-          "quest_title": "Are there ADA curb ramps at this intersection?",
-          "quest_description": "Indicate the ADA compliance status of curb ramps at the corners of this intersection, including detectable warnings and appropriate slope.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:intersection_ada_curb_ramps",
-          "quest_answer_choices": [
-            {
-              "value": "all_compliant",
-              "choice_text": "All corners are ADA-compliant"
-            },
-            {
-              "value": "some_compliant",
-              "choice_text": "Some corners are ADA-compliant"
-            },
-            {
-              "value": "all_non_compliant",
-              "choice_text": "All corners have non-compliant curb ramps"
-            },
-            {
-              "value": "some_non_compliant",
-              "choice_text": "Some corners have a non-compliant curb ramp"
-            },
-            {
-              "value": "none_present",
-              "choice_text": "No corner has a curb ramp"
-            }
-          ]
-        },
-        {
-          "quest_id": 403,
           "quest_title": "Does this intersection feel safe?",
           "quest_description": "Assess the overall sense of safety for pedestrians at this intersection. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
           "quest_type": "MultipleChoice",
@@ -1156,7 +1114,7 @@
           ]
         },
         {
-          "quest_id": 404,
+          "quest_id": 403,
           "quest_title": "What is the speed limit on this street?",
           "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
           "quest_type": "Numeric",
@@ -1168,7 +1126,7 @@
           }
         },
         {
-          "quest_id": 405,
+          "quest_id": 404,
           "quest_title": "What is the total number of motor vehicle travel lanes on this street?",
           "quest_description": "Enter the total number of motor vehicle travel lanes in both directions.",
           "quest_type": "Numeric",
@@ -1177,6 +1135,262 @@
             "min": 0,
             "max": 5
           }
+        }
+      ]
+    },
+    {
+      "element_type": "Curbs",
+      "element_type_icon": "kerb_type",
+      "quest_query": "nodes with (barrier=kerb)",
+      "quests": [
+        {
+          "quest_id": 501,
+          "quest_title": "What type of curb is this?",
+          "quest_description": "Identify the type of curb here.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:curb_type",
+          "quest_answer_choices": [
+            {
+              "value": "raised",
+              "choice_text": "Raised",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/raised_landscape.png"
+            },
+            {
+              "value": "lowered",
+              "choice_text": "Lowered",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/lowered_landscape.png"
+            },
+            {
+              "value": "rolled",
+              "choice_text": "Rolled",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/rolled_landscape.png"
+            },
+            {
+              "value": "flush",
+              "choice_text": "Flush",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/flush_landscape.png"
+            }
+          ]
+        },
+        {
+          "quest_id": 502,
+          "quest_title": "What type of lowered curb is this?",
+          "quest_description": "Identify if this is a curb ramp or blended transition.",
+          "quest_answer_dependency": {
+            "question_id": 501,
+            "required_value": "lowered"
+          },
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:lowered_curb_type",
+          "quest_answer_choices": [
+            {
+              "value": "curb_ramp",
+              "choice_text": "Curb Ramp",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/curb_ramp_square.png"
+            },
+            {
+              "value": "blended_transition",
+              "choice_text": "Blended Transition",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/blended_transition_square.png"
+            }
+          ]
+        },
+        {
+          "quest_id": 503,
+          "quest_title": "What type of ramp placement is this?",
+          "quest_description": "Select this ramp's placement type.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:ramp_placement_type",
+          "quest_answer_choices": [
+            {
+              "value": "perpendicular",
+              "choice_text": "Perpendicular",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/placement/perpendicular_landscape.png"
+            },
+            {
+              "value": "parallel",
+              "choice_text": "Parallel",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/placement/parallel_landscape.png"
+            },
+            {
+              "value": "combination",
+              "choice_text": "Combination",
+              "image_url": ""
+            }
+          ]
+        },
+        {
+          "quest_id": 504,
+          "quest_title": "Does this curb ramp align with the crosswalk?",
+          "quest_description": "Check if this curb ramp lines up with the pedestrian crossing.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:ramp_alignment_with_crossing",
+          "quest_answer_choices": [
+            {
+              "value": "aligned",
+              "choice_text": "Aligned",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/alignment/aligned_square.png"
+            },
+            {
+              "value": "misaligned",
+              "choice_text": "Misaligned",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/alignment/misaligned_square.png"
+            }
+          ]
+        },
+        {
+          "quest_id": 505,
+          "quest_title": "Does this curb ramp have edge protection?",
+          "quest_description": "Check if there is a vertical barrier to prevent falls.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:ramp_edge_protection",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/edge/yes_landscape.png"
+            },
+            {
+              "value": "no",
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/edge/no_landscape.png"
+            }
+          ]
+        },
+        {
+          "quest_id": 506,
+          "quest_title": "What is the width of this curb ramp?",
+          "quest_description": "Measure the clear width of this curb ramp, in inches.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/dimension/width_square.png",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:ramp_width",
+          "quest_answer_validation": {
+            "min": 4,
+            "max": 120
+          }
+        },
+        {
+          "quest_id": 507,
+          "quest_title": "What is the running slope of this curb ramp?",
+          "quest_description": "Measure the incline along the direction of travel, as a percentage.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_type": "Numeric",
+          "quest_tag": "ext:ramp_running_slope",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/dimension/running_slope_square.png",
+          "quest_answer_validation": {
+            "min": 1,
+            "max": 50
+          }
+        },
+        {
+          "quest_id": 508,
+          "quest_title": "What is the cross slope of this curb ramp?",
+          "quest_description": "Measure the side-to-side incline of this curb ramp, as a percentage.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/dimension/cross_slope_square.png",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:ramp_cross_slope",
+          "quest_answer_validation": {
+            "min": 1,
+            "max": 50
+          }
+        },
+        {
+          "quest_id": 509,
+          "quest_title": "What is the width of this ramp's landing?",
+          "quest_description": "Measure the width of this ramp's top landing area, in inches.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/landing/dimension/width_landscape.png",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:landing_width",
+          "quest_answer_validation": {
+            "min": 3,
+            "max": 120
+          }
+        },
+        {
+          "quest_id": 510,
+          "quest_title": "What is the depth of this ramp's landing?",
+          "quest_description": "Measure the depth of this ramp's top landing area, in inches.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/landing/dimension/depth_landscape.png",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:landing_depth",
+          "quest_answer_validation": {
+            "min": 3,
+            "max": 120
+          }
+        },
+        {
+          "quest_id": 511,
+          "quest_title": "What is the slope of this ramp's side flares?",
+          "quest_description": "Measure the slope of this ramp's side flares, as a percentage.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/dimension/side_flare_slope_square.png",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:ramp_side_flare_slope",
+          "quest_answer_validation": {
+            "min": 1,
+            "max": 50
+          }
+        },
+        {
+          "quest_id": 512,
+          "quest_title": "What is the surface material of this curb ramp?",
+          "quest_description": "Identify the material this curb ramp is made of.",
+          "quest_answer_dependency": {
+            "question_id": 502,
+            "required_value": "curb_ramp"
+          },
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:ramp_surface_material",
+          "quest_answer_choices": [
+            {
+              "value": "concrete",
+              "choice_text": "Concrete",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/surface/concrete_landscape.png"
+            },
+            {
+              "value": "asphalt",
+              "choice_text": "Asphalt",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/kerb/ramp/surface/asphalt_landscape.png"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other"
+            }
+          ]
         }
       ]
     }
