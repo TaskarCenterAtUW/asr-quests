@@ -1,0 +1,595 @@
+{
+  "version": "3.0.0",
+  "elements": [
+    {
+      "element_type": "Bus Stops",
+      "element_type_icon": "bus",
+      "quest_query": "nodes with (ext:public_transport=platform)",
+      "quests": [
+        {
+          "quest_id": 101,
+          "quest_title": "Is there a marked pedestrian path to the stop?",
+          "quest_description": "Indicate whether a clearly marked pedestrian path leads to the bus stop.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_marked_ped_path",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 102,
+          "quest_title": "Is tactile guidance present?",
+          "quest_description": "Check whether tactile paving or guidance is present to assist visually impaired users.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_tactile_guidance",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 103,
+          "quest_title": "Is Braille or tactile signage present?",
+          "quest_description": "Indicate whether Braille or tactile signage is available at the bus stop.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_braille_signage",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 104,
+          "quest_title": "Are there clear yielding cues for cyclists?",
+          "quest_description": "Assess whether signage, markings, or design elements clearly signal cyclists to yield to pedestrians.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_cyclist_yielding_cues",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        },
+        {
+          "quest_id": 105,
+          "quest_title": "Is signage clear and readable from the sidewalk?",
+          "quest_description": "Determine whether bus stop signage can be easily read from the sidewalk.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_signage_readable",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 106,
+          "quest_title": "Are audible cues present at the crossing near the stop?",
+          "quest_description": "Indicate whether audible cues are present at nearby crossings serving the bus stop.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_audible_cues",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 107,
+          "quest_title": "Is the boarding area size sufficient for wheelchair turning?",
+          "quest_description": "Assess whether the boarding area allows adequate space for wheelchair maneuvering.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_wheelchair_turning_space",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        },
+        {
+          "quest_id": 108,
+          "quest_title": "What is the surface condition of the boarding area?",
+          "quest_description": "Rate the overall surface condition of the bus stop boarding area.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_surface_condition",
+          "quest_answer_choices": [
+            {
+              "value": "good",
+              "choice_text": "Good"
+            },
+            {
+              "value": "fair",
+              "choice_text": "Fair"
+            },
+            {
+              "value": "poor",
+              "choice_text": "Poor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_type": "Sidewalks",
+      "element_type_icon": "sidewalk",
+      "quest_query": "ways with (footway=sidewalk)",
+      "quests": [
+        {
+          "quest_id": 201,
+          "quest_title": "Are there hazards users encounter that affect navigation?",
+          "quest_description": "Describe any hazards that users may encounter which could affect navigation.",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:sidewalk_navigation_hazards"
+        },
+        {
+          "quest_id": 202,
+          "quest_title": "Is the sidewalk continuous?",
+          "quest_description": "Indicate whether the sidewalk is continuous without gaps.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_continuous",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 203,
+          "quest_title": "Is there a vertical lip or slope change?",
+          "quest_description": "Determine whether a vertical lip or abrupt slope change is present.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_vertical_lip",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 204,
+          "quest_title": "Is the clear width sufficient?",
+          "quest_description": "Assess whether the sidewalk provides sufficient clear width for users.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_clear_width_sufficient",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 205,
+          "quest_title": "What type of obstructions are present?",
+          "quest_description": "Identify the type of obstructions present on the sidewalk.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_obstruction_type",
+          "quest_answer_choices": [
+            {
+              "value": "none",
+              "choice_text": "None"
+            },
+            {
+              "value": "temporary",
+              "choice_text": "Temporary"
+            },
+            {
+              "value": "permanent",
+              "choice_text": "Permanent"
+            }
+          ]
+        },
+        {
+          "quest_id": 206,
+          "quest_title": "Is the cross-slope acceptable?",
+          "quest_description": "Determine whether the cross-slope feels acceptable for safe navigation.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_cross_slope_acceptability",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
+            }
+          ]
+        },
+        {
+          "quest_id": 207,
+          "quest_title": "Is continuity maintained along the sidewalk?",
+          "quest_description": "Assess whether sidewalk continuity is maintained along this segment.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_continuity_maintained",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 208,
+          "quest_title": "Is there room for wheelchairs to navigate the sidewalk?",
+          "quest_description": "Indicate whether wheelchair users can comfortably navigate the sidewalk.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_wheelchair_navigable",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_type": "Crossings",
+      "element_type_icon": "pedestrian_crossing",
+      "quest_query": "ways with (footway=crossing)",
+      "quests": [
+        {
+          "quest_id": 301,
+          "quest_title": "Does vehicle traffic yield to pedestrians?",
+          "quest_description": "Assess whether vehicles typically yield to pedestrians at this crossing.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_vehicle_yielding",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        },
+        {
+          "quest_id": 302,
+          "quest_title": "Is a pedestrian signal present?",
+          "quest_description": "Indicate whether a pedestrian signal is present at this crossing.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_ped_signal_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 303,
+          "quest_title": "Is an audible signal present?",
+          "quest_description": "Determine whether an audible pedestrian signal is present.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_audible_signal_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 304,
+          "quest_title": "Is the audible signal understandable?",
+          "quest_description": "Assess whether the audible signal is clear and understandable.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_audible_signal_understandable",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        },
+        {
+          "quest_id": 305,
+          "quest_title": "Is the timing sufficient to cross?",
+          "quest_description": "Determine whether the signal timing allows enough time to cross safely.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_timing_sufficient",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        },
+        {
+          "quest_id": 306,
+          "quest_title": "What is the perceived traffic speed?",
+          "quest_description": "Rate the perceived speed of vehicle traffic at this crossing.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_traffic_speed_perception",
+          "quest_answer_choices": [
+            {
+              "value": "low",
+              "choice_text": "Low"
+            },
+            {
+              "value": "medium",
+              "choice_text": "Medium"
+            },
+            {
+              "value": "high",
+              "choice_text": "High"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_type": "Intersections",
+      "element_type_icon": "traffic_lights",
+      "quest_query": "nodes with (ext:intersection=major or ext:intersection=alley)",
+      "quests": [
+        {
+          "quest_id": 401,
+          "quest_title": "Are curb ramps present on all corners?",
+          "quest_description": "Indicate whether curb ramps are present on all corners of the intersection.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:intersection_curb_ramps_all_corners",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 402,
+          "quest_title": "Are there traffic calming elements?",
+          "quest_description": "Determine whether traffic calming elements are present at the intersection.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:intersection_traffic_calming_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 403,
+          "quest_title": "List examples of the traffic calming elements.",
+          "quest_description": "Provide examples of traffic calming elements present.",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:intersection_traffic_calming_examples",
+          "quest_answer_dependency": {
+            "question_id": 402,
+            "required_value": "yes"
+          }
+        },
+        {
+          "quest_id": 404,
+          "quest_title": "Is a pedestrian signal present?",
+          "quest_description": "Indicate whether a pedestrian signal is present at the intersection.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:intersection_ped_signal_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 405,
+          "quest_title": "Are marked crosswalks present?",
+          "quest_description": "Determine whether marked crosswalks are present at the intersection.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:intersection_marked_crosswalks",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 406,
+          "quest_title": "Is a refuge space present?",
+          "quest_description": "Indicate whether a pedestrian refuge space is present at the intersection.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:intersection_refuge_space_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_type": "Driveway Points",
+      "element_type_icon": "driveway",
+      "quest_query": "nodes with (highway=driveway)",
+      "quests": [
+        {
+          "quest_id": 501,
+          "quest_title": "Is the sidewalk continuous across the driveway?",
+          "quest_description": "Determine whether sidewalk continuity is maintained across the driveway.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:driveway_sidewalk_continuous",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 502,
+          "quest_title": "Is there a vertical lip or slope change present?",
+          "quest_description": "Indicate whether a vertical lip or abrupt slope change exists at the driveway crossing.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:driveway_vertical_lip",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 503,
+          "quest_title": "Do vehicles yield to pedestrians?",
+          "quest_description": "Assess whether vehicles typically yield to pedestrians at this driveway.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:driveway_vehicle_yielding",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
