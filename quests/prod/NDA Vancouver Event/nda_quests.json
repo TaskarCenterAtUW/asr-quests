@@ -531,8 +531,8 @@
     },
     {
       "element_type": "Driveway Points",
-      "element_type_icon": "driveway",
-      "quest_query": "nodes with (highway=driveway)",
+      "element_type_icon": "car",
+      "quest_query": "nodes with (ext:driveway=yes)",
       "quests": [
         {
           "quest_id": 501,
