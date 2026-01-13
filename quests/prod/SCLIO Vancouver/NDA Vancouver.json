@@ -164,12 +164,33 @@
         {
           "quest_id": 201,
           "quest_title": "Are there hazards users encounter that affect navigation?",
-          "quest_description": "Describe any hazards that users may encounter which could affect navigation.",
-          "quest_type": "TextEntry",
-          "quest_tag": "ext:sidewalk_navigation_hazards"
+          "quest_description": "Indicate if there are any hazards that users may encounter which could affect navigation.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_navigation_hazards",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
         },
         {
           "quest_id": 202,
+          "quest_title": "Describe the hazards that affect navigation",
+          "quest_description": "Provide examples of any hazards that users may encounter which could affect navigation.",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:sidewalk_navigation_hazards_text",
+          "quest_answer_dependency": {
+            "question_id": 201,
+            "required_value": "yes"
+          }
+        },
+        {
+          "quest_id": 203,
           "quest_title": "Is the sidewalk continuous?",
           "quest_description": "Indicate whether the sidewalk is continuous without gaps.",
           "quest_type": "ExclusiveChoice",
@@ -186,7 +207,7 @@
           ]
         },
         {
-          "quest_id": 203,
+          "quest_id": 204,
           "quest_title": "Is there a vertical lip or slope change?",
           "quest_description": "Determine whether a vertical lip or abrupt slope change is present.",
           "quest_type": "ExclusiveChoice",
@@ -203,7 +224,7 @@
           ]
         },
         {
-          "quest_id": 204,
+          "quest_id": 205,
           "quest_title": "Is the clear width sufficient?",
           "quest_description": "Assess whether the sidewalk provides sufficient clear width for users.",
           "quest_type": "ExclusiveChoice",
@@ -220,7 +241,7 @@
           ]
         },
         {
-          "quest_id": 205,
+          "quest_id": 206,
           "quest_title": "What type of obstructions are present?",
           "quest_description": "Identify the type of obstructions present on the sidewalk.",
           "quest_type": "ExclusiveChoice",
@@ -241,7 +262,7 @@
           ]
         },
         {
-          "quest_id": 206,
+          "quest_id": 207,
           "quest_title": "Is the cross-slope acceptable?",
           "quest_description": "Determine whether the cross-slope feels acceptable for safe navigation.",
           "quest_type": "ExclusiveChoice",
@@ -262,7 +283,7 @@
           ]
         },
         {
-          "quest_id": 207,
+          "quest_id": 208,
           "quest_title": "Is continuity maintained along the sidewalk?",
           "quest_description": "Assess whether sidewalk continuity is maintained along this segment.",
           "quest_type": "ExclusiveChoice",
@@ -279,7 +300,7 @@
           ]
         },
         {
-          "quest_id": 208,
+          "quest_id": 209,
           "quest_title": "Is there room for wheelchairs to navigate the sidewalk?",
           "quest_description": "Indicate whether wheelchair users can comfortably navigate the sidewalk.",
           "quest_type": "ExclusiveChoice",
