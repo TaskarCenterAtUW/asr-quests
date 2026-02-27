@@ -243,12 +243,12 @@
           "quest_tag": "ext:sidewalk:obstruction",
           "quest_answer_choices": [
             {
-              "value": "No",
+              "value": "no",
               "choice_text": "No",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/micromobility_vehicle_landscape.png"
             },
             {
-              "value": "Yes",
+              "value": "yes",
               "choice_text": "Yes",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/surface/concrete_landscape.png"
             }
