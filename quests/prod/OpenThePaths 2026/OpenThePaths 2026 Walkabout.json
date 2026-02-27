@@ -682,12 +682,14 @@
           "quest_answer_choices": [
             {
               "value": "no",
-              "choice_text": "No"
+              "choice_text": "No",
+              "image_url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/check.png"
             },
             {
               "value": "yes",
               "choice_text": "Yes",
-              "choice_follow_up": "Take a photo of anything notable at this location."
+              "choice_follow_up": "Take a photo of anything notable at this location.",
+              "image_url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/oneway.png"
             }
           ]
         },
