@@ -614,6 +614,32 @@
       ]
     },
     {
+      "element_type": "PokeStop",
+      "element_type_icon": "quest",
+      "quest_query": "nodes with (ext:pokestop_candidate=yes)",
+      "quests": [
+        {
+          "quest_id": 601,
+          "quest_title": "Do you think this would be a good location for a PokeStop?",
+          "quest_description": "Indicate whether this location is a good candidate for a Pokemon Go PokeStop",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:pokestop_desired_here",
+          "quest_answer_choices": [
+            {
+              "value": "no",
+              "choice_text": "No",
+              "image_url": "https://static.wixstatic.com/media/d98092_c4e7d09a7b3f49f4be039015ed199c07~mv2.png/v1/fill/w_676,h_673,al_c,q_90,enc_auto/d98092_c4e7d09a7b3f49f4be039015ed199c07~mv2.png"
+            },
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "image_url": "https://purepng.com/public/uploads/large/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-1701527825865sl5vr.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "element_type": "Survey Point",
       "element_type_icon": "notes",
       "quest_query": "nodes with (ext:survey_point=yes)",
