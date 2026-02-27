@@ -653,19 +653,23 @@
           "quest_answer_choices": [
             {
               "value": "able_bodied",
-              "choice_text": "Able-bodied"
+              "choice_text": "Able-bodied",
+              "image_url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/pedestrian.png"
             },
             {
               "value": "wheelchair",
-              "choice_text": "Wheelchair"
+              "choice_text": "Wheelchair",
+              "image_url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/wheelchair.png"
             },
             {
               "value": "scooter",
-              "choice_text": "Scooter"
+              "choice_text": "Scooter",
+              "image_url": "https://pinhead.ink/v6/motor_scooter.svg"
             },
             {
               "value": "bicycle",
-              "choice_text": "Bicycle"
+              "choice_text": "Bicycle",
+              "image_url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle.png"
             }
           ]
         },
