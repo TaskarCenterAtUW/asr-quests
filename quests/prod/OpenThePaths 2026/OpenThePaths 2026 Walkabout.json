@@ -615,7 +615,7 @@
     },
     {
       "element_type": "PokeStop",
-      "element_type_icon": "quest",
+      "element_type_icon": "note_create",
       "quest_query": "nodes with (ext:pokestop_candidate=yes)",
       "quests": [
         {
