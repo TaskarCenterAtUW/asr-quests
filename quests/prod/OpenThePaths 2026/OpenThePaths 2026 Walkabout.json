@@ -612,6 +612,64 @@
           ]
         }
       ]
+    },
+    {
+      "element_type": "Survey Point",
+      "element_type_icon": "notes",
+      "quest_query": "nodes with (ext:survey_point=yes)",
+      "quests": [
+        {
+          "quest_id": 701,
+          "quest_title": "Which types of travelers did you encounter on this route?",
+          "quest_description": "Select all types of travelers you observed on this walk or roll.",
+          "quest_type": "MultipleChoice",
+          "quest_tag": "ext:travelers_encountered",
+          "quest_answer_choices": [
+            {
+              "value": "able_bodied",
+              "choice_text": "Able-bodied"
+            },
+            {
+              "value": "wheelchair",
+              "choice_text": "Wheelchair"
+            },
+            {
+              "value": "scooter",
+              "choice_text": "Scooter"
+            },
+            {
+              "value": "bicycle",
+              "choice_text": "Bicycle"
+            }
+          ]
+        },
+        {
+          "quest_id": 702,
+          "quest_title": "Would you like to take a photo here?",
+          "quest_description": "Capture a photo of anything notable about the built environment at this location.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:photo_taken",
+          "quest_answer_choices": [
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "choice_follow_up": "Take a photo of anything notable at this location."
+            }
+          ]
+        },
+        {
+          "quest_id": 703,
+          "quest_title": "Is there anything else you want to note?",
+          "quest_description": "Please share any additional observations or comments about this route or area that you would like to note.",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:additional_notes",
+          "quest_image_url": "https://pinhead.ink/v6/paper_and_pencil.svg"
+        }
+      ]
     }
   ]
 }
