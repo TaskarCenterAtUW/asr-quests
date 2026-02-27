@@ -697,7 +697,7 @@
           "quest_description": "Please share any additional observations or comments about this route or area that you would like to note.",
           "quest_type": "TextEntry",
           "quest_tag": "ext:additional_notes",
-          "quest_image_url": "https://pinhead.ink/v6/paper_and_pencil.svg"
+          "quest_image_url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/label.png"
         }
       ]
     }
