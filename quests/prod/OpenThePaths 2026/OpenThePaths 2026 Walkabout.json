@@ -551,7 +551,7 @@
           "quest_title": "Is the tactile arrow aligned with the direction of travel for the crossing?",
           "quest_description": "Indicate whether the tactile arrow lines up with the pedestrian crossing.",
           "quest_answer_dependency": {
-            "question_id": 506,
+            "question_id": 509,
             "required_value": "yes"
           },
           "quest_type": "ExclusiveChoice",
