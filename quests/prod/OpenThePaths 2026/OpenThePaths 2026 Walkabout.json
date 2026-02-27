@@ -664,7 +664,7 @@
             {
               "value": "scooter",
               "choice_text": "Scooter",
-              "image_url": "https://pinhead.ink/v6/motor_scooter.svg"
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/micromobility_vehicle_square.png"
             },
             {
               "value": "bicycle",
