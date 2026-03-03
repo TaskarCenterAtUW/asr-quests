@@ -696,7 +696,7 @@
     },
     {
       "element_type": "Custom Survey Point",
-      "element_type_icon": "note",
+      "element_type_icon": "information",
       "quest_query": "nodes with (ext:survey_point=yes)",
       "quests": [
         {
