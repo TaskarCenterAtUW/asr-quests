@@ -142,29 +142,8 @@
         },
         {
           "quest_id": 203,
-          "quest_title": "Do these signals have a vibrotactile indicator for when it's time to cross?",
-          "quest_description": "Determine whether the pedestrian traffic signals have a vibrotactile indicator (vibration on the push button) that activates when it is time to cross.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing:signals:vibrotactile",
-          "quest_answer_dependency": {
-            "question_id": 202,
-            "required_value": "yes"
-          },
-          "quest_answer_choices": [
-            {
-              "value": "yes",
-              "choice_text": "Yes, there is a vibrotactile indicator."
-            },
-            {
-              "value": "no",
-              "choice_text": "No, there is no vibrotactile indicator."
-            }
-          ]
-        },
-        {
-          "quest_id": 204,
           "quest_title": "Is there an APS (Accessible Pedestrian Signal) at this crossing?",
-          "quest_description": "Determine whether there is an Accessible Pedestrian Signal (APS) that provides audible information to pedestrians at this crossing.",
+          "quest_description": "Determine whether there is an Accessible Pedestrian Signal (APS) that provides additional information to pedestrians at this crossing.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing:signals:aps",
           "quest_answer_dependency": {
@@ -183,49 +162,36 @@
           ]
         },
         {
-          "quest_id": 205,
-          "quest_title": "What type of APS is present?",
-          "quest_description": "Identify the type of Accessible Pedestrian Signal (APS) present at this crossing.",
+          "quest_id": 204,
+          "quest_title": "What APS features are present?",
+          "quest_description": "Identify the type of Accessible Pedestrian Signal (APS) features present at this crossing.",
           "quest_type": "MultipleChoice",
-          "quest_tag": "ext:crossing:signals:aps:type",
+          "quest_tag": "ext:crossing:signals:aps:features",
           "quest_answer_dependency": {
-            "question_id": 204,
+            "question_id": 203,
             "required_value": "yes"
           },
           "quest_answer_choices": [
             {
               "value": "button",
-              "choice_text": "Push button with audible tone"
+              "choice_text": "Push button"
             },
             {
-              "value": "vibrotactile",
-              "choice_text": "Vibrotactile"
+              "value": "arrow",
+              "choice_text": "Tactile arrow"
+            },
+            {
+              "value": "vibration",
+              "choice_text": "Vibrotactile indicator"
+            },
+            {
+              "value": "sound",
+              "choice_text": "Audible sounds"
             }
           ]
         },
         {
-          "quest_id": 206,
-          "quest_title": "Do the pedestrian signals have tactile arrows?",
-          "quest_description": "Determine whether the pedestrian traffic signals have tactile arrows pointing in the direction of travel for this crossing.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing:signals:arrow",
-          "quest_answer_dependency": {
-            "question_id": 202,
-            "required_value": "yes"
-          },
-          "quest_answer_choices": [
-            {
-              "value": "yes",
-              "choice_text": "Yes, there are tactile arrows present."
-            },
-            {
-              "value": "no",
-              "choice_text": "No, there are no tactile arrows present."
-            }
-          ]
-        },
-        {
-          "quest_id": 207,
+          "quest_id": 205,
           "quest_title": "Is there a traffic island for this crossing?",
           "quest_description": "Determine whether there is a pedestrian refuge traffic island with physical barriers such as raised curbs present for this crossing.",
           "quest_type": "ExclusiveChoice",
@@ -242,7 +208,7 @@
           ]
         },
         {
-          "quest_id": 208,
+          "quest_id": 206,
           "quest_title": "Is there adequate lighting for this crossing?",
           "quest_description": "Determine whether there is adequate lighting from streetlights for this crossing.",
           "quest_type": "ExclusiveChoice",
