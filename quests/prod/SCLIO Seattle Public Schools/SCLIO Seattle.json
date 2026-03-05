@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
   "elements": [
     {
       "element_type": "Sidewalks",
@@ -334,7 +334,7 @@
     {
       "element_type": "Entrances",
       "element_type_icon": "door",
-      "quest_query": "nodes with (entrance=yes)",
+      "quest_query": "nodes with (ext:entrance=yes)",
       "quests": [
         {
           "quest_id": 401,
