@@ -352,6 +352,39 @@
         },
         {
           "quest_id": 111,
+          "quest_title": "What type of buffer is between this sidewalk and motor vehicle travel lanes?",
+          "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_buffer_type",
+          "quest_answer_dependency": {
+            "question_id": 110,
+            "required_value": "yes"
+          },
+          "quest_answer_choices": [
+            {
+              "value": "landscaping",
+              "choice_text": "Landscaping (grass, plants, trees)"
+            },
+            {
+              "value": "curb",
+              "choice_text": "Curb buffer (no landscaping)"
+            },
+            {
+              "value": "parking_lane",
+              "choice_text": "Parking lane"
+            },
+            {
+              "value": "bike_lane",
+              "choice_text": "Bike lane"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other"
+            }
+          ]
+        },
+        {
+          "quest_id": 112,
           "quest_title": "Are paths cleared during snow or leaf fall?",
           "quest_description": "Indicate whether this path is routinely cleared of snow, ice, or leaves to maintain accessibility during seasonal conditions.",
           "quest_type": "ExclusiveChoice",
@@ -374,7 +407,7 @@
           ]
         },
         {
-          "quest_id": 112,
+          "quest_id": 113,
           "quest_title": "Is there a noticeable slope present on this sidewalk segment?",
           "quest_description": "Indicate whether there is a visible or perceptible incline along or across this sidewalk segment that may affect walking or rolling.",
           "quest_type": "ExclusiveChoice",
@@ -391,7 +424,7 @@
           ]
         },
         {
-          "quest_id": 113,
+          "quest_id": 114,
           "quest_title": "What type of slope is present on this sidewalk segment?",
           "quest_description": "Identify whether this sidewalk has a noticeable running slope (along the direction of travel) or cross slope (across the walking surface).",
           "quest_type": "ExclusiveChoice",
@@ -416,7 +449,7 @@
           ]
         },
         {
-          "quest_id": 114,
+          "quest_id": 115,
           "quest_title": "How would you rate the level of motor vehicle traffic on this street?",
           "quest_description": "Rate the typical amount of motor vehicle traffic along this street on a scale of 1–5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
           "quest_type": "ExclusiveChoice",
@@ -445,7 +478,7 @@
           ]
         },
         {
-          "quest_id": 115,
+          "quest_id": 116,
           "quest_title": "Are there any gaps in sidewalk coverage along this segment?",
           "quest_description": "Indicate whether there are any missing sections, discontinuities, or areas where the sidewalk abruptly ends or is interrupted.",
           "quest_type": "ExclusiveChoice",
@@ -462,7 +495,7 @@
           ]
         },
         {
-          "quest_id": 116,
+          "quest_id": 117,
           "quest_title": "How many light poles are on this sidewalk segment?",
           "quest_description": "Count the number of light poles located directly along this sidewalk segment.",
           "quest_type": "Numeric",
@@ -935,6 +968,39 @@
         },
         {
           "quest_id": 318,
+          "quest_title": "What type of buffer is between this sidewalk and motor vehicle travel lanes?",
+          "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_buffer_type",
+          "quest_answer_dependency": {
+            "question_id": 317,
+            "required_value": "yes"
+          },
+          "quest_answer_choices": [
+            {
+              "value": "landscaping",
+              "choice_text": "Landscaping (grass, plants, trees)"
+            },
+            {
+              "value": "curb",
+              "choice_text": "Curb buffer (no landscaping)"
+            },
+            {
+              "value": "parking_lane",
+              "choice_text": "Parking lane"
+            },
+            {
+              "value": "bike_lane",
+              "choice_text": "Bike lane"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other"
+            }
+          ]
+        },
+        {
+          "quest_id": 319,
           "quest_title": "Are there public restrooms near this bus stop?",
           "quest_description": "Indicate whether publicly accessible restrooms are located near this bus stop, such as at nearby parks, transit centers, or public buildings.",
           "quest_type": "ExclusiveChoice",
@@ -951,7 +1017,7 @@
           ]
         },
         {
-          "quest_id": 319,
+          "quest_id": 320,
           "quest_title": "On a scale of 1-5 (1 = very bad and 5 = very good), how would you rate the overall comfort of this stop?",
           "quest_description": "Rate the comfort level based on seating, shade, exposure, cleanliness, and general waiting environment.",
           "quest_type": "ExclusiveChoice",
@@ -980,7 +1046,7 @@
           ]
         },
         {
-          "quest_id": 320,
+          "quest_id": 321,
           "quest_title": "Is there a pathway leading to this stop from the sidewalk centerline?",
           "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
           "quest_type": "ExclusiveChoice",
