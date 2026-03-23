@@ -782,8 +782,14 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_shelter_present",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
           ]
         },
         {
@@ -797,10 +803,22 @@
             "required_value": "yes"
           },
           "quest_answer_choices": [
-            { "value": "double_shelter", "choice_text": "Double shelter" },
-            { "value": "single_shelter", "choice_text": "Single shelter" },
-            { "value": "custom_shelter", "choice_text": "Custom shelter" },
-            { "value": "other", "choice_text": "Other" }
+            {
+              "value": "double_shelter",
+              "choice_text": "Double shelter"
+            },
+            {
+              "value": "single_shelter",
+              "choice_text": "Single shelter"
+            },
+            {
+              "value": "custom_shelter",
+              "choice_text": "Custom shelter"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other"
+            }
           ]
         },
         {
@@ -827,8 +845,14 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_seating_present",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
           ]
         },
         {
@@ -842,12 +866,30 @@
             "required_value": "yes"
           },
           "quest_answer_choices": [
-            { "value": "metro_shelter_bench", "choice_text": "Standard Metro bench inside shelter" },
-            { "value": "standalone_bench", "choice_text": "Standalone Metro bench" },
-            { "value": "combined_benches", "choice_text": "Shelter bench and standalone benches" },
-            { "value": "lean_rail", "choice_text": "Lean rail" },
-            { "value": "simmeseat", "choice_text": "SimmeSeat" },
-            { "value": "other", "choice_text": "Other" }
+            {
+              "value": "metro_shelter_bench",
+              "choice_text": "Standard Metro bench inside shelter"
+            },
+            {
+              "value": "standalone_bench",
+              "choice_text": "Standalone Metro bench"
+            },
+            {
+              "value": "combined_benches",
+              "choice_text": "Shelter bench and standalone benches"
+            },
+            {
+              "value": "lean_rail",
+              "choice_text": "Lean rail"
+            },
+            {
+              "value": "simmeseat",
+              "choice_text": "SimmeSeat"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other"
+            }
           ]
         },
         {
@@ -857,9 +899,18 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_landing_pads_present",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" },
-            { "value": "unknown", "choice_text": "Unknown"}
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unknown",
+              "choice_text": "Unknown"
+            }
           ]
         },
         {
@@ -873,9 +924,18 @@
             "required_value": "yes"
           },
           "quest_answer_choices": [
-            { "value": "all_three", "choice_text": "All three doors" },
-            { "value": "front_plus_one", "choice_text": "Front door and one additional door" },
-            { "value": "front_only", "choice_text": "Front door only" }
+            {
+              "value": "all_three",
+              "choice_text": "All three doors"
+            },
+            {
+              "value": "front_plus_one",
+              "choice_text": "Front door and one additional door"
+            },
+            {
+              "value": "front_only",
+              "choice_text": "Front door only"
+            }
           ]
         },
         {
@@ -960,8 +1020,14 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_ped_connection_present",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
           ]
         },
         {
@@ -975,11 +1041,26 @@
             "required_value": "yes"
           },
           "quest_answer_choices": [
-            { "value": "sidewalk", "choice_text": "Sidewalk" },
-            { "value": "shared_use_path", "choice_text": "Shared-use path" },
-            { "value": "unpaved_path", "choice_text": "Unpaved path" },
-            { "value": "shoulder", "choice_text": "Road shoulder" },
-            { "value": "other", "choice_text": "Other" }
+            {
+              "value": "sidewalk",
+              "choice_text": "Sidewalk"
+            },
+            {
+              "value": "shared_use_path",
+              "choice_text": "Shared-use path"
+            },
+            {
+              "value": "unpaved_path",
+              "choice_text": "Unpaved path"
+            },
+            {
+              "value": "shoulder",
+              "choice_text": "Road shoulder"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other"
+            }
           ]
         },
         {
