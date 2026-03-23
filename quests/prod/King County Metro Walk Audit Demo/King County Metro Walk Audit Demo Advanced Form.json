@@ -408,6 +408,14 @@
             {
               "value": "landscaping_buffer_>6ft",
               "choice_text": "Landscaping buffer > 6 ft"
+            },
+            {
+              "value": "curb_buffer",
+              "choice_text": "Curb buffer (no landscaping)"
+            },
+            {
+              "value": "other_buffer",
+              "choice_text": "Other buffer"
             }
           ]
         },
@@ -1083,7 +1091,9 @@
           "quest_answer_choices": [
             { "value": "landscaping_buffer_<3ft", "choice_text": "Landscaping buffer < 3 ft" },
             { "value": "landscaping_buffer_3-6ft", "choice_text": "Landscaping buffer 3–6 ft" },
-            { "value": "landscaping_buffer_>6ft", "choice_text": "Landscaping buffer > 6 ft" }
+            { "value": "landscaping_buffer_>6ft", "choice_text": "Landscaping buffer > 6 ft" },
+            { "value": "curb_buffer", "choice_text": "Curb buffer (no landscaping)" },
+            { "value": "other_buffer", "choice_text": "Other buffer" }
           ]
         },
         {
