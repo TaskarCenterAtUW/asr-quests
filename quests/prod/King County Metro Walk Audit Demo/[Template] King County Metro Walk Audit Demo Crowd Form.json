@@ -82,12 +82,12 @@
             {
               "value": "no",
               "choice_text": "No",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/sidewalk/condition/good_square.png"
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
             },
             {
               "value": "yes",
               "choice_text": "Yes",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/sidewalk/condition/bad_square.png"
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/bad_square.png"
             },
             {
               "value": "n/a",
@@ -144,6 +144,30 @@
         },
         {
           "quest_id": 105,
+          "quest_title": "What is the width of this sidewalk (in feet)?",
+          "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:sidewalk_width",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "quest_id": 106,
+          "quest_title": "What is the width of the narrowest point of this sidewalk (in feet)?",
+          "quest_description": "Estimate or measure the narrowest usable width along the sidewalk, excluding temporary obstructions such as pedestrians or debris",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:sidewalk_narrowest_point",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/narrowest_width_square.png",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "quest_id": 107,
           "quest_title": "What is the surface material of this sidewalk?",
           "quest_description": "Select the primary surface material that makes up this sidewalk.",
           "quest_type": "ExclusiveChoice",
@@ -186,7 +210,7 @@
           ]
         },
         {
-          "quest_id": 106,
+          "quest_id": 108,
           "quest_title": "Are there obstructions on the access path leading to this bus stop?",
           "quest_description": "Indicate whether any permanent or semi-permanent obstructions are present along the access path leading to the bus stop.",
           "quest_type": "ExclusiveChoice",
@@ -203,13 +227,13 @@
           ]
         },
         {
-          "quest_id": 107,
+          "quest_id": 109,
           "quest_title": "What are the obstructions on the access path leading to this bus stop?",
           "quest_description": "Select any permanent or semi-permanent obstructions present along the access path leading to the bus stop.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_stop_ap_obstructions",
           "quest_answer_dependency": {
-            "question_id": 106,
+            "question_id": 108,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -260,7 +284,7 @@
           ]
         },
         {
-          "quest_id": 108,
+          "quest_id": 110,
           "quest_title": "Are there frequent temporary obstructions on this sidewalk?",
           "quest_description": "Indicate whether temporary or recurring obstructions are often present and reduce the usable width of this sidewalk.",
           "quest_type": "ExclusiveChoice",
@@ -277,13 +301,13 @@
           ]
         },
         {
-          "quest_id": 109,
+          "quest_id": 111,
           "quest_title": "What are the frequent temporary obstructions on this sidewalk?",
           "quest_description": "Select the type of temporary or recurring obstructions that often block or reduce the usable width of this sidewalk.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_temp_obstructions",
           "quest_answer_dependency": {
-            "question_id": 108,
+            "question_id": 110,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -330,7 +354,7 @@
           ]
         },
         {
-          "quest_id": 110,
+          "quest_id": 112,
           "quest_title": "Is there a buffer between this sidewalk and motor vehicle travel lanes?",
           "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
           "quest_type": "ExclusiveChoice",
@@ -351,13 +375,13 @@
           ]
         },
         {
-          "quest_id": 111,
+          "quest_id": 113,
           "quest_title": "What type of buffer is between this sidewalk and motor vehicle travel lanes?",
           "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:sidewalk_buffer_type",
           "quest_answer_dependency": {
-            "question_id": 110,
+            "question_id": 112,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -384,7 +408,7 @@
           ]
         },
         {
-          "quest_id": 112,
+          "quest_id": 114,
           "quest_title": "Are paths cleared during snow or leaf fall?",
           "quest_description": "Indicate whether this path is routinely cleared of snow, ice, or leaves to maintain accessibility during seasonal conditions.",
           "quest_type": "ExclusiveChoice",
@@ -407,7 +431,7 @@
           ]
         },
         {
-          "quest_id": 113,
+          "quest_id": 115,
           "quest_title": "Is there a noticeable slope present on this sidewalk segment?",
           "quest_description": "Indicate whether there is a visible or perceptible incline along or across this sidewalk segment that may affect walking or rolling.",
           "quest_type": "ExclusiveChoice",
@@ -424,13 +448,13 @@
           ]
         },
         {
-          "quest_id": 114,
+          "quest_id": 116,
           "quest_title": "What type of slope is present on this sidewalk segment?",
           "quest_description": "Identify whether this sidewalk has a noticeable running slope (along the direction of travel) or cross slope (across the walking surface).",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:sidewalk_slope_type",
           "quest_answer_dependency": {
-            "question_id": 112,
+            "question_id": 115,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -449,7 +473,7 @@
           ]
         },
         {
-          "quest_id": 115,
+          "quest_id": 117,
           "quest_title": "How would you rate the level of motor vehicle traffic on this street?",
           "quest_description": "Rate the typical amount of motor vehicle traffic along this street on a scale of 1–5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
           "quest_type": "ExclusiveChoice",
@@ -478,7 +502,7 @@
           ]
         },
         {
-          "quest_id": 116,
+          "quest_id": 118,
           "quest_title": "Are there any gaps in sidewalk coverage along this segment?",
           "quest_description": "Indicate whether there are any missing sections, discontinuities, or areas where the sidewalk abruptly ends or is interrupted.",
           "quest_type": "ExclusiveChoice",
@@ -495,7 +519,7 @@
           ]
         },
         {
-          "quest_id": 117,
+          "quest_id": 119,
           "quest_title": "How many light poles are on this sidewalk segment?",
           "quest_description": "Count the number of light poles located directly along this sidewalk segment.",
           "quest_type": "Numeric",
@@ -666,6 +690,23 @@
       "quests": [
         {
           "quest_id": 301,
+          "quest_title": "Is there a 5 ft × 8 ft boarding zone present at this bus stop flag?",
+          "quest_description": "Determine whether there is a level, firm, and unobstructed 5-foot by 8-foot boarding area at the bus stop flag for passengers to board and alight safely.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_boarding_zone_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 302,
           "quest_title": "Does this bus stop have a shelter?",
           "quest_description": "Identify the presence of a shelter at this bus stop.",
           "quest_type": "ExclusiveChoice",
@@ -682,13 +723,13 @@
           ]
         },
         {
-          "quest_id": 302,
+          "quest_id": 303,
           "quest_title": "What type of shelter is present at this bus stop?",
           "quest_description": "Identify the type of shelter structure at this bus stop.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_shelter_type",
           "quest_answer_dependency": {
-            "question_id": 301,
+            "question_id": 302,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -711,7 +752,7 @@
           ]
         },
         {
-          "quest_id": 303,
+          "quest_id": 304,
           "quest_title": "Is there a shelter footing here (without a shelter)?",
           "quest_description": "Check whether a shelter footing or foundation pad is present at this bus stop, if a shelter structure has not been installed.",
           "quest_type": "ExclusiveChoice",
@@ -728,7 +769,7 @@
           ]
         },
         {
-          "quest_id": 304,
+          "quest_id": 305,
           "quest_title": "Does this bus stop have seating?",
           "quest_description": "Indicate whether any seating is available at this bus stop.",
           "quest_type": "ExclusiveChoice",
@@ -745,13 +786,13 @@
           ]
         },
         {
-          "quest_id": 305,
+          "quest_id": 306,
           "quest_title": "What type of seating is available at this bus stop?",
           "quest_description": "Select the type of seating provided at this bus stop.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_seating_type",
           "quest_answer_dependency": {
-            "question_id": 304,
+            "question_id": 305,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -782,7 +823,7 @@
           ]
         },
         {
-          "quest_id": 306,
+          "quest_id": 307,
           "quest_title": "Does this bus stop have clear landing pads?",
           "quest_description": "Determine whether landing pads are present and unobstructed for bus boarding and alighting.",
           "quest_type": "ExclusiveChoice",
@@ -803,7 +844,7 @@
           ]
         },
         {
-          "quest_id": 307,
+          "quest_id": 308,
           "quest_title": "Does this bus stop have schedule information posted in braille?",
           "quest_description": "Check whether braille schedule or stop information is available at this bus stop for visually impaired riders.",
           "quest_type": "ExclusiveChoice",
@@ -820,7 +861,7 @@
           ]
         },
         {
-          "quest_id": 308,
+          "quest_id": 309,
           "quest_title": "Does this bus stop have an LED schedule with real-time information?",
           "quest_description": "Identify whether there is an LED or digital display providing real-time bus arrival or schedule information at this stop.",
           "quest_type": "ExclusiveChoice",
@@ -837,7 +878,7 @@
           ]
         },
         {
-          "quest_id": 309,
+          "quest_id": 310,
           "quest_title": "In your opinion, is there adequate lighting at this bus stop? (1 = very bad and 5 = very good)",
           "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
           "quest_type": "ExclusiveChoice",
@@ -866,7 +907,7 @@
           ]
         },
         {
-          "quest_id": 310,
+          "quest_id": 311,
           "quest_title": "What is the speed limit near this bus stop?",
           "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
           "quest_type": "Numeric",
@@ -878,7 +919,7 @@
           }
         },
         {
-          "quest_id": 311,
+          "quest_id": 312,
           "quest_title": "Is there a pedestrian connection to this bus stop?",
           "quest_description": "Indicate whether any pedestrian infrastructure connects this bus stop to the surrounding network.",
           "quest_type": "ExclusiveChoice",
@@ -895,13 +936,13 @@
           ]
         },
         {
-          "quest_id": 312,
+          "quest_id": 313,
           "quest_title": "What type of pedestrian infrastructure connects to this bus stop?",
           "quest_description": "Identify the type of pedestrian infrastructure providing access.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_ped_connection",
           "quest_answer_dependency": {
-            "question_id": 311,
+            "question_id": 312,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -928,7 +969,7 @@
           ]
         },
         {
-          "quest_id": 313,
+          "quest_id": 314,
           "quest_title": "Is there designated bicycle infrastructure near this bus stop?",
           "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, or paths near the bus stop that support multimodal access.",
           "quest_type": "ExclusiveChoice",
@@ -945,13 +986,13 @@
           ]
         },
         {
-          "quest_id": 314,
+          "quest_id": 315,
           "quest_title": "What type of infrastructure connects this bus stop to the bicycle network?",
           "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_bike_connection",
           "quest_answer_dependency": {
-            "question_id": 313,
+            "question_id": 314,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -978,7 +1019,7 @@
           ]
         },
         {
-          "quest_id": 315,
+          "quest_id": 316,
           "quest_title": "How would you rate the level of motor vehicle traffic near this bus stop?",
           "quest_description": "Rate the typical amount of motor vehicle traffic near this bus stop on a scale of 1–5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
           "quest_type": "ExclusiveChoice",
@@ -1007,7 +1048,7 @@
           ]
         },
         {
-          "quest_id": 316,
+          "quest_id": 317,
           "quest_title": "What is the total number of motor vehicle travel lanes near this bus stop?",
           "quest_description": "Enter the total number of motor vehicle travel lanes in both directions.",
           "quest_type": "Numeric",
@@ -1018,7 +1059,7 @@
           }
         },
         {
-          "quest_id": 317,
+          "quest_id": 318,
           "quest_title": "Is there a buffer between this sidewalk and motor vehicle travel lanes?",
           "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
           "quest_type": "ExclusiveChoice",
@@ -1039,13 +1080,13 @@
           ]
         },
         {
-          "quest_id": 318,
+          "quest_id": 319,
           "quest_title": "What type of buffer is between this sidewalk and motor vehicle travel lanes?",
           "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_buffer_type",
           "quest_answer_dependency": {
-            "question_id": 317,
+            "question_id": 318,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -1072,7 +1113,7 @@
           ]
         },
         {
-          "quest_id": 319,
+          "quest_id": 320,
           "quest_title": "Are there public restrooms near this bus stop?",
           "quest_description": "Indicate whether publicly accessible restrooms are located near this bus stop, such as at nearby parks, transit centers, or public buildings.",
           "quest_type": "ExclusiveChoice",
@@ -1089,7 +1130,7 @@
           ]
         },
         {
-          "quest_id": 320,
+          "quest_id": 321,
           "quest_title": "On a scale of 1-5 (1 = very bad and 5 = very good), how would you rate the overall comfort of this stop?",
           "quest_description": "Rate the comfort level based on seating, shade, exposure, cleanliness, and general waiting environment.",
           "quest_type": "ExclusiveChoice",
@@ -1118,7 +1159,7 @@
           ]
         },
         {
-          "quest_id": 321,
+          "quest_id": 322,
           "quest_title": "Is there a pathway leading to this stop from the sidewalk centerline?",
           "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
           "quest_type": "ExclusiveChoice",
