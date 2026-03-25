@@ -10,13 +10,13 @@ Long Form Quest Definition JSON schema.
 
 Latest:
 
--   [schema.json](schema/schema.json)
+- [schema.json](schema/schema.json)
 
 Snapshots:
 
--   [schema-1.0.0.json](schema/schema-1.0.0.json)
--   [schema-2.0.0.json](schema/schema-2.0.0.json)
--   [schema-3.0.0.json](schema/schema-3.0.0.json)
+- [schema-1.0.0.json](schema/schema-1.0.0.json)
+- [schema-2.0.0.json](schema/schema-2.0.0.json)
+- [schema-3.0.0.json](schema/schema-3.0.0.json)
 
 ## Examples
 
@@ -24,13 +24,13 @@ Long Form Quest Definition JSON examples.
 
 Latest:
 
--   [example.json](schema/schema.json)
+- [example.json](schema/schema.json)
 
 Snapshots:
 
--   [example-1.0.0.json](schema/schema-1.0.0.json)
--   [example-2.0.0.json](schema/schema-2.0.0.json)
--   [example-3.0.0.json](schema/schema-3.0.0.json)
+- [example-1.0.0.json](schema/schema-1.0.0.json)
+- [example-2.0.0.json](schema/schema-2.0.0.json)
+- [example-3.0.0.json](schema/schema-3.0.0.json)
 
 ## Components
 
