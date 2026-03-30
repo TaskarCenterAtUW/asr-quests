@@ -20,6 +20,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -59,7 +63,7 @@
         },
         {
           "quest_id": 104,
-          "quest_title": "Are there clear yielding cues for cyclists?",
+          "quest_title": "In your opinion, are there clear yielding cues for cyclists?",
           "quest_description": "Assess whether signage, markings, or design elements clearly signal cyclists to yield to pedestrians.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_cyclist_yielding_cues",
@@ -92,6 +96,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -109,6 +117,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
             }
           ]
         },
@@ -175,6 +187,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
             }
           ]
         },
@@ -203,6 +219,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -220,6 +240,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
             }
           ]
         },
@@ -237,6 +261,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
             }
           ]
         },
@@ -263,7 +291,7 @@
         },
         {
           "quest_id": 207,
-          "quest_title": "Is the cross-slope acceptable?",
+          "quest_title": "In your opinion, is the cross-slope acceptable?",
           "quest_description": "Determine whether the cross-slope feels acceptable for safe navigation.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:sidewalk_cross_slope_acceptability",
@@ -296,6 +324,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -362,6 +394,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -379,6 +415,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
             }
           ]
         },
@@ -388,6 +428,10 @@
           "quest_description": "Assess whether the audible signal is clear and understandable.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_audible_signal_understandable",
+          "quest_answer_dependency": {
+            "question_id": 303,
+            "required_value": "yes"
+          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -466,6 +510,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -483,6 +531,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
             }
           ]
         },
@@ -511,6 +563,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -528,6 +584,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -545,6 +605,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         }
@@ -569,6 +633,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
             }
           ]
         },
@@ -586,6 +654,10 @@
             {
               "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
             }
           ]
         },
