@@ -387,7 +387,8 @@
           "quest_answer_choices": [
             {
               "value": "landscaping",
-              "choice_text": "Landscaping (grass, plants, trees)"
+              "choice_text": "Landscaping (grass, plants, trees)",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Massachusetts-devils_strip.JPG"
             },
             {
               "value": "curb",
@@ -399,7 +400,8 @@
             },
             {
               "value": "bike_lane",
-              "choice_text": "Bike lane"
+              "choice_text": "Bike lane",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Narrow_bike_lane_on_Campbell_Ave.jpg"
             },
             {
               "value": "other",
@@ -549,7 +551,8 @@
             },
             {
               "value": "yes",
-              "choice_text": "Yes"
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signed/yes_square.png"
             }
           ]
         },
@@ -1092,7 +1095,8 @@
           "quest_answer_choices": [
             {
               "value": "landscaping",
-              "choice_text": "Landscaping (grass, plants, trees)"
+              "choice_text": "Landscaping (grass, plants, trees)",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Massachusetts-devils_strip.JPG"
             },
             {
               "value": "curb",
@@ -1104,7 +1108,8 @@
             },
             {
               "value": "bike_lane",
-              "choice_text": "Bike lane"
+              "choice_text": "Bike lane",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Narrow_bike_lane_on_Campbell_Ave.jpg"
             },
             {
               "value": "other",
@@ -1195,27 +1200,33 @@
             },
             {
               "value": "full_signal",
-              "choice_text": "Yes, Full Signal"
+              "choice_text": "Yes, Full Signal",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Traffic_light_at_Jeffrey_Road_and_Smoketree.jpg"
             },
             {
               "value": "half_signal",
-              "choice_text": "Yes, Half Signal"
+              "choice_text": "Yes, Half Signal",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Huntsville_Traffic_Lights.jpg"
             },
             {
               "value": "hawk_signal",
-              "choice_text": "Yes, HAWK Signal"
+              "choice_text": "Yes, HAWK Signal",
+              "image_url": "https://live.staticflickr.com/3011/2997123609_8e15d0bfaa_b.jpg"
             },
             {
               "value": "rrfb",
-              "choice_text": "Yes, Rectangular Rapid Flashing Beacon (RRFB)"
+              "choice_text": "Yes, Rectangular Rapid Flashing Beacon (RRFB)",
+              "image_url": "https://live.staticflickr.com/4582/24570065938_2f11e49304_b.jpg"
             },
             {
               "value": "stop_sign",
-              "choice_text": "Yes, Stop Sign"
+              "choice_text": "Yes, Stop Sign",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/STOP_sign.jpg"
             },
             {
               "value": "unsignalled_painted_crosswalk",
-              "choice_text": "Yes, Unsignalled Intersection with Painted Crosswalk"
+              "choice_text": "Yes, Unsignalled Intersection with Painted Crosswalk",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Median_island_and_crosswalk_2.jpg"
             }
           ]
         },
@@ -1386,8 +1397,7 @@
             },
             {
               "value": "combination",
-              "choice_text": "Combination",
-              "image_url": ""
+              "choice_text": "Combination"
             },
             {
               "value": "unknown",
