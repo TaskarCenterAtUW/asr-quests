@@ -4,7 +4,7 @@
     {
       "element_type": "Bus Stops",
       "element_type_icon": "bus",
-      "quest_query": "nodes with (ext:public_transport=platform)",
+      "quest_query": "nodes with (ext:highway=bus_stop)",
       "quests": [
         {
           "quest_id": 101,
