@@ -1,0 +1,88 @@
+{
+    "version": "3.0.0",
+    "elements": [
+      {
+        "element_type": "Elevators",
+        "element_type_icon": "building_levels",
+        "quest_query": "nodes with (ext:highway=elevator)",
+        "quests": [
+          {
+            "quest_id": 101,
+            "quest_title": "What is the weekday opening time?",
+            "quest_description": "Enter the time the elevator becomes accessible on weekdays (e.g., 8:00 AM).",
+            "quest_type": "TextEntry",
+            "quest_tag": "ext:elevator_opening_weekday"
+          },
+          {
+            "quest_id": 102,
+            "quest_title": "What is the weekday closing time?",
+            "quest_description": "Enter the time the elevator becomes inaccessible on weekdays (e.g., 8:00 PM).",
+            "quest_type": "TextEntry",
+            "quest_tag": "ext:elevator_closing_weekday"
+          },
+          {
+            "quest_id": 103,
+            "quest_title": "What is the Saturday opening time?",
+            "quest_description": "Enter the time the elevator becomes accessible on Saturdays.",
+            "quest_type": "TextEntry",
+            "quest_tag": "ext:elevator_opening_sat"
+          },
+          {
+            "quest_id": 104,
+            "quest_title": "What is the Saturday closing time?",
+            "quest_description": "Enter the time the elevator becomes inaccessible on Saturdays.",
+            "quest_type": "TextEntry",
+            "quest_tag": "ext:elevator_closing_sat"
+          },
+          {
+            "quest_id": 105,
+            "quest_title": "What is the Sunday opening time?",
+            "quest_description": "Enter the time the elevator becomes accessible on Sundays.",
+            "quest_type": "TextEntry",
+            "quest_tag": "ext:elevator_opening_sun"
+          },
+          {
+            "quest_id": 106,
+            "quest_title": "What is the Sunday closing time?",
+            "quest_description": "Enter the time the elevator becomes inaccessible on Sundays.",
+            "quest_type": "TextEntry",
+            "quest_tag": "ext:elevator_closing_sun"
+          },
+          {
+            "quest_id": 107,
+            "quest_title": "Is the elevator located indoors?",
+            "quest_description": "Indicate whether the elevator is inside a building or exposed to the outdoors.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:elevator_indoors",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              }
+            ]
+          },
+          {
+            "quest_id": 108,
+            "quest_title": "Is there a security desk present?",
+            "quest_description": "Determine if there is a staffed security desk or check-in point near the elevator entrance.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:elevator_security_desk",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
