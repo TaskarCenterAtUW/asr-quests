@@ -1,4 +1,7 @@
-.venv/
-local-storage/
-.DS_Store
+# Project
 asr-quests.code-workspace
+local-storage/
+
+# OS
+.DS_Store
+Thumbs.db
