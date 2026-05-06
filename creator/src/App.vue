@@ -3,6 +3,7 @@
 <script setup>
 import { ref } from "vue";
 import WelcomeScreen from "./components/WelcomeScreen.vue";
+import ElementList from "./components/ElementList.vue";
 
 // 'welcome' | 'editor'
 const currentView = ref("welcome");
@@ -13,7 +14,10 @@ const currentView = ref("welcome");
         v-if="currentView === 'welcome'"
         @navigate="currentView = $event"
     />
-    <div v-else-if="currentView === 'editor'">
-        <!-- P4: ElementList / QuestEditor will go here -->
+    <div
+        v-else-if="currentView === 'editor'"
+        style="height: 100vh; overflow: hidden"
+    >
+        <ElementList />
     </div>
 </template>
