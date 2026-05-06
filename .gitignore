@@ -5,3 +5,7 @@ local-storage/
 # OS
 .DS_Store
 Thumbs.db
+
+# Creator
+dist/
+node_modules/
