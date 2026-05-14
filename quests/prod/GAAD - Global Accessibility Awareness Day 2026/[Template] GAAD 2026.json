@@ -65,26 +65,18 @@
         },
         {
           "quest_id": 104,
-          "quest_title": "Are there small surface cracks, disruptions, or gaps on this pathway?",
+          "quest_title": "Are there any pathway surface defects present?",
           "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that are smaller than 3 inches in any direction.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:pathway_count_disruptions_small",
           "quest_answer_choices": [
             {
-              "value": "1-5",
-              "choice_text": "Yes, there are 1-5 small cracks, disruptions, or gaps along this pathway."
-            },
-            {
-              "value": "6-10",
-              "choice_text": "Yes, there are 6-10 small cracks, disruptions, or gaps along this pathway."
-            },
-            {
-              "value": "11+",
-              "choice_text": "Yes, there are 11+ small cracks, disruptions, or gaps along this pathway."
-            },
-            {
-              "value": "0",
+              "value": "no",
               "choice_text": "No"
+            },
+            {
+              "value": "yes",
+              "choice_text": "Yes"
             }
           ]
         },
