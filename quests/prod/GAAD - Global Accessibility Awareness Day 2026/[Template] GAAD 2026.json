@@ -236,7 +236,7 @@
           "quest_title": "Do the pedestrian signals have vibratory output?",
           "quest_description": "Determine whether the pedestrian traffic signals have vibratory output for this crossing.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:traffic_signals:sound",
+          "quest_tag": "ext:traffic_signals:vibration",
           "quest_answer_dependency": {
             "question_id": 202,
             "required_value": "yes"
@@ -341,7 +341,7 @@
         {
           "quest_id": 302,
           "quest_title": "Is there tactile paving at this curb?",
-          "quest_description": "Determine whether there is a truncated dome tactile warning surface at this curb.",
+          "quest_description": "Determine whether there is a tactile warning surface at this curb.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "tactile_paving",
           "quest_answer_choices": [
@@ -353,6 +353,29 @@
             {
               "value": "no",
               "choice_text": "No, there is not tactile paving present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/no_square.png"
+            }
+          ]
+        }
+        {
+          "quest_id": 303,
+          "quest_title": "Is the tactile paving a high-contrast, truncated dome warning surface?",
+          "quest_description": "Determine whether there is a high-contrast, truncated dome tactile warning surface at this curb.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "tactile_paving:aps",
+          "quest_answer_dependency": {
+            "question_id": 302,
+            "required_value": "yes"
+          },
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes, there is high-contrast, truncated dome tactile paving present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/yes_square.png"
+            },
+            {
+              "value": "no",
+              "choice_text": "No, the tactile paving is not truncated domes, or is not high-contrast.",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/no_square.png"
             }
           ]
