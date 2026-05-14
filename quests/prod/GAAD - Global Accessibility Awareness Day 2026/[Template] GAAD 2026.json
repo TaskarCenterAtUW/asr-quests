@@ -166,17 +166,6 @@
               "choice_text": "No, there is no obstacle present."
             }
           ]
-        },
-        {
-          "quest_id": 110,
-          "quest_title": "How many streetlights are present along this pathway?",
-          "quest_description": "Determine the number of streetlights that exist along this pathway.",
-          "quest_type": "Numeric",
-          "quest_tag": "ext:pathway_count_streetlights",
-          "quest_answer_validation": {
-            "min": 0,
-            "max": 50
-          }
         }
       ]
     },
@@ -244,6 +233,27 @@
         },
         {
           "quest_id": 204,
+          "quest_title": "Do the pedestrian signals have vibratory output?",
+          "quest_description": "Determine whether the pedestrian traffic signals have vibratory output for this crossing.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:traffic_signals:sound",
+          "quest_answer_dependency": {
+            "question_id": 202,
+            "required_value": "yes"
+          },
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes, there are vibratory signals present."
+            },
+            {
+              "value": "no",
+              "choice_text": "No, there are no vibratory signals present."
+            }
+          ]
+        },
+        {
+          "quest_id": 205,
           "quest_title": "Do the pedestrian signals have tactile arrows?",
           "quest_description": "Determine whether the pedestrian traffic signals have tactile arrows pointing in the direction of travel for this crossing.",
           "quest_type": "ExclusiveChoice",
@@ -264,7 +274,7 @@
           ]
         },
         {
-          "quest_id": 205,
+          "quest_id": 206,
           "quest_title": "Is there a traffic island for this crossing?",
           "quest_description": "Determine whether there is a pedestrian refugee traffic island with physical barriers such as raised curbs present for this crossing.",
           "quest_type": "ExclusiveChoice",
@@ -281,19 +291,19 @@
           ]
         },
         {
-          "quest_id": 206,
-          "quest_title": "Is there adequate lighting for this crossing?",
-          "quest_description": "Determine whether there is adequate lighting from streetlights for this crossing.",
+          "quest_id": 207,
+          "quest_title": "Is there external lighting for this crossing?",
+          "quest_description": "Determine whether there is lighting from streetlights for this crossing.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:lit",
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes, there is adequate lighting."
+              "choice_text": "Yes, there is lighting."
             },
             {
               "value": "no",
-              "choice_text": "No, there is not adequate lighting."
+              "choice_text": "No, there is not lighting."
             }
           ]
         }
