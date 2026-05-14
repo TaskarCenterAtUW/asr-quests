@@ -14,14 +14,14 @@
           "quest_tag": "ext:pathway_surface",
           "quest_answer_choices": [
             {
-              "value": "asphalt",
-              "choice_text": "Asphalt",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/surface/asphalt_landscape.png"
-            },
-            {
               "value": "concrete",
               "choice_text": "Concrete",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/surface/concrete_landscape.png"
+            },
+            {
+              "value": "asphalt",
+              "choice_text": "Asphalt",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/surface/asphalt_landscape.png"
             },
             {
               "value": "brick",
@@ -65,56 +65,74 @@
         },
         {
           "quest_id": 104,
-          "quest_title": "Are there small surface cracks, disruptions, or gaps on this pathway?",
-          "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that are smaller than 3 inches in any direction.",
+          "quest_title": "Are there small horizontal surface cracks, disruptions, or gaps on this pathway?",
+          "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that are less than 3 inches in width or length.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:pathway_count_disruptions_small",
+          "quest_tag": "ext:pathway_disruptions_horizontal_small",
           "quest_answer_choices": [
             {
-              "value": "1-5",
-              "choice_text": "Yes, there are 1-5 small cracks, disruptions, or gaps along this pathway."
+              "value": "yes",
+              "choice_text": "Yes"
             },
             {
-              "value": "6-10",
-              "choice_text": "Yes, there are 6-10 small cracks, disruptions, or gaps along this pathway."
-            },
-            {
-              "value": "11+",
-              "choice_text": "Yes, there are 11+ small cracks, disruptions, or gaps along this pathway."
-            },
-            {
-              "value": "0",
+              "value": "no",
               "choice_text": "No"
             }
           ]
         },
-        {
+                {
           "quest_id": 105,
-          "quest_title": "Are there large surface cracks, disruptions, or gaps on this pathway?",
-          "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that are 3 inches or larger in any direction.",
+          "quest_title": "Are there large horizontal surface cracks, disruptions, or gaps on this pathway?",
+          "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that are at least 3 inches in width or length.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:pathway_count_disruptions_large",
+          "quest_tag": "ext:pathway_disruptions_horizontal_large",
           "quest_answer_choices": [
             {
-              "value": "1-5",
-              "choice_text": "Yes, there are 1-5 large cracks, disruptions, or gaps along this pathway."
+              "value": "yes",
+              "choice_text": "Yes"
             },
             {
-              "value": "6-10",
-              "choice_text": "Yes, there are 6-10 large cracks, disruptions, or gaps along this pathway."
-            },
-            {
-              "value": "11+",
-              "choice_text": "Yes, there are 11+ large cracks, disruptions, or gaps along this pathway."
-            },
-            {
-              "value": "0",
+              "value": "no",
               "choice_text": "No"
             }
           ]
         },
         {
           "quest_id": 106,
+          "quest_title": "Are there small vertical surface cracks, disruptions, or gaps on this pathway?",
+          "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that have 1 inch or less in height difference.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:pathway_disruptions_vertical_small",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 107,
+          "quest_title": "Are there large vertical surface cracks, disruptions, or gaps on this pathway?",
+          "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that have greater than 1 inch in height difference.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:pathway_disruptions_vertical_large",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 108,
           "quest_title": "Is there overgrown vegetation along this pathway?",
           "quest_description": "Determine whether there is overgrown vegetation along this pathway which impedes travel.",
           "quest_type": "ExclusiveChoice",
@@ -132,7 +150,7 @@
           ]
         },
         {
-          "quest_id": 107,
+          "quest_id": 109,
           "quest_title": "Are there any other obstacles along this pathway?",
           "quest_description": "Determine whether there are any other obstacles such as utility poles, fire hydrants, or bollards along this pathway which impede travel.",
           "quest_type": "ExclusiveChoice",
@@ -150,7 +168,7 @@
           ]
         },
         {
-          "quest_id": 108,
+          "quest_id": 110,
           "quest_title": "How many streetlights are present along this pathway?",
           "quest_description": "Determine the number of streetlights that exist along this pathway.",
           "quest_type": "Numeric",
