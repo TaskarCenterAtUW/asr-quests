@@ -923,7 +923,7 @@
           "quest_title": "Is there a sidewalk landing at this bus stop?",
           "quest_description": "Determine if there is a firm, stable, and slip-resistant surface (landing) for boarding and exiting the bus.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:bus_stop:landing",
+          "quest_tag": "ext:landing",
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -940,7 +940,7 @@
           "quest_title": "Is the landing immediately connected to the sidewalk path?",
           "quest_description": "Check if the bus stop landing is directly connected to the main sidewalk or pathway without a gap of grass, dirt, or other obstacles.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:bus_stop:connected_to_path",
+          "quest_tag": "ext:connected_to_path",
           "quest_answer_dependency": {
             "question_id": 601,
             "required_value": "yes"
@@ -953,6 +953,90 @@
             {
               "value": "no",
               "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 603,
+          "quest_title": "Does this bus stop have a shelter?",
+          "quest_description": "Identify the presence of a shelter at this bus stop.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:shelter",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/shelter/yes_square.png"
+            },
+            {
+              "value": "no",
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/shelter/no_square.png"
+            }
+          ]
+        },
+        {
+          "quest_id": 604,
+          "quest_title": "Does this bus stop have seating?",
+          "quest_description": "Indicate whether any seating is available at this bus stop.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bench",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/bench/yes_square.png"
+            },
+            {
+              "value": "no",
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/bench/no_square.png"
+            }
+          ]
+        },
+        {
+          "quest_id": 605,
+          "quest_title": "Does this bus stop have a waste basket?",
+          "quest_description": "Indicate whether this bus stop has a trash can and/or recycling bin present.",
+          "quest_answer_dependency": {
+            "question_id": 31,
+            "required_value": "yes"
+          },
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bin",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/bin/yes_2_square.png"
+            },
+            {
+              "value": "no",
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/bin/no_square.png"
+            }
+          ]
+        },
+        {
+          "quest_id": 606,
+          "quest_title": "Does this bus stop have schedule information posted?",
+          "quest_description": "Indicate whether this bus stop has schedule information posted.",
+          "quest_answer_dependency": {
+            "question_id": 31,
+            "required_value": "yes"
+          },
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_schedule",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/map/yes_square.png"
+            },
+            {
+              "value": "no",
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/map/no_square.png"
             }
           ]
         }
