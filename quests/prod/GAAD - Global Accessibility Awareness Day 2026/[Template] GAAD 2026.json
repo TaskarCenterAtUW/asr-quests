@@ -277,23 +277,6 @@
               "choice_text": "No, there is not a traffic island present."
             }
           ]
-        },
-        {
-          "quest_id": 207,
-          "quest_title": "Is there external lighting for this crossing?",
-          "quest_description": "Determine whether there is lighting from streetlights for this crossing.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:lit",
-          "quest_answer_choices": [
-            {
-              "value": "yes",
-              "choice_text": "Yes, there is lighting."
-            },
-            {
-              "value": "no",
-              "choice_text": "No, there is not lighting."
-            }
-          ]
         }
       ]
     },
