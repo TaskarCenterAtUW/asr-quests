@@ -43,11 +43,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes, part of this pathway narrows."
+              "choice_text": "Yes, part of this pathway narrows.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/narrowest_width_square.png"
             },
             {
               "value": "no",
-              "choice_text": "No, this pathway does not narrow."
+              "choice_text": "No, this pathway does not narrow.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png"
             }
           ]
         },
@@ -60,11 +62,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes"
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/intermediate_square.png"
             },
             {
               "value": "no",
-              "choice_text": "No"
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_landscape.png"
             }
           ]
         },
@@ -77,11 +81,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes"
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/very_bad_square.png"
             },
             {
               "value": "no",
-              "choice_text": "No"
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_landscape.png"
             }
           ]
         },
@@ -94,11 +100,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes"
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/intermediate_square.png"
             },
             {
               "value": "no",
-              "choice_text": "No"
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_landscape.png"
             }
           ]
         },
@@ -111,11 +119,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes"
+              "choice_text": "Yes",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/heaved_landscape.png"
             },
             {
               "value": "no",
-              "choice_text": "No"
+              "choice_text": "No",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_landscape.png"
             }
           ]
         },
@@ -190,11 +200,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes, there are signals present."
+              "choice_text": "Yes, there are signals present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/button/yes_2_square.png"
             },
             {
               "value": "no",
-              "choice_text": "No, there are no signals present."
+              "choice_text": "No, there are no signals present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/button/no_2_square.png"
             }
           ]
         },
@@ -211,11 +223,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes, there are auditory signals present."
+              "choice_text": "Yes, there are auditory signals present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/sound/yes_square.png"
             },
             {
               "value": "no",
-              "choice_text": "No, there are no auditory signals present."
+              "choice_text": "No, there are no auditory signals present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/sound/no_square.png"
             }
           ]
         },
@@ -232,11 +246,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes, there are vibratory signals present."
+              "choice_text": "Yes, there are vibratory signals present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/vibration/yes_square.png"
             },
             {
               "value": "no",
-              "choice_text": "No, there are no vibratory signals present."
+              "choice_text": "No, there are no vibratory signals present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/vibration/no_square.png"
             }
           ]
         },
@@ -253,7 +269,8 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes, there are tactile arrows present."
+              "choice_text": "Yes, there are tactile arrows present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/arrow/yes_square.png"
             },
             {
               "value": "no",
@@ -270,11 +287,13 @@
           "quest_answer_choices": [
             {
               "value": "yes",
-              "choice_text": "Yes, there is a traffic island present."
+              "choice_text": "Yes, there is a traffic island present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/island/yes_2_square.png"
             },
             {
               "value": "no",
-              "choice_text": "No, there is not a traffic island present."
+              "choice_text": "No, there is not a traffic island present.",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/island/no_2_square.png"
             }
           ]
         }
