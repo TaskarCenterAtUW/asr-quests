@@ -35,18 +35,6 @@
           ]
         },
         {
-          "quest_id": 102,
-          "quest_title": "What is the width of this pathway?",
-          "quest_description": "Measure the width of this pathway, in inches.",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
-          "quest_type": "Numeric",
-          "quest_tag": "width",
-          "quest_answer_validation": {
-            "min": 0,
-            "max": 240
-          }
-        },
-        {
           "quest_id": 103,
           "quest_title": "Does this pathway narrow?",
           "quest_description": "Determine whether there are any sections of this pathway that narrow in a way which impedes travel.",
