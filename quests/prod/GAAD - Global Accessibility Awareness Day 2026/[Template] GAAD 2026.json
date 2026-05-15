@@ -998,10 +998,6 @@
           "quest_id": 605,
           "quest_title": "Does this bus stop have a waste basket?",
           "quest_description": "Indicate whether this bus stop has a trash can and/or recycling bin present.",
-          "quest_answer_dependency": {
-            "question_id": 31,
-            "required_value": "yes"
-          },
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bin",
           "quest_answer_choices": [
@@ -1021,10 +1017,6 @@
           "quest_id": 606,
           "quest_title": "Does this bus stop have schedule information posted?",
           "quest_description": "Indicate whether this bus stop has schedule information posted.",
-          "quest_answer_dependency": {
-            "question_id": 31,
-            "required_value": "yes"
-          },
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_schedule",
           "quest_answer_choices": [
