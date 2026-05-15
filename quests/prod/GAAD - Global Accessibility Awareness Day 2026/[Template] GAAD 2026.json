@@ -359,23 +359,6 @@
       "quest_query": "nodes with (ext:entrance=yes)",
       "quests": [
         {
-          "quest_id": 401,
-          "quest_title": "Does this entrance have adequate lighting?",
-          "quest_description": "Check if this entrance area is well-lit, with at least one light source present within 10 feet of both sides of this entrance.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:lit",
-          "quest_answer_choices": [
-            {
-              "value": "yes",
-              "choice_text": "Yes"
-            },
-            {
-              "value": "no",
-              "choice_text": "No"
-            }
-          ]
-        },
-        {
           "quest_id": 402,
           "quest_title": "Is there signage clearly indicating that this is an accessible entrance?",
           "quest_description": "Check if there is signage indicating this as an accessible entrance.",
