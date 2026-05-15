@@ -1052,6 +1052,32 @@
           ]
         }
       ]
+    },
+    {
+      "element_type": "Outdoor POIs",
+      "element_type_icon": "information",
+      "quest_query": "nodes with (ext:outdoor_poi=yes)",
+      "quests": [
+        {
+          "quest_id": 701,
+          "quest_title": "Is this outdoor POI accessible from nearby sidewalks?",
+          "quest_description": "Indicate whether this outdoor point of interest is accessible from nearby sidewalks or pedestrian paths.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:poi_accessible",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes, accessible",
+              "image_url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/check.png"
+            },
+            {
+              "value": "no",
+              "choice_text": "No, not accessible",
+              "image_url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/note_create.png"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
