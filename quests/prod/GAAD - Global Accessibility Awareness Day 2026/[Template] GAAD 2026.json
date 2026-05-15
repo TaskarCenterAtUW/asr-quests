@@ -35,7 +35,7 @@
           ]
         },
         {
-          "quest_id": 103,
+          "quest_id": 102,
           "quest_title": "Does this pathway narrow?",
           "quest_description": "Determine whether there are any sections of this pathway that narrow in a way which impedes travel.",
           "quest_type": "ExclusiveChoice",
@@ -52,7 +52,7 @@
           ]
         },
         {
-          "quest_id": 104,
+          "quest_id": 103,
           "quest_title": "Are there small horizontal surface cracks, disruptions, or gaps on this pathway?",
           "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that are less than 3 inches in width or length.",
           "quest_type": "ExclusiveChoice",
@@ -69,7 +69,7 @@
           ]
         },
         {
-          "quest_id": 105,
+          "quest_id": 104,
           "quest_title": "Are there large horizontal surface cracks, disruptions, or gaps on this pathway?",
           "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that are at least 3 inches in width or length.",
           "quest_type": "ExclusiveChoice",
@@ -86,7 +86,7 @@
           ]
         },
         {
-          "quest_id": 106,
+          "quest_id": 105,
           "quest_title": "Are there small vertical surface cracks, disruptions, or gaps on this pathway?",
           "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that have 1 inch or less in height difference.",
           "quest_type": "ExclusiveChoice",
@@ -103,7 +103,7 @@
           ]
         },
         {
-          "quest_id": 107,
+          "quest_id": 106,
           "quest_title": "Are there large vertical surface cracks, disruptions, or gaps on this pathway?",
           "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that have greater than 1 inch in height difference.",
           "quest_type": "ExclusiveChoice",
@@ -120,7 +120,7 @@
           ]
         },
         {
-          "quest_id": 108,
+          "quest_id": 107,
           "quest_title": "Is there overgrown vegetation along this pathway?",
           "quest_description": "Determine whether there is overgrown vegetation along this pathway which impedes travel.",
           "quest_type": "ExclusiveChoice",
@@ -138,7 +138,7 @@
           ]
         },
         {
-          "quest_id": 109,
+          "quest_id": 108,
           "quest_title": "Are there any other obstacles along this pathway?",
           "quest_description": "Determine whether there are any other obstacles such as utility poles, fire hydrants, or bollards along this pathway which impede travel.",
           "quest_type": "ExclusiveChoice",
@@ -359,7 +359,7 @@
       "quest_query": "nodes with (ext:entrance=yes)",
       "quests": [
         {
-          "quest_id": 402,
+          "quest_id": 401,
           "quest_title": "Is there signage clearly indicating that this is an accessible entrance?",
           "quest_description": "Check if there is signage indicating this as an accessible entrance.",
           "quest_type": "ExclusiveChoice",
@@ -376,7 +376,7 @@
           ]
         },
         {
-          "quest_id": 403,
+          "quest_id": 402,
           "quest_title": "Is there a door at this entrance?",
           "quest_description": "Check if there is a door at this entrance.",
           "quest_type": "ExclusiveChoice",
@@ -393,12 +393,12 @@
           ]
         },
         {
-          "quest_id": 404,
+          "quest_id": 403,
           "quest_title": "What type of door hardware is used at this entrance?",
           "quest_description": "Choose the type of door hardware at this entrance.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 403,
+            "question_id": 402,
             "required_value": "yes"
           },
           "quest_tag": "ext:door:hardware:type",
@@ -422,12 +422,12 @@
           ]
         },
         {
-          "quest_id": 405,
+          "quest_id": 404,
           "quest_title": "Is this door's hardware mounted between 34-48 inches above the floor?",
           "quest_description": "Check if this door's hardware is mounted between 34-48 inches above the floor.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 403,
+            "question_id": 402,
             "required_value": "yes"
           },
           "quest_tag": "ext:door:hardware:compliant_height",
@@ -443,12 +443,12 @@
           ]
         },
         {
-          "quest_id": 406,
+          "quest_id": 405,
           "quest_title": "Does this door have a smooth surface at the bottom of the push side?",
           "quest_description": "Check if the push side of this door has a smooth surface, measured from the floor up to at least 10 inches, to allow wheelchair footrests to pass without obstruction.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 403,
+            "question_id": 402,
             "required_value": "yes"
           },
           "quest_tag": "ext:door:smooth_push_surface",
@@ -464,12 +464,12 @@
           ]
         },
         {
-          "quest_id": 407,
+          "quest_id": 406,
           "quest_title": "Can this door be opened without requiring excessive force?",
           "quest_description": "Check if this door requires the application of excessive force (> 5 lbs) to open.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 403,
+            "question_id": 402,
             "required_value": "yes"
           },
           "quest_tag": "ext:door:compliant_force",
@@ -485,12 +485,12 @@
           ]
         },
         {
-          "quest_id": 408,
+          "quest_id": 407,
           "quest_title": "Does this door have a door closer?",
           "quest_description": "Check if this door has a slow closer or power closing assist.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 403,
+            "question_id": 402,
             "required_value": "yes"
           },
           "quest_tag": "ext:door:closer",
@@ -506,12 +506,12 @@
           ]
         },
         {
-          "quest_id": 409,
+          "quest_id": 408,
           "quest_title": "Does this door closer provide adequate closing time?",
           "quest_description": "Check if this door closer takes at least 5 seconds to close from 90 degrees to 12 degrees.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 408,
+            "question_id": 407,
             "required_value": "yes"
           },
           "quest_tag": "ext:door:closer:compliant_speed",
@@ -527,12 +527,12 @@
           ]
         },
         {
-          "quest_id": 410,
+          "quest_id": 409,
           "quest_title": "Is this an automatic door?",
           "quest_description": "Check if this door has automatic operation available.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 403,
+            "question_id": 402,
             "required_value": "yes"
           },
           "quest_tag": "ext:automatic_door",
@@ -552,12 +552,12 @@
           ]
         },
         {
-          "quest_id": 411,
+          "quest_id": 410,
           "quest_title": "Does the door remain open long enough for safe passage?",
           "quest_description": "Check if this power-operated door remains fully open for at least 5 seconds after button release.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 410,
+            "question_id": 409,
             "required_value": "button"
           },
           "quest_tag": "ext:automatic_door:compliant_timing",
@@ -573,12 +573,12 @@
           ]
         },
         {
-          "quest_id": 412,
+          "quest_id": 411,
           "quest_title": "Is there sufficient clear floor space here for button activation?",
           "quest_description": "Check if there is enough clear floor space adjacent to the button or a push plate for wheelchair users to activate it.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 410,
+            "question_id": 409,
             "required_value": "button"
           },
           "quest_tag": "ext:automatic_door:button:compliant_space",
@@ -594,7 +594,7 @@
           ]
         },
         {
-          "quest_id": 413,
+          "quest_id": 412,
           "quest_title": "Is this entrance wide enough (≥ 32 in) for wheelchair access?",
           "quest_description": "Check if this entrance has at least 32 inches of clear width.",
           "quest_type": "ExclusiveChoice",
@@ -611,7 +611,7 @@
           ]
         },
         {
-          "quest_id": 414,
+          "quest_id": 413,
           "quest_title": "Is this entrance tall enough (≥ 80 in) for accessible access?",
           "quest_description": "Check if this entrance has at least 80 inches of clear height.",
           "quest_type": "ExclusiveChoice",
@@ -628,12 +628,12 @@
           ]
         },
         {
-          "quest_id": 415,
+          "quest_id": 414,
           "quest_title": "Is there adequate maneuvering clearance around this door?",
           "quest_description": "Check if there is sufficient space to approach and operate the door. Requirements: if door swings toward user: 60 inches front, 18 inches beside latch; if away: 48 inches front, 12 inches side",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 403,
+            "question_id": 402,
             "required_value": "yes"
           },
           "quest_tag": "ext:maneuvering_clearance",
@@ -649,12 +649,12 @@
           ]
         },
         {
-          "quest_id": 416,
+          "quest_id": 415,
           "quest_title": "If there is a vestibule (two doors in a row) here, is there enough space between them?",
           "quest_description": "Check if there is at least 48 inches plus the door width between two sequential doors.",
           "quest_type": "ExclusiveChoice",
           "quest_answer_dependency": {
-            "question_id": 403,
+            "question_id": 402,
             "required_value": "yes"
           },
           "quest_tag": "ext:vestibule:compliant_spacing",
@@ -670,7 +670,7 @@
           ]
         },
         {
-          "quest_id": 417,
+          "quest_id": 416,
           "quest_title": "Is this entrance level with the ground?",
           "quest_description": "Check if this entrance is level with the sidewalk and without steps. Slope along the route cannot exceed 1:20. No abrupt level changes: Vertical rise ≤ 1/4 inch is okay; 1/4–1/2 inch must be beveled at 1:2 slope; > 1/2 inch requires a ramp.",
           "quest_type": "ExclusiveChoice",
@@ -687,13 +687,13 @@
           ]
         },
         {
-          "quest_id": 418,
+          "quest_id": 417,
           "quest_title": "Is there a ramp or lift available here?",
           "quest_description": "Check if there is a ramp or mechanical lift present for step-free access to this entrance.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:ramp_or_lift",
           "quest_answer_dependency": {
-            "question_id": 417,
+            "question_id": 416,
             "required_value": "no"
           },
           "quest_answer_choices": [
@@ -712,7 +712,7 @@
           ]
         },
         {
-          "quest_id": 419,
+          "quest_id": 418,
           "quest_title": "After entering, is the path forward here accessible without using steps?",
           "quest_description": "Check if the inside path forward can be traversed without using steps, if there is no elevator or ramp on the same level.",
           "quest_type": "ExclusiveChoice",
@@ -729,7 +729,7 @@
           ]
         },
         {
-          "quest_id": 420,
+          "quest_id": 419,
           "quest_title": "After entering, is the path forward here accessible without traversing a steep incline?",
           "quest_description": "Check if the inside path forward can be traversed without using a slope with an incline ≥ 1:12, a width ≤ 36 inches, landings at the top and bottom (< 60 inches), or without handrails on both sides if the rise is > 6 inches.",
           "quest_type": "ExclusiveChoice",
