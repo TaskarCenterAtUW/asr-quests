@@ -800,48 +800,48 @@
       "quests": [
         {
           "quest_id": 501,
-          "quest_title": "What is the weekday opening time?",
-          "quest_description": "Enter the time the elevator becomes accessible on weekdays (e.g., 8:00 AM).",
-          "quest_type": "TextEntry",
-          "quest_tag": "ext:elevator_opening_weekday"
+          "quest_title": "Does the elevator have buttons with tactile labelling?",
+          "quest_description": "Indicate whether the elevator has mechanical buttons that are labelled on the inner control panel via raised characters and Braille.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:elevator_buttons",
+          "quest_answer_choices": [
+            {
+              "value": "buttons_tactile",
+              "choice_text": "Mechanical buttons with tactile labelling"
+            },
+            {
+              "value": "buttons_not_tactile",
+              "choice_text": "Mechanical buttons without tactile labelling"
+            },
+            {
+              "value": "touchscreen",
+              "choice_text": "Touchscreen or destination elevator"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other actuation type"
+            }
+          ]
         },
         {
           "quest_id": 502,
-          "quest_title": "What is the weekday closing time?",
-          "quest_description": "Enter the time the elevator becomes inaccessible on weekdays (e.g., 8:00 PM).",
-          "quest_type": "TextEntry",
-          "quest_tag": "ext:elevator_closing_weekday"
+          "quest_title": "Does the elevator have audio announcements?",
+          "quest_description": "Indicate whether the elevator has audio announcements indicating the floor at which it has stopped.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:elevator_announcements",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
         },
         {
           "quest_id": 503,
-          "quest_title": "What is the Saturday opening time?",
-          "quest_description": "Enter the time the elevator becomes accessible on Saturdays.",
-          "quest_type": "TextEntry",
-          "quest_tag": "ext:elevator_opening_sat"
-        },
-        {
-          "quest_id": 504,
-          "quest_title": "What is the Saturday closing time?",
-          "quest_description": "Enter the time the elevator becomes inaccessible on Saturdays.",
-          "quest_type": "TextEntry",
-          "quest_tag": "ext:elevator_closing_sat"
-        },
-        {
-          "quest_id": 505,
-          "quest_title": "What is the Sunday opening time?",
-          "quest_description": "Enter the time the elevator becomes accessible on Sundays.",
-          "quest_type": "TextEntry",
-          "quest_tag": "ext:elevator_opening_sun"
-        },
-        {
-          "quest_id": 506,
-          "quest_title": "What is the Sunday closing time?",
-          "quest_description": "Enter the time the elevator becomes inaccessible on Sundays.",
-          "quest_type": "TextEntry",
-          "quest_tag": "ext:elevator_closing_sun"
-        },
-        {
-          "quest_id": 507,
           "quest_title": "Is the elevator located indoors?",
           "quest_description": "Indicate whether the elevator is inside a building or exposed to the outdoors.",
           "quest_type": "ExclusiveChoice",
@@ -858,7 +858,7 @@
           ]
         },
         {
-          "quest_id": 508,
+          "quest_id": 504,
           "quest_title": "Is there a security desk present?",
           "quest_description": "Determine if there is a staffed security desk or check-in point near the elevator entrance.",
           "quest_type": "ExclusiveChoice",
@@ -873,6 +873,89 @@
               "choice_text": "No"
             }
           ]
+        },
+        {
+          "quest_id": 505,
+          "quest_title": "Is the elevator accessible at specific times?",
+          "quest_description": "Indicate whether the elevator is subject to an opening or closing schedules.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:elevator_schedule",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        }
+        {
+          "quest_id": 506,
+          "quest_title": "What is the weekday opening time?",
+          "quest_description": "Enter the time the elevator becomes accessible on weekdays (e.g., 8:00 AM).",
+          "quest_type": "TextEntry",
+          "quest_answer_dependency": {
+            "question_id": 505,
+            "required_value": "yes"
+          },
+          "quest_tag": "ext:elevator_opening_weekday"
+        },
+        {
+          "quest_id": 507,
+          "quest_title": "What is the weekday closing time?",
+          "quest_description": "Enter the time the elevator becomes inaccessible on weekdays (e.g., 8:00 PM).",
+          "quest_type": "TextEntry",
+          "quest_answer_dependency": {
+            "question_id": 505,
+            "required_value": "yes"
+          },
+          "quest_tag": "ext:elevator_closing_weekday"
+        },
+        {
+          "quest_id": 508,
+          "quest_title": "What is the Saturday opening time?",
+          "quest_description": "Enter the time the elevator becomes accessible on Saturdays.",
+          "quest_type": "TextEntry",
+          "quest_answer_dependency": {
+            "question_id": 505,
+            "required_value": "yes"
+          },
+          "quest_tag": "ext:elevator_opening_sat"
+        },
+        {
+          "quest_id": 509,
+          "quest_title": "What is the Saturday closing time?",
+          "quest_description": "Enter the time the elevator becomes inaccessible on Saturdays.",
+          "quest_type": "TextEntry",
+          "quest_answer_dependency": {
+            "question_id": 505,
+            "required_value": "yes"
+          },
+          "quest_tag": "ext:elevator_closing_sat"
+        },
+        {
+          "quest_id": 510,
+          "quest_title": "What is the Sunday opening time?",
+          "quest_description": "Enter the time the elevator becomes accessible on Sundays.",
+          "quest_type": "TextEntry",
+          "quest_answer_dependency": {
+            "question_id": 505,
+            "required_value": "yes"
+          },
+          "quest_tag": "ext:elevator_opening_sun"
+        },
+        {
+          "quest_id": 511,
+          "quest_title": "What is the Sunday closing time?",
+          "quest_description": "Enter the time the elevator becomes inaccessible on Sundays.",
+          "quest_type": "TextEntry",
+          "quest_answer_dependency": {
+            "question_id": 505,
+            "required_value": "yes"
+          },
+          "quest_tag": "ext:elevator_closing_sun"
         }
       ]
     },
