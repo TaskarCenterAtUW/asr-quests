@@ -960,7 +960,7 @@
       ]
     },
     {
-      "element_type": "Temporary Bus Stops",
+      "element_type": "Bus Stops",
       "element_type_icon": "bus",
       "quest_query": "nodes with (ext:highway=bus_stop)",
       "quests": [
