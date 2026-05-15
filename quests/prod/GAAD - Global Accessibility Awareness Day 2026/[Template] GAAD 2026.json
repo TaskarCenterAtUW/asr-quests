@@ -356,7 +356,7 @@
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/no_square.png"
             }
           ]
-        }
+        },
         {
           "quest_id": 303,
           "quest_title": "Is the tactile paving a high-contrast, truncated dome warning surface?",
@@ -890,7 +890,7 @@
               "choice_text": "No"
             }
           ]
-        }
+        },
         {
           "quest_id": 506,
           "quest_title": "What is the weekday opening time?",
