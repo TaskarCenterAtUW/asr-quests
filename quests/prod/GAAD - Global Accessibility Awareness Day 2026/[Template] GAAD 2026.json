@@ -831,7 +831,7 @@
         {
           "quest_id": 505,
           "quest_title": "Is the elevator accessible at specific times?",
-          "quest_description": "Indicate whether the elevator is subject to an opening or closing schedules.",
+          "quest_description": "Indicate whether the elevator is subject to an opening or closing schedule.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:elevator_schedule",
           "quest_answer_choices": [
