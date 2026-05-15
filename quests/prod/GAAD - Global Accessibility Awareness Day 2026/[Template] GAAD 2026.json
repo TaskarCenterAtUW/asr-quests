@@ -80,7 +80,7 @@
             }
           ]
         },
-                {
+        {
           "quest_id": 105,
           "quest_title": "Are there large horizontal surface cracks, disruptions, or gaps on this pathway?",
           "quest_description": "Determine whether there are cracks, disruptions, or gaps in the pathway surface that are at least 3 inches in width or length.",
