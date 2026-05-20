@@ -60,7 +60,9 @@ function questFromJson(quest) {
   const deps = dep
     ? (Array.isArray(dep) ? dep : [dep]).map((d) => ({
         question_id: d.question_id ?? null,
-        required_value: d.required_value ?? "",
+        required_value: Array.isArray(d.required_value)
+          ? [...d.required_value]
+          : d.required_value ?? "",
       }))
     : [];
 

@@ -6,6 +6,7 @@ import { useQuestStore } from "../stores/questStore";
 import ImagePreview from "./ImagePreview.vue";
 import ChoiceList from "./ChoiceList.vue";
 import NumericValidation from "./NumericValidation.vue";
+import DependencyEditor from "./DependencyEditor.vue";
 
 const props = defineProps({
     elementIndex: { type: Number, required: true },
@@ -133,6 +134,10 @@ function update(fields) {
 
         <ChoiceList :element-index="elementIndex" :quest-index="questIndex" />
         <NumericValidation
+            :element-index="elementIndex"
+            :quest-index="questIndex"
+        />
+        <DependencyEditor
             :element-index="elementIndex"
             :quest-index="questIndex"
         />
