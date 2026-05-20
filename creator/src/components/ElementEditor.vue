@@ -3,6 +3,7 @@
 <script setup>
 import { useQuestStore } from "../stores/questStore";
 import IconPicker from "./IconPicker.vue";
+import QuestList from "./QuestList.vue";
 
 const props = defineProps({
     elementIndex: { type: Number, required: true },
@@ -61,4 +62,6 @@ function update(fields) {
             @update:model-value="update({ element_type_icon: $event })"
         />
     </div>
+
+    <QuestList :element-index="elementIndex" />
 </template>

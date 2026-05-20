@@ -1,0 +1,132 @@
+<!-- @format -->
+
+<script setup>
+import { computed } from "vue";
+import { useQuestStore } from "../stores/questStore";
+import ImagePreview from "./ImagePreview.vue";
+
+const props = defineProps({
+    elementIndex: { type: Number, required: true },
+    questIndex: { type: Number, required: true },
+});
+
+const store = useQuestStore();
+
+const quest = computed(
+    () => store.definition.elements[props.elementIndex]?.quests[props.questIndex]
+);
+
+function update(fields) {
+    store.updateQuest(props.elementIndex, props.questIndex, fields);
+}
+</script>
+
+<template>
+    <div v-if="quest" class="row g-3">
+        <div class="col-md-4">
+            <label :for="`quest-id-${elementIndex}-${questIndex}`" class="form-label"
+                >Quest ID</label
+            >
+            <input
+                :id="`quest-id-${elementIndex}-${questIndex}`"
+                type="number"
+                class="form-control"
+                :value="quest.quest_id"
+                @input="update({ quest_id: Number($event.target.value) || 0 })"
+            />
+            <div class="form-text">Auto-assigned by default; can be overridden.</div>
+        </div>
+
+        <div class="col-md-8">
+            <label
+                :for="`quest-title-${elementIndex}-${questIndex}`"
+                class="form-label"
+                >Quest Title <span aria-hidden="true" class="text-danger">*</span></label
+            >
+            <input
+                :id="`quest-title-${elementIndex}-${questIndex}`"
+                type="text"
+                class="form-control"
+                :value="quest.quest_title"
+                required
+                aria-required="true"
+                @input="update({ quest_title: $event.target.value })"
+            />
+        </div>
+
+        <div class="col-12">
+            <label
+                :for="`quest-desc-${elementIndex}-${questIndex}`"
+                class="form-label"
+                >Description <span aria-hidden="true" class="text-danger">*</span></label
+            >
+            <textarea
+                :id="`quest-desc-${elementIndex}-${questIndex}`"
+                class="form-control"
+                rows="2"
+                :value="quest.quest_description"
+                required
+                aria-required="true"
+                @input="update({ quest_description: $event.target.value })"
+            ></textarea>
+        </div>
+
+        <div class="col-md-6">
+            <label
+                :for="`quest-type-${elementIndex}-${questIndex}`"
+                class="form-label"
+                >Quest Type <span aria-hidden="true" class="text-danger">*</span></label
+            >
+            <select
+                :id="`quest-type-${elementIndex}-${questIndex}`"
+                class="form-select"
+                :value="quest.quest_type"
+                required
+                aria-required="true"
+                @change="update({ quest_type: $event.target.value })"
+            >
+                <option value="ExclusiveChoice">ExclusiveChoice</option>
+                <option value="MultipleChoice">MultipleChoice</option>
+                <option value="Numeric">Numeric</option>
+                <option value="TextEntry">TextEntry</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label
+                :for="`quest-tag-${elementIndex}-${questIndex}`"
+                class="form-label"
+                >Quest Tag <span aria-hidden="true" class="text-danger">*</span></label
+            >
+            <input
+                :id="`quest-tag-${elementIndex}-${questIndex}`"
+                type="text"
+                class="form-control"
+                :value="quest.quest_tag"
+                required
+                aria-required="true"
+                @input="update({ quest_tag: $event.target.value })"
+            />
+        </div>
+
+        <div class="col-12">
+            <label
+                :for="`quest-image-${elementIndex}-${questIndex}`"
+                class="form-label"
+                >Quest Image URL</label
+            >
+            <input
+                :id="`quest-image-${elementIndex}-${questIndex}`"
+                type="url"
+                class="form-control"
+                :value="quest.quest_image_url"
+                placeholder="https://example.com/image.jpg"
+                @input="update({ quest_image_url: $event.target.value })"
+            />
+            <ImagePreview
+                :url="quest.quest_image_url"
+                :alt="`Preview for quest ${quest.quest_title || quest.quest_id}`"
+            />
+        </div>
+    </div>
+</template>
