@@ -14,10 +14,7 @@ const currentView = ref("welcome");
         v-if="currentView === 'welcome'"
         @navigate="currentView = $event"
     />
-    <div
-        v-else-if="currentView === 'editor'"
-        style="height: 100vh; overflow: hidden"
-    >
+    <div v-else-if="currentView === 'editor'" style="min-height: 100vh">
         <ElementList />
     </div>
 </template>

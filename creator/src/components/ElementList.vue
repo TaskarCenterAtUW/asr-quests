@@ -39,11 +39,11 @@ function removeElement(index) {
 </script>
 
 <template>
-    <div class="row g-0 h-100">
+    <div class="row g-0">
         <!-- Left: list -->
-        <div class="col-4 col-lg-3 border-end d-flex flex-column">
+        <div class="col-3 col-xl-2 border-end d-flex flex-column">
             <div
-                class="p-2 border-bottom d-flex justify-content-between align-items-center"
+                class="px-2 py-2 border-bottom d-flex justify-content-between align-items-center"
             >
                 <span class="fw-semibold small text-uppercase text-muted"
                     >Elements</span
@@ -59,7 +59,7 @@ function removeElement(index) {
             </div>
 
             <ul
-                class="list-group list-group-flush flex-grow-1 overflow-auto"
+                class="list-group list-group-flush flex-grow-1 overflow-auto small"
                 role="listbox"
                 aria-label="Elements"
             >
@@ -78,14 +78,14 @@ function removeElement(index) {
                         v-if="iconUrl(el.element_type_icon)"
                         :src="iconUrl(el.element_type_icon)"
                         :alt="el.element_type_icon"
-                        width="28"
-                        height="28"
+                        width="24"
+                        height="24"
                         class="rounded flex-shrink-0"
                     />
                     <span
                         v-else
                         class="rounded bg-secondary flex-shrink-0 d-inline-block"
-                        style="width: 28px; height: 28px"
+                        style="width: 24px; height: 24px"
                         aria-hidden="true"
                     ></span>
 
@@ -110,12 +110,12 @@ function removeElement(index) {
         </div>
 
         <!-- Right: editor -->
-        <div class="col-8 col-lg-9 p-3 overflow-auto">
+        <div class="col-9 col-xl-10 p-2 p-lg-3">
             <div v-if="selectedIndex !== null && elements[selectedIndex]">
                 <div
-                    class="d-flex justify-content-between align-items-center mb-3"
+                    class="d-flex justify-content-between align-items-center mb-2"
                 >
-                    <h2 class="h5 mb-0">
+                    <h2 class="h6 mb-0 fw-semibold">
                         Element {{ selectedIndex + 1 }}
                         <span
                             v-if="elements[selectedIndex].element_type"
@@ -127,7 +127,7 @@ function removeElement(index) {
                     <div class="d-flex gap-1">
                         <button
                             type="button"
-                            class="btn btn-sm btn-outline-secondary"
+                            class="btn btn-sm btn-outline-secondary py-1 px-2"
                             :disabled="selectedIndex === 0"
                             aria-label="Move element up"
                             @click="
@@ -139,7 +139,7 @@ function removeElement(index) {
                         </button>
                         <button
                             type="button"
-                            class="btn btn-sm btn-outline-secondary"
+                            class="btn btn-sm btn-outline-secondary py-1 px-2"
                             :disabled="selectedIndex === elements.length - 1"
                             aria-label="Move element down"
                             @click="
@@ -151,7 +151,7 @@ function removeElement(index) {
                         </button>
                         <button
                             type="button"
-                            class="btn btn-sm btn-outline-danger"
+                            class="btn btn-sm btn-outline-danger py-1 px-2"
                             aria-label="Delete element"
                             @click="removeElement(selectedIndex)"
                         >
@@ -163,7 +163,7 @@ function removeElement(index) {
                 <ElementEditor :element-index="selectedIndex" />
             </div>
 
-            <div v-else class="text-muted text-center mt-5 fst-italic">
+            <div v-else class="text-muted text-center mt-4 fst-italic small">
                 {{
                     elements.length === 0
                         ? "Add an element to get started."

@@ -59,12 +59,12 @@ function moveQuestDown(questIndex) {
 </script>
 
 <template>
-    <section class="mt-4 pt-3 border-top">
+    <section class="mt-3 pt-2 border-top">
         <div class="d-flex align-items-center justify-content-between mb-2">
-            <h3 class="h6 mb-0">Quests</h3>
+            <h3 class="h6 mb-0 fw-semibold">Quests</h3>
             <button
                 type="button"
-                class="btn btn-sm btn-primary"
+                class="btn btn-sm btn-primary py-1 px-2"
                 @click="addQuest"
                 aria-label="Add quest"
             >
@@ -74,7 +74,7 @@ function moveQuestDown(questIndex) {
 
         <div
             v-if="quests.length === 0"
-            class="text-muted small fst-italic border rounded p-3"
+            class="text-muted small fst-italic border rounded p-2"
         >
             No quests yet. Add one to define prompts for this element.
         </div>
@@ -87,7 +87,7 @@ function moveQuestDown(questIndex) {
             >
                 <h4 class="accordion-header">
                     <button
-                        class="accordion-button"
+                        class="accordion-button py-2 px-3 small"
                         :class="{ collapsed: openQuestIndex !== questIndex }"
                         type="button"
                         :aria-expanded="openQuestIndex === questIndex"
@@ -105,10 +105,10 @@ function moveQuestDown(questIndex) {
                     class="accordion-collapse show"
                 >
                     <div class="accordion-body">
-                        <div class="d-flex gap-1 justify-content-end mb-3">
+                        <div class="d-flex gap-1 justify-content-end mb-2">
                             <button
                                 type="button"
-                                class="btn btn-sm btn-outline-secondary"
+                                class="btn btn-sm btn-outline-secondary py-1 px-2"
                                 :disabled="questIndex === 0"
                                 aria-label="Move quest up"
                                 @click="moveQuestUp(questIndex)"
@@ -117,7 +117,7 @@ function moveQuestDown(questIndex) {
                             </button>
                             <button
                                 type="button"
-                                class="btn btn-sm btn-outline-secondary"
+                                class="btn btn-sm btn-outline-secondary py-1 px-2"
                                 :disabled="questIndex === quests.length - 1"
                                 aria-label="Move quest down"
                                 @click="moveQuestDown(questIndex)"
@@ -126,7 +126,7 @@ function moveQuestDown(questIndex) {
                             </button>
                             <button
                                 type="button"
-                                class="btn btn-sm btn-outline-danger"
+                                class="btn btn-sm btn-outline-danger py-1 px-2"
                                 aria-label="Delete quest"
                                 @click="removeQuest(questIndex)"
                             >

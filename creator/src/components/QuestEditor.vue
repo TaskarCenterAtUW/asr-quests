@@ -4,6 +4,8 @@
 import { computed } from "vue";
 import { useQuestStore } from "../stores/questStore";
 import ImagePreview from "./ImagePreview.vue";
+import ChoiceList from "./ChoiceList.vue";
+import NumericValidation from "./NumericValidation.vue";
 
 const props = defineProps({
     elementIndex: { type: Number, required: true },
@@ -22,7 +24,7 @@ function update(fields) {
 </script>
 
 <template>
-    <div v-if="quest" class="row g-3">
+    <div v-if="quest" class="row g-2">
         <div class="col-md-4">
             <label :for="`quest-id-${elementIndex}-${questIndex}`" class="form-label"
                 >Quest ID</label
@@ -30,11 +32,11 @@ function update(fields) {
             <input
                 :id="`quest-id-${elementIndex}-${questIndex}`"
                 type="number"
-                class="form-control"
+                class="form-control form-control-sm"
                 :value="quest.quest_id"
                 @input="update({ quest_id: Number($event.target.value) || 0 })"
             />
-            <div class="form-text">Auto-assigned by default; can be overridden.</div>
+            <div class="form-text small">Auto-assigned by default; can be overridden.</div>
         </div>
 
         <div class="col-md-8">
@@ -46,7 +48,7 @@ function update(fields) {
             <input
                 :id="`quest-title-${elementIndex}-${questIndex}`"
                 type="text"
-                class="form-control"
+                class="form-control form-control-sm"
                 :value="quest.quest_title"
                 required
                 aria-required="true"
@@ -62,7 +64,7 @@ function update(fields) {
             >
             <textarea
                 :id="`quest-desc-${elementIndex}-${questIndex}`"
-                class="form-control"
+                class="form-control form-control-sm"
                 rows="2"
                 :value="quest.quest_description"
                 required
@@ -79,7 +81,7 @@ function update(fields) {
             >
             <select
                 :id="`quest-type-${elementIndex}-${questIndex}`"
-                class="form-select"
+                class="form-select form-select-sm"
                 :value="quest.quest_type"
                 required
                 aria-required="true"
@@ -101,7 +103,7 @@ function update(fields) {
             <input
                 :id="`quest-tag-${elementIndex}-${questIndex}`"
                 type="text"
-                class="form-control"
+                class="form-control form-control-sm"
                 :value="quest.quest_tag"
                 required
                 aria-required="true"
@@ -118,7 +120,7 @@ function update(fields) {
             <input
                 :id="`quest-image-${elementIndex}-${questIndex}`"
                 type="url"
-                class="form-control"
+                class="form-control form-control-sm"
                 :value="quest.quest_image_url"
                 placeholder="https://example.com/image.jpg"
                 @input="update({ quest_image_url: $event.target.value })"
@@ -128,5 +130,11 @@ function update(fields) {
                 :alt="`Preview for quest ${quest.quest_title || quest.quest_id}`"
             />
         </div>
+
+        <ChoiceList :element-index="elementIndex" :quest-index="questIndex" />
+        <NumericValidation
+            :element-index="elementIndex"
+            :quest-index="questIndex"
+        />
     </div>
 </template>
