@@ -4,6 +4,9 @@
 import { ref, computed } from "vue";
 import { useQuestStore } from "../stores/questStore";
 import ElementEditor from "./ElementEditor.vue";
+import JsonPreview from "./JsonPreview.vue";
+import ValidationBanner from "./ValidationBanner.vue";
+import ExportPanel from "./ExportPanel.vue";
 import icons from "../assets/icons.json";
 
 const store = useQuestStore();
@@ -111,7 +114,7 @@ function removeElement(index) {
 
         <!-- Right: editor -->
         <div class="col-9 col-xl-10 p-2 p-lg-3">
-            <div v-if="selectedIndex !== null && elements[selectedIndex]">
+            <div v-if="selectedIndex !== null && elements[selectedIndex]" class="d-grid gap-3">
                 <div
                     class="d-flex justify-content-between align-items-center mb-2"
                 >
@@ -169,6 +172,28 @@ function removeElement(index) {
                         ? "Add an element to get started."
                         : "Select an element to edit it."
                 }}
+            </div>
+
+            <div class="mt-3 d-grid gap-3">
+                <ValidationBanner />
+
+                <div class="card shadow-sm">
+                    <div class="card-header py-2 px-3 d-flex justify-content-between align-items-center">
+                        <span class="fw-semibold small text-uppercase text-muted">JSON Preview</span>
+                    </div>
+                    <div class="card-body p-2">
+                        <JsonPreview />
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header py-2 px-3 d-flex justify-content-between align-items-center">
+                        <span class="fw-semibold small text-uppercase text-muted">Export</span>
+                    </div>
+                    <div class="card-body p-2">
+                        <ExportPanel />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
