@@ -1,0 +1,722 @@
+[
+    {
+        "name": "Access Point",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/access_point.png"
+    },
+    {
+        "name": "Apple",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/apple.png"
+    },
+    {
+        "name": "Baby",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/baby.png"
+    },
+    {
+        "name": "Barrier",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/barrier.png"
+    },
+    {
+        "name": "Barrier On Path",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/barrier_on_path.png"
+    },
+    {
+        "name": "Barrier On Road",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/barrier_on_road.png"
+    },
+    {
+        "name": "Beach",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/beach.png"
+    },
+    {
+        "name": "Beer",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/beer.png"
+    },
+    {
+        "name": "Bench Poi",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bench_poi.png"
+    },
+    {
+        "name": "Bench Public Transport",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bench_public_transport.png"
+    },
+    {
+        "name": "Bicycle",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle.png"
+    },
+    {
+        "name": "Bicycle Incline",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_incline.png"
+    },
+    {
+        "name": "Bicycle Parking",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_parking.png"
+    },
+    {
+        "name": "Bicycle Parking Access",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_parking_access.png"
+    },
+    {
+        "name": "Bicycle Parking Capacity",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_parking_capacity.png"
+    },
+    {
+        "name": "Bicycle Parking Cover",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_parking_cover.png"
+    },
+    {
+        "name": "Bicycle Parking Fee",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_parking_fee.png"
+    },
+    {
+        "name": "Bicycle Pump",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_pump.png"
+    },
+    {
+        "name": "Bicycle Rental",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_rental.png"
+    },
+    {
+        "name": "Bicycle Rental Capacity",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_rental_capacity.png"
+    },
+    {
+        "name": "Bicycle Repair",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_repair.png"
+    },
+    {
+        "name": "Bicycle Second Hand",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycle_second_hand.png"
+    },
+    {
+        "name": "Bicycleway",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycleway.png"
+    },
+    {
+        "name": "Bicycleway Surface",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycleway_surface.png"
+    },
+    {
+        "name": "Bicycleway Surface Detail",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycleway_surface_detail.png"
+    },
+    {
+        "name": "Bicycleway Width",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bicycleway_width.png"
+    },
+    {
+        "name": "Bin Public Transport",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bin_public_transport.png"
+    },
+    {
+        "name": "Blind",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/blind.png"
+    },
+    {
+        "name": "Blind Bus",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/blind_bus.png"
+    },
+    {
+        "name": "Blind Pedestrian Crossing",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/blind_pedestrian_crossing.png"
+    },
+    {
+        "name": "Blind Traffic Lights",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/blind_traffic_lights.png"
+    },
+    {
+        "name": "Blind Traffic Lights Sound",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/blind_traffic_lights_sound.png"
+    },
+    {
+        "name": "Board Type",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/board_type.png"
+    },
+    {
+        "name": "Bridge",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bridge.png"
+    },
+    {
+        "name": "Building",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/building.png"
+    },
+    {
+        "name": "Building Construction",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/building_construction.png"
+    },
+    {
+        "name": "Building Height",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/building_height.png"
+    },
+    {
+        "name": "Building Inside",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/building_inside.png"
+    },
+    {
+        "name": "Building Levels",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/building_levels.png"
+    },
+    {
+        "name": "Building Underground",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/building_underground.png"
+    },
+    {
+        "name": "Bus",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bus.png"
+    },
+    {
+        "name": "Bus Stop Lit",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bus_stop_lit.png"
+    },
+    {
+        "name": "Bus Stop Name",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bus_stop_name.png"
+    },
+    {
+        "name": "Bus Stop Shelter",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/bus_stop_shelter.png"
+    },
+    {
+        "name": "Calendar",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/calendar.png"
+    },
+    {
+        "name": "Camp Power",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/camp_power.png"
+    },
+    {
+        "name": "Car",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/car.png"
+    },
+    {
+        "name": "Car Air Compressor",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/car_air_compressor.png"
+    },
+    {
+        "name": "Car Bumpy",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/car_bumpy.png"
+    },
+    {
+        "name": "Car Charger",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/car_charger.png"
+    },
+    {
+        "name": "Car Charger Capacity",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/car_charger_capacity.png"
+    },
+    {
+        "name": "Car Wash",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/car_wash.png"
+    },
+    {
+        "name": "Card",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/card.png"
+    },
+    {
+        "name": "Cash",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/cash.png"
+    },
+    {
+        "name": "Check",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/check.png"
+    },
+    {
+        "name": "Check Shop",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/check_shop.png"
+    },
+    {
+        "name": "Choker",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/choker.png"
+    },
+    {
+        "name": "Christian",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/christian.png"
+    },
+    {
+        "name": "Cow",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/cow.png"
+    },
+    {
+        "name": "Crown",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/crown.png"
+    },
+    {
+        "name": "Defibrillator",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/defibrillator.png"
+    },
+    {
+        "name": "Door",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/door.png"
+    },
+    {
+        "name": "Door Address",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/door_address.png"
+    },
+    {
+        "name": "Drinking Water",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/drinking_water.png"
+    },
+    {
+        "name": "Fee",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/fee.png"
+    },
+    {
+        "name": "Ferry",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/ferry.png"
+    },
+    {
+        "name": "Ferry Pedestrian",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/ferry_pedestrian.png"
+    },
+    {
+        "name": "Fire",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/fire.png"
+    },
+    {
+        "name": "Fire Hydrant",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/fire_hydrant.png"
+    },
+    {
+        "name": "Fire Hydrant Diameter",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/fire_hydrant_diameter.png"
+    },
+    {
+        "name": "Fire Hydrant Grass",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/fire_hydrant_grass.png"
+    },
+    {
+        "name": "Fire Hydrant Ref",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/fire_hydrant_ref.png"
+    },
+    {
+        "name": "Footway Surface",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/footway_surface.png"
+    },
+    {
+        "name": "Footway Surface Detail",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/footway_surface_detail.png"
+    },
+    {
+        "name": "Fuel",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/fuel.png"
+    },
+    {
+        "name": "Fuel Self Service",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/fuel_self_service.png"
+    },
+    {
+        "name": "Hairdresser",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/hairdresser.png"
+    },
+    {
+        "name": "Halal",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/halal.png"
+    },
+    {
+        "name": "Housenumber",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/housenumber.png"
+    },
+    {
+        "name": "Housenumber Street",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/housenumber_street.png"
+    },
+    {
+        "name": "Information",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/information.png"
+    },
+    {
+        "name": "Kerb Tactile Paving",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/kerb_tactile_paving.png"
+    },
+    {
+        "name": "Kerb Type",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/kerb_type.png"
+    },
+    {
+        "name": "Kosher",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/kosher.png"
+    },
+    {
+        "name": "Label",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/label.png"
+    },
+    {
+        "name": "Lantern",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/lantern.png"
+    },
+    {
+        "name": "Laundry",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/laundry.png"
+    },
+    {
+        "name": "Leaf",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/leaf.png"
+    },
+    {
+        "name": "Level",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/level.png"
+    },
+    {
+        "name": "Mail",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/mail.png"
+    },
+    {
+        "name": "Mail Ref",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/mail_ref.png"
+    },
+    {
+        "name": "Max Height",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/max_height.png"
+    },
+    {
+        "name": "Max Height Measure",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/max_height_measure.png"
+    },
+    {
+        "name": "Max Speed",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/max_speed.png"
+    },
+    {
+        "name": "Max Weight",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/max_weight.png"
+    },
+    {
+        "name": "Max Width",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/max_width.png"
+    },
+    {
+        "name": "Memorial",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/memorial.png"
+    },
+    {
+        "name": "Money",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/money.png"
+    },
+    {
+        "name": "Motorcycle",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/motorcycle.png"
+    },
+    {
+        "name": "Motorcycle Parking",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/motorcycle_parking.png"
+    },
+    {
+        "name": "Motorcycle Parking Capacity",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/motorcycle_parking_capacity.png"
+    },
+    {
+        "name": "Motorcycle Parking Cover",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/motorcycle_parking_cover.png"
+    },
+    {
+        "name": "Museum",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/museum.png"
+    },
+    {
+        "name": "No Bicycles",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/no_bicycles.png"
+    },
+    {
+        "name": "No Cars",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/no_cars.png"
+    },
+    {
+        "name": "No Cow",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/no_cow.png"
+    },
+    {
+        "name": "No Pedestrians",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/no_pedestrians.png"
+    },
+    {
+        "name": "Note Create",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/note_create.png"
+    },
+    {
+        "name": "Notes",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/notes.png"
+    },
+    {
+        "name": "Oneway",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/oneway.png"
+    },
+    {
+        "name": "Opening Hours",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/opening_hours.png"
+    },
+    {
+        "name": "Opening Hours Signed",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/opening_hours_signed.png"
+    },
+    {
+        "name": "Parking",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/parking.png"
+    },
+    {
+        "name": "Parking Access",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/parking_access.png"
+    },
+    {
+        "name": "Parking Fee",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/parking_fee.png"
+    },
+    {
+        "name": "Parking Lane",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/parking_lane.png"
+    },
+    {
+        "name": "Parking Maxstay",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/parking_maxstay.png"
+    },
+    {
+        "name": "Path Segregation",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/path_segregation.png"
+    },
+    {
+        "name": "Peak",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/peak.png"
+    },
+    {
+        "name": "Pedestrian",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/pedestrian.png"
+    },
+    {
+        "name": "Pedestrian Crossing",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/pedestrian_crossing.png"
+    },
+    {
+        "name": "Pedestrian Crossing Island",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/pedestrian_crossing_island.png"
+    },
+    {
+        "name": "Phone",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/phone.png"
+    },
+    {
+        "name": "Picnic Table Cover",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/picnic_table_cover.png"
+    },
+    {
+        "name": "Pitch Lantern",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/pitch_lantern.png"
+    },
+    {
+        "name": "Pitch Surface",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/pitch_surface.png"
+    },
+    {
+        "name": "Playground",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/playground.png"
+    },
+    {
+        "name": "Police",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/police.png"
+    },
+    {
+        "name": "Power",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/power.png"
+    },
+    {
+        "name": "Quest",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/quest.png"
+    },
+    {
+        "name": "Railway",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/railway.png"
+    },
+    {
+        "name": "Recycling",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/recycling.png"
+    },
+    {
+        "name": "Recycling Clothes",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/recycling_clothes.png"
+    },
+    {
+        "name": "Recycling Container",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/recycling_container.png"
+    },
+    {
+        "name": "Recycling Glass",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/recycling_glass.png"
+    },
+    {
+        "name": "Religion",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/religion.png"
+    },
+    {
+        "name": "Religion Service Times",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/religion_service_times.png"
+    },
+    {
+        "name": "Restaurant",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/restaurant.png"
+    },
+    {
+        "name": "Restaurant Vegan",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/restaurant_vegan.png"
+    },
+    {
+        "name": "Restaurant Vegetarian",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/restaurant_vegetarian.png"
+    },
+    {
+        "name": "Road Construction",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/road_construction.png"
+    },
+    {
+        "name": "Roof Shape",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/roof_shape.png"
+    },
+    {
+        "name": "Seating",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/seating.png"
+    },
+    {
+        "name": "Shop",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/shop.png"
+    },
+    {
+        "name": "Shower",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/shower.png"
+    },
+    {
+        "name": "Sidewalk",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/sidewalk.png"
+    },
+    {
+        "name": "Sidewalk Surface",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/sidewalk_surface.png"
+    },
+    {
+        "name": "Smoking",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/smoking.png"
+    },
+    {
+        "name": "Snow Poi",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/snow_poi.png"
+    },
+    {
+        "name": "Sport",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/sport.png"
+    },
+    {
+        "name": "Steps",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/steps.png"
+    },
+    {
+        "name": "Steps Count",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/steps_count.png"
+    },
+    {
+        "name": "Steps Count Brown",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/steps_count_brown.png"
+    },
+    {
+        "name": "Steps Handrail",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/steps_handrail.png"
+    },
+    {
+        "name": "Steps Ramp",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/steps_ramp.png"
+    },
+    {
+        "name": "Steps Tactile Paving",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/steps_tactile_paving.png"
+    },
+    {
+        "name": "Street",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/street.png"
+    },
+    {
+        "name": "Street Lanes",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/street_lanes.png"
+    },
+    {
+        "name": "Street Name",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/street_name.png"
+    },
+    {
+        "name": "Street Shoulder",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/street_shoulder.png"
+    },
+    {
+        "name": "Street Surface",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/street_surface.png"
+    },
+    {
+        "name": "Street Surface Detail",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/street_surface_detail.png"
+    },
+    {
+        "name": "Street Turn Lanes",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/street_turn_lanes.png"
+    },
+    {
+        "name": "Street Width",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/street_width.png"
+    },
+    {
+        "name": "Summit Cross",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/summit_cross.png"
+    },
+    {
+        "name": "Surveillance",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/surveillance.png"
+    },
+    {
+        "name": "Surveillance Camera",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/surveillance_camera.png"
+    },
+    {
+        "name": "Tent",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/tent.png"
+    },
+    {
+        "name": "Toilet Fee",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/toilet_fee.png"
+    },
+    {
+        "name": "Toilets",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/toilets.png"
+    },
+    {
+        "name": "Toilets Wheelchair",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/toilets_wheelchair.png"
+    },
+    {
+        "name": "Tractor",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/tractor.png"
+    },
+    {
+        "name": "Traffic Lights",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/traffic_lights.png"
+    },
+    {
+        "name": "Way Surface",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/way_surface.png"
+    },
+    {
+        "name": "Way Surface Detail",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/way_surface_detail.png"
+    },
+    {
+        "name": "Way Width",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/way_width.png"
+    },
+    {
+        "name": "Wheelchair",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/wheelchair.png"
+    },
+    {
+        "name": "Wheelchair Crossing",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/wheelchair_crossing.png"
+    },
+    {
+        "name": "Wheelchair Shop",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/wheelchair_shop.png"
+    },
+    {
+        "name": "Wifi",
+        "url": "https://provisodevstorage.blob.core.windows.net/projects/gig-element-icons/icons2/wifi.png"
+    }
+]
