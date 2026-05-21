@@ -6,6 +6,11 @@ local-storage/
 .DS_Store
 Thumbs.db
 
+# Python
+.venv/
+__pycache__/
+*.egg-info/
+
 # Creator
 dist/
 node_modules/
