@@ -12,7 +12,15 @@ const props = defineProps({
 const store = useQuestStore();
 
 const quest = computed(
-    () => store.definition.elements[props.elementIndex]?.quests[props.questIndex]
+    () =>
+        store.definition.elements[props.elementIndex]?.quests[props.questIndex]
+);
+
+const questBase = computed(
+    () => `/elements/${props.elementIndex}/quests/${props.questIndex}`
+);
+const dependencyModeName = computed(
+    () => `dependency-mode-${props.elementIndex}-${props.questIndex}`
 );
 
 const siblingQuests = computed(() => {
@@ -26,6 +34,8 @@ const siblingQuests = computed(() => {
         .filter((siblingQuest) => siblingQuest._index !== props.questIndex);
 });
 
+const hasSiblingQuests = computed(() => siblingQuests.value.length > 0);
+
 const dependencyMode = computed(() => {
     const deps = quest.value?._deps || [];
     if (deps.length === 0) return "none";
@@ -34,7 +44,9 @@ const dependencyMode = computed(() => {
 });
 
 function updateDeps(nextDeps) {
-    store.updateQuest(props.elementIndex, props.questIndex, { _deps: nextDeps });
+    store.updateQuest(props.elementIndex, props.questIndex, {
+        _deps: nextDeps,
+    });
 }
 
 function createBlankDependency() {
@@ -42,7 +54,11 @@ function createBlankDependency() {
 }
 
 function getQuestById(questionId) {
-    return siblingQuests.value.find((siblingQuest) => siblingQuest.quest_id === questionId) || null;
+    return (
+        siblingQuests.value.find(
+            (siblingQuest) => siblingQuest.quest_id === questionId
+        ) || null
+    );
 }
 
 function isChoiceQuest(questType) {
@@ -62,7 +78,9 @@ function setMode(mode) {
     }
 
     if (mode === "single") {
-        const firstDependency = currentDeps[0] ? { ...currentDeps[0] } : createBlankDependency();
+        const firstDependency = currentDeps[0]
+            ? { ...currentDeps[0] }
+            : createBlankDependency();
         updateDeps([firstDependency]);
         return;
     }
@@ -72,15 +90,19 @@ function setMode(mode) {
         return;
     }
 
-    const nextDeps = currentDeps.length === 1
-        ? [{ ...currentDeps[0] }, createBlankDependency()]
-        : [createBlankDependency(), createBlankDependency()];
+    const nextDeps =
+        currentDeps.length === 1
+            ? [{ ...currentDeps[0] }, createBlankDependency()]
+            : [createBlankDependency(), createBlankDependency()];
     updateDeps(nextDeps);
 }
 
 function addCondition() {
     const currentDeps = quest.value?._deps || [];
-    updateDeps([...currentDeps.map((dependency) => ({ ...dependency })), createBlankDependency()]);
+    updateDeps([
+        ...currentDeps.map((dependency) => ({ ...dependency })),
+        createBlankDependency(),
+    ]);
 }
 
 function removeCondition(dependencyIndex) {
@@ -90,15 +112,32 @@ function removeCondition(dependencyIndex) {
 
 function updateDependencyQuestion(dependencyIndex, questionId) {
     const currentDeps = quest.value?._deps || [];
-    const parentQuest = getQuestById(Number(questionId));
+    const parsedQuestionId = Number(questionId);
+    const nextQuestionId =
+        Number.isInteger(parsedQuestionId) && parsedQuestionId > 0
+            ? parsedQuestionId
+            : null;
+    const parentQuest = getQuestById(nextQuestionId);
     const nextDependencies = currentDeps.map((dependency, index) => {
         if (index !== dependencyIndex) return { ...dependency };
         return {
-            question_id: Number(questionId) || null,
+            question_id: nextQuestionId,
             required_value: normalizeRequiredValueForParent(parentQuest),
         };
     });
     updateDeps(nextDependencies);
+}
+
+function dependencyQuestionPath(dependencyIndex) {
+    return `${questBase.value}/quest_answer_dependency${quest.value?._deps?.length > 1 ? `[${dependencyIndex}]` : ""}/question_id`;
+}
+
+function dependencyRequiredValuePath(dependencyIndex) {
+    return `${questBase.value}/quest_answer_dependency${quest.value?._deps?.length > 1 ? `[${dependencyIndex}]` : ""}/required_value`;
+}
+
+function choiceRequiredValuePath(dependencyIndex) {
+    return dependencyRequiredValuePath(dependencyIndex);
 }
 
 function updateTextRequiredValue(dependencyIndex, requiredValue) {
@@ -118,8 +157,8 @@ function toggleChoiceRequiredValue(dependencyIndex, choiceValue, enabled) {
         const currentValues = Array.isArray(dependency.required_value)
             ? [...dependency.required_value]
             : dependency.required_value
-                ? [dependency.required_value]
-                : [];
+              ? [dependency.required_value]
+              : [];
 
         const nextValues = enabled
             ? Array.from(new Set([...currentValues, choiceValue]))
@@ -144,39 +183,59 @@ function isChoiceChecked(dependency, choiceValue) {
             <h3 class="h6 mb-0 fw-semibold">Dependency</h3>
         </div>
 
-        <div class="btn-group btn-group-sm mb-2" role="group" aria-label="Dependency mode">
+        <div
+            class="btn-group btn-group-sm mb-2"
+            role="group"
+            aria-label="Dependency mode"
+        >
             <input
                 :id="`dependency-none-${elementIndex}-${questIndex}`"
                 type="radio"
                 class="btn-check"
-                name="dependency-mode"
+                :name="dependencyModeName"
                 autocomplete="off"
                 :checked="dependencyMode === 'none'"
                 @change="setMode('none')"
             />
-            <label class="btn btn-outline-secondary" :for="`dependency-none-${elementIndex}-${questIndex}`">None</label>
+            <label
+                class="btn btn-outline-secondary"
+                :for="`dependency-none-${elementIndex}-${questIndex}`"
+                >None</label
+            >
 
             <input
                 :id="`dependency-single-${elementIndex}-${questIndex}`"
                 type="radio"
                 class="btn-check"
-                name="dependency-mode"
+                :name="dependencyModeName"
                 autocomplete="off"
                 :checked="dependencyMode === 'single'"
                 @change="setMode('single')"
             />
-            <label class="btn btn-outline-secondary" :for="`dependency-single-${elementIndex}-${questIndex}`">Single</label>
+            <label
+                class="btn btn-outline-secondary"
+                :for="`dependency-single-${elementIndex}-${questIndex}`"
+                >Single</label
+            >
 
             <input
                 :id="`dependency-multiple-${elementIndex}-${questIndex}`"
                 type="radio"
                 class="btn-check"
-                name="dependency-mode"
+                :name="dependencyModeName"
                 autocomplete="off"
                 :checked="dependencyMode === 'multiple'"
                 @change="setMode('multiple')"
             />
-            <label class="btn btn-outline-secondary" :for="`dependency-multiple-${elementIndex}-${questIndex}`">Multiple (AND)</label>
+            <label
+                class="btn btn-outline-secondary"
+                :for="`dependency-multiple-${elementIndex}-${questIndex}`"
+                >Multiple (AND)</label
+            >
+        </div>
+
+        <div v-if="!hasSiblingQuests" class="form-text small mb-2">
+            Add another quest in this element before creating a dependency.
         </div>
 
         <div v-if="dependencyMode !== 'none'" class="d-grid gap-2">
@@ -185,8 +244,12 @@ function isChoiceChecked(dependency, choiceValue) {
                 :key="`dependency-${dependencyIndex}`"
                 class="border rounded p-2 bg-body-tertiary"
             >
-                <div class="d-flex justify-content-between align-items-center gap-2 mb-2">
-                    <div class="fw-semibold small">Condition {{ dependencyIndex + 1 }}</div>
+                <div
+                    class="d-flex justify-content-between align-items-center gap-2 mb-2"
+                >
+                    <div class="fw-semibold small">
+                        Condition {{ dependencyIndex + 1 }}
+                    </div>
                     <button
                         v-if="dependencyMode === 'multiple'"
                         type="button"
@@ -209,7 +272,17 @@ function isChoiceChecked(dependency, choiceValue) {
                             :id="`dependency-question-${elementIndex}-${questIndex}-${dependencyIndex}`"
                             class="form-select form-select-sm"
                             :value="dependency.question_id ?? ''"
-                            @change="updateDependencyQuestion(dependencyIndex, $event.target.value)"
+                            :class="{
+                                'is-invalid': store.hasValidationError(
+                                    dependencyQuestionPath(dependencyIndex)
+                                ),
+                            }"
+                            @change="
+                                updateDependencyQuestion(
+                                    dependencyIndex,
+                                    $event.target.value
+                                )
+                            "
                         >
                             <option value="">Select a sibling quest</option>
                             <option
@@ -217,17 +290,54 @@ function isChoiceChecked(dependency, choiceValue) {
                                 :key="siblingQuest.quest_id"
                                 :value="siblingQuest.quest_id"
                             >
-                                #{{ siblingQuest.quest_id }} — {{ siblingQuest.quest_title || '(untitled quest)' }}
+                                #{{ siblingQuest.quest_id }} —
+                                {{
+                                    siblingQuest.quest_title ||
+                                    "(untitled quest)"
+                                }}
                             </option>
                         </select>
                     </div>
 
                     <div class="col-md-6">
-                        <label class="form-label small mb-1">Required Value</label>
+                        <label class="form-label small mb-1"
+                            >Required Value</label
+                        >
 
-                        <div v-if="isChoiceQuest(getQuestById(dependency.question_id)?.quest_type)" class="d-grid gap-1">
+                        <div
+                            v-if="dependency.question_id == null"
+                            class="form-text small border rounded p-2 bg-body-tertiary"
+                        >
+                            Select a dependent question above to define the
+                            required value.
+                        </div>
+
+                        <div
+                            v-else-if="
+                                isChoiceQuest(
+                                    getQuestById(dependency.question_id)
+                                        ?.quest_type
+                                )
+                            "
+                            class="d-grid gap-1"
+                        >
                             <div
-                                v-for="choice in getQuestById(dependency.question_id)?.quest_answer_choices || []"
+                                v-if="
+                                    (
+                                        getQuestById(dependency.question_id)
+                                            ?.quest_answer_choices || []
+                                    ).length === 0
+                                "
+                                class="form-text small border rounded p-2 bg-body-tertiary"
+                            >
+                                Add answer choices to the dependent question
+                                before selecting required values.
+                            </div>
+
+                            <div
+                                v-for="choice in getQuestById(
+                                    dependency.question_id
+                                )?.quest_answer_choices || []"
                                 :key="choice.value"
                                 class="form-check form-check-sm"
                             >
@@ -235,14 +345,35 @@ function isChoiceChecked(dependency, choiceValue) {
                                     :id="`dependency-choice-${elementIndex}-${questIndex}-${dependencyIndex}-${choice.value}`"
                                     class="form-check-input"
                                     type="checkbox"
-                                    :checked="isChoiceChecked(dependency, choice.value)"
-                                    @change="toggleChoiceRequiredValue(dependencyIndex, choice.value, $event.target.checked)"
+                                    :checked="
+                                        isChoiceChecked(
+                                            dependency,
+                                            choice.value
+                                        )
+                                    "
+                                    :class="{
+                                        'is-invalid': store.hasValidationError(
+                                            choiceRequiredValuePath(
+                                                dependencyIndex
+                                            )
+                                        ),
+                                    }"
+                                    @change="
+                                        toggleChoiceRequiredValue(
+                                            dependencyIndex,
+                                            choice.value,
+                                            $event.target.checked
+                                        )
+                                    "
                                 />
                                 <label
                                     class="form-check-label small"
                                     :for="`dependency-choice-${elementIndex}-${questIndex}-${dependencyIndex}-${choice.value}`"
                                 >
-                                    {{ choice.choice_text }} <span class="text-muted">({{ choice.value }})</span>
+                                    {{ choice.choice_text }}
+                                    <span class="text-muted"
+                                        >({{ choice.value }})</span
+                                    >
                                 </label>
                             </div>
                         </div>
@@ -252,19 +383,47 @@ function isChoiceChecked(dependency, choiceValue) {
                             :id="`dependency-value-${elementIndex}-${questIndex}-${dependencyIndex}`"
                             type="text"
                             class="form-control form-control-sm"
-                            :value="Array.isArray(dependency.required_value) ? dependency.required_value.join('; ') : dependency.required_value"
+                            :value="
+                                Array.isArray(dependency.required_value)
+                                    ? dependency.required_value.join('; ')
+                                    : dependency.required_value
+                            "
                             placeholder="Enter the value that makes this quest visible"
-                            @input="updateTextRequiredValue(dependencyIndex, $event.target.value)"
+                            :class="{
+                                'is-invalid': store.hasValidationError(
+                                    dependencyRequiredValuePath(dependencyIndex)
+                                ),
+                            }"
+                            @input="
+                                updateTextRequiredValue(
+                                    dependencyIndex,
+                                    $event.target.value
+                                )
+                            "
                         />
                     </div>
                 </div>
             </div>
 
-            <div v-if="dependencyMode === 'multiple'" class="d-flex justify-content-start">
-                <button type="button" class="btn btn-sm btn-outline-primary py-1 px-2" @click="addCondition">
+            <div
+                v-if="dependencyMode === 'multiple'"
+                class="d-flex justify-content-start"
+            >
+                <button
+                    type="button"
+                    class="btn btn-sm btn-outline-primary py-1 px-2"
+                    @click="addCondition"
+                >
                     + Add condition
                 </button>
             </div>
         </div>
     </section>
 </template>
+
+<style scoped>
+.btn-group .btn {
+    text-align: center;
+    justify-content: center;
+}
+</style>

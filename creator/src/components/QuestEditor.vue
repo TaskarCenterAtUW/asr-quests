@@ -16,8 +16,21 @@ const props = defineProps({
 const store = useQuestStore();
 
 const quest = computed(
-    () => store.definition.elements[props.elementIndex]?.quests[props.questIndex]
+    () =>
+        store.definition.elements[props.elementIndex]?.quests[props.questIndex]
 );
+
+const questBase = computed(
+    () => `/elements/${props.elementIndex}/quests/${props.questIndex}`
+);
+const questIdPath = computed(() => `${questBase.value}/quest_id`);
+const questTitlePath = computed(() => `${questBase.value}/quest_title`);
+const questDescriptionPath = computed(
+    () => `${questBase.value}/quest_description`
+);
+const questTypePath = computed(() => `${questBase.value}/quest_type`);
+const questTagPath = computed(() => `${questBase.value}/quest_tag`);
+const questImagePath = computed(() => `${questBase.value}/quest_image_url`);
 
 function update(fields) {
     store.updateQuest(props.elementIndex, props.questIndex, fields);
@@ -27,7 +40,9 @@ function update(fields) {
 <template>
     <div v-if="quest" class="row g-2">
         <div class="col-md-4">
-            <label :for="`quest-id-${elementIndex}-${questIndex}`" class="form-label"
+            <label
+                :for="`quest-id-${elementIndex}-${questIndex}`"
+                class="form-label"
                 >Quest ID</label
             >
             <input
@@ -35,16 +50,17 @@ function update(fields) {
                 type="number"
                 class="form-control form-control-sm"
                 :value="quest.quest_id"
+                :class="{ 'is-invalid': store.hasValidationError(questIdPath) }"
                 @input="update({ quest_id: Number($event.target.value) || 0 })"
             />
-            <div class="form-text small">Auto-assigned by default; can be overridden.</div>
         </div>
 
         <div class="col-md-8">
             <label
                 :for="`quest-title-${elementIndex}-${questIndex}`"
                 class="form-label"
-                >Quest Title <span aria-hidden="true" class="text-danger">*</span></label
+                >Quest Title
+                <span aria-hidden="true" class="text-danger">*</span></label
             >
             <input
                 :id="`quest-title-${elementIndex}-${questIndex}`"
@@ -53,6 +69,9 @@ function update(fields) {
                 :value="quest.quest_title"
                 required
                 aria-required="true"
+                :class="{
+                    'is-invalid': store.hasValidationError(questTitlePath),
+                }"
                 @input="update({ quest_title: $event.target.value })"
             />
         </div>
@@ -61,7 +80,8 @@ function update(fields) {
             <label
                 :for="`quest-desc-${elementIndex}-${questIndex}`"
                 class="form-label"
-                >Description <span aria-hidden="true" class="text-danger">*</span></label
+                >Description
+                <span aria-hidden="true" class="text-danger">*</span></label
             >
             <textarea
                 :id="`quest-desc-${elementIndex}-${questIndex}`"
@@ -70,6 +90,10 @@ function update(fields) {
                 :value="quest.quest_description"
                 required
                 aria-required="true"
+                :class="{
+                    'is-invalid':
+                        store.hasValidationError(questDescriptionPath),
+                }"
                 @input="update({ quest_description: $event.target.value })"
             ></textarea>
         </div>
@@ -78,7 +102,8 @@ function update(fields) {
             <label
                 :for="`quest-type-${elementIndex}-${questIndex}`"
                 class="form-label"
-                >Quest Type <span aria-hidden="true" class="text-danger">*</span></label
+                >Quest Type
+                <span aria-hidden="true" class="text-danger">*</span></label
             >
             <select
                 :id="`quest-type-${elementIndex}-${questIndex}`"
@@ -86,6 +111,9 @@ function update(fields) {
                 :value="quest.quest_type"
                 required
                 aria-required="true"
+                :class="{
+                    'is-invalid': store.hasValidationError(questTypePath),
+                }"
                 @change="update({ quest_type: $event.target.value })"
             >
                 <option value="ExclusiveChoice">ExclusiveChoice</option>
@@ -99,7 +127,8 @@ function update(fields) {
             <label
                 :for="`quest-tag-${elementIndex}-${questIndex}`"
                 class="form-label"
-                >Quest Tag <span aria-hidden="true" class="text-danger">*</span></label
+                >Quest Tag
+                <span aria-hidden="true" class="text-danger">*</span></label
             >
             <input
                 :id="`quest-tag-${elementIndex}-${questIndex}`"
@@ -108,6 +137,9 @@ function update(fields) {
                 :value="quest.quest_tag"
                 required
                 aria-required="true"
+                :class="{
+                    'is-invalid': store.hasValidationError(questTagPath),
+                }"
                 @input="update({ quest_tag: $event.target.value })"
             />
         </div>
@@ -124,6 +156,9 @@ function update(fields) {
                 class="form-control form-control-sm"
                 :value="quest.quest_image_url"
                 placeholder="https://example.com/image.jpg"
+                :class="{
+                    'is-invalid': store.hasValidationError(questImagePath),
+                }"
                 @input="update({ quest_image_url: $event.target.value })"
             />
             <ImagePreview
