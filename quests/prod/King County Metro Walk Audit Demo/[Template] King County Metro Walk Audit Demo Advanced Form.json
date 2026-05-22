@@ -759,8 +759,8 @@
         },
         {
           "quest_id": 209,
-          "quest_title": "Is there a signal present at this intersection?",
-          "quest_description": "Select the type of pedestrian or traffic control present at this intersection. Include any pedestrian-specific signals or beacons if applicable.",
+          "quest_title": "What kind of signal/beacon is present at this crossing?",
+          "quest_description": "Select the type of pedestrian or traffic control present at this crossing. Include any pedestrian-specific signals or beacons if applicable.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_signal_type",
           "quest_answer_dependency": {
