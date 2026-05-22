@@ -25,8 +25,8 @@
         },
         {
           "quest_id": 102,
-          "quest_title": "Are there any sidewalk surface (between stop and nearest crosswalk/intersection) defects present?",
-          "quest_description": "This condition is true if the sidewalk contains gaps < 0.5 m and/or variations < 0.25 m",
+          "quest_title": "Are there any sidewalk surface defects present?",
+          "quest_description": "This condition is true if the sidewalk contains trip hazards ≥ 0.25 inches.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:sidewalk_condition",
           "quest_answer_choices": [
@@ -401,7 +401,7 @@
         },
         {
           "quest_id": 115,
-          "quest_title": "What is the width of the buffer between the sidewalk and motor vehicle travel lanes (in feet)?",
+          "quest_title": "What is the total width of the buffer between the sidewalk and motor vehicle travel lanes (in feet)?",
           "quest_description": "Estimate or measure the width of the buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "Numeric",
           "quest_tag": "ext:sidewalk_buffer_width",
@@ -596,25 +596,25 @@
       "quests": [
         {
           "quest_id": 201,
-          "quest_title": "Is there an indicator for a pedestrian crossing here?",
-          "quest_description": "Indicate whether this location includes a marked or otherwise designated pedestrian crossing, such as painted crosswalk lines, signage, or pedestrian signals.",
+          "quest_title": "Is this pedestrian crossing controlled or uncontrolled?",
+          "quest_description": "Indicate whether this location includes a controlled or otherwise designated pedestrian crossing, such as painted crosswalk lines, signage, or pedestrian signals.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing:indicator_present",
+          "quest_tag": "ext:crossing_controlled",
           "quest_answer_choices": [
             {
-              "value": "no",
-              "choice_text": "No"
+              "value": "uncontrolled",
+              "choice_text": "Uncontrolled"
             },
             {
-              "value": "yes",
-              "choice_text": "Yes",
+              "value": "controlled",
+              "choice_text": "Controlled",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signed/yes_square.png"
             }
           ]
         },
         {
           "quest_id": 202,
-          "quest_title": "Does this crossing feel safe?",
+          "quest_title": "Does this crossing feel uncomfortable to cross?",
           "quest_description": "Indicate whether this pedestrian crossing feels safe to use, considering factors such as vehicle behavior, visibility, and available pedestrian infrastructure.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_safety_feels_safe",
@@ -631,13 +631,13 @@
         },
         {
           "quest_id": 203,
-          "quest_title": "Why does this crossing feel unsafe?",
+          "quest_title": "Why does this crossing feel uncomfortable to cross?",
           "quest_description": "Assess the overall sense of safety for pedestrians at this crossing. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:crossing_safety_perception",
           "quest_answer_dependency": {
             "question_id": 202,
-            "required_value": "no"
+            "required_value": "yes"
           },
           "quest_answer_choices": [
             {
@@ -668,7 +668,7 @@
         },
         {
           "quest_id": 204,
-          "quest_title": "What is the speed limit on the street being crossed?",
+          "quest_title": "What is the posted speed limit on the street being crossed?",
           "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
           "quest_type": "Numeric",
           "quest_tag": "ext:crossing_speed_limit",
@@ -691,7 +691,7 @@
         },
         {
           "quest_id": 206,
-          "quest_title": "In your opinion, is there adequate lighting at this crossing? (1 = very bad and 5 = very good)",
+          "quest_title": "In your opinion, is there adequate lighting at this crossing? (1 = very low and 5 = well lit)",
           "quest_description": "Rate how well-lit this crossing appears, considering visibility and lighting conditions.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_lighting",
@@ -720,7 +720,7 @@
         },
         {
           "quest_id": 207,
-          "quest_title": "Is there a path to this crosswalk?",
+          "quest_title": "Is there an accessible pathway to this crosswalk?",
           "quest_description": "Determine whether there is an accessible, continuous connection from stop to nearest crossing across a full block.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_crosswalk_path",
@@ -984,7 +984,7 @@
         {
           "quest_id": 301,
           "quest_title": "Does this bus stop have a clear boarding zone / landing pad?",
-          "quest_description": "Identify if there is a level, firm, and unobstructed area (minimum 5 ft × 8 ft) at the stop for passengers to board and alight safely. This is often a concrete pad adjacent to the curb.",
+          "quest_description": "Identify if there is a level and unobstructed concrete or asphalt landing pad (minimum 5 ft × 8 ft) at the stop for passengers to board and alight safely. This is often a concrete pad adjacent to the curb.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_landing_pads_present",
           "quest_answer_choices": [
@@ -1005,7 +1005,7 @@
         {
           "quest_id": 302,
           "quest_title": "Is the cross slope of this boarding zone less than 2%?",
-          "quest_description": "Measure or estimate whether the cross slope of the boarding area is less than 2%, ensuring it meets accessibility standards for wheelchair users and mobility devices.",
+          "quest_description": "Measure whether the cross slope of the boarding area is less than 2%, ensuring it meets accessibility standards for wheelchair users and mobility devices. Measure the landing pad perpendicular to the sidewalk two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2",
           "quest_answer_choices": [
@@ -1027,7 +1027,7 @@
         {
           "quest_id": 303,
           "quest_title": "Is the running slope of this bus zone less than or equal to the running slope of the street?",
-          "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone’s running slope is less than or equal to the street’s slope.",
+          "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone’s running slope is less than or equal to the street’s slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_zone_running_slope",
           "quest_answer_choices": [
@@ -1189,8 +1189,8 @@
         },
         {
           "quest_id": 310,
-          "quest_title": "Does this bus stop have schedule information posted in braille?",
-          "quest_description": "Check whether braille schedule or stop information is available at this bus stop for visually impaired riders.",
+          "quest_title": "Does this bus stop have schedule information posted in braille or an audible recording?",
+          "quest_description": "Check whether braille schedule, audible recording, or stop information is available at this bus stop for visually impaired riders.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_braille_schedule_present",
           "quest_answer_choices": [
@@ -1223,7 +1223,7 @@
         },
         {
           "quest_id": 312,
-          "quest_title": "In your opinion, is there adequate lighting at this bus stop? (1 = very bad and 5 = very good)",
+          "quest_title": "In your opinion, is there adequate lighting at this bus stop? (1 = very low and 5 = well lit)",
           "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_lighting",
@@ -1252,7 +1252,7 @@
         },
         {
           "quest_id": 313,
-          "quest_title": "What is the speed limit near this bus stop?",
+          "quest_title": "What is the posted speed limit near this bus stop?",
           "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_speed_limit",
@@ -1514,7 +1514,7 @@
         },
         {
           "quest_id": 324,
-          "quest_title": "What is the width of the buffer between the sidewalk and motor vehicle travel lanes (in feet)?",
+          "quest_title": "What is the total width of the buffer between the sidewalk and motor vehicle travel lanes (in feet)?",
           "quest_description": "Estimate or measure the width of the buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_buffer_width",
@@ -1546,7 +1546,7 @@
         },
         {
           "quest_id": 326,
-          "quest_title": "On a scale of 1-5 (1 = very bad and 5 = very good), how would you rate the overall comfort of this stop?",
+          "quest_title": "On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
           "quest_description": "Rate the comfort level based on seating, safety, shade, exposure, cleanliness, and general waiting environment.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_comfort_rating",
@@ -1761,8 +1761,8 @@
         },
         {
           "quest_id": 402,
-          "quest_title": "Does this intersection feel safe?",
-          "quest_description": "Indicate whether this intersection feels safe to use.",
+          "quest_title": "Does this intersection feel uncomfortable to cross?",
+          "quest_description": "Indicate whether this intersection feels uncomfortable to cross.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:intersection_safety_feels_safe",
           "quest_answer_choices": [
@@ -1778,13 +1778,13 @@
         },
         {
           "quest_id": 403,
-          "quest_title": "Why does this intersection feel unsafe?",
-          "quest_description": "Assess the overall sense of safety for pedestrians at this intersection. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
+          "quest_title": "Why does this intersection feel uncomfortable to cross?",
+          "quest_description": "Assess the overall sense of safety and comfort for pedestrians at this intersection. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:intersection_safety_perception",
           "quest_answer_dependency": {
             "question_id": 402,
-            "required_value": "no"
+            "required_value": "yes"
           },
           "quest_answer_choices": [
             {
@@ -1815,8 +1815,8 @@
         },
         {
           "quest_id": 404,
-          "quest_title": "What is the speed limit on this street?",
-          "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
+          "quest_title": "What is the posted speed limit on this roadway?",
+          "quest_description": "Enter the posted speed limit for the intersecting roadway in miles per hour (mph)",
           "quest_type": "Numeric",
           "quest_tag": "ext:intersection_speed_limit",
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
