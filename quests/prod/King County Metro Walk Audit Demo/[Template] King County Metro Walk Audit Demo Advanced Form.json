@@ -568,17 +568,17 @@
         {
           "quest_id": 201,
           "quest_title": "Is this pedestrian crossing controlled or uncontrolled?",
-          "quest_description": "Indicate whether this location includes a marked or otherwise designated pedestrian crossing, such as painted crosswalk lines, signage, or pedestrian signals.",
+          "quest_description": "Indicate whether this location includes a controlled or otherwise designated pedestrian crossing, such as painted crosswalk lines, signage, or pedestrian signals.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing:indicator_present",
+          "quest_tag": "ext:crossing_controlled",
           "quest_answer_choices": [
             {
-              "value": "no",
-              "choice_text": "No"
+              "value": "uncontrolled",
+              "choice_text": "Uncontrolled"
             },
             {
-              "value": "yes",
-              "choice_text": "Yes",
+              "value": "controlled",
+              "choice_text": "Controlled",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signed/yes_square.png"
             }
           ]
@@ -1320,7 +1320,7 @@
       "quests": [
         {
           "quest_id": 401,
-          "quest_title": "What kind of signal/beacon is present at this crossing?",
+          "quest_title": "What kind of signal/beacon is present at this intersection?",
           "quest_description": "Select the type of pedestrian or traffic control present at this intersection. Include any pedestrian-specific signals or beacons if applicable.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:intersection_signal_type",
