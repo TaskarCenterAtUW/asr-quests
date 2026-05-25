@@ -5,18 +5,77 @@ name: Quest Definitions Validator
 on:
   workflow_dispatch:
   push:
+    paths:
+      - "quests/**/*.json"
+      - "schema/**/*.json"
+      - "utilities/**/*.py"
+      - "pyproject.toml"
+      - ".github/workflows/validate-quests.yml"
   pull_request:
+    paths:
+      - "quests/**/*.json"
+      - "schema/**/*.json"
+      - "utilities/**/*.py"
+      - "pyproject.toml"
+      - ".github/workflows/validate-quests.yml"
 
 jobs:
-  validate-json:
+  validate-quests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Validate all JSON files in quests directory
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Determine files to validate
+        # On pull_request: diff between the PR base and head - only files changed
+        #   in this PR are validated (untouched files that already passed are skipped).
+        # If the schema, validator, packaging, or this workflow changes, validate
+        #   every quest because the meaning of every quest file may have changed.
+        # On push: diff between the commit before and after the push — same idea,
+        #   scoped to what actually changed in that push. Falls back to all files
+        #   when the before-SHA is unknown (e.g. first push to a new branch).
+        # On workflow_dispatch: validate every quest JSON file.
         run: |
-          set -e
-          find quests -type f -name '*.json' | while read file; do
-            echo "Validating $file"
-            python3 -c "import sys, json; json.load(open(sys.argv[1]))" "$file"
-          done
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git diff --name-only --diff-filter=ACMR \
+              "${{ github.event.pull_request.base.sha }}" \
+              "${{ github.event.pull_request.head.sha }}" \
+              > changed_files.txt
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            BEFORE="${{ github.event.before }}"
+            if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+              # First push to a new branch — no previous commit to diff against
+              find quests -type f -name '*.json' > files_to_validate.txt
+            else
+              git diff --name-only --diff-filter=ACMR "$BEFORE" "${{ github.sha }}" \
+                > changed_files.txt
+            fi
+          else
+            find quests -type f -name '*.json' > files_to_validate.txt
+          fi
+
+          if [ -f changed_files.txt ]; then
+            if grep -Eq '^(schema/.*\.json|utilities/.*\.py|pyproject\.toml|\.github/workflows/validate-quests\.yml)$' changed_files.txt; then
+              find quests -type f -name '*.json' > files_to_validate.txt
+            else
+              grep -E '^quests/.*\.json$' changed_files.txt > files_to_validate.txt || true
+            fi
+          fi
+
+          echo "=== Files to validate ==="
+          cat files_to_validate.txt || echo "(none)"
+
+      - name: Install project and dependencies
+        # Installs jsonschema (declared in pyproject.toml) into the configured
+        # Python environment so the validator module can run directly.
+        run: python -m pip install -e .
+
+      - name: Validate quest JSON files against schema
+        run: python -m utilities.validate_quests --file-list files_to_validate.txt
