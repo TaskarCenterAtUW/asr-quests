@@ -84,11 +84,6 @@
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/loose_gravel_landscape.png"
             },
             {
-              "value": "cracked",
-              "choice_text": "Cracked",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/sidewalk/condition/cracked_original.png"
-            },
-            {
               "value": "trip_hazard_present",
               "choice_text": "Trip Hazard Present"
             },
@@ -615,9 +610,9 @@
         {
           "quest_id": 202,
           "quest_title": "Does this crossing feel uncomfortable to cross?",
-          "quest_description": "Indicate whether this pedestrian crossing feels safe to use, considering factors such as vehicle behavior, visibility, and available pedestrian infrastructure.",
+          "quest_description": "Indicate whether this pedestrian crossing feels uncomfortable to cross, considering factors such as vehicle behavior, visibility, and available pedestrian infrastructure.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing_safety_feels_safe",
+          "quest_tag": "ext:crossing_safety_feels_uncomf",
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1008,6 +1003,10 @@
           "quest_description": "Measure whether the cross slope of the boarding area is less than 2%, ensuring it meets accessibility standards for wheelchair users and mobility devices. Measure the landing pad perpendicular to the sidewalk two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2",
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1097,6 +1096,10 @@
           "quest_description": "Check whether a shelter footing or foundation pad is present at this bus stop, if a shelter structure has not been installed.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_shelter_footing_present",
+          "quest_answer_dependency": {
+            "question_id": 304,
+            "required_value": "no"
+          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1363,7 +1366,7 @@
         {
           "quest_id": 318,
           "quest_title": "Is there designated bicycle infrastructure within a block of this bus stop?",
-          "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, or paths within a block of the bus stop that support multimodal access.",
+          "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, parking, or paths within a block of the bus stop that support multimodal access.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_bike_infrastructure_present",
           "quest_answer_choices": [
@@ -1594,7 +1597,7 @@
           "quest_id": 328,
           "quest_title": "Does the curb/platform allow for accessible boarding?",
           "quest_description": "Evaluate the boarding interface. Select 'Level Boarding' if the platform is flush with the bus floor. Select 'Ramp/Kneeling Suitable' if the curb height allows a ramp to deploy at a safe, shallow angle.",
-          "quest_type": "MultipleChoice",
+          "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_boarding_interface",
           "quest_answer_choices": [
             {
@@ -1764,7 +1767,7 @@
           "quest_title": "Does this intersection feel uncomfortable to cross?",
           "quest_description": "Indicate whether this intersection feels uncomfortable to cross.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:intersection_safety_feels_safe",
+          "quest_tag": "ext:intersection_safety_feels_uncomf",
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -2143,8 +2146,8 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:curb_ramp_detectable_warning_present",
           "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
+            "question_id": 501,
+            "required_value": "lowered"
           },
           "quest_answer_choices": [
             {
