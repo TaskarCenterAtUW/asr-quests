@@ -482,7 +482,7 @@
           "quest_tag": "ext:sidewalk_matches_road_slope",
           "quest_answer_dependency": {
             "question_id": 118,
-            "required_value": "running_slope"
+            "required_value": ["running_slope", "both"]
           },
           "quest_answer_choices": [
             {
@@ -1910,7 +1910,7 @@
           "quest_description": "Identify if this is a curb ramp or blended transition.",
           "quest_answer_dependency": {
             "question_id": 501,
-            "required_value": "lowered"
+            "required_value": ["lowered", "flush"]
           },
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:lowered_curb_type",
@@ -2217,6 +2217,117 @@
               "choice_text": "No push button present"
             }
           ]
+        }
+      ]
+    },
+    {
+      "element_type": "Sample Quests",
+      "element_type_icon": "board_type",
+      "quest_query": "nodes with (ext:sample=yes)",
+      "quests": [
+        {
+          "quest_id": 601,
+          "quest_title": "Do you want to answer questions for Speed and Reliability?",
+          "quest_description": "This section covers speed limit information for the street being crossed.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:team_speed_reliability_opt_in",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 602,
+          "quest_title": "What is the posted speed limit on the street being crossed?",
+          "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
+          "quest_answer_dependency": {
+            "question_id": 601,
+            "required_value": "yes"
+          },
+          "quest_type": "Numeric",
+          "quest_tag": "ext:crossing_speed_limit",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        {
+          "quest_id": 603,
+          "quest_title": "Do you want to answer questions for Connecting to Transit?",
+          "quest_description": "This section covers pedestrian connections to nearby transit stops.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:team_connecting_to_transit_opt_in",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 604,
+          "quest_title": "Is there a pedestrian connection to this bus stop?",
+          "quest_description": "Indicate whether any pedestrian infrastructure connects this bus stop to the surrounding network.",
+          "quest_answer_dependency": {
+            "question_id": 603,
+            "required_value": "yes"
+          },
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_ped_connection_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 605,
+          "quest_title": "Do you want to answer questions for Access Pathways?",
+          "quest_description": "This section covers sidewalk dimensions and usable walking width.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:team_access_pathways_opt_in",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 606,
+          "quest_title": "What is the width of this sidewalk (in feet)?",
+          "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
+          "quest_answer_dependency": {
+            "question_id": 605,
+            "required_value": "yes"
+          },
+          "quest_type": "Numeric",
+          "quest_tag": "ext:sidewalk_width",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 100
+          }
         }
       ]
     }
