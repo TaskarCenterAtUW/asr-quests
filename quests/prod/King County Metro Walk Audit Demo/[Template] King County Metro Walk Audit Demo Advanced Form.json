@@ -26,7 +26,7 @@
         {
           "quest_id": 102,
           "quest_title": "Are there any sidewalk surface defects present?",
-          "quest_description": "This condition is true if the sidewalk contains trip hazards ≥ 0.25 inches.",
+          "quest_description": "This condition is true if the sidewalk contains trip hazards ≥ 0.25 inches. You may also take a picture of the defect if it exists.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:sidewalk_condition",
           "quest_answer_choices": [
@@ -38,7 +38,8 @@
             {
               "value": "yes",
               "choice_text": "Yes",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/bad_square.png"
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/bad_square.png",
+              "choice_follow_up": "You may take a picture of the sidewalk surface defect."
             }
           ]
         },
@@ -581,6 +582,24 @@
             "min": 0,
             "max": 100
           }
+        },
+        {
+          "quest_id": 125,
+          "quest_title": "Take a picture of the sidewalk.",
+          "quest_description": "Capture a clear photo of the sidewalk surface.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_picture",
+          "quest_answer_choices": [
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "yes",
+              "choice_text": "Ok!",
+              "choice_follow_up": "Please take a picture of the sidewalk."
+            }
+          ]
         }
       ]
     },
@@ -609,30 +628,46 @@
         },
         {
           "quest_id": 202,
-          "quest_title": "Does this crossing feel uncomfortable to cross?",
-          "quest_description": "Indicate whether this pedestrian crossing feels uncomfortable to cross, considering factors such as vehicle behavior, visibility, and available pedestrian infrastructure.",
+          "quest_title": "What is your comfort level when making this crossing?",
+          "quest_description": "Indicate whether this pedestrian crossing feels comfortable or uncomfortable to use, considering factors such as vehicle behavior, visibility, and available pedestrian infrastructure.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing_safety_feels_uncomf",
+          "quest_tag": "ext:crossing_safety_comf",
           "quest_answer_choices": [
             {
-              "value": "yes",
-              "choice_text": "Yes"
+              "value": "very_comfortable",
+              "choice_text": "Very Comfortable"
             },
             {
-              "value": "no",
-              "choice_text": "No"
+              "value": "comfortable",
+              "choice_text": "Comfortable"
+            },
+            {
+              "value": "somewhat_comfortable",
+              "choice_text": "Somewhat Comfortable"
+            },
+            {
+              "value": "somewhat_uncomfortable",
+              "choice_text": "Somewhat Uncomfortable"
+            },
+            {
+              "value": "uncomfortable",
+              "choice_text": "Uncomfortable"
+            },
+            {
+              "value": "very_uncomfortable",
+              "choice_text": "Very Uncomfortable"
             }
           ]
         },
         {
           "quest_id": 203,
-          "quest_title": "Why does this crossing feel uncomfortable to cross?",
-          "quest_description": "Assess the overall sense of safety for pedestrians at this crossing. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
+          "quest_title": "Why does this crossing feel comfortable/uncomfortable to you?",
+          "quest_description": "Assess the overall sense of comfort for pedestrians at this crossing. Consider factors such as vehicle speed, exposure, visibility, and pedestrian infrastructure.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:crossing_safety_perception",
           "quest_answer_dependency": {
             "question_id": 202,
-            "required_value": "yes"
+            "required_value": ["somewhat_uncomfortable", "uncomfortable", "very_uncomfortable"]
           },
           "quest_answer_choices": [
             {
@@ -967,6 +1002,24 @@
           "quest_answer_choices": [
             { "value": "yes", "choice_text": "Yes" },
             { "value": "no", "choice_text": "No" }
+          ]
+        },
+        {
+          "quest_id": 223,
+          "quest_title": "Take a picture of the crossing.",
+          "quest_description": "Capture a clear photo of the crossing.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_picture",
+          "quest_answer_choices": [
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "yes",
+              "choice_text": "Ok!",
+              "choice_follow_up": "Please take a picture of the crossing."
+            }
           ]
         }
       ]
@@ -1711,6 +1764,24 @@
             { "value": "bike_mixing_zone", "choice_text": "Right lane with Bike Mixing Zone" },
             { "value": "floating_island", "choice_text": "Floating Bus Stop (Bike lane behind stop)" }
           ]
+        },
+        {
+          "quest_id": 336,
+          "quest_title": "Take a picture of the bus stop.",
+          "quest_description": "Capture a clear photo of the bus stop.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bus_stop_picture",
+          "quest_answer_choices": [
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "yes",
+              "choice_text": "Ok!",
+              "choice_follow_up": "Please take a picture of the bus stop."
+            }
+          ]
         }
       ]
     },
@@ -1861,6 +1932,24 @@
             {
               "value": "both",
               "choice_text": "Both left and right turn lanes"
+            }
+          ]
+        },
+        {
+          "quest_id": 407,
+          "quest_title": "Take a picture of the intersection.",
+          "quest_description": "Capture a clear photo of the intersection.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:intersection_picture",
+          "quest_answer_choices": [
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "yes",
+              "choice_text": "Ok!",
+              "choice_follow_up": "Please take a picture of the intersection."
             }
           ]
         }
@@ -2215,6 +2304,24 @@
             {
               "value": "no_button",
               "choice_text": "No push button present"
+            }
+          ]
+        },
+        {
+          "quest_id": 516,
+          "quest_title": "Take a picture of the curb.",
+          "quest_description": "Capture a clear photo of the curb.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:curb_picture",
+          "quest_answer_choices": [
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "yes",
+              "choice_text": "Ok!",
+              "choice_follow_up": "Please take a picture of the curb."
             }
           ]
         }
