@@ -50,7 +50,15 @@
               "value": "yes",
               "choice_text": "Yes"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 102,
@@ -70,7 +78,14 @@
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/bad_square.png",
               "choice_follow_up": "You may take a picture of the sidewalk surface defect."
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan"
+            ]
+          }
         },
         {
           "quest_id": 103,
@@ -78,10 +93,19 @@
           "quest_description": "Select the condition issues that best describe this sidewalk surface.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_condition_detail",
-          "quest_answer_dependency": {
-            "question_id": 102,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 102,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 100,
+              "required_value": [
+                "access_pathways",
+                "ada_transition_plan"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "cracked",
@@ -164,7 +188,14 @@
               "value": "unknown",
               "choice_text": "Unknown"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan"
+            ]
+          }
         },
         {
           "quest_id": 105,
@@ -181,7 +212,14 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan"
+            ]
+          }
         },
         {
           "quest_id": 106,
@@ -193,6 +231,13 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 100
+          },
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan"
+            ]
           }
         },
         {
@@ -210,7 +255,15 @@
               "value": "yes",
               "choice_text": "Yes"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 108,
@@ -222,6 +275,13 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 20
+          },
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan"
+            ]
           }
         },
         {
@@ -239,7 +299,15 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 110,
@@ -247,10 +315,20 @@
           "quest_description": "Select any permanent or semi-permanent obstructions present along the access path leading to the bus stop.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_stop_ap_obstructions",
-          "quest_answer_dependency": {
-            "question_id": 109,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 109,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 100,
+              "required_value": [
+                "access_pathways",
+                "ada_transition_plan",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "mail_boxes",
@@ -313,7 +391,11 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": "access_pathways"
+          }
         },
         {
           "quest_id": 112,
@@ -321,10 +403,16 @@
           "quest_description": "Select the type of temporary or recurring obstructions that often block or reduce the usable width of this sidewalk.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_temp_obstructions",
-          "quest_answer_dependency": {
-            "question_id": 111,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 111,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 100,
+              "required_value": "access_pathways"
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "overgrown_vegetation",
@@ -387,7 +475,14 @@
               "value": "unknown",
               "choice_text": "Unknown"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 114,
@@ -395,10 +490,19 @@
           "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_buffer_type",
-          "quest_answer_dependency": {
-            "question_id": 113,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 113,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 100,
+              "required_value": [
+                "access_pathways",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "landscaping",
@@ -430,10 +534,19 @@
           "quest_description": "Estimate or measure the width of the buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "Numeric",
           "quest_tag": "ext:sidewalk_buffer_width",
-          "quest_answer_dependency": {
-            "question_id": 113,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 113,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 100,
+              "required_value": [
+                "access_pathways",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_validation": {
             "min": 0,
             "max": 50
@@ -460,7 +573,14 @@
               "value": "n/a",
               "choice_text": "N/A"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 117,
@@ -477,7 +597,14 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan"
+            ]
+          }
         },
         {
           "quest_id": 118,
@@ -485,10 +612,19 @@
           "quest_description": "Identify whether this sidewalk has a noticeable running slope (along the direction of travel) or cross slope (across the walking surface).",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:sidewalk_slope_type",
-          "quest_answer_dependency": {
-            "question_id": 117,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 117,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 100,
+              "required_value": [
+                "access_pathways",
+                "ada_transition_plan"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "running_slope",
@@ -510,10 +646,22 @@
           "quest_description": "Observe if the sidewalk's incline follows the same grade as the adjacent street or if it has been leveled independently.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:sidewalk_matches_road_slope",
-          "quest_answer_dependency": {
-            "question_id": 118,
-            "required_value": ["running_slope", "both"]
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 118,
+              "required_value": [
+                "running_slope",
+                "both"
+              ]
+            },
+            {
+              "question_id": 100,
+              "required_value": [
+                "access_pathways",
+                "ada_transition_plan"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -556,7 +704,15 @@
               "value": "5",
               "choice_text": "5"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
+          }
         },
         {
           "quest_id": 121,
@@ -567,6 +723,14 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 20
+          },
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
           }
         },
         {
@@ -578,6 +742,13 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 50
+          },
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "connecting_to_transit"
+            ]
           }
         },
         {
@@ -599,7 +770,15 @@
               "value": "n/a",
               "choice_text": "N/A (No driveways)"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 124,
@@ -610,6 +789,13 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 100
+          },
+          "quest_answer_dependency": {
+            "question_id": 100,
+            "required_value": [
+              "access_pathways",
+              "connecting_to_transit"
+            ]
           }
         },
         {
@@ -682,7 +868,14 @@
               "choice_text": "Controlled",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signed/yes_square.png"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
+          }
         },
         {
           "quest_id": 202,
@@ -715,7 +908,14 @@
               "value": "very_uncomfortable",
               "choice_text": "Very Uncomfortable"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "access_pathways",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 203,
@@ -723,10 +923,23 @@
           "quest_description": "Assess the overall sense of comfort for pedestrians at this crossing. Consider factors such as vehicle speed, exposure, visibility, and pedestrian infrastructure.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:crossing_safety_perception",
-          "quest_answer_dependency": {
-            "question_id": 202,
-            "required_value": ["somewhat_uncomfortable", "uncomfortable", "very_uncomfortable"]
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 202,
+              "required_value": [
+                "somewhat_uncomfortable",
+                "uncomfortable",
+                "very_uncomfortable"
+              ]
+            },
+            {
+              "question_id": 200,
+              "required_value": [
+                "access_pathways",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "drivers_too_fast",
@@ -764,6 +977,13 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 100
+          },
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
           }
         },
         {
@@ -775,6 +995,13 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 10
+          },
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
           }
         },
         {
@@ -804,7 +1031,17 @@
               "value": "5",
               "choice_text": "5"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "access_pathways",
+              "ada_transition_plan",
+              "connecting_to_transit",
+              "speed_and_reliability",
+              "transit_route_facilities"
+            ]
+          }
         },
         {
           "quest_id": 207,
@@ -826,7 +1063,14 @@
               "value": "unknown",
               "choice_text": "Unknown"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "access_pathways",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 208,
@@ -843,7 +1087,14 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
+          }
         },
         {
           "quest_id": 209,
@@ -851,10 +1102,19 @@
           "quest_description": "Select the type of pedestrian or traffic control present at this crossing. Include any pedestrian-specific signals or beacons if applicable.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_signal_type",
-          "quest_answer_dependency": {
-            "question_id": 208,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 208,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 200,
+              "required_value": [
+                "connecting_to_transit",
+                "speed_and_reliability"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "no_signal_no_crosswalk",
@@ -899,9 +1159,24 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_push_button",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "ada_transition_plan",
+              "access_pathways",
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
+          }
         },
         {
           "quest_id": 211,
@@ -909,13 +1184,30 @@
           "quest_description": "Does the signal emit a sound (chirp, beep, or speech) to indicate it is safe to cross?",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_audible_signal",
-          "quest_answer_dependency": {
-            "question_id": 210,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 210,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 200,
+              "required_value": [
+                "ada_transition_plan",
+                "access_pathways",
+                "connecting_to_transit",
+                "speed_and_reliability"
+              ]
+            }
+          ],
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
           ]
         },
         {
@@ -924,13 +1216,30 @@
           "quest_description": "Based on a normal walking pace, evaluate if the Walk and flashing Don't Walk intervals are sufficient.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_sufficient_time",
-          "quest_answer_dependency": {
-            "question_id": 210,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 210,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 200,
+              "required_value": [
+                "ada_transition_plan",
+                "access_pathways",
+                "connecting_to_transit",
+                "speed_and_reliability"
+              ]
+            }
+          ],
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
           ]
         },
         {
@@ -939,13 +1248,30 @@
           "quest_description": "Does the pedestrian Walk signal turn on a few seconds before the vehicle traffic light turns green?",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_lpi_present",
-          "quest_answer_dependency": {
-            "question_id": 210,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 210,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 200,
+              "required_value": [
+                "ada_transition_plan",
+                "access_pathways",
+                "connecting_to_transit",
+                "speed_and_reliability"
+              ]
+            }
+          ],
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
           ]
         },
         {
@@ -955,9 +1281,19 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_painted_present",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": "connecting_to_transit"
+          }
         },
         {
           "quest_id": 215,
@@ -965,14 +1301,29 @@
           "quest_description": "Identify the visibility style of the markings.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_striping_type",
-          "quest_answer_dependency": {
-            "question_id": 214,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 214,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 200,
+              "required_value": "connecting_to_transit"
+            }
+          ],
           "quest_answer_choices": [
-            { "value": "low_visibility", "choice_text": "Low Visibility" },
-            { "value": "high_visibility", "choice_text": "High Visibility" },
-            { "value": "other", "choice_text": "Other"}
+            {
+              "value": "low_visibility",
+              "choice_text": "Low Visibility"
+            },
+            {
+              "value": "high_visibility",
+              "choice_text": "High Visibility"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other"
+            }
           ]
         },
         {
@@ -981,16 +1332,39 @@
           "quest_description": "Rate the physical condition of the paint (1 = hardly visible/faded, 5 = freshly painted/bright).",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_paint_condition",
-          "quest_answer_dependency": {
-            "question_id": 214,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 214,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 200,
+              "required_value": [
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
-            { "value": "1", "choice_text": "1" },
-            { "value": "2", "choice_text": "2" },
-            { "value": "3", "choice_text": "3" },
-            { "value": "4", "choice_text": "4" },
-            { "value": "5", "choice_text": "5" }
+            {
+              "value": "1",
+              "choice_text": "1"
+            },
+            {
+              "value": "2",
+              "choice_text": "2"
+            },
+            {
+              "value": "3",
+              "choice_text": "3"
+            },
+            {
+              "value": "4",
+              "choice_text": "4"
+            },
+            {
+              "value": "5",
+              "choice_text": "5"
+            }
           ]
         },
         {
@@ -1000,9 +1374,19 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_stop_bars",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": "connecting_to_transit"
+          }
         },
         {
           "quest_id": 218,
@@ -1011,9 +1395,19 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_warning_signs",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": "connecting_to_transit"
+          }
         },
         {
           "quest_id": 219,
@@ -1022,9 +1416,19 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_median_island",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": "connecting_to_transit"
+          }
         },
         {
           "quest_id": 220,
@@ -1033,9 +1437,22 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_curb_bulb",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
+          }
         },
         {
           "quest_id": 221,
@@ -1044,12 +1461,34 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_driver_visibility_perception",
           "quest_answer_choices": [
-            { "value": "1", "choice_text": "1" },
-            { "value": "2", "choice_text": "2" },
-            { "value": "3", "choice_text": "3" },
-            { "value": "4", "choice_text": "4" },
-            { "value": "5", "choice_text": "5" }
-          ]
+            {
+              "value": "1",
+              "choice_text": "1"
+            },
+            {
+              "value": "2",
+              "choice_text": "2"
+            },
+            {
+              "value": "3",
+              "choice_text": "3"
+            },
+            {
+              "value": "4",
+              "choice_text": "4"
+            },
+            {
+              "value": "5",
+              "choice_text": "5"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "access_pathways",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 222,
@@ -1058,9 +1497,22 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_intersecting_bike_lane",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 200,
+            "required_value": [
+              "connecting_to_transit",
+              "transit_route_facilities"
+            ]
+          }
         },
         {
           "quest_id": 223,
@@ -1135,7 +1587,15 @@
               "value": "unknown",
               "choice_text": "Unknown"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "transit_route_facilities",
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 302,
@@ -1143,10 +1603,20 @@
           "quest_description": "Measure whether the cross slope of the boarding area is less than 2%, ensuring it meets accessibility standards for wheelchair users and mobility devices. Measure the landing pad perpendicular to the sidewalk two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 301,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": [
+                "transit_route_facilities",
+                "ada_transition_plan",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1166,7 +1636,7 @@
         {
           "quest_id": 303,
           "quest_title": "Is the running slope of this bus zone less than or equal to the running slope of the street?",
-          "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone’s running slope is less than or equal to the street’s slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
+          "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone's running slope is less than or equal to the street's slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_zone_running_slope",
           "quest_answer_choices": [
@@ -1182,7 +1652,15 @@
               "value": "unknown",
               "choice_text": "Unknown"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "transit_route_facilities",
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 304,
@@ -1199,7 +1677,11 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 305,
@@ -1207,10 +1689,16 @@
           "quest_description": "Identify the type of shelter structure at this bus stop.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_shelter_type",
-          "quest_answer_dependency": {
-            "question_id": 304,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 304,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": "transit_route_facilities"
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "double_shelter",
@@ -1236,10 +1724,16 @@
           "quest_description": "Check whether a shelter footing or foundation pad is present at this bus stop, if a shelter structure has not been installed.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_shelter_footing_present",
-          "quest_answer_dependency": {
-            "question_id": 304,
-            "required_value": "no"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 304,
+              "required_value": "no"
+            },
+            {
+              "question_id": 300,
+              "required_value": "transit_route_facilities"
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1266,7 +1760,11 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 308,
@@ -1274,10 +1772,16 @@
           "quest_description": "Select the type of seating provided at this bus stop.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_seating_type",
-          "quest_answer_dependency": {
-            "question_id": 307,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 307,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": "transit_route_facilities"
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "metro_shelter_bench",
@@ -1311,10 +1815,19 @@
           "quest_description": "Select which boarding positions have landing pads.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_landing_pads",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 301,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": [
+                "ada_transition_plan",
+                "transit_route_facilities"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "all_three",
@@ -1345,7 +1858,14 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "transit_route_facilities",
+              "ada_transition_plan"
+            ]
+          }
         },
         {
           "quest_id": 311,
@@ -1362,7 +1882,14 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "transit_route_facilities",
+              "ada_transition_plan"
+            ]
+          }
         },
         {
           "quest_id": 312,
@@ -1391,7 +1918,15 @@
               "value": "5",
               "choice_text": "5"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "transit_route_facilities",
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 313,
@@ -1403,6 +1938,14 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 100
+          },
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability",
+              "transit_route_facilities"
+            ]
           }
         },
         {
@@ -1420,7 +1963,15 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "transit_route_facilities",
+              "access_pathways",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 315,
@@ -1428,10 +1979,20 @@
           "quest_description": "Identify the type of pedestrian infrastructure providing access.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_ped_connection",
-          "quest_answer_dependency": {
-            "question_id": 314,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 314,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": [
+                "transit_route_facilities",
+                "access_pathways",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "sidewalk",
@@ -1461,10 +2022,20 @@
           "quest_description": "Measure or estimate the width of the sidewalk or path connecting to the bus stop at its narrowest point.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_ped_connection_width",
-          "quest_answer_dependency": {
-            "question_id": 314,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 314,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": [
+                "transit_route_facilities",
+                "access_pathways",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_validation": {
             "min": 0,
             "max": 30
@@ -1476,10 +2047,20 @@
           "quest_description": "Rate the physical condition of the path. 1 = Poor (major cracks, overgrown, or obstructed); 5 = Excellent (smooth, clear, and well-maintained).",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_ped_connection_quality",
-          "quest_answer_dependency": {
-            "question_id": 314,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 314,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": [
+                "transit_route_facilities",
+                "access_pathways",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "1",
@@ -1518,7 +2099,14 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "connecting_to_transit",
+              "transit_route_facilities"
+            ]
+          }
         },
         {
           "quest_id": 319,
@@ -1526,10 +2114,19 @@
           "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_bike_connection",
-          "quest_answer_dependency": {
-            "question_id": 318,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 318,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": [
+                "connecting_to_transit",
+                "transit_route_facilities"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "bike_lane",
@@ -1580,7 +2177,14 @@
               "value": "5",
               "choice_text": "5"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
+          }
         },
         {
           "quest_id": 321,
@@ -1597,7 +2201,16 @@
               "value": "yes",
               "choice_text": "Yes"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "transit_route_facilities",
+              "ada_transition_plan",
+              "access_pathways",
+              "connecting_to_transit"
+            ]
+          }
         },
         {
           "quest_id": 322,
@@ -1618,7 +2231,11 @@
               "value": "unknown",
               "choice_text": "Unknown"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "connecting_to_transit"
+          }
         },
         {
           "quest_id": 323,
@@ -1626,10 +2243,16 @@
           "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:bus_stop_buffer_type",
-          "quest_answer_dependency": {
-            "question_id": 322,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 322,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": "connecting_to_transit"
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "landscaping",
@@ -1661,10 +2284,18 @@
           "quest_description": "Estimate or measure the width of the buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_buffer_width",
-          "quest_answer_dependency": {
-            "question_id": 322,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 322,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": [
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_validation": {
             "min": 0,
             "max": 50
@@ -1685,7 +2316,11 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 326,
@@ -1714,7 +2349,11 @@
               "value": "5",
               "choice_text": "5"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 327,
@@ -1731,7 +2370,11 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 328,
@@ -1760,7 +2403,14 @@
               "value": "unknown",
               "choice_text": "Unknown / Unable to determine"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": [
+              "transit_route_facilities",
+              "ada_transition_plan"
+            ]
+          }
         },
         {
           "quest_id": 329,
@@ -1769,9 +2419,19 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_nearby_crossing_present",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "connecting_to_transit"
+          }
         },
         {
           "quest_id": 330,
@@ -1779,15 +2439,33 @@
           "quest_description": "Identify the primary type of crossing available for riders to reach the stop.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_nearby_crossing_type",
-          "quest_answer_dependency": {
-            "question_id": 329,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 329,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": "connecting_to_transit"
+            }
+          ],
           "quest_answer_choices": [
-            { "value": "signalized", "choice_text": "Signalized Intersection" },
-            { "value": "unsignalized_marked", "choice_text": "Unsignalized (Painted) Crosswalk" },
-            { "value": "stop_controlled", "choice_text": "Stop Sign Controlled" },
-            { "value": "unmarked", "choice_text": "Unmarked Crossing" }
+            {
+              "value": "signalized",
+              "choice_text": "Signalized Intersection"
+            },
+            {
+              "value": "unsignalized_marked",
+              "choice_text": "Unsignalized (Painted) Crosswalk"
+            },
+            {
+              "value": "stop_controlled",
+              "choice_text": "Stop Sign Controlled"
+            },
+            {
+              "value": "unmarked",
+              "choice_text": "Unmarked Crossing"
+            }
           ]
         },
         {
@@ -1797,10 +2475,23 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_relative_location",
           "quest_answer_choices": [
-            { "value": "nearside", "choice_text": "Nearside (Before intersection)" },
-            { "value": "farside", "choice_text": "Farside (After intersection)" },
-            { "value": "midblock", "choice_text": "Midblock" }
-          ]
+            {
+              "value": "nearside",
+              "choice_text": "Nearside (Before intersection)"
+            },
+            {
+              "value": "farside",
+              "choice_text": "Farside (After intersection)"
+            },
+            {
+              "value": "midblock",
+              "choice_text": "Midblock"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 332,
@@ -1809,9 +2500,19 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_boarding_type",
           "quest_answer_choices": [
-            { "value": "in_lane", "choice_text": "Stops in traffic lane (In-lane)" },
-            { "value": "pull_out", "choice_text": "Pulls out of traffic (Bus Bay/Pull-out)" }
-          ]
+            {
+              "value": "in_lane",
+              "choice_text": "Stops in traffic lane (In-lane)"
+            },
+            {
+              "value": "pull_out",
+              "choice_text": "Pulls out of traffic (Bus Bay/Pull-out)"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 333,
@@ -1819,13 +2520,25 @@
           "quest_description": "Check for bike racks, lockers, or a bike share station within the immediate stop area.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_bike_parking_present",
-          "quest_answer_dependency": {
-            "question_id": 318,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 318,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 300,
+              "required_value": "transit_route_facilities"
+            }
+          ],
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
           ]
         },
         {
@@ -1835,9 +2548,19 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_mirrored_on_block",
           "quest_answer_choices": [
-            { "value": "yes", "choice_text": "Yes" },
-            { "value": "no", "choice_text": "No" }
-          ]
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 335,
@@ -1846,11 +2569,27 @@
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_loading_config",
           "quest_answer_choices": [
-            { "value": "right_lane_curb", "choice_text": "Right lane / Curb loading" },
-            { "value": "center_loading", "choice_text": "Center loading island" },
-            { "value": "bike_mixing_zone", "choice_text": "Right lane with Bike Mixing Zone" },
-            { "value": "floating_island", "choice_text": "Floating Bus Stop (Bike lane behind stop)" }
-          ]
+            {
+              "value": "right_lane_curb",
+              "choice_text": "Right lane / Curb loading"
+            },
+            {
+              "value": "center_loading",
+              "choice_text": "Center loading island"
+            },
+            {
+              "value": "bike_mixing_zone",
+              "choice_text": "Right lane with Bike Mixing Zone"
+            },
+            {
+              "value": "floating_island",
+              "choice_text": "Floating Bus Stop (Bike lane behind stop)"
+            }
+          ],
+          "quest_answer_dependency": {
+            "question_id": 300,
+            "required_value": "transit_route_facilities"
+          }
         },
         {
           "quest_id": 336,
@@ -1947,7 +2686,14 @@
               "choice_text": "Yes, Unsignalled Intersection with Painted Crosswalk",
               "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Median_island_and_crosswalk_2.jpg"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 400,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
+          }
         },
         {
           "quest_id": 402,
@@ -1964,7 +2710,11 @@
               "value": "no",
               "choice_text": "No"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 400,
+            "required_value": "connecting_to_transit"
+          }
         },
         {
           "quest_id": 403,
@@ -1972,10 +2722,16 @@
           "quest_description": "Assess the overall sense of safety and comfort for pedestrians at this intersection. Consider factors such as vehicle speed, visibility, and pedestrian infrastructure.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:intersection_safety_perception",
-          "quest_answer_dependency": {
-            "question_id": 402,
-            "required_value": "yes"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 402,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 400,
+              "required_value": "connecting_to_transit"
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "drivers_too_fast",
@@ -2013,6 +2769,13 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 100
+          },
+          "quest_answer_dependency": {
+            "question_id": 400,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability"
+            ]
           }
         },
         {
@@ -2024,6 +2787,14 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 10
+          },
+          "quest_answer_dependency": {
+            "question_id": 400,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability",
+              "transit_route_facilities"
+            ]
           }
         },
         {
@@ -2049,7 +2820,15 @@
               "value": "both",
               "choice_text": "Both left and right turn lanes"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 400,
+            "required_value": [
+              "connecting_to_transit",
+              "speed_and_reliability",
+              "transit_route_facilities"
+            ]
+          }
         },
         {
           "quest_id": 407,
@@ -2136,16 +2915,32 @@
               "value": "unknown",
               "choice_text": "Unknown"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 500,
+            "required_value": "ada_transition_plan"
+          }
         },
         {
           "quest_id": 502,
           "quest_title": "What type of lowered curb is this?",
           "quest_description": "Identify if this is a curb ramp or blended transition.",
-          "quest_answer_dependency": {
-            "question_id": 501,
-            "required_value": ["lowered", "flush"]
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 501,
+              "required_value": [
+                "lowered",
+                "flush"
+              ]
+            },
+            {
+              "question_id": 500,
+              "required_value": [
+              "ada_transition_plan",
+              "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:lowered_curb_type",
           "quest_answer_choices": [
@@ -2169,10 +2964,16 @@
           "quest_id": 503,
           "quest_title": "What type of ramp placement is this?",
           "quest_description": "Select this ramp's placement type.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:ramp_placement_type",
           "quest_answer_choices": [
@@ -2200,10 +3001,19 @@
           "quest_id": 504,
           "quest_title": "Does this curb ramp directionally align with the crosswalk?",
           "quest_description": "Check if this curb ramp lines up with the pedestrian crossing.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": [
+                "ada_transition_plan",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:ramp_alignment_with_crossing",
           "quest_answer_choices": [
@@ -2227,10 +3037,16 @@
           "quest_id": 505,
           "quest_title": "Does this curb ramp have edge protection?",
           "quest_description": "Check if there is a vertical barrier to prevent falls.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:ramp_edge_protection",
           "quest_answer_choices": [
@@ -2254,10 +3070,16 @@
           "quest_id": 506,
           "quest_title": "What is the width of this curb ramp?",
           "quest_description": "Measure the clear width of this curb ramp, in inches.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/width_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:ramp_width",
@@ -2270,10 +3092,16 @@
           "quest_id": 507,
           "quest_title": "What is the running slope of this curb ramp?",
           "quest_description": "Measure the incline along the direction of travel, as a percentage.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_type": "Numeric",
           "quest_tag": "ext:ramp_running_slope",
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/running_slope_square.png",
@@ -2286,10 +3114,16 @@
           "quest_id": 508,
           "quest_title": "What is the cross slope of this curb ramp?",
           "quest_description": "Measure the side-to-side incline of this curb ramp, as a percentage.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/cross_slope_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:ramp_cross_slope",
@@ -2302,10 +3136,16 @@
           "quest_id": 509,
           "quest_title": "What is the width of this ramp's landing?",
           "quest_description": "Measure the width of this ramp's top landing area, in inches.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/width_landscape.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:landing_width",
@@ -2318,10 +3158,16 @@
           "quest_id": 510,
           "quest_title": "What is the depth of this ramp's landing?",
           "quest_description": "Measure the depth of this ramp's top landing area, in inches.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/depth_landscape.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:landing_depth",
@@ -2334,10 +3180,16 @@
           "quest_id": 511,
           "quest_title": "What is the slope of this ramp's side flares?",
           "quest_description": "Measure the slope of this ramp's side flares, as a percentage.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/side_flare_slope_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:ramp_side_flare_slope",
@@ -2350,10 +3202,16 @@
           "quest_id": 512,
           "quest_title": "What is the surface material of this curb ramp?",
           "quest_description": "Identify the material this curb ramp is made of.",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": "ada_transition_plan"
+            }
+          ],
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:ramp_surface_material",
           "quest_answer_choices": [
@@ -2379,10 +3237,19 @@
           "quest_description": "Check for a tactile surface of raised domes at the base of the ramp. These are usually yellow or a contrasting color.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:curb_ramp_detectable_warning_present",
-          "quest_answer_dependency": {
-            "question_id": 501,
-            "required_value": "lowered"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 501,
+              "required_value": "lowered"
+            },
+            {
+              "question_id": 500,
+              "required_value": [
+                "ada_transition_plan",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "yes_contrasting",
@@ -2404,10 +3271,19 @@
           "quest_description": "Determine if there is a flat, unobstructed space at the top of the ramp to allow for turning.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:curb_ramp_level_landing_present",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": [
+                "ada_transition_plan",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -2433,10 +3309,19 @@
           "quest_description": "Can a person in a wheelchair reach the signal button without leaving the level landing or ramp surface?",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:curb_ramp_signal_proximity",
-          "quest_answer_dependency": {
-            "question_id": 502,
-            "required_value": "curb_ramp"
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            {
+              "question_id": 500,
+              "required_value": [
+                "ada_transition_plan",
+                "connecting_to_transit"
+              ]
+            }
+          ],
           "quest_answer_choices": [
             {
               "value": "reachable",
