@@ -2918,7 +2918,10 @@
           ],
           "quest_answer_dependency": {
             "question_id": 500,
-            "required_value": "ada_transition_plan"
+            "required_value": [
+              "ada_transition_plan",
+              "connecting_to_transit"
+            ]
           }
         },
         {
@@ -2936,8 +2939,8 @@
             {
               "question_id": 500,
               "required_value": [
-              "ada_transition_plan",
-              "connecting_to_transit"
+                "ada_transition_plan",
+                "connecting_to_transit"
               ]
             }
           ],
