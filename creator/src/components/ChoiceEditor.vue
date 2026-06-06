@@ -29,13 +29,16 @@ const choiceImagePath = computed(() => `${choiceBase.value}/image_url`);
 
 const followUpEnabled = computed({
     get() {
-        return Boolean(choice.value?.choice_follow_up);
+        return choice.value?._followUpEnabled === true;
     },
     set(enabled) {
+        const currentText = choice.value?.choice_follow_up || "";
+        const fallbackText = "(Optional) Take a picture at this location?";
         update({
             choice_follow_up: enabled
-                ? choice.value?.choice_follow_up || ""
-                : "",
+                ? currentText || fallbackText
+                : choice.value?.choice_follow_up || "",
+            _followUpEnabled: enabled,
         });
     },
 });
@@ -155,7 +158,8 @@ function setFollowUpEnabled(enabled) {
                     <label
                         :for="`choice-followup-${elementIndex}-${questIndex}-${choiceIndex}`"
                         class="form-label small mb-1"
-                        >Picture-Taking Prompt Text</label
+                        >Picture-Taking Prompt Text
+                        <span aria-hidden="true" class="text-danger">*</span></label
                     >
                     <div class="form-text small mb-1">
                         This text is shown with the picture-taking prompt for
@@ -171,6 +175,15 @@ function setFollowUpEnabled(enabled) {
                             update({ choice_follow_up: $event.target.value })
                         "
                     ></textarea>
+                    <div class="form-text small mt-1">
+                        Note: Images are made publicly available via
+                        <a
+                            href="https://kartaview.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >KartaView</a
+                        >!
+                    </div>
                 </div>
             </div>
         </div>

@@ -73,8 +73,7 @@ function createNew() {
                         target="_blank"
                         rel="noopener noreferrer"
                         >AVIV ScoutRoute</a
-                    >
-                    <a
+                    > <a
                         href="https://taskarcenteratuw.github.io/tcat-wiki/aviv-scoutroute/quests/"
                         target="_blank"
                         rel="noopener noreferrer"

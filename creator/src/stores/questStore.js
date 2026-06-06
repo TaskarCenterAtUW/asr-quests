@@ -16,6 +16,7 @@ function newChoice() {
     choice_text: "",
     image_url: "",
     choice_follow_up: "",
+    _followUpEnabled: false,
   };
 }
 
@@ -228,6 +229,7 @@ function questFromJson(quest) {
       choice_text: choice.choice_text ?? "",
       image_url: choice.image_url ?? "",
       choice_follow_up: choice.choice_follow_up ?? "",
+      _followUpEnabled: Boolean(choice.choice_follow_up),
     })),
     _validEnableMin: validation.min != null,
     _validMin: normalizeNumericBound(validation.min),
@@ -300,6 +302,7 @@ function createQuestFromTemplate(
         choice_text: choice.choice_text ?? "",
         image_url: choice.image_url ?? "",
         choice_follow_up: choice.choice_follow_up ?? "",
+        _followUpEnabled: Boolean(choice.choice_follow_up),
       })
     ),
     _validEnableMin: validation.min != null,
