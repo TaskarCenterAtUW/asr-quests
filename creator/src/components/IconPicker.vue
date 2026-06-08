@@ -17,13 +17,18 @@ const searchId = `icon-search-${Math.random().toString(36).slice(2)}`;
 
 const filtered = computed(() => {
     const q = filter.value.trim().toLowerCase();
-    return q ? icons.filter((i) => i.name.toLowerCase().includes(q)) : icons;
+    return q
+        ? icons.filter(
+              (i) =>
+                  i.label.toLowerCase().includes(q) ||
+                  i.name.toLowerCase().includes(q)
+          )
+        : icons;
 });
 
 const selected = computed(() => {
     if (!props.modelValue) return null;
-    const normalized = props.modelValue.replace(/_/g, " ").toLowerCase();
-    return icons.find((i) => i.name.toLowerCase() === normalized) || null;
+    return icons.find((i) => i.name === props.modelValue) || null;
 });
 
 function pick(icon) {
@@ -78,7 +83,7 @@ watch(open, (isOpen) => {
                 />
             </span>
             <span v-if="selected" class="small text-muted">{{
-                selected.name
+                selected.label
             }}</span>
             <span v-else class="small text-muted fst-italic"
                 >No icon selected</span
@@ -138,9 +143,9 @@ watch(open, (isOpen) => {
                         v-for="icon in filtered"
                         :key="icon.name"
                         type="button"
-                        :aria-label="`Use ${icon.name}`"
+                        :aria-label="`Use ${icon.label}`"
                         :aria-pressed="icon.name === modelValue"
-                        :title="icon.name"
+                        :title="icon.label"
                         class="btn btn-sm creator-icon-option"
                         :class="{
                             'creator-icon-option--selected':

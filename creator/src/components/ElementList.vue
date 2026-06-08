@@ -22,11 +22,7 @@ const selectedQuestIndex = computed(() => store.selectedQuestIndex);
 
 function iconUrl(name) {
     if (!name) return null;
-    const normalized = name.replace(/_/g, " ").toLowerCase();
-    return (
-        icons.find((icon) => icon.name.toLowerCase() === normalized)?.url ??
-        null
-    );
+    return icons.find((icon) => icon.name === name)?.url ?? null;
 }
 
 function setElementButtonRef(element, index) {
