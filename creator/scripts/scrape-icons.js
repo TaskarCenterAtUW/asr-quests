@@ -2,7 +2,10 @@
 
 // Run with: node scripts/scrape-icons.js
 // Fetches the GiG element_icons.json data file, constructs icon URLs,
-// and writes creator/src/assets/icons.json as [{ name, url }].
+// and writes creator/src/assets/icons.json as [{ name, label, url }].
+//   name  — snake_case canonical identifier (derived from filename)
+//   label — human-readable display name
+//   url   — full icon image URL
 // Requires Node 18+ (built-in fetch).
 
 import { writeFileSync, mkdirSync } from "node:fs";
@@ -41,10 +44,18 @@ async function main() {
     throw new Error("element_icons.json is empty or not an array.");
   }
 
-  const icons = data.map(({ name, path }) => ({
-    name: name.trim(),
-    url: `${BASE_URL}icons2/${path}`,
-  }));
+  const icons = data.map(({ name, path }) => {
+    const snakeCase = String(path ?? "")
+      .replace(/\.\w+$/, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_")
+      .replace(/^_+|_+$/g, "");
+    return {
+      name: snakeCase || name.trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, ""),
+      label: name.trim(),
+      url: `${BASE_URL}icons2/${path}`,
+    };
+  });
 
   icons.sort((a, b) => a.name.localeCompare(b.name));
 
