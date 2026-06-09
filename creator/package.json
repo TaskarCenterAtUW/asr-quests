@@ -1,13 +1,14 @@
 {
     "name": "creator",
     "private": true,
-    "version": "0.3.0",
+    "version": "0.4.0",
     "type": "module",
+    "packageManager": "bun@1.3.14",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "scrape-icons": "node scripts/scrape-icons.js"
+        "scrape-icons": "bun scripts/scrape-icons.js"
     },
     "dependencies": {
         "@vueuse/core": "^14.3.0",
@@ -21,3 +22,4 @@
         "vite": "^8.0.10"
     }
 }
+ 
