@@ -2287,7 +2287,7 @@
         {
             "element_type": "Intersections",
             "element_type_icon": "traffic_light",
-            "quest_query": "nodes with (highway=traffic_signals or highway=crossing)",
+            "quest_query": "nodes with (ext:intersection=yes)",
             "quests": [
                 {
                     "quest_id": 400,
@@ -2705,7 +2705,7 @@
         {
             "element_type": "Curbs",
             "element_type_icon": "curb_ramp",
-            "quest_query": "nodes with (kerb=*)",
+            "quest_query": "nodes with (barrier=kerb)",
             "quests": [
                 {
                     "quest_id": 500,
