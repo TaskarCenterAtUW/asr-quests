@@ -778,7 +778,7 @@
           "quest_id": 126,
           "quest_title": "Internal Metro note for this sidewalk segment",
           "quest_description": "Record a Metro-internal note that should not be shared publicly without review.",
-          "quest_type": "FreeText",
+          "quest_type": "TextEntry",
           "quest_tag": "ext:sidewalk_internal_metro_note",
           "quest_answer_dependency": {
             "question_id": 101,
@@ -1452,7 +1452,7 @@
           "quest_id": 223,
           "quest_title": "Internal Metro note for this crossing",
           "quest_description": "Record a Metro-internal note that should not be shared publicly without review.",
-          "quest_type": "FreeText",
+          "quest_type": "TextEntry",
           "quest_tag": "ext:crossing_internal_metro_note",
           "quest_answer_dependency": {
             "question_id": 201,
@@ -2290,7 +2290,7 @@
           "quest_id": 330,
           "quest_title": "Internal Metro note for this bus stop",
           "quest_description": "Record a Metro-internal note that should not be shared publicly without review.",
-          "quest_type": "FreeText",
+          "quest_type": "TextEntry",
           "quest_tag": "ext:bus_stop_internal_metro_note",
           "quest_answer_dependency": {
             "question_id": 301,
@@ -2716,7 +2716,7 @@
           "quest_id": 413,
           "quest_title": "Internal Metro note for this intersection",
           "quest_description": "Record a Metro-internal note that should not be shared publicly without review.",
-          "quest_type": "FreeText",
+          "quest_type": "TextEntry",
           "quest_tag": "ext:intersection_internal_metro_note",
           "quest_answer_dependency": {
             "question_id": 401,
@@ -3204,7 +3204,7 @@
           "quest_id": 515,
           "quest_title": "Internal Metro note for this curb or curb ramp",
           "quest_description": "Record a Metro-internal note that should not be shared publicly without review.",
-          "quest_type": "FreeText",
+          "quest_type": "TextEntry",
           "quest_tag": "ext:curb_internal_metro_note",
           "quest_answer_dependency": {
             "question_id": 501,
