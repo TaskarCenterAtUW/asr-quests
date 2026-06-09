@@ -423,6 +423,8 @@ function isChoiceChecked(dependency, choiceValue) {
 
 <style scoped>
 .btn-group .btn {
+    display: inline-flex;
+    align-items: center;
     text-align: center;
     justify-content: center;
 }
