@@ -112,15 +112,15 @@ Basic capabilities:
 From the [creator/](creator/) directory:
 
 ```bash
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 For a production build:
 
 ```bash
-npm run build
-npm run preview
+bun run build
+bun run preview
 ```
 
 ### Basic Creator Workflow

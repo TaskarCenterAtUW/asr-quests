@@ -15,7 +15,6 @@ const addElementButton = ref(null);
 const elementButtons = ref([]);
 const questTreeButtons = ref({});
 const expandedElements = ref(new Set());
-
 const elements = computed(() => store.definition.elements);
 const selectedIndex = computed(() => store.selectedElementIndex);
 const selectedQuestIndex = computed(() => store.selectedQuestIndex);
