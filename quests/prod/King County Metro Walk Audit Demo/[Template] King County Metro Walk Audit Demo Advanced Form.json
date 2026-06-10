@@ -43,12 +43,12 @@
                     "quest_tag": "ext:sidewalk_coverage_gaps",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ],
                     "quest_answer_dependency": {
@@ -68,15 +68,15 @@
                     "quest_tag": "ext:sidewalk_condition",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes",
                             "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/bad_square.png",
                             "choice_follow_up": "You may take a picture of the sidewalk surface defect."
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No",
+                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
                         }
                     ],
                     "quest_answer_dependency": {
@@ -248,12 +248,12 @@
                     "quest_tag": "ext:sidewalk_3ft_clearance",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ],
                     "quest_answer_dependency": {
@@ -560,14 +560,14 @@
                     "quest_tag": "ext:sidewalk_snow_leaf_clear",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/condition/leaves_square.png"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes",
                             "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No",
+                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/condition/leaves_square.png"
                         },
                         {
                             "value": "n/a",
@@ -803,13 +803,13 @@
                     "quest_tag": "ext:sidewalk_picture",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Ok!",
                             "choice_follow_up": "Please take a picture of the sidewalk."
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 }
@@ -1517,13 +1517,13 @@
                     "quest_tag": "ext:crossing_picture",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Ok!",
                             "choice_follow_up": "Please take a picture of the crossing."
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 }
@@ -2189,12 +2189,12 @@
                     "quest_tag": "ext:bus_stop_3ft_clearance",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ],
                     "quest_answer_dependency": {
@@ -2592,13 +2592,13 @@
                     "quest_tag": "ext:bus_stop_picture",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Ok!",
                             "choice_follow_up": "Please take a picture of the bus stop."
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 }
@@ -2831,13 +2831,13 @@
                     "quest_tag": "ext:intersection_picture",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Ok!",
                             "choice_follow_up": "Please take a picture of the intersection."
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 }
@@ -3338,13 +3338,13 @@
                     "quest_tag": "ext:curb_picture",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Ok!",
                             "choice_follow_up": "Please take a picture of the curb."
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 }

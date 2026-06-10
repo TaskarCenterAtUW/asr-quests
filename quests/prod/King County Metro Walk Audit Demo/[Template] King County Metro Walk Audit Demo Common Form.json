@@ -14,14 +14,14 @@
                     "quest_tag": "ext:sidewalk_condition",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes",
                             "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/bad_square.png"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No",
+                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
                         }
                     ]
                 },
@@ -80,14 +80,14 @@
                     "quest_tag": "ext:sidewalk_stop_ap_condition",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes",
                             "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/bad_square.png"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No",
+                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
                         },
                         {
                             "value": "n/a",
@@ -417,14 +417,14 @@
                     "quest_tag": "ext:sidewalk_snow_leaf_clear",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/condition/leaves_square.png"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes",
                             "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No",
+                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/condition/leaves_square.png"
                         },
                         {
                             "value": "n/a",
@@ -511,12 +511,12 @@
                     "quest_tag": "ext:sidewalk_coverage_gaps",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -546,13 +546,13 @@
                     "quest_tag": "ext:crossing:indicator_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes",
                             "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signed/yes_square.png"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },

@@ -182,12 +182,12 @@
                     "quest_tag": "ext:sidewalk:gap_or_discontinuity",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -199,12 +199,12 @@
                     "quest_tag": "ext:sidewalk:obstructions_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -412,12 +412,12 @@
                     "quest_tag": "ext:sidewalk:shade_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -480,12 +480,12 @@
                     "quest_tag": "ext:crossing:marked",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -593,12 +593,12 @@
                     "quest_tag": "ext:crossing:refuge_island_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -676,12 +676,12 @@
                     "quest_tag": "ext:crossing:pushbutton_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -697,12 +697,12 @@
                     },
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -718,12 +718,12 @@
                     "quest_tag": "ext:crossing:aps_audible_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -739,12 +739,12 @@
                     "quest_tag": "ext:crossing:aps_vibrotactile_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -760,12 +760,12 @@
                     "quest_tag": "ext:crossing:tactile_arrow_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -806,12 +806,12 @@
                     "quest_tag": "ext:crossing:tactile_paving_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -886,12 +886,12 @@
                     "quest_tag": "ext:crossing:accessible_end_treatments_both_ends",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -925,12 +925,12 @@
                     "quest_tag": "ext:crossing:stop_bar_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -1167,12 +1167,12 @@
                     },
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -1410,12 +1410,12 @@
                     "quest_tag": "ext:curb:tactile_paving_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -1530,12 +1530,12 @@
                     "quest_tag": "ext:bus_stop:sign_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "temporary",
@@ -1580,12 +1580,12 @@
                     "quest_tag": "ext:bus_stop:flag_position_clear",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -1601,12 +1601,12 @@
                     "quest_tag": "ext:bus_stop:boarding_area_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -1760,12 +1760,12 @@
                     "quest_tag": "ext:bus_stop:seating_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -1835,12 +1835,12 @@
                     "quest_tag": "ext:bus_stop:schedule_info_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -1914,12 +1914,12 @@
                     "quest_tag": "ext:bus_stop:waste_bin_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -2199,12 +2199,12 @@
                     "quest_tag": "ext:bus_stop:shade_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 }
@@ -2260,12 +2260,12 @@
                     "quest_tag": "ext:intersection:pushbutton_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -2285,12 +2285,12 @@
                     },
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -2306,12 +2306,12 @@
                     "quest_tag": "ext:intersection:aps_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_assess",
@@ -2371,12 +2371,12 @@
                     "quest_tag": "ext:intersection:stop_bar_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
@@ -2425,12 +2425,12 @@
                     "quest_tag": "ext:intersection:refuge_present",
                     "quest_answer_choices": [
                         {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
                             "value": "yes",
                             "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
                         }
                     ]
                 },
