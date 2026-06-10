@@ -403,7 +403,7 @@
                     "quest_answer_validation": {
                         "min": 0,
                         "max": 50
-                    },
+                    }
                 },
                 {
                     "quest_id": 114,
