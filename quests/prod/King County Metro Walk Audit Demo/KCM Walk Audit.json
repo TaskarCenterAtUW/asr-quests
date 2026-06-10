@@ -8,8 +8,8 @@
             "quests": [
                 {
                     "quest_id": 1000,
-                    "quest_title": "Please select the team you are collecting data for",
-                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection attributes and attributes your collected data within King County Metro.",
+                    "quest_title": "Please select YOUR PRIMARY team",
+                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection preferences and attributes your collected data within King County Metro.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:sidewalk_team_selection",
                     "quest_answer_choices": [
