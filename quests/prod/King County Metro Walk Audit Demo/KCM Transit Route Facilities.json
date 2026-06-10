@@ -2714,15 +2714,7 @@
                             "value": "unknown",
                             "choice_text": "Unknown"
                         }
-                    ],
-                    "quest_answer_dependency": {
-                        "question_id": 500,
-                        "required_value": [
-                            "connecting_to_transit",
-                            "access_pathways",
-                            "ada_transition_plan"
-                        ]
-                    }
+                    ]
                 },
                 {
                     "quest_id": 503,
@@ -2747,14 +2739,6 @@
                         }
                     ],
                     "quest_answer_dependency": [
-                        {
-                            "question_id": 500,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "access_pathways",
-                                "ada_transition_plan"
-                            ]
-                        },
                         {
                             "question_id": 502,
                             "required_value": ["lowered", "flush"]
@@ -2785,14 +2769,6 @@
                     ],
                     "quest_answer_dependency": [
                         {
-                            "question_id": 500,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "access_pathways",
-                                "ada_transition_plan"
-                            ]
-                        },
-                        {
                             "question_id": 503,
                             "required_value": "curb_ramp"
                         }
@@ -2819,14 +2795,6 @@
                         }
                     ],
                     "quest_answer_dependency": [
-                        {
-                            "question_id": 500,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "access_pathways",
-                                "ada_transition_plan"
-                            ]
-                        },
                         {
                             "question_id": 502,
                             "required_value": "lowered"
