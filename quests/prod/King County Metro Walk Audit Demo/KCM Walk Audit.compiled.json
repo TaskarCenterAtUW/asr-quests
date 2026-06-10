@@ -97,10 +97,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ],
                     "quest_tag": "ext:sidewalk_observation_visibility"
@@ -123,10 +119,7 @@
                     "quest_tag": "ext:sidewalk_internal_note_prompt",
                     "quest_answer_dependency": {
                         "question_id": 1002,
-                        "required_value": [
-                            "metro_internal_only",
-                            "needs_review_before_sharing"
-                        ]
+                        "required_value": "metro_internal_only"
                     }
                 },
                 {
@@ -1562,10 +1555,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ],
                     "quest_tag": "ext:crossing_observation_visibility"
@@ -1588,10 +1577,7 @@
                     "quest_tag": "ext:crossing_internal_note_prompt",
                     "quest_answer_dependency": {
                         "question_id": 2002,
-                        "required_value": [
-                            "metro_internal_only",
-                            "needs_review_before_sharing"
-                        ]
+                        "required_value": "metro_internal_only"
                     }
                 },
                 {
@@ -3024,10 +3010,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ],
                     "quest_tag": "ext:bus_stop_observation_visibility"
@@ -3050,10 +3032,7 @@
                     "quest_tag": "ext:bus_stop_internal_note_prompt",
                     "quest_answer_dependency": {
                         "question_id": 3002,
-                        "required_value": [
-                            "metro_internal_only",
-                            "needs_review_before_sharing"
-                        ]
+                        "required_value": "metro_internal_only"
                     }
                 },
                 {
@@ -5480,10 +5459,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ],
                     "quest_tag": "ext:intersection_observation_visibility"
@@ -5506,10 +5481,7 @@
                     "quest_tag": "ext:intersection_internal_note_prompt",
                     "quest_answer_dependency": {
                         "question_id": 4002,
-                        "required_value": [
-                            "metro_internal_only",
-                            "needs_review_before_sharing"
-                        ]
+                        "required_value": "metro_internal_only"
                     }
                 },
                 {
@@ -6362,10 +6334,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ],
                     "quest_tag": "ext:curb_observation_visibility"
@@ -6388,10 +6356,7 @@
                     "quest_tag": "ext:curb_internal_note_prompt",
                     "quest_answer_dependency": {
                         "question_id": 5002,
-                        "required_value": [
-                            "metro_internal_only",
-                            "needs_review_before_sharing"
-                        ]
+                        "required_value": "metro_internal_only"
                     }
                 },
                 {

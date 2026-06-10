@@ -127,10 +127,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ]
                 },
@@ -1556,10 +1552,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ]
                 },
@@ -3013,10 +3005,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ]
                 },
@@ -5370,10 +5358,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ]
                 },
@@ -6286,10 +6270,6 @@
                         {
                             "value": "metro_internal_only",
                             "choice_text": "Metro internal only"
-                        },
-                        {
-                            "value": "needs_review_before_sharing",
-                            "choice_text": "Needs review before sharing"
                         }
                     ]
                 },

@@ -221,7 +221,7 @@ class ElementCompiler:
         # Preserve the original internal-note trigger values from the bank meta.
         note = self._meta("internal_note_prompt")
         # Stored content has no dependency; the trigger is conventionally these.
-        return ["metro_internal_only", "needs_review_before_sharing"]
+        return ["metro_internal_only"]
 
     def _build_content(self, q):
         gating = self.matrix[q["canonical_tag"]]["gating"]
