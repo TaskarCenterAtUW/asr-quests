@@ -127,8 +127,8 @@
         },
         {
           "quest_type": "ExclusiveChoice",
-          "quest_title": "How should this observation be shared?",
-          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+          "quest_title": "How should this observation be shared? (PUBLIC by default)",
+          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Leaving the answer blank implies PUBLIC.",
           "quest_answer_choices": [
             {
               "value": "public_shareable_after_review",
@@ -277,8 +277,8 @@
         },
         {
           "quest_type": "ExclusiveChoice",
-          "quest_title": "How should this observation be shared?",
-          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+          "quest_title": "How should this observation be shared? (PUBLIC by default)",
+          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Leaving the answer blank implies PUBLIC.",
           "quest_answer_choices": [
             {
               "value": "public_shareable_after_review",
@@ -427,8 +427,8 @@
         },
         {
           "quest_type": "ExclusiveChoice",
-          "quest_title": "How should this observation be shared?",
-          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+          "quest_title": "How should this observation be shared? (PUBLIC by default)",
+          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Leaving the answer blank implies PUBLIC.",
           "quest_answer_choices": [
             {
               "value": "public_shareable_after_review",
@@ -577,8 +577,8 @@
         },
         {
           "quest_type": "ExclusiveChoice",
-          "quest_title": "How should this observation be shared?",
-          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+          "quest_title": "How should this observation be shared? (PUBLIC by default)",
+          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Leaving the answer blank implies PUBLIC.",
           "quest_answer_choices": [
             {
               "value": "public_shareable_after_review",
@@ -727,8 +727,8 @@
         },
         {
           "quest_type": "ExclusiveChoice",
-          "quest_title": "How should this observation be shared?",
-          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+          "quest_title": "How should this observation be shared? (PUBLIC by default)",
+          "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Leaving the answer blank implies PUBLIC.",
           "quest_answer_choices": [
             {
               "value": "public_shareable_after_review",

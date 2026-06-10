@@ -107,8 +107,8 @@
                 },
                 {
                     "quest_id": 1003,
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:sidewalk_observation_visibility",
                     "quest_answer_choices": [
@@ -1532,8 +1532,8 @@
                 },
                 {
                     "quest_id": 2003,
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:crossing_observation_visibility",
                     "quest_answer_choices": [
@@ -2985,8 +2985,8 @@
                 },
                 {
                     "quest_id": 3003,
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_observation_visibility",
                     "quest_answer_choices": [
@@ -5243,8 +5243,8 @@
                 },
                 {
                     "quest_id": 4003,
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:intersection_observation_visibility",
                     "quest_answer_choices": [
@@ -6155,8 +6155,8 @@
                 },
                 {
                     "quest_id": 5003,
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:curb_observation_visibility",
                     "quest_answer_choices": [

@@ -1414,8 +1414,8 @@
                 {
                     "quest_id": 1002,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_answer_choices": [
                         {
                             "value": "public_shareable_after_review",
@@ -2873,8 +2873,8 @@
                 {
                     "quest_id": 2002,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_answer_choices": [
                         {
                             "value": "public_shareable_after_review",
@@ -5213,8 +5213,8 @@
                 {
                     "quest_id": 3002,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_answer_choices": [
                         {
                             "value": "public_shareable_after_review",
@@ -6096,8 +6096,8 @@
                 {
                     "quest_id": 4002,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_answer_choices": [
                         {
                             "value": "public_shareable_after_review",
@@ -6983,8 +6983,8 @@
                 {
                     "quest_id": 5002,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "How should this observation be shared?",
-                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing.",
+                    "quest_title": "How should this observation be shared? (PUBLIC by default)",
+                    "quest_description": "Use this to distinguish public/shareable observations from Metro-internal notes or items that require review before wider sharing. Omitting an answer implies public.",
                     "quest_answer_choices": [
                         {
                             "value": "public_shareable_after_review",
