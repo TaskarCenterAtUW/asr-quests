@@ -15,43 +15,35 @@
                     "quest_answer_choices": [
                         {
                             "value": "connecting_to_transit",
-                            "choice_text": "Connecting to Transit",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/icons/KCM-null.png"
+                            "choice_text": "Connecting to Transit"
                         },
                         {
                             "value": "transit_route_facilities",
-                            "choice_text": "Transit Route Facilities",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/icons/KCM-null.png"
+                            "choice_text": "Transit Route Facilities"
                         },
                         {
                             "value": "bus_stop_management",
-                            "choice_text": "Bus Stop Management",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/icons/KCM-null.png"
+                            "choice_text": "Bus Stop Management"
                         },
                         {
                             "value": "bus_stop_improvements",
-                            "choice_text": "Bus Stop Improvements",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/icons/KCM-null.png"
+                            "choice_text": "Bus Stop Improvements"
                         },
                         {
                             "value": "access_pathways",
-                            "choice_text": "Access Pathways",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/icons/KCM-null.png"
+                            "choice_text": "Access Pathways"
                         },
                         {
                             "value": "ada_transition_plan",
-                            "choice_text": "ADA Transition Plan",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/icons/KCM-null.png"
+                            "choice_text": "ADA Transition Plan"
                         },
                         {
                             "value": "speed_and_reliability",
-                            "choice_text": "Speed and Reliability",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/icons/KCM-null.png"
+                            "choice_text": "Speed and Reliability"
                         },
                         {
                             "value": "internal_metro_note",
-                            "choice_text": "Internal Metro Note",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/icons/KCM-null.png"
+                            "choice_text": "Internal Metro Note"
                         }
                     ]
                 },
