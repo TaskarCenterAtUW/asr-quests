@@ -3297,59 +3297,11 @@
                     "quest_title": "Is the cross slope of this boarding zone less than 2%?",
                     "quest_description": "Measure whether the cross slope of the boarding area is less than 2%, ensuring it meets accessibility standards for wheelchair users and mobility devices. Measure the landing pad perpendicular to the sidewalk two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
                     "quest_type": "ExclusiveChoice",
-                    "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2_home",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3005,
-                            "required_value": ["yes", "partial_constrained"]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "ada_transition_plan",
-                                "transit_route_facilities",
-                                "bus_stop_improvements"
-                            ]
-                        }
-                    ],
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unknown",
-                            "choice_text": "Unknown"
-                        }
-                    ]
-                },
-                {
-                    "quest_id": 3015,
-                    "quest_title": "Is the cross slope of this boarding zone less than 2%?",
-                    "quest_description": "Measure whether the cross slope of the boarding area is less than 2%, ensuring it meets accessibility standards for wheelchair users and mobility devices. Measure the landing pad perpendicular to the sidewalk two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
-                    "quest_type": "ExclusiveChoice",
-                    "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2_additional",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3001,
-                            "required_value": "yes"
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "bus_stop_management",
-                                "access_pathways",
-                                "speed_and_reliability",
-                                "internal_metro_note"
-                            ]
-                        }
-                    ],
+                    "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2",
+                    "quest_answer_dependency": {
+                        "question_id": 3005,
+                        "required_value": ["yes", "partial_constrained"]
+                    },
                     "quest_answer_choices": [
                         {
                             "value": "yes",
@@ -3371,7 +3323,7 @@
                     "quest_title": "Is the running slope of this bus zone less than or equal to the running slope of the street?",
                     "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone's running slope is less than or equal to the street's slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
                     "quest_type": "ExclusiveChoice",
-                    "quest_tag": "ext:bus_stop_zone_running_slope_home",
+                    "quest_tag": "ext:bus_stop_zone_running_slope",
                     "quest_answer_choices": [
                         {
                             "value": "yes",
@@ -3386,57 +3338,10 @@
                             "choice_text": "Unknown"
                         }
                     ],
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3005,
-                            "required_value": ["yes", "partial_constrained"]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "ada_transition_plan",
-                                "transit_route_facilities",
-                                "bus_stop_improvements"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "quest_id": 3017,
-                    "quest_title": "Is the running slope of this bus zone less than or equal to the running slope of the street?",
-                    "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone's running slope is less than or equal to the street's slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
-                    "quest_type": "ExclusiveChoice",
-                    "quest_tag": "ext:bus_stop_zone_running_slope_additional",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unknown",
-                            "choice_text": "Unknown"
-                        }
-                    ],
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3001,
-                            "required_value": "yes"
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "bus_stop_management",
-                                "access_pathways",
-                                "speed_and_reliability",
-                                "internal_metro_note"
-                            ]
-                        }
-                    ]
+                    "quest_answer_dependency": {
+                        "question_id": 3005,
+                        "required_value": ["yes", "partial_constrained"]
+                    }
                 },
                 {
                     "quest_id": 3018,

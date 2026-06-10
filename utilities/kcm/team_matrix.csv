@@ -61,8 +61,8 @@ Bus Stops,ext:bus_stop_ped_connection_width,universal,X,X,X,X,X,X,X,X
 Bus Stops,ext:bus_stop_ped_connection_quality,universal,X,X,X,X,X,X,X,X
 Bus Stops,ext:bus_stop_3ft_clearance,universal,X,X,X,X,X,X,X,X
 Bus Stops,ext:bus_stop_picture,universal,X,X,X,X,X,X,X,X
-Bus Stops,ext:bus_stop_boarding_cross_slope_lt2,team,,X,,X,,X,,
-Bus Stops,ext:bus_stop_zone_running_slope,team,,X,,X,,X,,
+Bus Stops,ext:bus_stop_boarding_cross_slope_lt2,universal,,,,,,,,
+Bus Stops,ext:bus_stop_zone_running_slope,universal,,,,,,,,
 Bus Stops,ext:bus_stop_shelter_present,team,,X,X,X,,,,
 Bus Stops,ext:bus_stop_shelter_type,inherit,,X,X,X,,,,
 Bus Stops,ext:bus_stop_shelter_footing_present,inherit,,X,X,X,,,,

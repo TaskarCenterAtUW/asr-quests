@@ -3328,34 +3328,23 @@
                         }
                     ],
                     "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3004,
-                            "required_value": [
-                                "yes",
-                                "partial_constrained"
-                            ]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "transit_route_facilities",
-                                "bus_stop_improvements",
-                                "ada_transition_plan"
-                            ]
-                        }
-                    ]
+                    "quest_answer_dependency": {
+                        "question_id": 3004,
+                        "required_value": [
+                            "yes",
+                            "partial_constrained"
+                        ]
+                    }
                 },
                 {
                     "quest_id": 3014,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "Is the cross slope of this boarding zone less than 2%?",
-                    "quest_description": "Measure whether the cross slope of the boarding area is less than 2%, ensuring it meets accessibility standards for wheelchair users and mobility devices. Measure the landing pad perpendicular to the sidewalk two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
+                    "quest_title": "Is the running slope of this bus zone less than or equal to the running slope of the street?",
+                    "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone's running slope is less than or equal to the street's slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
                     "quest_answer_choices": [
                         {
                             "value": "yes",
-                            "choice_text": "Yes",
-                            "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png"
+                            "choice_text": "Yes"
                         },
                         {
                             "value": "no",
@@ -3366,40 +3355,20 @@
                             "choice_text": "Unknown"
                         }
                     ],
-                    "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3001,
-                            "required_value": [
-                                "transit_route_facilities",
-                                "bus_stop_improvements",
-                                "ada_transition_plan"
-                            ]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "bus_stop_management",
-                                "access_pathways",
-                                "speed_and_reliability",
-                                "internal_metro_note"
-                            ]
-                        },
-                        {
-                            "question_id": 3004,
-                            "required_value": [
-                                "yes",
-                                "partial_constrained"
-                            ]
-                        }
-                    ]
+                    "quest_tag": "ext:bus_stop_zone_running_slope",
+                    "quest_answer_dependency": {
+                        "question_id": 3004,
+                        "required_value": [
+                            "yes",
+                            "partial_constrained"
+                        ]
+                    }
                 },
                 {
                     "quest_id": 3015,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "Is the running slope of this bus zone less than or equal to the running slope of the street?",
-                    "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone's running slope is less than or equal to the street's slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
+                    "quest_title": "Does this bus stop have a shelter?",
+                    "quest_description": "Identify the presence of a shelter at this bus stop.",
                     "quest_answer_choices": [
                         {
                             "value": "yes",
@@ -3410,34 +3379,25 @@
                             "choice_text": "No"
                         },
                         {
-                            "value": "unknown",
-                            "choice_text": "Unknown"
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
                         }
                     ],
-                    "quest_tag": "ext:bus_stop_zone_running_slope",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3004,
-                            "required_value": [
-                                "yes",
-                                "partial_constrained"
-                            ]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "transit_route_facilities",
-                                "bus_stop_improvements",
-                                "ada_transition_plan"
-                            ]
-                        }
-                    ]
+                    "quest_tag": "ext:bus_stop_shelter_present",
+                    "quest_answer_dependency": {
+                        "question_id": 3000,
+                        "required_value": [
+                            "transit_route_facilities",
+                            "bus_stop_management",
+                            "bus_stop_improvements"
+                        ]
+                    }
                 },
                 {
                     "quest_id": 3016,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "Is the running slope of this bus zone less than or equal to the running slope of the street?",
-                    "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone's running slope is less than or equal to the street's slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
+                    "quest_title": "Does this bus stop have a shelter?",
+                    "quest_description": "Identify the presence of a shelter at this bus stop.",
                     "quest_answer_choices": [
                         {
                             "value": "yes",
@@ -3448,35 +3408,28 @@
                             "choice_text": "No"
                         },
                         {
-                            "value": "unknown",
-                            "choice_text": "Unknown"
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
                         }
                     ],
-                    "quest_tag": "ext:bus_stop_zone_running_slope",
+                    "quest_tag": "ext:bus_stop_shelter_present",
                     "quest_answer_dependency": [
                         {
                             "question_id": 3001,
                             "required_value": [
                                 "transit_route_facilities",
-                                "bus_stop_improvements",
-                                "ada_transition_plan"
+                                "bus_stop_management",
+                                "bus_stop_improvements"
                             ]
                         },
                         {
                             "question_id": 3000,
                             "required_value": [
                                 "connecting_to_transit",
-                                "bus_stop_management",
                                 "access_pathways",
+                                "ada_transition_plan",
                                 "speed_and_reliability",
                                 "internal_metro_note"
-                            ]
-                        },
-                        {
-                            "question_id": 3004,
-                            "required_value": [
-                                "yes",
-                                "partial_constrained"
                             ]
                         }
                     ]
@@ -3484,76 +3437,35 @@
                 {
                     "quest_id": 3017,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "Does this bus stop have a shelter?",
-                    "quest_description": "Identify the presence of a shelter at this bus stop.",
+                    "quest_title": "What type of shelter is present at this bus stop?",
+                    "quest_description": "Identify the type of shelter structure at this bus stop.",
                     "quest_answer_choices": [
                         {
-                            "value": "yes",
-                            "choice_text": "Yes"
+                            "value": "double_shelter",
+                            "choice_text": "Double shelter"
                         },
                         {
-                            "value": "no",
-                            "choice_text": "No"
+                            "value": "single_shelter",
+                            "choice_text": "Single shelter"
                         },
                         {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
+                            "value": "custom_shelter",
+                            "choice_text": "Custom shelter"
+                        },
+                        {
+                            "value": "other",
+                            "choice_text": "Other"
                         }
                     ],
-                    "quest_tag": "ext:bus_stop_shelter_present",
+                    "quest_tag": "ext:bus_stop_shelter_type",
                     "quest_answer_dependency": {
-                        "question_id": 3000,
-                        "required_value": [
-                            "transit_route_facilities",
-                            "bus_stop_management",
-                            "bus_stop_improvements"
-                        ]
+                        "question_id": 3015,
+                        "required_value": "yes"
                     }
                 },
                 {
                     "quest_id": 3018,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "Does this bus stop have a shelter?",
-                    "quest_description": "Identify the presence of a shelter at this bus stop.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_shelter_present",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3001,
-                            "required_value": [
-                                "transit_route_facilities",
-                                "bus_stop_management",
-                                "bus_stop_improvements"
-                            ]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "access_pathways",
-                                "ada_transition_plan",
-                                "speed_and_reliability",
-                                "internal_metro_note"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "quest_id": 3019,
-                    "quest_type": "ExclusiveChoice",
                     "quest_title": "What type of shelter is present at this bus stop?",
                     "quest_description": "Identify the type of shelter structure at this bus stop.",
                     "quest_answer_choices": [
@@ -3576,91 +3488,62 @@
                     ],
                     "quest_tag": "ext:bus_stop_shelter_type",
                     "quest_answer_dependency": {
-                        "question_id": 3017,
+                        "question_id": 3016,
                         "required_value": "yes"
+                    }
+                },
+                {
+                    "quest_id": 3019,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "Is there a shelter footing here (without a shelter)?",
+                    "quest_description": "Check whether a shelter footing or foundation pad is present at this bus stop, if a shelter structure has not been installed.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "yes",
+                            "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_shelter_footing_present",
+                    "quest_answer_dependency": {
+                        "question_id": 3015,
+                        "required_value": "no"
                     }
                 },
                 {
                     "quest_id": 3020,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "What type of shelter is present at this bus stop?",
-                    "quest_description": "Identify the type of shelter structure at this bus stop.",
+                    "quest_title": "Is there a shelter footing here (without a shelter)?",
+                    "quest_description": "Check whether a shelter footing or foundation pad is present at this bus stop, if a shelter structure has not been installed.",
                     "quest_answer_choices": [
                         {
-                            "value": "double_shelter",
-                            "choice_text": "Double shelter"
+                            "value": "yes",
+                            "choice_text": "Yes"
                         },
                         {
-                            "value": "single_shelter",
-                            "choice_text": "Single shelter"
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
-                            "value": "custom_shelter",
-                            "choice_text": "Custom shelter"
-                        },
-                        {
-                            "value": "other",
-                            "choice_text": "Other"
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
                         }
                     ],
-                    "quest_tag": "ext:bus_stop_shelter_type",
+                    "quest_tag": "ext:bus_stop_shelter_footing_present",
                     "quest_answer_dependency": {
-                        "question_id": 3018,
-                        "required_value": "yes"
+                        "question_id": 3016,
+                        "required_value": "no"
                     }
                 },
                 {
                     "quest_id": 3021,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "Is there a shelter footing here (without a shelter)?",
-                    "quest_description": "Check whether a shelter footing or foundation pad is present at this bus stop, if a shelter structure has not been installed.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_shelter_footing_present",
-                    "quest_answer_dependency": {
-                        "question_id": 3017,
-                        "required_value": "no"
-                    }
-                },
-                {
-                    "quest_id": 3022,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "Is there a shelter footing here (without a shelter)?",
-                    "quest_description": "Check whether a shelter footing or foundation pad is present at this bus stop, if a shelter structure has not been installed.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_shelter_footing_present",
-                    "quest_answer_dependency": {
-                        "question_id": 3018,
-                        "required_value": "no"
-                    }
-                },
-                {
-                    "quest_id": 3023,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Does this bus stop have seating?",
                     "quest_description": "Indicate whether any seating is available at this bus stop.",
@@ -3689,7 +3572,7 @@
                     }
                 },
                 {
-                    "quest_id": 3024,
+                    "quest_id": 3022,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Does this bus stop have seating?",
                     "quest_description": "Indicate whether any seating is available at this bus stop.",
@@ -3730,81 +3613,81 @@
                     ]
                 },
                 {
+                    "quest_id": 3023,
+                    "quest_type": "MultipleChoice",
+                    "quest_title": "What type of seating is available at this bus stop?",
+                    "quest_description": "Select the type of seating provided at this bus stop.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "metro_shelter_bench",
+                            "choice_text": "Standard Metro bench inside shelter"
+                        },
+                        {
+                            "value": "standalone_bench",
+                            "choice_text": "Standalone Metro bench"
+                        },
+                        {
+                            "value": "combined_benches",
+                            "choice_text": "Shelter bench and standalone benches"
+                        },
+                        {
+                            "value": "lean_rail",
+                            "choice_text": "Lean rail"
+                        },
+                        {
+                            "value": "simmeseat",
+                            "choice_text": "SimmeSeat"
+                        },
+                        {
+                            "value": "other",
+                            "choice_text": "Other"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_seating_type",
+                    "quest_answer_dependency": {
+                        "question_id": 3021,
+                        "required_value": "yes"
+                    }
+                },
+                {
+                    "quest_id": 3024,
+                    "quest_type": "MultipleChoice",
+                    "quest_title": "What type of seating is available at this bus stop?",
+                    "quest_description": "Select the type of seating provided at this bus stop.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "metro_shelter_bench",
+                            "choice_text": "Standard Metro bench inside shelter"
+                        },
+                        {
+                            "value": "standalone_bench",
+                            "choice_text": "Standalone Metro bench"
+                        },
+                        {
+                            "value": "combined_benches",
+                            "choice_text": "Shelter bench and standalone benches"
+                        },
+                        {
+                            "value": "lean_rail",
+                            "choice_text": "Lean rail"
+                        },
+                        {
+                            "value": "simmeseat",
+                            "choice_text": "SimmeSeat"
+                        },
+                        {
+                            "value": "other",
+                            "choice_text": "Other"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_seating_type",
+                    "quest_answer_dependency": {
+                        "question_id": 3022,
+                        "required_value": "yes"
+                    }
+                },
+                {
                     "quest_id": 3025,
-                    "quest_type": "MultipleChoice",
-                    "quest_title": "What type of seating is available at this bus stop?",
-                    "quest_description": "Select the type of seating provided at this bus stop.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "metro_shelter_bench",
-                            "choice_text": "Standard Metro bench inside shelter"
-                        },
-                        {
-                            "value": "standalone_bench",
-                            "choice_text": "Standalone Metro bench"
-                        },
-                        {
-                            "value": "combined_benches",
-                            "choice_text": "Shelter bench and standalone benches"
-                        },
-                        {
-                            "value": "lean_rail",
-                            "choice_text": "Lean rail"
-                        },
-                        {
-                            "value": "simmeseat",
-                            "choice_text": "SimmeSeat"
-                        },
-                        {
-                            "value": "other",
-                            "choice_text": "Other"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_seating_type",
-                    "quest_answer_dependency": {
-                        "question_id": 3023,
-                        "required_value": "yes"
-                    }
-                },
-                {
-                    "quest_id": 3026,
-                    "quest_type": "MultipleChoice",
-                    "quest_title": "What type of seating is available at this bus stop?",
-                    "quest_description": "Select the type of seating provided at this bus stop.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "metro_shelter_bench",
-                            "choice_text": "Standard Metro bench inside shelter"
-                        },
-                        {
-                            "value": "standalone_bench",
-                            "choice_text": "Standalone Metro bench"
-                        },
-                        {
-                            "value": "combined_benches",
-                            "choice_text": "Shelter bench and standalone benches"
-                        },
-                        {
-                            "value": "lean_rail",
-                            "choice_text": "Lean rail"
-                        },
-                        {
-                            "value": "simmeseat",
-                            "choice_text": "SimmeSeat"
-                        },
-                        {
-                            "value": "other",
-                            "choice_text": "Other"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_seating_type",
-                    "quest_answer_dependency": {
-                        "question_id": 3024,
-                        "required_value": "yes"
-                    }
-                },
-                {
-                    "quest_id": 3027,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "How many landing pads are available at this bus stop?",
                     "quest_description": "Select which boarding positions have landing pads.",
@@ -3843,7 +3726,7 @@
                     ]
                 },
                 {
-                    "quest_id": 3028,
+                    "quest_id": 3026,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "How many landing pads are available at this bus stop?",
                     "quest_description": "Select which boarding positions have landing pads.",
@@ -3891,7 +3774,7 @@
                     ]
                 },
                 {
-                    "quest_id": 3029,
+                    "quest_id": 3027,
                     "quest_type": "MultipleChoice",
                     "quest_title": "What accessible stop information formats are available?",
                     "quest_description": "Check whether accessible schedule, stop, or route information formats are available at this bus stop.",
@@ -3933,7 +3816,7 @@
                     }
                 },
                 {
-                    "quest_id": 3030,
+                    "quest_id": 3028,
                     "quest_type": "MultipleChoice",
                     "quest_title": "What accessible stop information formats are available?",
                     "quest_description": "Check whether accessible schedule, stop, or route information formats are available at this bus stop.",
@@ -3964,6 +3847,93 @@
                         }
                     ],
                     "quest_tag": "ext:bus_stop_braille_schedule_present",
+                    "quest_answer_dependency": [
+                        {
+                            "question_id": 3001,
+                            "required_value": [
+                                "transit_route_facilities",
+                                "bus_stop_management",
+                                "bus_stop_improvements",
+                                "ada_transition_plan"
+                            ]
+                        },
+                        {
+                            "question_id": 3000,
+                            "required_value": [
+                                "connecting_to_transit",
+                                "access_pathways",
+                                "speed_and_reliability",
+                                "internal_metro_note"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "quest_id": 3029,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "What is the status of real-time arrival information at this stop?",
+                    "quest_description": "Identify whether there is an LED or digital display providing real-time bus arrival or schedule information at this stop, and whether it appears functional.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "no_display_observed",
+                            "choice_text": "No display observed"
+                        },
+                        {
+                            "value": "display_present_working",
+                            "choice_text": "Display present and working"
+                        },
+                        {
+                            "value": "display_present_not_working",
+                            "choice_text": "Display present but not working"
+                        },
+                        {
+                            "value": "display_present_unable_to_verify",
+                            "choice_text": "Display present but function unable to verify"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_led_real_time_info",
+                    "quest_answer_dependency": {
+                        "question_id": 3000,
+                        "required_value": [
+                            "transit_route_facilities",
+                            "bus_stop_management",
+                            "bus_stop_improvements",
+                            "ada_transition_plan"
+                        ]
+                    }
+                },
+                {
+                    "quest_id": 3030,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "What is the status of real-time arrival information at this stop?",
+                    "quest_description": "Identify whether there is an LED or digital display providing real-time bus arrival or schedule information at this stop, and whether it appears functional.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "no_display_observed",
+                            "choice_text": "No display observed"
+                        },
+                        {
+                            "value": "display_present_working",
+                            "choice_text": "Display present and working"
+                        },
+                        {
+                            "value": "display_present_not_working",
+                            "choice_text": "Display present but not working"
+                        },
+                        {
+                            "value": "display_present_unable_to_verify",
+                            "choice_text": "Display present but function unable to verify"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_led_real_time_info",
                     "quest_answer_dependency": [
                         {
                             "question_id": 3001,
@@ -3988,93 +3958,6 @@
                 {
                     "quest_id": 3031,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "What is the status of real-time arrival information at this stop?",
-                    "quest_description": "Identify whether there is an LED or digital display providing real-time bus arrival or schedule information at this stop, and whether it appears functional.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "no_display_observed",
-                            "choice_text": "No display observed"
-                        },
-                        {
-                            "value": "display_present_working",
-                            "choice_text": "Display present and working"
-                        },
-                        {
-                            "value": "display_present_not_working",
-                            "choice_text": "Display present but not working"
-                        },
-                        {
-                            "value": "display_present_unable_to_verify",
-                            "choice_text": "Display present but function unable to verify"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_led_real_time_info",
-                    "quest_answer_dependency": {
-                        "question_id": 3000,
-                        "required_value": [
-                            "transit_route_facilities",
-                            "bus_stop_management",
-                            "bus_stop_improvements",
-                            "ada_transition_plan"
-                        ]
-                    }
-                },
-                {
-                    "quest_id": 3032,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "What is the status of real-time arrival information at this stop?",
-                    "quest_description": "Identify whether there is an LED or digital display providing real-time bus arrival or schedule information at this stop, and whether it appears functional.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "no_display_observed",
-                            "choice_text": "No display observed"
-                        },
-                        {
-                            "value": "display_present_working",
-                            "choice_text": "Display present and working"
-                        },
-                        {
-                            "value": "display_present_not_working",
-                            "choice_text": "Display present but not working"
-                        },
-                        {
-                            "value": "display_present_unable_to_verify",
-                            "choice_text": "Display present but function unable to verify"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_led_real_time_info",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3001,
-                            "required_value": [
-                                "transit_route_facilities",
-                                "bus_stop_management",
-                                "bus_stop_improvements",
-                                "ada_transition_plan"
-                            ]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "access_pathways",
-                                "speed_and_reliability",
-                                "internal_metro_note"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "quest_id": 3033,
-                    "quest_type": "ExclusiveChoice",
                     "quest_title": "In your opinion, is there adequate lighting at this bus stop? (1 = very low and 5 = well lit)",
                     "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
                     "quest_answer_choices": [
@@ -4116,7 +3999,7 @@
                     }
                 },
                 {
-                    "quest_id": 3034,
+                    "quest_id": 3032,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "In your opinion, is there adequate lighting at this bus stop? (1 = very low and 5 = well lit)",
                     "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
@@ -4169,7 +4052,7 @@
                     ]
                 },
                 {
-                    "quest_id": 3035,
+                    "quest_id": 3033,
                     "quest_type": "Numeric",
                     "quest_title": "What is the posted speed limit near this bus stop?",
                     "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
@@ -4190,7 +4073,7 @@
                     }
                 },
                 {
-                    "quest_id": 3036,
+                    "quest_id": 3034,
                     "quest_type": "Numeric",
                     "quest_title": "What is the posted speed limit near this bus stop?",
                     "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
@@ -4222,7 +4105,7 @@
                     ]
                 },
                 {
-                    "quest_id": 3037,
+                    "quest_id": 3035,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is there designated bicycle infrastructure within a block of this bus stop?",
                     "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, parking, or paths within a block of the bus stop that support multimodal access.",
@@ -4251,7 +4134,7 @@
                     }
                 },
                 {
-                    "quest_id": 3038,
+                    "quest_id": 3036,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is there designated bicycle infrastructure within a block of this bus stop?",
                     "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, parking, or paths within a block of the bus stop that support multimodal access.",
@@ -4292,73 +4175,73 @@
                     ]
                 },
                 {
+                    "quest_id": 3037,
+                    "quest_type": "MultipleChoice",
+                    "quest_title": "What type of infrastructure connects this bus stop to the bicycle network?",
+                    "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "bike_lane",
+                            "choice_text": "On-street bike lane"
+                        },
+                        {
+                            "value": "protected_bike_lane",
+                            "choice_text": "Protected or separated bike lane"
+                        },
+                        {
+                            "value": "shared_lane",
+                            "choice_text": "Shared lane (sharrow or mixed traffic)"
+                        },
+                        {
+                            "value": "shared_use_path",
+                            "choice_text": "Shared-use path"
+                        },
+                        {
+                            "value": "other",
+                            "choice_text": "Other"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_bike_connection",
+                    "quest_answer_dependency": {
+                        "question_id": 3035,
+                        "required_value": "yes"
+                    }
+                },
+                {
+                    "quest_id": 3038,
+                    "quest_type": "MultipleChoice",
+                    "quest_title": "What type of infrastructure connects this bus stop to the bicycle network?",
+                    "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "bike_lane",
+                            "choice_text": "On-street bike lane"
+                        },
+                        {
+                            "value": "protected_bike_lane",
+                            "choice_text": "Protected or separated bike lane"
+                        },
+                        {
+                            "value": "shared_lane",
+                            "choice_text": "Shared lane (sharrow or mixed traffic)"
+                        },
+                        {
+                            "value": "shared_use_path",
+                            "choice_text": "Shared-use path"
+                        },
+                        {
+                            "value": "other",
+                            "choice_text": "Other"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_bike_connection",
+                    "quest_answer_dependency": {
+                        "question_id": 3036,
+                        "required_value": "yes"
+                    }
+                },
+                {
                     "quest_id": 3039,
-                    "quest_type": "MultipleChoice",
-                    "quest_title": "What type of infrastructure connects this bus stop to the bicycle network?",
-                    "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "bike_lane",
-                            "choice_text": "On-street bike lane"
-                        },
-                        {
-                            "value": "protected_bike_lane",
-                            "choice_text": "Protected or separated bike lane"
-                        },
-                        {
-                            "value": "shared_lane",
-                            "choice_text": "Shared lane (sharrow or mixed traffic)"
-                        },
-                        {
-                            "value": "shared_use_path",
-                            "choice_text": "Shared-use path"
-                        },
-                        {
-                            "value": "other",
-                            "choice_text": "Other"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_bike_connection",
-                    "quest_answer_dependency": {
-                        "question_id": 3037,
-                        "required_value": "yes"
-                    }
-                },
-                {
-                    "quest_id": 3040,
-                    "quest_type": "MultipleChoice",
-                    "quest_title": "What type of infrastructure connects this bus stop to the bicycle network?",
-                    "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "bike_lane",
-                            "choice_text": "On-street bike lane"
-                        },
-                        {
-                            "value": "protected_bike_lane",
-                            "choice_text": "Protected or separated bike lane"
-                        },
-                        {
-                            "value": "shared_lane",
-                            "choice_text": "Shared lane (sharrow or mixed traffic)"
-                        },
-                        {
-                            "value": "shared_use_path",
-                            "choice_text": "Shared-use path"
-                        },
-                        {
-                            "value": "other",
-                            "choice_text": "Other"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_bike_connection",
-                    "quest_answer_dependency": {
-                        "question_id": 3038,
-                        "required_value": "yes"
-                    }
-                },
-                {
-                    "quest_id": 3041,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "How would you rate the level of motor vehicle traffic within a block of this bus stop?",
                     "quest_description": "Rate the typical amount of motor vehicle traffic within a block of this bus stop on a scale of 1–5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
@@ -4399,7 +4282,7 @@
                     }
                 },
                 {
-                    "quest_id": 3042,
+                    "quest_id": 3040,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "How would you rate the level of motor vehicle traffic within a block of this bus stop?",
                     "quest_description": "Rate the typical amount of motor vehicle traffic within a block of this bus stop on a scale of 1–5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
@@ -4452,7 +4335,7 @@
                     ]
                 },
                 {
-                    "quest_id": 3043,
+                    "quest_id": 3041,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is there a buffer between this sidewalk and motor vehicle travel lanes?",
                     "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
@@ -4484,7 +4367,7 @@
                     }
                 },
                 {
-                    "quest_id": 3044,
+                    "quest_id": 3042,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is there a buffer between this sidewalk and motor vehicle travel lanes?",
                     "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
@@ -4529,7 +4412,7 @@
                     ]
                 },
                 {
-                    "quest_id": 3045,
+                    "quest_id": 3043,
                     "quest_type": "MultipleChoice",
                     "quest_title": "What type of buffer is between this sidewalk and motor vehicle travel lanes?",
                     "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
@@ -4559,77 +4442,77 @@
                     ],
                     "quest_tag": "ext:bus_stop_buffer_type",
                     "quest_answer_dependency": {
-                        "question_id": 3043,
+                        "question_id": 3041,
+                        "required_value": "yes"
+                    }
+                },
+                {
+                    "quest_id": 3044,
+                    "quest_type": "MultipleChoice",
+                    "quest_title": "What type of buffer is between this sidewalk and motor vehicle travel lanes?",
+                    "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "landscaping",
+                            "choice_text": "Landscaping (grass, plants, trees)",
+                            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Massachusetts-devils_strip.JPG"
+                        },
+                        {
+                            "value": "curb",
+                            "choice_text": "Curb buffer (no landscaping)"
+                        },
+                        {
+                            "value": "parking_lane",
+                            "choice_text": "Parking lane"
+                        },
+                        {
+                            "value": "bike_lane",
+                            "choice_text": "Bike lane",
+                            "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Narrow_bike_lane_on_Campbell_Ave.jpg"
+                        },
+                        {
+                            "value": "other",
+                            "choice_text": "Other"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_buffer_type",
+                    "quest_answer_dependency": {
+                        "question_id": 3042,
+                        "required_value": "yes"
+                    }
+                },
+                {
+                    "quest_id": 3045,
+                    "quest_type": "Numeric",
+                    "quest_title": "What is the total width of the buffer between the sidewalk and motor vehicle travel lanes (in feet)?",
+                    "quest_description": "Estimate or measure the width of the buffer separating the sidewalk from adjacent motor vehicle lanes. Leave blank if unsafe or unable to measure.",
+                    "quest_answer_validation": {
+                        "min": 0,
+                        "max": 50
+                    },
+                    "quest_tag": "ext:bus_stop_buffer_width",
+                    "quest_answer_dependency": {
+                        "question_id": 3041,
                         "required_value": "yes"
                     }
                 },
                 {
                     "quest_id": 3046,
-                    "quest_type": "MultipleChoice",
-                    "quest_title": "What type of buffer is between this sidewalk and motor vehicle travel lanes?",
-                    "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "landscaping",
-                            "choice_text": "Landscaping (grass, plants, trees)",
-                            "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Massachusetts-devils_strip.JPG"
-                        },
-                        {
-                            "value": "curb",
-                            "choice_text": "Curb buffer (no landscaping)"
-                        },
-                        {
-                            "value": "parking_lane",
-                            "choice_text": "Parking lane"
-                        },
-                        {
-                            "value": "bike_lane",
-                            "choice_text": "Bike lane",
-                            "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Narrow_bike_lane_on_Campbell_Ave.jpg"
-                        },
-                        {
-                            "value": "other",
-                            "choice_text": "Other"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_buffer_type",
+                    "quest_type": "Numeric",
+                    "quest_title": "What is the total width of the buffer between the sidewalk and motor vehicle travel lanes (in feet)?",
+                    "quest_description": "Estimate or measure the width of the buffer separating the sidewalk from adjacent motor vehicle lanes. Leave blank if unsafe or unable to measure.",
+                    "quest_answer_validation": {
+                        "min": 0,
+                        "max": 50
+                    },
+                    "quest_tag": "ext:bus_stop_buffer_width",
                     "quest_answer_dependency": {
-                        "question_id": 3044,
+                        "question_id": 3042,
                         "required_value": "yes"
                     }
                 },
                 {
                     "quest_id": 3047,
-                    "quest_type": "Numeric",
-                    "quest_title": "What is the total width of the buffer between the sidewalk and motor vehicle travel lanes (in feet)?",
-                    "quest_description": "Estimate or measure the width of the buffer separating the sidewalk from adjacent motor vehicle lanes. Leave blank if unsafe or unable to measure.",
-                    "quest_answer_validation": {
-                        "min": 0,
-                        "max": 50
-                    },
-                    "quest_tag": "ext:bus_stop_buffer_width",
-                    "quest_answer_dependency": {
-                        "question_id": 3043,
-                        "required_value": "yes"
-                    }
-                },
-                {
-                    "quest_id": 3048,
-                    "quest_type": "Numeric",
-                    "quest_title": "What is the total width of the buffer between the sidewalk and motor vehicle travel lanes (in feet)?",
-                    "quest_description": "Estimate or measure the width of the buffer separating the sidewalk from adjacent motor vehicle lanes. Leave blank if unsafe or unable to measure.",
-                    "quest_answer_validation": {
-                        "min": 0,
-                        "max": 50
-                    },
-                    "quest_tag": "ext:bus_stop_buffer_width",
-                    "quest_answer_dependency": {
-                        "question_id": 3044,
-                        "required_value": "yes"
-                    }
-                },
-                {
-                    "quest_id": 3049,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Are there public restrooms within a block of this bus stop?",
                     "quest_description": "Indicate whether publicly accessible restrooms are located within a block of this bus stop, such as at nearby parks, transit centers, or public buildings.",
@@ -4666,7 +4549,7 @@
                     }
                 },
                 {
-                    "quest_id": 3050,
+                    "quest_id": 3048,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Are there public restrooms within a block of this bus stop?",
                     "quest_description": "Indicate whether publicly accessible restrooms are located within a block of this bus stop, such as at nearby parks, transit centers, or public buildings.",
@@ -4693,6 +4576,100 @@
                         }
                     ],
                     "quest_tag": "ext:bus_stop_restroom_nearby",
+                    "quest_answer_dependency": [
+                        {
+                            "question_id": 3001,
+                            "required_value": [
+                                "transit_route_facilities",
+                                "bus_stop_management",
+                                "bus_stop_improvements"
+                            ]
+                        },
+                        {
+                            "question_id": 3000,
+                            "required_value": [
+                                "connecting_to_transit",
+                                "access_pathways",
+                                "ada_transition_plan",
+                                "speed_and_reliability",
+                                "internal_metro_note"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "quest_id": 3049,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
+                    "quest_description": "Rate the comfort level based on seating, safety, shade, exposure, cleanliness, and general waiting environment.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "1",
+                            "choice_text": "1"
+                        },
+                        {
+                            "value": "2",
+                            "choice_text": "2"
+                        },
+                        {
+                            "value": "3",
+                            "choice_text": "3"
+                        },
+                        {
+                            "value": "4",
+                            "choice_text": "4"
+                        },
+                        {
+                            "value": "5",
+                            "choice_text": "5"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_comfort_rating",
+                    "quest_answer_dependency": {
+                        "question_id": 3000,
+                        "required_value": [
+                            "transit_route_facilities",
+                            "bus_stop_management",
+                            "bus_stop_improvements"
+                        ]
+                    }
+                },
+                {
+                    "quest_id": 3050,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
+                    "quest_description": "Rate the comfort level based on seating, safety, shade, exposure, cleanliness, and general waiting environment.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "1",
+                            "choice_text": "1"
+                        },
+                        {
+                            "value": "2",
+                            "choice_text": "2"
+                        },
+                        {
+                            "value": "3",
+                            "choice_text": "3"
+                        },
+                        {
+                            "value": "4",
+                            "choice_text": "4"
+                        },
+                        {
+                            "value": "5",
+                            "choice_text": "5"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_comfort_rating",
                     "quest_answer_dependency": [
                         {
                             "question_id": 3001,
@@ -4717,35 +4694,23 @@
                 {
                     "quest_id": 3051,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
-                    "quest_description": "Rate the comfort level based on seating, safety, shade, exposure, cleanliness, and general waiting environment.",
+                    "quest_title": "Is there a pathway leading to this stop from the sidewalk centerline?",
+                    "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
                     "quest_answer_choices": [
                         {
-                            "value": "1",
-                            "choice_text": "1"
+                            "value": "yes",
+                            "choice_text": "Yes"
                         },
                         {
-                            "value": "2",
-                            "choice_text": "2"
-                        },
-                        {
-                            "value": "3",
-                            "choice_text": "3"
-                        },
-                        {
-                            "value": "4",
-                            "choice_text": "4"
-                        },
-                        {
-                            "value": "5",
-                            "choice_text": "5"
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_determine",
                             "choice_text": "Unable to determine"
                         }
                     ],
-                    "quest_tag": "ext:bus_stop_comfort_rating",
+                    "quest_tag": "ext:bus_stop_to_sidewalk_centerline",
                     "quest_answer_dependency": {
                         "question_id": 3000,
                         "required_value": [
@@ -4758,35 +4723,23 @@
                 {
                     "quest_id": 3052,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
-                    "quest_description": "Rate the comfort level based on seating, safety, shade, exposure, cleanliness, and general waiting environment.",
+                    "quest_title": "Is there a pathway leading to this stop from the sidewalk centerline?",
+                    "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
                     "quest_answer_choices": [
                         {
-                            "value": "1",
-                            "choice_text": "1"
+                            "value": "yes",
+                            "choice_text": "Yes"
                         },
                         {
-                            "value": "2",
-                            "choice_text": "2"
-                        },
-                        {
-                            "value": "3",
-                            "choice_text": "3"
-                        },
-                        {
-                            "value": "4",
-                            "choice_text": "4"
-                        },
-                        {
-                            "value": "5",
-                            "choice_text": "5"
+                            "value": "no",
+                            "choice_text": "No"
                         },
                         {
                             "value": "unable_to_determine",
                             "choice_text": "Unable to determine"
                         }
                     ],
-                    "quest_tag": "ext:bus_stop_comfort_rating",
+                    "quest_tag": "ext:bus_stop_to_sidewalk_centerline",
                     "quest_answer_dependency": [
                         {
                             "question_id": 3001,
@@ -4810,76 +4763,6 @@
                 },
                 {
                     "quest_id": 3053,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "Is there a pathway leading to this stop from the sidewalk centerline?",
-                    "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_to_sidewalk_centerline",
-                    "quest_answer_dependency": {
-                        "question_id": 3000,
-                        "required_value": [
-                            "transit_route_facilities",
-                            "bus_stop_management",
-                            "bus_stop_improvements"
-                        ]
-                    }
-                },
-                {
-                    "quest_id": 3054,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "Is there a pathway leading to this stop from the sidewalk centerline?",
-                    "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_to_sidewalk_centerline",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3001,
-                            "required_value": [
-                                "transit_route_facilities",
-                                "bus_stop_management",
-                                "bus_stop_improvements"
-                            ]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "access_pathways",
-                                "ada_transition_plan",
-                                "speed_and_reliability",
-                                "internal_metro_note"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "quest_id": 3055,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is there a designated street crossing within a block of this stop?",
                     "quest_description": "Check if there is a marked crosswalk or signalized intersection within roughly 300 feet of the stop.",
@@ -4907,7 +4790,7 @@
                     }
                 },
                 {
-                    "quest_id": 3056,
+                    "quest_id": 3054,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is there a designated street crossing within a block of this stop?",
                     "quest_description": "Check if there is a marked crosswalk or signalized intersection within roughly 300 feet of the stop.",
@@ -4948,65 +4831,65 @@
                     ]
                 },
                 {
+                    "quest_id": 3055,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "What kind of street crossing is within a block of this stop?",
+                    "quest_description": "Identify the primary type of crossing available for riders to reach the stop.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "signalized",
+                            "choice_text": "Signalized Intersection"
+                        },
+                        {
+                            "value": "unsignalized_marked",
+                            "choice_text": "Unsignalized (Painted) Crosswalk"
+                        },
+                        {
+                            "value": "stop_controlled",
+                            "choice_text": "Stop Sign Controlled"
+                        },
+                        {
+                            "value": "unmarked",
+                            "choice_text": "Unmarked Crossing"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_nearby_crossing_type",
+                    "quest_answer_dependency": {
+                        "question_id": 3053,
+                        "required_value": "yes"
+                    }
+                },
+                {
+                    "quest_id": 3056,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "What kind of street crossing is within a block of this stop?",
+                    "quest_description": "Identify the primary type of crossing available for riders to reach the stop.",
+                    "quest_answer_choices": [
+                        {
+                            "value": "signalized",
+                            "choice_text": "Signalized Intersection"
+                        },
+                        {
+                            "value": "unsignalized_marked",
+                            "choice_text": "Unsignalized (Painted) Crosswalk"
+                        },
+                        {
+                            "value": "stop_controlled",
+                            "choice_text": "Stop Sign Controlled"
+                        },
+                        {
+                            "value": "unmarked",
+                            "choice_text": "Unmarked Crossing"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_nearby_crossing_type",
+                    "quest_answer_dependency": {
+                        "question_id": 3054,
+                        "required_value": "yes"
+                    }
+                },
+                {
                     "quest_id": 3057,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "What kind of street crossing is within a block of this stop?",
-                    "quest_description": "Identify the primary type of crossing available for riders to reach the stop.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "signalized",
-                            "choice_text": "Signalized Intersection"
-                        },
-                        {
-                            "value": "unsignalized_marked",
-                            "choice_text": "Unsignalized (Painted) Crosswalk"
-                        },
-                        {
-                            "value": "stop_controlled",
-                            "choice_text": "Stop Sign Controlled"
-                        },
-                        {
-                            "value": "unmarked",
-                            "choice_text": "Unmarked Crossing"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_nearby_crossing_type",
-                    "quest_answer_dependency": {
-                        "question_id": 3055,
-                        "required_value": "yes"
-                    }
-                },
-                {
-                    "quest_id": 3058,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "What kind of street crossing is within a block of this stop?",
-                    "quest_description": "Identify the primary type of crossing available for riders to reach the stop.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "signalized",
-                            "choice_text": "Signalized Intersection"
-                        },
-                        {
-                            "value": "unsignalized_marked",
-                            "choice_text": "Unsignalized (Painted) Crosswalk"
-                        },
-                        {
-                            "value": "stop_controlled",
-                            "choice_text": "Stop Sign Controlled"
-                        },
-                        {
-                            "value": "unmarked",
-                            "choice_text": "Unmarked Crossing"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_nearby_crossing_type",
-                    "quest_answer_dependency": {
-                        "question_id": 3056,
-                        "required_value": "yes"
-                    }
-                },
-                {
-                    "quest_id": 3059,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is the transit stop nearside, farside, or midblock?",
                     "quest_description": "Nearside: Before the intersection. Farside: After the intersection. Midblock: Not near an intersection.",
@@ -5040,7 +4923,7 @@
                     }
                 },
                 {
-                    "quest_id": 3060,
+                    "quest_id": 3058,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is the transit stop nearside, farside, or midblock?",
                     "quest_description": "Nearside: Before the intersection. Farside: After the intersection. Midblock: Not near an intersection.",
@@ -5063,6 +4946,77 @@
                         }
                     ],
                     "quest_tag": "ext:bus_stop_relative_location",
+                    "quest_answer_dependency": [
+                        {
+                            "question_id": 3001,
+                            "required_value": [
+                                "transit_route_facilities",
+                                "bus_stop_management",
+                                "bus_stop_improvements",
+                                "speed_and_reliability"
+                            ]
+                        },
+                        {
+                            "question_id": 3000,
+                            "required_value": [
+                                "connecting_to_transit",
+                                "access_pathways",
+                                "ada_transition_plan",
+                                "internal_metro_note"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "quest_id": 3059,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "Does the bus stop in the traffic lane or pull out of traffic?",
+                    "quest_description": "Determine if the bus stays in the travel lane (In-lane/Bus Bulb) or pulls into a dedicated notch (Bus Bay/Pull-out).",
+                    "quest_answer_choices": [
+                        {
+                            "value": "in_lane",
+                            "choice_text": "Stops in traffic lane (In-lane)"
+                        },
+                        {
+                            "value": "pull_out",
+                            "choice_text": "Pulls out of traffic (Bus Bay/Pull-out)"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_boarding_type",
+                    "quest_answer_dependency": {
+                        "question_id": 3000,
+                        "required_value": [
+                            "transit_route_facilities",
+                            "bus_stop_management",
+                            "bus_stop_improvements",
+                            "speed_and_reliability"
+                        ]
+                    }
+                },
+                {
+                    "quest_id": 3060,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "Does the bus stop in the traffic lane or pull out of traffic?",
+                    "quest_description": "Determine if the bus stays in the travel lane (In-lane/Bus Bulb) or pulls into a dedicated notch (Bus Bay/Pull-out).",
+                    "quest_answer_choices": [
+                        {
+                            "value": "in_lane",
+                            "choice_text": "Stops in traffic lane (In-lane)"
+                        },
+                        {
+                            "value": "pull_out",
+                            "choice_text": "Pulls out of traffic (Bus Bay/Pull-out)"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_boarding_type",
                     "quest_answer_dependency": [
                         {
                             "question_id": 3001,
@@ -5087,77 +5041,6 @@
                 {
                     "quest_id": 3061,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "Does the bus stop in the traffic lane or pull out of traffic?",
-                    "quest_description": "Determine if the bus stays in the travel lane (In-lane/Bus Bulb) or pulls into a dedicated notch (Bus Bay/Pull-out).",
-                    "quest_answer_choices": [
-                        {
-                            "value": "in_lane",
-                            "choice_text": "Stops in traffic lane (In-lane)"
-                        },
-                        {
-                            "value": "pull_out",
-                            "choice_text": "Pulls out of traffic (Bus Bay/Pull-out)"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_boarding_type",
-                    "quest_answer_dependency": {
-                        "question_id": 3000,
-                        "required_value": [
-                            "transit_route_facilities",
-                            "bus_stop_management",
-                            "bus_stop_improvements",
-                            "speed_and_reliability"
-                        ]
-                    }
-                },
-                {
-                    "quest_id": 3062,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "Does the bus stop in the traffic lane or pull out of traffic?",
-                    "quest_description": "Determine if the bus stays in the travel lane (In-lane/Bus Bulb) or pulls into a dedicated notch (Bus Bay/Pull-out).",
-                    "quest_answer_choices": [
-                        {
-                            "value": "in_lane",
-                            "choice_text": "Stops in traffic lane (In-lane)"
-                        },
-                        {
-                            "value": "pull_out",
-                            "choice_text": "Pulls out of traffic (Bus Bay/Pull-out)"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_boarding_type",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3001,
-                            "required_value": [
-                                "transit_route_facilities",
-                                "bus_stop_management",
-                                "bus_stop_improvements",
-                                "speed_and_reliability"
-                            ]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "access_pathways",
-                                "ada_transition_plan",
-                                "internal_metro_note"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "quest_id": 3063,
-                    "quest_type": "ExclusiveChoice",
                     "quest_title": "Is there dedicated bike parking adjacent to the transit stop?",
                     "quest_description": "Check for bike racks, lockers, or a bike share station within the immediate stop area.",
                     "quest_answer_choices": [
@@ -5185,7 +5068,7 @@
                     }
                 },
                 {
-                    "quest_id": 3064,
+                    "quest_id": 3062,
                     "quest_type": "ExclusiveChoice",
                     "quest_title": "Is there dedicated bike parking adjacent to the transit stop?",
                     "quest_description": "Check for bike racks, lockers, or a bike share station within the immediate stop area.",
@@ -5204,6 +5087,76 @@
                         }
                     ],
                     "quest_tag": "ext:bus_stop_bike_parking_present",
+                    "quest_answer_dependency": [
+                        {
+                            "question_id": 3001,
+                            "required_value": [
+                                "transit_route_facilities",
+                                "bus_stop_management",
+                                "bus_stop_improvements"
+                            ]
+                        },
+                        {
+                            "question_id": 3000,
+                            "required_value": [
+                                "connecting_to_transit",
+                                "access_pathways",
+                                "ada_transition_plan",
+                                "speed_and_reliability",
+                                "internal_metro_note"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "quest_id": 3063,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "Are the transit stops mirrored on the block?",
+                    "quest_description": "Is there a stop for the opposite direction located directly across the street or on the same block?",
+                    "quest_answer_choices": [
+                        {
+                            "value": "yes",
+                            "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_mirrored_on_block",
+                    "quest_answer_dependency": {
+                        "question_id": 3000,
+                        "required_value": [
+                            "transit_route_facilities",
+                            "bus_stop_management",
+                            "bus_stop_improvements"
+                        ]
+                    }
+                },
+                {
+                    "quest_id": 3064,
+                    "quest_type": "ExclusiveChoice",
+                    "quest_title": "Are the transit stops mirrored on the block?",
+                    "quest_description": "Is there a stop for the opposite direction located directly across the street or on the same block?",
+                    "quest_answer_choices": [
+                        {
+                            "value": "yes",
+                            "choice_text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "choice_text": "No"
+                        },
+                        {
+                            "value": "unable_to_determine",
+                            "choice_text": "Unable to determine"
+                        }
+                    ],
+                    "quest_tag": "ext:bus_stop_mirrored_on_block",
                     "quest_answer_dependency": [
                         {
                             "question_id": 3001,
@@ -5227,76 +5180,6 @@
                 },
                 {
                     "quest_id": 3065,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "Are the transit stops mirrored on the block?",
-                    "quest_description": "Is there a stop for the opposite direction located directly across the street or on the same block?",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_mirrored_on_block",
-                    "quest_answer_dependency": {
-                        "question_id": 3000,
-                        "required_value": [
-                            "transit_route_facilities",
-                            "bus_stop_management",
-                            "bus_stop_improvements"
-                        ]
-                    }
-                },
-                {
-                    "quest_id": 3066,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "Are the transit stops mirrored on the block?",
-                    "quest_description": "Is there a stop for the opposite direction located directly across the street or on the same block?",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Yes"
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        },
-                        {
-                            "value": "unable_to_determine",
-                            "choice_text": "Unable to determine"
-                        }
-                    ],
-                    "quest_tag": "ext:bus_stop_mirrored_on_block",
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 3001,
-                            "required_value": [
-                                "transit_route_facilities",
-                                "bus_stop_management",
-                                "bus_stop_improvements"
-                            ]
-                        },
-                        {
-                            "question_id": 3000,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "access_pathways",
-                                "ada_transition_plan",
-                                "speed_and_reliability",
-                                "internal_metro_note"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "quest_id": 3067,
                     "quest_type": "MultipleChoice",
                     "quest_title": "Identify the loading zone configuration regarding bike lanes.",
                     "quest_description": "Determine if the bus loads from the right curb or a center island, and if bikes must cross the bus path.",
@@ -5329,7 +5212,7 @@
                     }
                 },
                 {
-                    "quest_id": 3068,
+                    "quest_id": 3066,
                     "quest_type": "MultipleChoice",
                     "quest_title": "Identify the loading zone configuration regarding bike lanes.",
                     "quest_description": "Determine if the bus loads from the right curb or a center island, and if bikes must cross the bus path.",

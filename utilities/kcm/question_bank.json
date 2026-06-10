@@ -3011,11 +3011,7 @@
           "choice_text": "Unknown"
         }
       ],
-      "audience": [
-        "transit_route_facilities",
-        "bus_stop_improvements",
-        "ada_transition_plan"
-      ],
+      "audience": [],
       "physical_parent": {
         "tag": "ext:bus_stop_landing_pads_present",
         "required_value": [
@@ -3023,9 +3019,9 @@
           "partial_constrained"
         ]
       },
-      "has_home": true,
-      "has_additional": true,
-      "has_single": false
+      "has_home": false,
+      "has_additional": false,
+      "has_single": true
     },
     {
       "element": "Bus Stops",
@@ -3047,11 +3043,7 @@
           "choice_text": "Unknown"
         }
       ],
-      "audience": [
-        "transit_route_facilities",
-        "bus_stop_improvements",
-        "ada_transition_plan"
-      ],
+      "audience": [],
       "physical_parent": {
         "tag": "ext:bus_stop_landing_pads_present",
         "required_value": [
@@ -3059,9 +3051,9 @@
           "partial_constrained"
         ]
       },
-      "has_home": true,
-      "has_additional": true,
-      "has_single": false
+      "has_home": false,
+      "has_additional": false,
+      "has_single": true
     },
     {
       "element": "Bus Stops",
