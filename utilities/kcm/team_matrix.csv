@@ -1,0 +1,122 @@
+element,canonical_tag,gating,connecting_to_transit,transit_route_facilities,bus_stop_management,bus_stop_improvements,access_pathways,ada_transition_plan,speed_and_reliability,internal_metro_note
+Sidewalks,ext:sidewalk_coverage_gaps,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_gap_access_consequence,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_condition,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_condition_detail,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_surface_material,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_surface_ada_compliance,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_3ft_clearance,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_width,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_stop_ap_obstructions_present,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_stop_ap_obstructions,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_obstruction_passage_impact,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_slope_present,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_slope_type,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_seasonal_recurring_barriers,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_picture,universal,X,X,X,X,X,X,X,X
+Sidewalks,ext:sidewalk_cross_slope,team,,,X,,X,X,,
+Sidewalks,ext:sidewalk_matches_road_slope,team,,,X,,X,X,,
+Sidewalks,ext:sidewalk_buffer_present,team,X,,X,,X,,X,
+Sidewalks,ext:sidewalk_buffer_type,inherit,X,,X,,X,,X,
+Sidewalks,ext:sidewalk_buffer_width,inherit,X,,X,,X,,X,
+Sidewalks,ext:sidewalk_traffic_intensity_rating,team,X,,X,,X,,X,
+Sidewalks,ext:sidewalk_light,team,X,,,,X,X,,
+Sidewalks,ext:sidewalk_driveway_count,team,X,,,,X,,,
+Sidewalks,ext:sidewalk_driveway_level_path,team,X,,X,,X,X,,
+Sidewalks,ext:sidewalk_driveway_max_width,team,X,,,,X,,,
+Sidewalks,ext:sidewalk_path_functional_usability,team,,,X,,X,X,,
+Crossings,ext:crossing_lane_count,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_safety_comf,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_safety_perception,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_crosswalk_path,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_is_signalized,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_signal_type,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_push_button,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_accessible_ped_signal_features,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_sufficient_time,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_lpi_present,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_median_island,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_median_refuge_user_usability,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_driver_visibility_perception,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_traffic_intensity_rating,team,,,,,,,X,
+Crossings,ext:crossing_speed_reliability_issue_present,team,,,,,,,X,
+Crossings,ext:crossing_speed_reliability_issue_type,inherit,,,,,,,X,
+Crossings,ext:crossing_picture,universal,X,X,X,X,X,X,X,X
+Crossings,ext:crossing_controlled,team,X,,X,,,,X,
+Crossings,ext:crossing_speed_limit,team,X,,X,,,,X,
+Crossings,ext:crossing_lighting,team,,X,X,X,X,X,X,
+Crossings,ext:crossing_painted_present,team,X,,,,,,,
+Crossings,ext:crossing_striping_type,inherit,X,,,,,,,
+Crossings,ext:crossing_paint_condition,inherit,X,,,,,,,
+Crossings,ext:crossing_stop_bars,team,X,,X,,,,X,
+Crossings,ext:crossing_warning_signs,team,X,,X,,,,,
+Crossings,ext:crossing_curb_bulb,team,X,,X,,,,X,
+Crossings,ext:crossing_intersecting_bike_lane,team,X,X,,X,,,,
+Bus Stops,ext:bus_stop_landing_pads_present,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_boarding_zone_5x8_clear_dimensions,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_boarding_interface,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_ped_connection_present,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_ped_connection,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_ped_connection_width,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_ped_connection_quality,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_3ft_clearance,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_picture,universal,X,X,X,X,X,X,X,X
+Bus Stops,ext:bus_stop_boarding_cross_slope_lt2,team,,X,,X,,X,,
+Bus Stops,ext:bus_stop_zone_running_slope,team,,X,,X,,X,,
+Bus Stops,ext:bus_stop_shelter_present,team,,X,X,X,,,,
+Bus Stops,ext:bus_stop_shelter_type,inherit,,X,X,X,,,,
+Bus Stops,ext:bus_stop_shelter_footing_present,inherit,,X,X,X,,,,
+Bus Stops,ext:bus_stop_seating_present,team,,X,X,X,,,,
+Bus Stops,ext:bus_stop_seating_type,inherit,,X,X,X,,,,
+Bus Stops,ext:bus_stop_landing_pads,team,,X,X,X,,X,,
+Bus Stops,ext:bus_stop_braille_schedule_present,team,,X,X,X,,X,,
+Bus Stops,ext:bus_stop_led_real_time_info,team,,X,X,X,,X,,
+Bus Stops,ext:bus_stop_lighting,team,X,X,X,X,,X,,
+Bus Stops,ext:bus_stop_speed_limit,team,,X,X,X,,,X,
+Bus Stops,ext:bus_stop_bike_infrastructure_present,team,X,X,,X,,,,
+Bus Stops,ext:bus_stop_bike_connection,inherit,X,X,,X,,,,
+Bus Stops,ext:bus_stop_traffic_intensity_rating,team,X,,X,,,,X,
+Bus Stops,ext:bus_stop_buffer_present,team,X,,X,,,,,
+Bus Stops,ext:bus_stop_buffer_type,inherit,X,,X,,,,,
+Bus Stops,ext:bus_stop_buffer_width,inherit,X,,X,,,,,
+Bus Stops,ext:bus_stop_restroom_nearby,team,,X,X,X,,,,
+Bus Stops,ext:bus_stop_comfort_rating,team,,X,X,X,,,,
+Bus Stops,ext:bus_stop_to_sidewalk_centerline,team,,X,X,X,,,,
+Bus Stops,ext:bus_stop_nearby_crossing_present,team,X,,X,,,,,
+Bus Stops,ext:bus_stop_nearby_crossing_type,inherit,X,,X,,,,,
+Bus Stops,ext:bus_stop_relative_location,team,,X,X,X,,,X,
+Bus Stops,ext:bus_stop_boarding_type,team,,X,X,X,,,X,
+Bus Stops,ext:bus_stop_bike_parking_present,team,,X,X,X,,,,
+Bus Stops,ext:bus_stop_mirrored_on_block,team,,X,X,X,,,,
+Bus Stops,ext:bus_stop_loading_config,team,,X,X,X,,,,
+Intersections,ext:intersection_signal_type,universal,X,X,X,X,X,X,X,X
+Intersections,ext:intersection_safety_feels_uncomf,universal,X,X,X,X,X,X,X,X
+Intersections,ext:intersection_safety_perception,universal,X,X,X,X,X,X,X,X
+Intersections,ext:intersection_lane_count,universal,X,X,X,X,X,X,X,X
+Intersections,ext:intersection_turn_lanes,universal,X,X,X,X,X,X,X,X
+Intersections,ext:intersection_ped_crossing_controls_needed_legs,universal,X,X,X,X,X,X,X,X
+Intersections,ext:intersection_aps_features_available,universal,X,X,X,X,X,X,X,X
+Intersections,ext:intersection_traffic_intensity_rating,team,,,,,,,X,
+Intersections,ext:intersection_lighting,team,,,,,,,X,
+Intersections,ext:intersection_speed_reliability_issue_present,team,,,,,,,X,
+Intersections,ext:intersection_speed_reliability_issue_type,inherit,,,,,,,X,
+Intersections,ext:intersection_picture,universal,X,X,X,X,X,X,X,X
+Intersections,ext:intersection_speed_limit,team,,,X,,,,X,
+Intersections,ext:intersection_needed_crossing_legs_functional_accessibility,team,,,X,,X,X,,
+Intersections,ext:intersection_pedestrian_delay_condition,team,,,,,,,X,
+Curbs,ext:curb_transition_type,universal,X,X,X,X,X,X,X,X
+Curbs,ext:curb_accessible_transition_needed_missing,universal,X,X,X,X,X,X,X,X
+Curbs,ext:curb_transition_alignment_functional,universal,X,X,X,X,X,X,X,X
+Curbs,ext:curb_ramp_detectable_warning_present,universal,X,X,X,X,X,X,X,X
+Curbs,ext:curb_ramp_level_landing_present,universal,X,X,X,X,X,X,X,X
+Curbs,ext:curb_ramp_signal_proximity,universal,X,X,X,X,X,X,X,X
+Curbs,ext:curb_transition_functional_usability,universal,X,X,X,X,X,X,X,X
+Curbs,ext:curb_picture,universal,X,X,X,X,X,X,X,X
+Curbs,ext:ramp_edge_protection,team,,,,,,X,,
+Curbs,ext:ramp_width,team,,,,,,X,,
+Curbs,ext:ramp_running_slope,team,,,X,,,X,,
+Curbs,ext:ramp_cross_slope,team,,,X,,,X,,
+Curbs,ext:landing_width,team,,,,,,X,,
+Curbs,ext:landing_depth,team,,,,,,X,,
+Curbs,ext:ramp_side_flare_slope,team,,,X,,,X,,
+Curbs,ext:ramp_surface_material,team,,,,,,X,,
