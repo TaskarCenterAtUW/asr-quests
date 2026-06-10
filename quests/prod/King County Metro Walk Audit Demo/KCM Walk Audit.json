@@ -1445,8 +1445,8 @@
             "quests": [
                 {
                     "quest_id": 2000,
-                    "quest_title": "Please select the team you are collecting data for",
-                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection attributes and attributes your collected data within King County Metro.",
+                    "quest_title": "Please select YOUR PRIMARY team",
+                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection preferences and attributes your collected data within King County Metro.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:crossing_team_selection",
                     "quest_answer_choices": [
@@ -2902,8 +2902,8 @@
             "quests": [
                 {
                     "quest_id": 3000,
-                    "quest_title": "Please select the team you are collecting data for",
-                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection attributes and attributes your collected data within King County Metro.",
+                    "quest_title": "Please select YOUR PRIMARY team",
+                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection preferences and attributes your collected data within King County Metro.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_team_selection",
                     "quest_answer_choices": [
@@ -5259,8 +5259,8 @@
             "quests": [
                 {
                     "quest_id": 4000,
-                    "quest_title": "Please select the team you are collecting data for",
-                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection attributes and attributes your collected data within King County Metro.",
+                    "quest_title": "Please select YOUR PRIMARY team",
+                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection preferences and attributes your collected data within King County Metro.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:intersection_team_selection",
                     "quest_answer_choices": [
@@ -6175,8 +6175,8 @@
             "quests": [
                 {
                     "quest_id": 5000,
-                    "quest_title": "Please select the team you are collecting data for",
-                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection attributes and attributes your collected data within King County Metro.",
+                    "quest_title": "Please select YOUR PRIMARY team",
+                    "quest_description": "Select the data collection team or purpose you are representing for this walk audit. Your selection elevates that team's collection preferences and attributes your collected data within King County Metro.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:curb_team_selection",
                     "quest_answer_choices": [
