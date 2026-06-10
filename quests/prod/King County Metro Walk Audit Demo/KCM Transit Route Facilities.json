@@ -8,7 +8,7 @@
             "quests": [
                 {
                     "quest_id": 100,
-                    "quest_title": "Please select the teams for which you are collecting data",
+                    "quest_title": "Please select the additional teams for which you are collecting data",
                     "quest_description": "Select the data collection teams or purpose for responding to this quest. Your selections allow you to receive the common core questions and the team-specific questions for the teams selected.",
                     "quest_type": "MultipleChoice",
                     "quest_tag": "ext:sidewalks_team_selection",
@@ -16,10 +16,6 @@
                         {
                             "value": "connecting_to_transit",
                             "choice_text": "Connecting to Transit"
-                        },
-                        {
-                            "value": "transit_route_facilities",
-                            "choice_text": "Transit Route Facilities"
                         },
                         {
                             "value": "bus_stop_management",
@@ -359,15 +355,7 @@
                             "value": "unknown",
                             "choice_text": "Unknown"
                         }
-                    ],
-                    "quest_answer_dependency": {
-                        "question_id": 100,
-                        "required_value": [
-                            "connecting_to_transit",
-                            "transit_route_facilities",
-                            "access_pathways"
-                        ]
-                    }
+                    ]
                 },
                 {
                     "quest_id": 112,
@@ -401,14 +389,6 @@
                     ],
                     "quest_answer_dependency": [
                         {
-                            "question_id": 100,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "transit_route_facilities",
-                                "access_pathways"
-                            ]
-                        },
-                        {
                             "question_id": 111,
                             "required_value": "yes"
                         }
@@ -424,20 +404,6 @@
                         "min": 0,
                         "max": 50
                     },
-                    "quest_answer_dependency": [
-                        {
-                            "question_id": 100,
-                            "required_value": [
-                                "connecting_to_transit",
-                                "transit_route_facilities",
-                                "access_pathways"
-                            ]
-                        },
-                        {
-                            "question_id": 111,
-                            "required_value": "yes"
-                        }
-                    ]
                 },
                 {
                     "quest_id": 114,
@@ -787,10 +753,6 @@
                         {
                             "value": "connecting_to_transit",
                             "choice_text": "Connecting to Transit"
-                        },
-                        {
-                            "value": "transit_route_facilities",
-                            "choice_text": "Transit Route Facilities"
                         },
                         {
                             "value": "bus_stop_management",
@@ -1449,10 +1411,6 @@
                         {
                             "value": "connecting_to_transit",
                             "choice_text": "Connecting to Transit"
-                        },
-                        {
-                            "value": "transit_route_facilities",
-                            "choice_text": "Transit Route Facilities"
                         },
                         {
                             "value": "bus_stop_management",
@@ -2277,10 +2235,6 @@
                             "choice_text": "Connecting to Transit"
                         },
                         {
-                            "value": "transit_route_facilities",
-                            "choice_text": "Transit Route Facilities"
-                        },
-                        {
                             "value": "bus_stop_management",
                             "choice_text": "Bus Stop Management"
                         },
@@ -2685,10 +2639,6 @@
                         {
                             "value": "connecting_to_transit",
                             "choice_text": "Connecting to Transit"
-                        },
-                        {
-                            "value": "transit_route_facilities",
-                            "choice_text": "Transit Route Facilities"
                         },
                         {
                             "value": "bus_stop_management",
