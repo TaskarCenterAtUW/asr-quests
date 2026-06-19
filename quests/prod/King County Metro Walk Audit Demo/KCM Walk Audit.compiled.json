@@ -546,7 +546,7 @@
                 {
                     "quest_id": 1019,
                     "quest_type": "Numeric",
-                    "quest_title": "[AP][ADA] What is the cross slope of this sidewalk (in percent)?",
+                    "quest_title": "[AP][ADA][BSM] What is the cross slope of this sidewalk (in percent)?",
                     "quest_description": "Measure or estimate the cross slope of the sidewalk from edge to edge, expressed as a percentage of rise over run",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
                     "quest_answer_validation": {
@@ -572,7 +572,7 @@
                 {
                     "quest_id": 1020,
                     "quest_type": "Numeric",
-                    "quest_title": "[AP][ADA][CtT][TRF][S&R] What is the cross slope of this sidewalk (in percent)?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the cross slope of this sidewalk (in percent)?",
                     "quest_description": "Measure or estimate the cross slope of the sidewalk from edge to edge, expressed as a percentage of rise over run",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
                     "quest_answer_validation": {
@@ -608,7 +608,7 @@
                 {
                     "quest_id": 1021,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[AP][ADA] Does the running slope match the roadway?",
+                    "quest_title": "[AP][ADA][BSM] Does the running slope match the roadway?",
                     "quest_description": "Observe if the sidewalk's incline follows the same grade as the adjacent street or if it has been leveled independently.",
                     "quest_answer_choices": [
                         {
@@ -647,7 +647,7 @@
                 {
                     "quest_id": 1022,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[AP][ADA][CtT][TRF][S&R] Does the running slope match the roadway?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Does the running slope match the roadway?",
                     "quest_description": "Observe if the sidewalk's incline follows the same grade as the adjacent street or if it has been leveled independently.",
                     "quest_answer_choices": [
                         {
@@ -757,7 +757,7 @@
                 {
                     "quest_id": 1023,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
+                    "quest_title": "[CC][BSM] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
                     "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, parking space, bike lane, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
                     "quest_answer_choices": [
                         {
@@ -791,7 +791,7 @@
                 {
                     "quest_id": 1024,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
+                    "quest_title": "[CC][BSM][BSI][IMN] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
                     "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, parking space, bike lane, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
                     "quest_answer_choices": [
                         {
@@ -968,7 +968,7 @@
                 {
                     "quest_id": 1029,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] How would you rate the level of motor vehicle traffic on this street?",
+                    "quest_title": "[CC][BSM] How would you rate the level of motor vehicle traffic on this street?",
                     "quest_description": "Rate the typical amount of motor vehicle traffic along this street on a scale of 1-5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
                     "quest_answer_choices": [
                         {
@@ -1010,7 +1010,7 @@
                 {
                     "quest_id": 1030,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] How would you rate the level of motor vehicle traffic on this street?",
+                    "quest_title": "[CC][BSM][BSI][IMN] How would you rate the level of motor vehicle traffic on this street?",
                     "quest_description": "Rate the typical amount of motor vehicle traffic along this street on a scale of 1-5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
                     "quest_answer_choices": [
                         {
@@ -1082,7 +1082,7 @@
                 {
                     "quest_id": 1032,
                     "quest_type": "Numeric",
-                    "quest_title": "[CC] How many light poles are on this sidewalk segment?",
+                    "quest_title": "[CC][BSM][BSI][IMN] How many light poles are on this sidewalk segment?",
                     "quest_description": "Count the number of light poles located directly along this sidewalk segment.",
                     "quest_answer_validation": {
                         "min": 0,
@@ -1131,7 +1131,7 @@
                 {
                     "quest_id": 1034,
                     "quest_type": "Numeric",
-                    "quest_title": "[CtT][AP][TRF][ADA][S&R] How many driveways are present along this sidewalk segment?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] How many driveways are present along this sidewalk segment?",
                     "quest_description": "Count the total number of vehicle driveways that intersect the sidewalk between the starting and ending points of this segment.",
                     "quest_answer_validation": {
                         "min": 0,
@@ -1162,7 +1162,7 @@
                 {
                     "quest_id": 1035,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][AP][ADA] Is the sidewalk continuously flat through driveway aprons?",
+                    "quest_title": "[CtT][AP][ADA][BSM] Is the sidewalk continuously flat through driveway aprons?",
                     "quest_description": "Indicate whether a level pedestrian path is maintained across all driveway aprons. A 'No' indicates the sidewalk dips or slants significantly to accommodate the vehicle transition.",
                     "quest_answer_choices": [
                         {
@@ -1196,7 +1196,7 @@
                 {
                     "quest_id": 1036,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][AP][ADA][TRF][S&R] Is the sidewalk continuously flat through driveway aprons?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is the sidewalk continuously flat through driveway aprons?",
                     "quest_description": "Indicate whether a level pedestrian path is maintained across all driveway aprons. A 'No' indicates the sidewalk dips or slants significantly to accommodate the vehicle transition.",
                     "quest_answer_choices": [
                         {
@@ -1259,7 +1259,7 @@
                 {
                     "quest_id": 1038,
                     "quest_type": "Numeric",
-                    "quest_title": "[CtT][AP][TRF][ADA][S&R] What is the width of the widest driveway on this sidewalk (in feet)?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the width of the widest driveway on this sidewalk (in feet)?",
                     "quest_description": "Measure or estimate the horizontal width of the largest driveway opening where it intersects the sidewalk path.",
                     "quest_answer_validation": {
                         "min": 0,
@@ -1290,7 +1290,7 @@
                 {
                     "quest_id": 1039,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[AP][ADA] Path-level functional usability result",
+                    "quest_title": "[AP][ADA][BSM] Path-level functional usability result",
                     "quest_description": "Summarize whether this sidewalk segment is functionally usable as part of a path to transit.",
                     "quest_answer_choices": [
                         {
@@ -1331,7 +1331,7 @@
                 {
                     "quest_id": 1040,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[AP][ADA][CtT][TRF][S&R] Path-level functional usability result",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Path-level functional usability result",
                     "quest_description": "Summarize whether this sidewalk segment is functionally usable as part of a path to transit.",
                     "quest_answer_choices": [
                         {
@@ -1536,7 +1536,7 @@
                 {
                     "quest_id": 2026,
                     "quest_type": "Numeric",
-                    "quest_title": "[CtT][S&R] What is the posted speed limit on the street being crossed?",
+                    "quest_title": "[CtT][S&R][BSM] What is the posted speed limit on the street being crossed?",
                     "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
                     "quest_answer_validation": {
@@ -1556,7 +1556,7 @@
                 {
                     "quest_id": 2027,
                     "quest_type": "Numeric",
-                    "quest_title": "[CtT][S&R][TRF][AP][ADA] What is the posted speed limit on the street being crossed?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the posted speed limit on the street being crossed?",
                     "quest_description": "Enter the posted speed limit for the intersecting street in miles per hour (mph)",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
                     "quest_answer_validation": {
@@ -1588,7 +1588,7 @@
                 {
                     "quest_id": 2024,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][S&R] Is this pedestrian crossing controlled or uncontrolled?",
+                    "quest_title": "[CtT][S&R][BSM] Is this pedestrian crossing controlled or uncontrolled?",
                     "quest_description": "Indicate whether this location includes a controlled or otherwise designated pedestrian crossing, such as painted crosswalk lines, signage, or pedestrian signals.",
                     "quest_answer_choices": [
                         {
@@ -1618,7 +1618,7 @@
                 {
                     "quest_id": 2025,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][S&R][TRF][AP][ADA] Is this pedestrian crossing controlled or uncontrolled?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is this pedestrian crossing controlled or uncontrolled?",
                     "quest_description": "Indicate whether this location includes a controlled or otherwise designated pedestrian crossing, such as painted crosswalk lines, signage, or pedestrian signals.",
                     "quest_answer_choices": [
                         {
@@ -1867,7 +1867,7 @@
                 {
                     "quest_id": 2031,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF][AP][ADA][S&R] Is there a painted crosswalk present?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is there a painted crosswalk present?",
                     "quest_description": "Indicate if there are any painted lines on the road surface defining the crossing area.",
                     "quest_answer_choices": [
                         {
@@ -2022,7 +2022,7 @@
                 {
                     "quest_id": 2036,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][S&R] Are there stop bars present at the crosswalk?",
+                    "quest_title": "[CtT][S&R][BSM] Are there stop bars present at the crosswalk?",
                     "quest_description": "Look for a thick solid white line painted across the lane before the crosswalk where cars should stop.",
                     "quest_answer_choices": [
                         {
@@ -2051,7 +2051,7 @@
                 {
                     "quest_id": 2037,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][S&R][TRF][AP][ADA] Are there stop bars present at the crosswalk?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Are there stop bars present at the crosswalk?",
                     "quest_description": "Look for a thick solid white line painted across the lane before the crosswalk where cars should stop.",
                     "quest_answer_choices": [
                         {
@@ -2092,7 +2092,7 @@
                 {
                     "quest_id": 2038,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT] Are there high-visibility pedestrian warning signs present?",
+                    "quest_title": "[CtT][BSM] Are there high-visibility pedestrian warning signs present?",
                     "quest_description": "For uncontrolled crossings, check for yellow/fluorescent signs warning drivers of pedestrians.",
                     "quest_answer_choices": [
                         {
@@ -2120,7 +2120,7 @@
                 {
                     "quest_id": 2039,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF][AP][ADA][S&R] Are there high-visibility pedestrian warning signs present?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Are there high-visibility pedestrian warning signs present?",
                     "quest_description": "For uncontrolled crossings, check for yellow/fluorescent signs warning drivers of pedestrians.",
                     "quest_answer_choices": [
                         {
@@ -2215,7 +2215,7 @@
                 {
                     "quest_id": 2040,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][S&R] Is there a curb bulb at this crossing?",
+                    "quest_title": "[CtT][S&R][BSM] Is there a curb bulb at this crossing?",
                     "quest_description": "A sidewalk extension that narrows the street and increases pedestrian visibility.",
                     "quest_answer_choices": [
                         {
@@ -2244,7 +2244,7 @@
                 {
                     "quest_id": 2041,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][S&R][TRF][AP][ADA] Is there a curb bulb at this crossing?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is there a curb bulb at this crossing?",
                     "quest_description": "A sidewalk extension that narrows the street and increases pedestrian visibility.",
                     "quest_answer_choices": [
                         {
@@ -2285,7 +2285,7 @@
                 {
                     "quest_id": 2042,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF] Are there bike lanes or cycletracks on the roadway being crossed?",
+                    "quest_title": "[CtT][TRF][BSI] Are there bike lanes or cycletracks on the roadway being crossed?",
                     "quest_description": "Check if the street you are crossing contains designated space for bicycles.",
                     "quest_answer_choices": [
                         {
@@ -2314,7 +2314,7 @@
                 {
                     "quest_id": 2043,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF][AP][ADA][S&R] Are there bike lanes or cycletracks on the roadway being crossed?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Are there bike lanes or cycletracks on the roadway being crossed?",
                     "quest_description": "Check if the street you are crossing contains designated space for bicycles.",
                     "quest_answer_choices": [
                         {
@@ -2504,7 +2504,7 @@
                 {
                     "quest_id": 2028,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][AP][ADA][S&R] In your opinion, is there adequate lighting at this crossing? (1 = very low and 5 = well lit)",
+                    "quest_title": "[TRF][AP][ADA][S&R][BSM][BSI] In your opinion, is there adequate lighting at this crossing? (1 = very low and 5 = well lit)",
                     "quest_description": "Rate how well-lit this crossing appears, considering visibility and lighting conditions.",
                     "quest_answer_choices": [
                         {
@@ -2548,7 +2548,7 @@
                 {
                     "quest_id": 2029,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][AP][ADA][S&R][CtT] In your opinion, is there adequate lighting at this crossing? (1 = very low and 5 = well lit)",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] In your opinion, is there adequate lighting at this crossing? (1 = very low and 5 = well lit)",
                     "quest_description": "Rate how well-lit this crossing appears, considering visibility and lighting conditions.",
                     "quest_answer_choices": [
                         {
@@ -2638,7 +2638,7 @@
                 {
                     "quest_id": 2018,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[S&R][CtT][TRF][AP][ADA] How would you rate the level of motor vehicle traffic here?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] How would you rate the level of motor vehicle traffic here?",
                     "quest_description": "Rate the typical amount of motor vehicle traffic at this location on a scale of 1-5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
                     "quest_answer_choices": [
                         {
@@ -2714,7 +2714,7 @@
                 {
                     "quest_id": 2020,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[S&R][CtT][TRF][AP][ADA] Is there a Speed and Reliability field issue to mark here?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is there a Speed and Reliability field issue to mark here?",
                     "quest_description": "Use this to identify a roadway, crossing, or intersection condition that may affect bus travel time, turning movement, pull-out movement, or schedule reliability.",
                     "quest_answer_choices": [
                         {
@@ -3083,7 +3083,7 @@
                 {
                     "quest_id": 3025,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][ADA] How many landing pads are available at this bus stop?",
+                    "quest_title": "[TRF][ADA][BSM][BSI] How many landing pads are available at this bus stop?",
                     "quest_description": "Select which boarding positions have landing pads.",
                     "quest_answer_choices": [
                         {
@@ -3119,7 +3119,7 @@
                 {
                     "quest_id": 3026,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][ADA][CtT][AP][S&R] How many landing pads are available at this bus stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] How many landing pads are available at this bus stop?",
                     "quest_description": "Select which boarding positions have landing pads.",
                     "quest_answer_choices": [
                         {
@@ -3354,7 +3354,7 @@
                 {
                     "quest_id": 3051,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Is there a pathway leading to this stop from the sidewalk centerline?",
+                    "quest_title": "[CC][BSM][BSI] Is there a pathway leading to this stop from the sidewalk centerline?",
                     "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
                     "quest_answer_choices": [
                         {
@@ -3383,7 +3383,7 @@
                 {
                     "quest_id": 3052,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Is there a pathway leading to this stop from the sidewalk centerline?",
+                    "quest_title": "[CC][BSM][BSI][IMN] Is there a pathway leading to this stop from the sidewalk centerline?",
                     "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
                     "quest_answer_choices": [
                         {
@@ -3424,7 +3424,7 @@
                 {
                     "quest_id": 3053,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT] Is there a designated street crossing within a block of this stop?",
+                    "quest_title": "[CtT][BSM] Is there a designated street crossing within a block of this stop?",
                     "quest_description": "Check if there is a marked crosswalk or signalized intersection within roughly 300 feet of the stop.",
                     "quest_answer_choices": [
                         {
@@ -3452,7 +3452,7 @@
                 {
                     "quest_id": 3054,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF][AP][ADA][S&R] Is there a designated street crossing within a block of this stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is there a designated street crossing within a block of this stop?",
                     "quest_description": "Check if there is a marked crosswalk or signalized intersection within roughly 300 feet of the stop.",
                     "quest_answer_choices": [
                         {
@@ -3551,7 +3551,7 @@
                 {
                     "quest_id": 3031,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF][ADA] In your opinion, is there adequate lighting at this bus stop? (1 = very low and 5 = well lit)",
+                    "quest_title": "[CtT][TRF][ADA][BSM][BSI] In your opinion, is there adequate lighting at this bus stop? (1 = very low and 5 = well lit)",
                     "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
                     "quest_answer_choices": [
                         {
@@ -3594,7 +3594,7 @@
                 {
                     "quest_id": 3032,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF][ADA][AP][S&R] In your opinion, is there adequate lighting at this bus stop? (1 = very low and 5 = well lit)",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] In your opinion, is there adequate lighting at this bus stop? (1 = very low and 5 = well lit)",
                     "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
                     "quest_answer_choices": [
                         {
@@ -3647,7 +3647,7 @@
                 {
                     "quest_id": 3049,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF] On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
+                    "quest_title": "[TRF][BSM][BSI] On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
                     "quest_description": "Rate the comfort level based on seating, safety, shade, exposure, cleanliness, and general waiting environment.",
                     "quest_answer_choices": [
                         {
@@ -3688,7 +3688,7 @@
                 {
                     "quest_id": 3050,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][CtT][AP][ADA][S&R] On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] On a scale of 1-5 (1 = very uncomfortable and 5 = very comfortable), how would you rate the overall comfort of this stop?",
                     "quest_description": "Rate the comfort level based on seating, safety, shade, exposure, cleanliness, and general waiting environment.",
                     "quest_answer_choices": [
                         {
@@ -3741,7 +3741,7 @@
                 {
                     "quest_id": 3039,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][S&R] How would you rate the level of motor vehicle traffic within a block of this bus stop?",
+                    "quest_title": "[CtT][S&R][BSM] How would you rate the level of motor vehicle traffic within a block of this bus stop?",
                     "quest_description": "Rate the typical amount of motor vehicle traffic within a block of this bus stop on a scale of 1-5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
                     "quest_answer_choices": [
                         {
@@ -3782,7 +3782,7 @@
                 {
                     "quest_id": 3040,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][S&R][TRF][AP][ADA] How would you rate the level of motor vehicle traffic within a block of this bus stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] How would you rate the level of motor vehicle traffic within a block of this bus stop?",
                     "quest_description": "Rate the typical amount of motor vehicle traffic within a block of this bus stop on a scale of 1-5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
                     "quest_answer_choices": [
                         {
@@ -3835,7 +3835,7 @@
                 {
                     "quest_id": 3041,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
+                    "quest_title": "[CC][BSM] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
                     "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
                     "quest_answer_choices": [
                         {
@@ -3867,7 +3867,7 @@
                 {
                     "quest_id": 3042,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
+                    "quest_title": "[CC][BSM][BSI][IMN] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
                     "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
                     "quest_answer_choices": [
                         {
@@ -4012,7 +4012,7 @@
                 {
                     "quest_id": 3033,
                     "quest_type": "Numeric",
-                    "quest_title": "[TRF][S&R] What is the posted speed limit near this bus stop?",
+                    "quest_title": "[TRF][S&R][BSM][BSI] What is the posted speed limit near this bus stop?",
                     "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
                     "quest_answer_validation": {
@@ -4033,7 +4033,7 @@
                 {
                     "quest_id": 3034,
                     "quest_type": "Numeric",
-                    "quest_title": "[TRF][S&R][CtT][AP][ADA] What is the posted speed limit near this bus stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the posted speed limit near this bus stop?",
                     "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
                     "quest_answer_validation": {
@@ -4065,7 +4065,7 @@
                 {
                     "quest_id": 3035,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF] Is there designated bicycle infrastructure within a block of this bus stop?",
+                    "quest_title": "[CtT][TRF][BSI] Is there designated bicycle infrastructure within a block of this bus stop?",
                     "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, parking, or paths within a block of the bus stop that support multimodal access.",
                     "quest_answer_choices": [
                         {
@@ -4094,7 +4094,7 @@
                 {
                     "quest_id": 3036,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CtT][TRF][AP][ADA][S&R] Is there designated bicycle infrastructure within a block of this bus stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is there designated bicycle infrastructure within a block of this bus stop?",
                     "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, parking, or paths within a block of the bus stop that support multimodal access.",
                     "quest_answer_choices": [
                         {
@@ -4201,7 +4201,7 @@
                 {
                     "quest_id": 3061,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF] Is there dedicated bike parking adjacent to the transit stop?",
+                    "quest_title": "[TRF][BSM][BSI] Is there dedicated bike parking adjacent to the transit stop?",
                     "quest_description": "Check for bike racks, lockers, or a bike share station within the immediate stop area.",
                     "quest_answer_choices": [
                         {
@@ -4230,7 +4230,7 @@
                 {
                     "quest_id": 3062,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][CtT][AP][ADA][S&R] Is there dedicated bike parking adjacent to the transit stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is there dedicated bike parking adjacent to the transit stop?",
                     "quest_description": "Check for bike racks, lockers, or a bike share station within the immediate stop area.",
                     "quest_answer_choices": [
                         {
@@ -4271,7 +4271,7 @@
                 {
                     "quest_id": 3015,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Does this bus stop have a shelter?",
+                    "quest_title": "[CC][BSM][BSI] Does this bus stop have a shelter?",
                     "quest_description": "Identify the presence of a shelter at this bus stop.",
                     "quest_answer_choices": [
                         {
@@ -4300,7 +4300,7 @@
                 {
                     "quest_id": 3016,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Does this bus stop have a shelter?",
+                    "quest_title": "[CC][BSM][BSI][IMN] Does this bus stop have a shelter?",
                     "quest_description": "Identify the presence of a shelter at this bus stop.",
                     "quest_answer_choices": [
                         {
@@ -4449,7 +4449,7 @@
                 {
                     "quest_id": 3021,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Does this bus stop have seating?",
+                    "quest_title": "[CC][BSM][BSI] Does this bus stop have seating?",
                     "quest_description": "Indicate whether any seating is available at this bus stop.",
                     "quest_answer_choices": [
                         {
@@ -4478,7 +4478,7 @@
                 {
                     "quest_id": 3022,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Does this bus stop have seating?",
+                    "quest_title": "[CC][BSM][BSI][IMN] Does this bus stop have seating?",
                     "quest_description": "Indicate whether any seating is available at this bus stop.",
                     "quest_answer_choices": [
                         {
@@ -4593,7 +4593,7 @@
                 {
                     "quest_id": 3027,
                     "quest_type": "MultipleChoice",
-                    "quest_title": "[TRF][ADA] What accessible stop information formats are available?",
+                    "quest_title": "[TRF][ADA][BSM][BSI] What accessible stop information formats are available?",
                     "quest_description": "Check whether accessible schedule, stop, or route information formats are available at this bus stop.",
                     "quest_answer_choices": [
                         {
@@ -4635,7 +4635,7 @@
                 {
                     "quest_id": 3028,
                     "quest_type": "MultipleChoice",
-                    "quest_title": "[TRF][ADA][CtT][AP][S&R] What accessible stop information formats are available?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What accessible stop information formats are available?",
                     "quest_description": "Check whether accessible schedule, stop, or route information formats are available at this bus stop.",
                     "quest_answer_choices": [
                         {
@@ -4688,7 +4688,7 @@
                 {
                     "quest_id": 3029,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][ADA] What is the status of real-time arrival information at this stop?",
+                    "quest_title": "[TRF][ADA][BSM][BSI] What is the status of real-time arrival information at this stop?",
                     "quest_description": "Identify whether there is an LED or digital display providing real-time bus arrival or schedule information at this stop, and whether it appears functional.",
                     "quest_answer_choices": [
                         {
@@ -4726,7 +4726,7 @@
                 {
                     "quest_id": 3030,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][ADA][CtT][AP][S&R] What is the status of real-time arrival information at this stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the status of real-time arrival information at this stop?",
                     "quest_description": "Identify whether there is an LED or digital display providing real-time bus arrival or schedule information at this stop, and whether it appears functional.",
                     "quest_answer_choices": [
                         {
@@ -4775,7 +4775,7 @@
                 {
                     "quest_id": 3047,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF] Are there public restrooms within a block of this bus stop?",
+                    "quest_title": "[TRF][BSM][BSI] Are there public restrooms within a block of this bus stop?",
                     "quest_description": "Indicate whether publicly accessible restrooms are located within a block of this bus stop, such as at nearby parks, transit centers, or public buildings.",
                     "quest_answer_choices": [
                         {
@@ -4812,7 +4812,7 @@
                 {
                     "quest_id": 3048,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][CtT][AP][ADA][S&R] Are there public restrooms within a block of this bus stop?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Are there public restrooms within a block of this bus stop?",
                     "quest_description": "Indicate whether publicly accessible restrooms are located within a block of this bus stop, such as at nearby parks, transit centers, or public buildings.",
                     "quest_answer_choices": [
                         {
@@ -4861,7 +4861,7 @@
                 {
                     "quest_id": 3057,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][S&R] Is the transit stop nearside, farside, or midblock?",
+                    "quest_title": "[TRF][S&R][BSM][BSI] Is the transit stop nearside, farside, or midblock?",
                     "quest_description": "Nearside: Before the intersection. Farside: After the intersection. Midblock: Not near an intersection.",
                     "quest_answer_choices": [
                         {
@@ -4895,7 +4895,7 @@
                 {
                     "quest_id": 3058,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][S&R][CtT][AP][ADA] Is the transit stop nearside, farside, or midblock?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is the transit stop nearside, farside, or midblock?",
                     "quest_description": "Nearside: Before the intersection. Farside: After the intersection. Midblock: Not near an intersection.",
                     "quest_answer_choices": [
                         {
@@ -4940,7 +4940,7 @@
                 {
                     "quest_id": 3059,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][S&R] Does the bus stop in the traffic lane or pull out of traffic?",
+                    "quest_title": "[TRF][S&R][BSM][BSI] Does the bus stop in the traffic lane or pull out of traffic?",
                     "quest_description": "Determine if the bus stays in the travel lane (In-lane/Bus Bulb) or pulls into a dedicated notch (Bus Bay/Pull-out).",
                     "quest_answer_choices": [
                         {
@@ -4970,7 +4970,7 @@
                 {
                     "quest_id": 3060,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][S&R][CtT][AP][ADA] Does the bus stop in the traffic lane or pull out of traffic?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Does the bus stop in the traffic lane or pull out of traffic?",
                     "quest_description": "Determine if the bus stays in the travel lane (In-lane/Bus Bulb) or pulls into a dedicated notch (Bus Bay/Pull-out).",
                     "quest_answer_choices": [
                         {
@@ -5011,7 +5011,7 @@
                 {
                     "quest_id": 3063,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF] Are the transit stops mirrored on the block?",
+                    "quest_title": "[TRF][BSM][BSI] Are the transit stops mirrored on the block?",
                     "quest_description": "Is there a stop for the opposite direction located directly across the street or on the same block?",
                     "quest_answer_choices": [
                         {
@@ -5040,7 +5040,7 @@
                 {
                     "quest_id": 3064,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[TRF][CtT][AP][ADA][S&R] Are the transit stops mirrored on the block?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Are the transit stops mirrored on the block?",
                     "quest_description": "Is there a stop for the opposite direction located directly across the street or on the same block?",
                     "quest_answer_choices": [
                         {
@@ -5081,7 +5081,7 @@
                 {
                     "quest_id": 3065,
                     "quest_type": "MultipleChoice",
-                    "quest_title": "[TRF] Identify the loading zone configuration regarding bike lanes.",
+                    "quest_title": "[TRF][BSM][BSI] Identify the loading zone configuration regarding bike lanes.",
                     "quest_description": "Determine if the bus loads from the right curb or a center island, and if bikes must cross the bus path.",
                     "quest_answer_choices": [
                         {
@@ -5114,7 +5114,7 @@
                 {
                     "quest_id": 3066,
                     "quest_type": "MultipleChoice",
-                    "quest_title": "[TRF][CtT][AP][ADA][S&R] Identify the loading zone configuration regarding bike lanes.",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Identify the loading zone configuration regarding bike lanes.",
                     "quest_description": "Determine if the bus loads from the right curb or a center island, and if bikes must cross the bus path.",
                     "quest_answer_choices": [
                         {
@@ -5429,7 +5429,7 @@
                 {
                     "quest_id": 4020,
                     "quest_type": "Numeric",
-                    "quest_title": "[S&R] What is the posted speed limit on this roadway?",
+                    "quest_title": "[S&R][BSM] What is the posted speed limit on this roadway?",
                     "quest_description": "Enter the posted speed limit for the intersecting roadway in miles per hour (mph)",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
                     "quest_answer_validation": {
@@ -5448,7 +5448,7 @@
                 {
                     "quest_id": 4021,
                     "quest_type": "Numeric",
-                    "quest_title": "[S&R][CtT][TRF][AP][ADA] What is the posted speed limit on this roadway?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the posted speed limit on this roadway?",
                     "quest_description": "Enter the posted speed limit for the intersecting roadway in miles per hour (mph)",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
                     "quest_answer_validation": {
@@ -5517,7 +5517,7 @@
                 {
                     "quest_id": 4012,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[S&R][CtT][TRF][AP][ADA] How would you rate the level of motor vehicle traffic here?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] How would you rate the level of motor vehicle traffic here?",
                     "quest_description": "Rate the typical amount of motor vehicle traffic at this location on a scale of 1-5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
                     "quest_answer_choices": [
                         {
@@ -5568,7 +5568,7 @@
                 {
                     "quest_id": 4022,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[AP][ADA] Are the needed crossing legs functionally accessible?",
+                    "quest_title": "[AP][ADA][BSM] Are the needed crossing legs functionally accessible?",
                     "quest_description": "Summarize whether the crossing legs needed to move through this intersection are functionally accessible.",
                     "quest_answer_choices": [
                         {
@@ -5601,7 +5601,7 @@
                 {
                     "quest_id": 4023,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[AP][ADA][CtT][TRF][S&R] Are the needed crossing legs functionally accessible?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Are the needed crossing legs functionally accessible?",
                     "quest_description": "Summarize whether the crossing legs needed to move through this intersection are functionally accessible.",
                     "quest_answer_choices": [
                         {
@@ -5683,7 +5683,7 @@
                 {
                     "quest_id": 4014,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[S&R][CtT][TRF][AP][ADA] In your opinion, is there adequate lighting at this intersection? (1 = very low and 5 = well lit)",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] In your opinion, is there adequate lighting at this intersection? (1 = very low and 5 = well lit)",
                     "quest_description": "Rate how well-lit this intersection appears, considering visibility and lighting conditions that may affect pedestrians and bus operations.",
                     "quest_answer_choices": [
                         {
@@ -5837,7 +5837,7 @@
                 {
                     "quest_id": 4025,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[S&R][CtT][TRF][AP][ADA] What is the observed pedestrian delay condition?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the observed pedestrian delay condition?",
                     "quest_description": "Identify the pedestrian wait condition observed at this intersection.",
                     "quest_answer_choices": [
                         {
@@ -5913,7 +5913,7 @@
                 {
                     "quest_id": 4016,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[S&R][CtT][TRF][AP][ADA] Is there a Speed and Reliability field issue to mark here?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] Is there a Speed and Reliability field issue to mark here?",
                     "quest_description": "Use this to identify a roadway, crossing, or intersection condition that may affect bus travel time, turning movement, pull-out movement, or schedule reliability.",
                     "quest_answer_choices": [
                         {
@@ -6443,7 +6443,7 @@
                 {
                     "quest_id": 5013,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] Does this curb ramp have edge protection?",
+                    "quest_title": "[CC][BSM][BSI][IMN] Does this curb ramp have edge protection?",
                     "quest_description": "Check if there is a vertical barrier to prevent falls.",
                     "quest_answer_choices": [
                         {
@@ -6514,7 +6514,7 @@
                 {
                     "quest_id": 5015,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA][CtT][TRF][AP][S&R] What is the width of this curb ramp?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the width of this curb ramp?",
                     "quest_description": "Measure the clear width of this curb ramp, in inches. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/width_square.png",
                     "quest_answer_validation": {
@@ -6548,7 +6548,7 @@
                 {
                     "quest_id": 5016,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA] What is the running slope of this curb ramp?",
+                    "quest_title": "[ADA][BSM] What is the running slope of this curb ramp?",
                     "quest_description": "Measure the incline along the direction of travel, as a percentage. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/running_slope_square.png",
                     "quest_answer_validation": {
@@ -6573,7 +6573,7 @@
                 {
                     "quest_id": 5017,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA][CtT][TRF][AP][S&R] What is the running slope of this curb ramp?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the running slope of this curb ramp?",
                     "quest_description": "Measure the incline along the direction of travel, as a percentage. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/running_slope_square.png",
                     "quest_answer_validation": {
@@ -6609,7 +6609,7 @@
                 {
                     "quest_id": 5018,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA] What is the cross slope of this curb ramp?",
+                    "quest_title": "[ADA][BSM] What is the cross slope of this curb ramp?",
                     "quest_description": "Measure the side-to-side incline of this curb ramp, as a percentage. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/cross_slope_square.png",
                     "quest_answer_validation": {
@@ -6634,7 +6634,7 @@
                 {
                     "quest_id": 5019,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA][CtT][TRF][AP][S&R] What is the cross slope of this curb ramp?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the cross slope of this curb ramp?",
                     "quest_description": "Measure the side-to-side incline of this curb ramp, as a percentage. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/cross_slope_square.png",
                     "quest_answer_validation": {
@@ -6692,7 +6692,7 @@
                 {
                     "quest_id": 5021,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA][CtT][TRF][AP][S&R] What is the width of this ramp's landing?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the width of this ramp's landing?",
                     "quest_description": "Measure the width of this ramp's top landing area, in inches. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/width_landscape.png",
                     "quest_answer_validation": {
@@ -6748,7 +6748,7 @@
                 {
                     "quest_id": 5023,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA][CtT][TRF][AP][S&R] What is the depth of this ramp's landing?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the depth of this ramp's landing?",
                     "quest_description": "Measure the depth of this ramp's top landing area, in inches. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/depth_landscape.png",
                     "quest_answer_validation": {
@@ -6782,7 +6782,7 @@
                 {
                     "quest_id": 5024,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA] What is the slope of this ramp's side flares?",
+                    "quest_title": "[ADA][BSM] What is the slope of this ramp's side flares?",
                     "quest_description": "Measure the slope of this ramp's side flares, as a percentage. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/side_flare_slope_square.png",
                     "quest_answer_validation": {
@@ -6807,7 +6807,7 @@
                 {
                     "quest_id": 5025,
                     "quest_type": "Numeric",
-                    "quest_title": "[ADA][CtT][TRF][AP][S&R] What is the slope of this ramp's side flares?",
+                    "quest_title": "[CtT][TRF][AP][ADA][S&R][BSM][BSI][IMN] What is the slope of this ramp's side flares?",
                     "quest_description": "Measure the slope of this ramp's side flares, as a percentage. Leave blank if unsafe or unable to measure.",
                     "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/side_flare_slope_square.png",
                     "quest_answer_validation": {
@@ -6880,7 +6880,7 @@
                 {
                     "quest_id": 5027,
                     "quest_type": "ExclusiveChoice",
-                    "quest_title": "[CC] What is the surface material of this curb ramp?",
+                    "quest_title": "[CC][BSM][BSI][IMN] What is the surface material of this curb ramp?",
                     "quest_description": "Identify the material this curb ramp is made of.",
                     "quest_answer_choices": [
                         {
