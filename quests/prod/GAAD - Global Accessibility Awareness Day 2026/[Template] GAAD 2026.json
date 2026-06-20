@@ -1167,24 +1167,24 @@
               "choice_text": "Unclear"
             }
           ]
-        }
+        },
         {
-                    "quest_id": 818,
-                    "quest_type": "ExclusiveChoice",
-                    "quest_title": "Take a picture of the driveway.",
-                    "quest_description": "Capture a clear photo of the driveway along sidewalk surface.",
-                    "quest_answer_choices": [
-                        {
-                            "value": "yes",
-                            "choice_text": "Ok!",
-                            "choice_follow_up": "Please take a picture of the driveway."
-                        },
-                        {
-                            "value": "no",
-                            "choice_text": "No"
-                        }
-                    ],
-                    "quest_tag": "ext:driveway_picture"
+          "quest_id": 804,
+          "quest_type": "ExclusiveChoice",
+          "quest_title": "Take a picture of the driveway.",
+          "quest_description": "Capture a clear photo of the driveway along sidewalk surface.",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Ok!",
+              "choice_follow_up": "Please take a picture of the driveway."
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_tag": "ext:driveway_picture"
         }
       ]
     }
