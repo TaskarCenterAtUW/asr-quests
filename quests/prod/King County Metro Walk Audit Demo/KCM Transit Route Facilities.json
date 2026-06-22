@@ -407,7 +407,7 @@
                 },
                 {
                     "quest_id": 114,
-                    "quest_title": "[TRF] Is sidewalk maintained during snow or leaf fall?",
+                    "quest_title": "[TRF][CtT][AP] Is sidewalk maintained during snow or leaf fall?",
                     "quest_description": "Indicate whether this path is routinely cleared of snow, ice, or leaves to maintain accessibility during seasonal conditions.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:sidewalk_snow_leaf_clear",
@@ -431,7 +431,6 @@
                         "question_id": 100,
                         "required_value": [
                             "connecting_to_transit",
-                            "transit_route_facilities",
                             "access_pathways"
                         ]
                     }
@@ -570,7 +569,7 @@
                 },
                 {
                     "quest_id": 120,
-                    "quest_title": "[TRF] How many driveways are present along this sidewalk segment?",
+                    "quest_title": "[TRF][CtT][AP] How many driveways are present along this sidewalk segment?",
                     "quest_description": "Count the total number of vehicle driveways that intersect the sidewalk between the starting and ending points of this segment.",
                     "quest_type": "Numeric",
                     "quest_tag": "ext:sidewalk_driveway_count",
@@ -582,7 +581,6 @@
                         "question_id": 100,
                         "required_value": [
                             "connecting_to_transit",
-                            "transit_route_facilities",
                             "access_pathways"
                         ]
                     }
@@ -610,7 +608,7 @@
                 },
                 {
                     "quest_id": 122,
-                    "quest_title": "[TRF] What is the width of the widest driveway on this sidewalk (in feet)?",
+                    "quest_title": "[TRF][CtT][AP] What is the width of the widest driveway on this sidewalk (in feet)?",
                     "quest_description": "Measure or estimate the horizontal width of the largest driveway opening where it intersects the sidewalk path.",
                     "quest_type": "Numeric",
                     "quest_tag": "ext:sidewalk_driveway_max_width",
@@ -622,7 +620,6 @@
                         "question_id": 100,
                         "required_value": [
                             "connecting_to_transit",
-                            "transit_route_facilities",
                             "access_pathways"
                         ]
                     }
@@ -1277,7 +1274,7 @@
                 },
                 {
                     "quest_id": 219,
-                    "quest_title": "[TRF] Are there bike lanes or cycletracks on the roadway being crossed?",
+                    "quest_title": "[TRF][CtT] Are there bike lanes or cycletracks on the roadway being crossed?",
                     "quest_description": "Check if the street you are crossing contains designated space for bicycles.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:crossing_intersecting_bike_lane",
@@ -1294,8 +1291,7 @@
                     "quest_answer_dependency": {
                         "question_id": 200,
                         "required_value": [
-                            "connecting_to_transit",
-                            "transit_route_facilities"
+                            "connecting_to_transit"
                         ]
                     }
                 },
@@ -1543,14 +1539,13 @@
                         "question_id": 300,
                         "required_value": [
                             "connecting_to_transit",
-                            "transit_route_facilities",
                             "bus_stop_improvements"
                         ]
                     }
                 },
                 {
                     "quest_id": 306,
-                    "quest_title": "[CC][BSI] Does this bus stop have seating?",
+                    "quest_title": "[CC][BSI][CtT] Does this bus stop have seating?",
                     "quest_description": "Indicate whether any seating is available at this bus stop.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_seating_present",
@@ -1568,14 +1563,13 @@
                         "question_id": 300,
                         "required_value": [
                             "connecting_to_transit",
-                            "transit_route_facilities",
                             "bus_stop_improvements"
                         ]
                     }
                 },
                 {
                     "quest_id": 307,
-                    "quest_title": "[TRF][BSI] How many landing pads are available at this bus stop?",
+                    "quest_title": "[TRF][BSI][ADA] How many landing pads are available at this bus stop?",
                     "quest_description": "Select which boarding positions have landing pads.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_landing_pads",
@@ -1597,7 +1591,6 @@
                         {
                             "question_id": 300,
                             "required_value": [
-                                "transit_route_facilities",
                                 "bus_stop_improvements",
                                 "ada_transition_plan"
                             ]
@@ -1783,7 +1776,7 @@
                 },
                 {
                     "quest_id": 316,
-                    "quest_title": "[TRF][BSI] Is there designated bicycle infrastructure within a block of this bus stop?",
+                    "quest_title": "[TRF][BSI][CtT] Is there designated bicycle infrastructure within a block of this bus stop?",
                     "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, parking, or paths within a block of the bus stop that support multimodal access.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_bike_infrastructure_present",
@@ -1801,14 +1794,13 @@
                         "question_id": 300,
                         "required_value": [
                             "connecting_to_transit",
-                            "transit_route_facilities",
                             "bus_stop_improvements"
                         ]
                     }
                 },
                 {
                     "quest_id": 317,
-                    "quest_title": "[CC][BSI] What type of infrastructure connects this bus stop to the bicycle network?",
+                    "quest_title": "[CC][BSI][CtT] What type of infrastructure connects this bus stop to the bicycle network?",
                     "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_bike_connection",
@@ -1839,7 +1831,6 @@
                             "question_id": 300,
                             "required_value": [
                                 "connecting_to_transit",
-                                "transit_route_facilities",
                                 "bus_stop_improvements"
                             ]
                         },
@@ -1904,7 +1895,7 @@
                 },
                 {
                     "quest_id": 320,
-                    "quest_title": "[TRF][BSI] Does the curb/platform allow for accessible boarding?",
+                    "quest_title": "[TRF][BSI][ADA] Does the curb/platform allow for accessible boarding?",
                     "quest_description": "Evaluate the boarding interface. Select 'Level Boarding' if the platform is flush with the bus floor. Select 'Ramp/Kneeling Suitable' if the curb height allows a ramp to deploy at a safe, shallow angle.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_boarding_interface",
@@ -1933,7 +1924,6 @@
                     "quest_answer_dependency": {
                         "question_id": 300,
                         "required_value": [
-                            "transit_route_facilities",
                             "bus_stop_improvements",
                             "ada_transition_plan"
                         ]
@@ -1965,7 +1955,7 @@
                 },
                 {
                     "quest_id": 322,
-                    "quest_title": "[TRF][BSI] Is the transit stop nearside, farside, or midblock?",
+                    "quest_title": "[TRF][BSI][S&R] Is the transit stop nearside, farside, or midblock?",
                     "quest_description": "Nearside: Before the intersection. Farside: After the intersection. Midblock: Not near an intersection.",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_relative_location",
@@ -1986,7 +1976,6 @@
                     "quest_answer_dependency": {
                         "question_id": 300,
                         "required_value": [
-                            "transit_route_facilities",
                             "bus_stop_improvements",
                             "speed_and_reliability"
                         ]
@@ -1994,7 +1983,7 @@
                 },
                 {
                     "quest_id": 323,
-                    "quest_title": "[TRF][BSI] Does the bus stop in the traffic lane or pull out of traffic?",
+                    "quest_title": "[TRF][BSI][S&R] Does the bus stop in the traffic lane or pull out of traffic?",
                     "quest_description": "Determine if the bus stays in the travel lane (In-lane/Bus Bulb) or pulls into a dedicated notch (Bus Bay/Pull-out).",
                     "quest_type": "ExclusiveChoice",
                     "quest_tag": "ext:bus_stop_boarding_type",
@@ -2011,7 +2000,6 @@
                     "quest_answer_dependency": {
                         "question_id": 300,
                         "required_value": [
-                            "transit_route_facilities",
                             "bus_stop_improvements",
                             "speed_and_reliability"
                         ]
@@ -2045,7 +2033,6 @@
                         {
                             "question_id": 300,
                             "required_value": [
-                                "transit_route_facilities",
                                 "bus_stop_improvements"
                             ]
                         },
@@ -2091,7 +2078,6 @@
                         {
                             "question_id": 300,
                             "required_value": [
-                                "transit_route_facilities",
                                 "bus_stop_improvements"
                             ]
                         },
@@ -2120,7 +2106,6 @@
                     "quest_answer_dependency": {
                         "question_id": 300,
                         "required_value": [
-                            "transit_route_facilities",
                             "bus_stop_improvements"
                         ]
                     }
