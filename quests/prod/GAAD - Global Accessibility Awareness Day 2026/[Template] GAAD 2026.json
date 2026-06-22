@@ -1099,6 +1099,94 @@
           ]
         }
       ]
+    },
+    {
+      "element_type": "Driveway Points",
+      "element_type_icon": "car",
+      "quest_query": "nodes with (ext:driveway=yes)",
+      "quests": [
+        {
+          "quest_id": 801,
+          "quest_title": "Is the sidewalk continuous across the driveway?",
+          "quest_description": "Determine whether sidewalk continuity is maintained across the driveway.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:driveway_sidewalk_continuous",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        },
+        {
+          "quest_id": 802,
+          "quest_title": "Is there a vertical lip or slope change present?",
+          "quest_description": "Indicate whether a vertical lip or abrupt slope change exists at the driveway crossing.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:driveway_vertical_lip",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unsure",
+              "choice_text": "Unsure"
+            }
+          ]
+        },
+        {
+          "quest_id": 803,
+          "quest_title": "Do vehicles yield to pedestrians?",
+          "quest_description": "Assess whether vehicles typically yield to pedestrians at this driveway.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:driveway_vehicle_yielding",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unclear",
+              "choice_text": "Unclear"
+            }
+          ]
+        },
+        {
+          "quest_id": 804,
+          "quest_type": "ExclusiveChoice",
+          "quest_title": "Take a picture of the driveway.",
+          "quest_description": "Capture a clear photo of the driveway along sidewalk surface.",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Ok!",
+              "choice_follow_up": "Please take a picture of the driveway."
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ],
+          "quest_tag": "ext:driveway_picture"
+        }
+      ]
     }
   ]
 }
