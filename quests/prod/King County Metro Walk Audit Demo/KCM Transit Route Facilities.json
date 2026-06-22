@@ -403,7 +403,13 @@
                     "quest_answer_validation": {
                         "min": 0,
                         "max": 50
-                    }
+                    },
+                    "quest_answer_dependency": [
+                        {
+                            "question_id": 111,
+                            "required_value": "yes"
+                        }
+                    ]
                 },
                 {
                     "quest_id": 114,
