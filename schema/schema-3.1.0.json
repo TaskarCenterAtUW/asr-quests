@@ -236,7 +236,7 @@
 						"enum": [
 							"width",
 							"incline",
-							"ext:ac:crossing-slope"
+							"ext:ac:cross-slope"
 						]
 					},
 					"minItems": 1,
@@ -244,7 +244,7 @@
 					"examples": [
 						["width"],
 						["width", "incline"],
-						["width", "incline", "ext:ac:crossing-slope"]
+						["width", "incline", "ext:ac:cross-slope"]
 					]
 				},
 				"quest_answer_choices": {
