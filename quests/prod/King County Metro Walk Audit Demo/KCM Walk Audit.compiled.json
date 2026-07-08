@@ -1674,22 +1674,22 @@
           "quest_answer_choices": [
             {
               "value": "full_signal",
-              "choice_text": "Yes, Full Signal",
+              "choice_text": "Full Signal",
               "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Traffic_light_at_Jeffrey_Road_and_Smoketree.jpg"
             },
             {
               "value": "half_signal",
-              "choice_text": "Yes, Half Signal",
+              "choice_text": "Half Signal",
               "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Huntsville_Traffic_Lights.jpg"
             },
             {
               "value": "hawk_signal",
-              "choice_text": "Yes, HAWK Signal",
+              "choice_text": "HAWK Signal",
               "image_url": "https://live.staticflickr.com/3011/2997123609_8e15d0bfaa_b.jpg"
             },
             {
               "value": "rrfb",
-              "choice_text": "Yes, Rectangular Rapid Flashing Beacon (RRFB)",
+              "choice_text": "Rectangular Rapid Flashing Beacon (RRFB)",
               "image_url": "https://live.staticflickr.com/4582/24570065938_2f11e49304_b.jpg"
             },
             {
@@ -4746,8 +4746,12 @@
           "quest_description": "Indicate whether publicly accessible restrooms are located within a block of this bus stop, such as at nearby parks, transit centers, or public buildings.",
           "quest_answer_choices": [
             {
-              "value": "yes",
-              "choice_text": "Yes"
+              "value": "yes_open_and_accessible",
+              "choice_text": "Yes - open and appears accessible"
+            },
+            {
+              "value": "yes_but_access_unknown",
+              "choice_text": "Yes - accessibility/open status unknown"
             },
             {
               "value": "no",
@@ -4756,14 +4760,6 @@
             {
               "value": "unable_to_determine",
               "choice_text": "Unable to determine"
-            },
-            {
-              "value": "yes_open_and_accessible",
-              "choice_text": "Yes - open and appears accessible"
-            },
-            {
-              "value": "yes_but_access_unknown",
-              "choice_text": "Yes - accessibility/open status unknown"
             }
           ],
           "quest_tag": "ext:bus_stop_restroom_nearby",
@@ -5695,8 +5691,8 @@
         {
           "quest_id": 4005,
           "quest_type": "ExclusiveChoice",
-          "quest_title": "[CtT] Does this intersection feel uncomfortable to cross?",
-          "quest_description": "Indicate whether this intersection feels uncomfortable to cross.",
+          "quest_title": "[CtT] Does this intersection feel comfortable to cross?",
+          "quest_description": "Indicate whether this intersection feels comfortable to cross.",
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -5755,7 +5751,7 @@
           "quest_tag": "ext:intersection_safety_perception",
           "quest_answer_dependency": {
             "question_id": 4005,
-            "required_value": "yes"
+            "required_value": "no"
           }
         },
         {

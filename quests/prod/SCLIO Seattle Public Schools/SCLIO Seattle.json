@@ -29,6 +29,11 @@
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/surface/brick_landscape.png"
             },
             {
+              "value": "aggregate_concrete",
+              "choice_text": "Aggregate Concrete",
+              "image_url": "https://clevelandconcretecoatings.com/wp-content/uploads/2025/02/residential-garage-floor-service-1024x768.jpg"
+            },
+            {
               "value": "other",
               "choice_text": "Other"
             }
@@ -159,6 +164,23 @@
             "min": 0,
             "max": 50
           }
+        },
+        {
+          "quest_id": 109,
+          "quest_title": "Is there low overhead clearance along this pathway?",
+          "quest_description": "Determine whether there are low-hanging tree branches, signs, or other overhead obstructions that impede travel.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:pathway_overhead_clearance",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes, there are low overhead obstructions (e.g., big trees or branches)."
+            },
+            {
+              "value": "no",
+              "choice_text": "No, overhead clearance is clear."
+            }
+          ]
         }
       ]
     },
@@ -169,6 +191,39 @@
       "quests": [
         {
           "quest_id": 201,
+          "quest_title": "What is the surface material of this crossing?",
+          "quest_description": "Determine the surface material of this crossing.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_surface",
+          "quest_answer_choices": [
+            {
+              "value": "asphalt",
+              "choice_text": "Asphalt",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/surface/asphalt_landscape.png"
+            },
+            {
+              "value": "concrete",
+              "choice_text": "Concrete",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/surface/concrete_landscape.png"
+            },
+            {
+              "value": "brick",
+              "choice_text": "Brick",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/surface/brick_landscape.png"
+            },
+            {
+              "value": "aggregate_concrete",
+              "choice_text": "Aggregate Concrete",
+              "image_url": "https://clevelandconcretecoatings.com/wp-content/uploads/2025/02/residential-garage-floor-service-1024x768.jpg"
+            },
+            {
+              "value": "other",
+              "choice_text": "Other"
+            }
+          ]
+        },
+        {
+          "quest_id": 202,
           "quest_title": "Are there markings on the roadway for this crossing?",
           "quest_description": "Determine whether there are high-visibility road markings present for this crossing.",
           "quest_type": "ExclusiveChoice",
@@ -187,7 +242,7 @@
           ]
         },
         {
-          "quest_id": 202,
+          "quest_id": 203,
           "quest_title": "Are there pedestrian traffic signals for this crossing?",
           "quest_description": "Determine whether there are pedestrian traffic signals present for this crossing.",
           "quest_type": "ExclusiveChoice",
@@ -204,13 +259,13 @@
           ]
         },
         {
-          "quest_id": 203,
+          "quest_id": 204,
           "quest_title": "Do the pedestrian signals have auditory output?",
           "quest_description": "Determine whether the pedestrian traffic signals have auditory output for this crossing.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:traffic_signals:sound",
           "quest_answer_dependency": {
-            "question_id": 202,
+            "question_id": 203,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -225,13 +280,13 @@
           ]
         },
         {
-          "quest_id": 204,
+          "quest_id": 205,
           "quest_title": "Do the pedestrian signals have tactile arrows?",
           "quest_description": "Determine whether the pedestrian traffic signals have tactile arrows pointing in the direction of travel for this crossing.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:traffic_signals:arrow",
           "quest_answer_dependency": {
-            "question_id": 202,
+            "question_id": 203,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -246,7 +301,7 @@
           ]
         },
         {
-          "quest_id": 205,
+          "quest_id": 206,
           "quest_title": "Is there a traffic island for this crossing?",
           "quest_description": "Determine whether there is a pedestrian refugee traffic island with physical barriers such as raised curbs present for this crossing.",
           "quest_type": "ExclusiveChoice",
@@ -263,7 +318,45 @@
           ]
         },
         {
-          "quest_id": 206,
+          "quest_id": 207,
+          "quest_title": "How would you rate the quality of this traffic island?",
+          "quest_description": "Rate the condition and accessibility of the traffic island",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing:island_quality",
+          "quest_answer_dependency": {
+            "question_id": 206,
+            "required_value": "yes"
+          },
+          "quest_answer_choices": [
+            {
+              "value": "1",
+              "choice_text": "1 - Very Poor",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/very_poor_square.png"
+            },
+            {
+              "value": "2",
+              "choice_text": "2 - Poor",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/poor_square.png"
+            },
+            {
+              "value": "3",
+              "choice_text": "3 - Fair",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/intermediate_square.png"
+            },
+            {
+              "value": "4",
+              "choice_text": "4 - Good",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/good_square.png"
+            },
+            {
+              "value": "5",
+              "choice_text": "5 - Excellent",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/excellent_square.png"
+            }
+          ]
+        },
+        {
+          "quest_id": 208,
           "quest_title": "Is there adequate lighting for this crossing?",
           "quest_description": "Determine whether there is adequate lighting from streetlights for this crossing.",
           "quest_type": "ExclusiveChoice",
@@ -276,6 +369,57 @@
             {
               "value": "no",
               "choice_text": "No, there is not adequate lighting."
+            }
+          ]
+        },
+        {
+          "quest_id": 209,
+          "quest_title": "Is there a median or median island present in the crossing?",
+          "quest_description": "Determine whether there is a refuge island in the middle of the road that allows pedestrians to cross one direction of traffic at a time.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_median_island",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": 210,
+          "quest_title": "How would you rate the quality of this crossing?",
+          "quest_description": "Rate the overall quality of this crossing based on its surface condition, markings, signals, and accessibility features.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_quality",
+          "quest_answer_choices": [
+            {
+              "value": "1",
+              "choice_text": "1 - Very Poor",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/very_poor_square.png"
+            },
+            {
+              "value": "2",
+              "choice_text": "2 - Poor",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/poor_square.png"
+            },
+            {
+              "value": "3",
+              "choice_text": "3 - Fair",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/intermediate_square.png"
+            },
+            {
+              "value": "4",
+              "choice_text": "4 - Good",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/good_square.png"
+            },
+            {
+              "value": "5",
+              "choice_text": "5 - Excellent",
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/refs/heads/main/images/crossing/condition/excellent_square.png"
             }
           ]
         }
