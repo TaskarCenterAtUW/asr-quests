@@ -5324,7 +5324,7 @@
           "quest_title": "[CtT] Does this intersection feel comfortable to cross?",
           "quest_description": "Indicate whether this intersection feels comfortable to cross.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:intersection_safety_feels_uncomf",
+          "quest_tag": "ext:intersection_safety_feels_comf",
           "quest_answer_choices": [
             {
               "value": "yes",

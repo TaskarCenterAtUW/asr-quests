@@ -5707,7 +5707,7 @@
               "choice_text": "Unable to determine"
             }
           ],
-          "quest_tag": "ext:intersection_safety_feels_uncomf"
+          "quest_tag": "ext:intersection_safety_feels_comf"
         },
         {
           "quest_id": 4006,

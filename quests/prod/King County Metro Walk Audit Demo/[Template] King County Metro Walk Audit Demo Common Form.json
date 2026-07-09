@@ -664,6 +664,13 @@
         },
         {
           "quest_id": 207,
+          "quest_title": "[CC] Why did you rate the lighting at this crossing this way?",
+          "quest_description": "Briefly explain what you observed (e.g., broken or missing streetlights, distance between lights, ambient lighting from nearby buildings) that led to your lighting rating.",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:crossing_lighting_explanation"
+        },
+        {
+          "quest_id": 208,
           "quest_title": "[CC] Is there a path to this crosswalk?",
           "quest_description": "Determine whether there is an accessible, continuous connection from stop to nearest crossing.",
           "quest_type": "ExclusiveChoice",
@@ -911,6 +918,13 @@
         },
         {
           "quest_id": 311,
+          "quest_title": "[CC] Why did you rate the lighting at this bus stop this way?",
+          "quest_description": "Briefly explain what you observed (e.g., broken or missing streetlights, distance between lights, ambient lighting from nearby buildings) that led to your lighting rating.",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:busstop_lighting_explanation"
+        },
+        {
+          "quest_id": 312,
           "quest_title": "[CC] What is the speed limit near this bus stop?",
           "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
           "quest_type": "Numeric",
@@ -922,7 +936,7 @@
           }
         },
         {
-          "quest_id": 312,
+          "quest_id": 313,
           "quest_title": "[CC] Is there a pedestrian connection to this bus stop?",
           "quest_description": "Indicate whether any pedestrian infrastructure connects this bus stop to the surrounding network.",
           "quest_type": "ExclusiveChoice",
@@ -939,13 +953,13 @@
           ]
         },
         {
-          "quest_id": 313,
+          "quest_id": 314,
           "quest_title": "[CC] What type of pedestrian infrastructure connects to this bus stop?",
           "quest_description": "Identify the type of pedestrian infrastructure providing access.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_ped_connection",
           "quest_answer_dependency": {
-            "question_id": 312,
+            "question_id": 313,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -972,7 +986,7 @@
           ]
         },
         {
-          "quest_id": 314,
+          "quest_id": 315,
           "quest_title": "[CC] Is there designated bicycle infrastructure near this bus stop?",
           "quest_description": "Identify whether there is dedicated bicycle infrastructure such as lanes, tracks, or paths near the bus stop that support multimodal access.",
           "quest_type": "ExclusiveChoice",
@@ -989,13 +1003,13 @@
           ]
         },
         {
-          "quest_id": 315,
+          "quest_id": 316,
           "quest_title": "[CC] What type of infrastructure connects this bus stop to the bicycle network?",
           "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_bike_connection",
           "quest_answer_dependency": {
-            "question_id": 314,
+            "question_id": 315,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -1022,7 +1036,7 @@
           ]
         },
         {
-          "quest_id": 316,
+          "quest_id": 317,
           "quest_title": "[CC] How would you rate the level of motor vehicle traffic near this bus stop?",
           "quest_description": "Rate the typical amount of motor vehicle traffic near this bus stop on a scale of 1-5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
           "quest_type": "ExclusiveChoice",
@@ -1051,7 +1065,7 @@
           ]
         },
         {
-          "quest_id": 317,
+          "quest_id": 318,
           "quest_title": "[CC] What is the total number of motor vehicle travel lanes near this bus stop?",
           "quest_description": "Enter the total number of motor vehicle travel lanes in both directions.",
           "quest_type": "Numeric",
@@ -1062,7 +1076,7 @@
           }
         },
         {
-          "quest_id": 318,
+          "quest_id": 319,
           "quest_title": "[CC] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
           "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
           "quest_type": "ExclusiveChoice",
@@ -1083,13 +1097,13 @@
           ]
         },
         {
-          "quest_id": 319,
+          "quest_id": 320,
           "quest_title": "[CC] What type of buffer is between this sidewalk and motor vehicle travel lanes?",
           "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_buffer_type",
           "quest_answer_dependency": {
-            "question_id": 318,
+            "question_id": 319,
             "required_value": "yes"
           },
           "quest_answer_choices": [
@@ -1118,7 +1132,7 @@
           ]
         },
         {
-          "quest_id": 320,
+          "quest_id": 321,
           "quest_title": "[CC] Are there public restrooms near this bus stop?",
           "quest_description": "Indicate whether publicly accessible restrooms are located near this bus stop, such as at nearby parks, transit centers, or public buildings.",
           "quest_type": "ExclusiveChoice",
@@ -1135,7 +1149,7 @@
           ]
         },
         {
-          "quest_id": 321,
+          "quest_id": 322,
           "quest_title": "[CC] On a scale of 1-5 (1 = very bad and 5 = very good), how would you rate the overall comfort of this stop?",
           "quest_description": "Rate the comfort level based on seating, shade, exposure, cleanliness, and general waiting environment.",
           "quest_type": "ExclusiveChoice",
@@ -1164,7 +1178,14 @@
           ]
         },
         {
-          "quest_id": 322,
+          "quest_id": 323,
+          "quest_title": "[CC] Why did you rate this bus stop's comfort this way?",
+          "quest_description": "Briefly describe what contributed to your comfort rating for this bus stop (e.g., lighting, seating, surroundings, visibility).",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:busstop_comfort_explanation"
+        },
+        {
+          "quest_id": 324,
           "quest_title": "[CC] Is there a pathway leading to this stop from the sidewalk centerline?",
           "quest_description": "Indicate whether a defined pathway connects the sidewalk centerline to the bus stop boarding area, providing a continuous and accessible route for pedestrians.",
           "quest_type": "ExclusiveChoice",
@@ -1200,32 +1221,32 @@
             },
             {
               "value": "full_signal",
-              "choice_text": "Yes, Full Signal",
+              "choice_text": "Full Signal",
               "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Traffic_light_at_Jeffrey_Road_and_Smoketree.jpg"
             },
             {
               "value": "half_signal",
-              "choice_text": "Yes, Half Signal",
+              "choice_text": "Half Signal",
               "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Huntsville_Traffic_Lights.jpg"
             },
             {
               "value": "hawk_signal",
-              "choice_text": "Yes, HAWK Signal",
+              "choice_text": "HAWK Signal",
               "image_url": "https://live.staticflickr.com/3011/2997123609_8e15d0bfaa_b.jpg"
             },
             {
               "value": "rrfb",
-              "choice_text": "Yes, Rectangular Rapid Flashing Beacon (RRFB)",
+              "choice_text": "Rectangular Rapid Flashing Beacon (RRFB)",
               "image_url": "https://live.staticflickr.com/4582/24570065938_2f11e49304_b.jpg"
             },
             {
               "value": "stop_sign",
-              "choice_text": "Yes, Stop Sign",
+              "choice_text": "Stop Sign",
               "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/STOP_sign.jpg"
             },
             {
               "value": "unsignalled_painted_crosswalk",
-              "choice_text": "Yes, Unsignalled Intersection with Painted Crosswalk",
+              "choice_text": "Unsignalled Intersection with Painted Crosswalk",
               "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Median_island_and_crosswalk_2.jpg"
             }
           ]
