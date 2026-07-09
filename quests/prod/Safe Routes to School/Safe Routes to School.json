@@ -31,7 +31,7 @@
             {
               "value": "aggregate_concrete",
               "choice_text": "Aggregate Concrete",
-              "image_url": "https://private-user-images.githubusercontent.com/190795195/619069531-44dfd0c7-9d58-443f-afe0-8c3c43b2cee3.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODM2MTc1MjgsIm5iZiI6MTc4MzYxNzIyOCwicGF0aCI6Ii8xOTA3OTUxOTUvNjE5MDY5NTMxLTQ0ZGZkMGM3LTlkNTgtNDQzZi1hZmUwLThjM2M0M2IyY2VlMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwNzA5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDcwOVQxNzEzNDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mODE2ZTIyNzE0ZWY4MGI3NDUzMzFjZDE1N2U3MmVkOTUzZDNmNDRmYjIxYTlkNWNjNTA1MGEwZTJiZDZlMjAwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.XgQ2ThitcZm5zogjHMWLFiLNPzy9BKclCBFLvKUwN-s"
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/furniture_zone/surface/aggregate_concrete_portrait.png"
             },
             {
               "value": "other",
@@ -215,7 +215,7 @@
             {
               "value": "aggregate_concrete",
               "choice_text": "Aggregate Concrete",
-              "image_url": "https://private-user-images.githubusercontent.com/190795195/619069531-44dfd0c7-9d58-443f-afe0-8c3c43b2cee3.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODM2MTc1MjgsIm5iZiI6MTc4MzYxNzIyOCwicGF0aCI6Ii8xOTA3OTUxOTUvNjE5MDY5NTMxLTQ0ZGZkMGM3LTlkNTgtNDQzZi1hZmUwLThjM2M0M2IyY2VlMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwNzA5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDcwOVQxNzEzNDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mODE2ZTIyNzE0ZWY4MGI3NDUzMzFjZDE1N2U3MmVkOTUzZDNmNDRmYjIxYTlkNWNjNTA1MGEwZTJiZDZlMjAwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.XgQ2ThitcZm5zogjHMWLFiLNPzy9BKclCBFLvKUwN-s"
+              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/furniture_zone/surface/aggregate_concrete_portrait.png"
             },
             {
               "value": "other",
