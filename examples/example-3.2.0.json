@@ -1,0 +1,29 @@
+{
+  "version": "3.2.0",
+  "recency_period": 90,
+  "feature-presets": [
+    {
+        "name": "Street light",
+        "icon": "street_light",
+        "tag": {
+            "amenity": "street_light"
+        }
+    }, 
+    {
+        "name": "bench",
+        "icon": "bench",
+        "tag": {
+            "amenity": "bench"
+        }
+    },
+    {
+        "name": "Subway",
+        "icon": "subway",
+        "tag": {
+            "public_transport": "platform",
+            "subway": "yes"
+        }
+    }
+  ],
+  "elements": []
+}
