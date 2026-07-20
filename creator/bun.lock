@@ -8,7 +8,7 @@
         "@vueuse/core": "^14.3.0",
         "ajv": "^8.20.0",
         "bootstrap": "^5.3.8",
-        "pinia": "^3.0.4",
+        "pinia": "^4.0.2",
         "vue": "^3.5.40",
       },
       "devDependencies": {
@@ -168,13 +168,15 @@
 
     "nanoid": ["nanoid@3.3.12", "", { "bin": "bin/nanoid.cjs" }, "sha512-ZB9RH/39qpq5Vu6Y+NmUaFhQR6pp+M2Xt76XBnEwDaGcVAqhlvxrl3B2bKS5D3NH3QR76v3aSrKaF/Kiy7lEtQ=="],
 
+    "nostics": ["nostics@1.2.0", "", {}, "sha512-FGqEfhQjrvo1lL8KFifdTQiNwwQHJxC1jtYE1Rc54qF/jxONUNL+kC9gS1krX8Q65PgrQ5fCqH/I4NhWBvdSqg=="],
+
     "perfect-debounce": ["perfect-debounce@1.0.0", "", {}, "sha512-xCy9V055GLEqoFaHoC1SoLIaLmWctgCUaBaWxDZ7/Zx4CTyX7cJQLJOok/orfjZAh9kEYpjJa4d0KcJmCbctZA=="],
 
     "picocolors": ["picocolors@1.1.1", "", {}, "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="],
 
     "picomatch": ["picomatch@4.0.5", "", {}, "sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A=="],
 
-    "pinia": ["pinia@3.0.4", "", { "dependencies": { "@vue/devtools-api": "^7.7.7" }, "peerDependencies": { "typescript": ">=4.5.0", "vue": "^3.5.11" }, "optionalPeers": ["typescript"] }, "sha512-l7pqLUFTI/+ESXn6k3nu30ZIzW5E2WZF/LaHJEpoq6ElcLD+wduZoB2kBN19du6K/4FDpPMazY2wJr+IndBtQw=="],
+    "pinia": ["pinia@4.0.2", "", { "dependencies": { "nostics": "^1.1.4" }, "peerDependencies": { "@vue/devtools-api": "^8.1.5", "typescript": ">=5.6.0", "vue": "^3.5.11" }, "optionalPeers": ["typescript"] }, "sha512-yKVVA7bSj5oRZFp/Ab9wLlmyb5gPUYEiIm4ryiWTe/xe7PtkRdMVOp1X1ggvq0c6Uj7Q0Du1HnV2mtAwM0Ks1g=="],
 
     "postcss": ["postcss@8.5.16", "", { "dependencies": { "nanoid": "^3.3.12", "picocolors": "^1.1.1", "source-map-js": "^1.2.1" } }, "sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg=="],
 
