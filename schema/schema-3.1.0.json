@@ -220,7 +220,7 @@
 					]
 				},
 				"quest_tag": {
-					"description": "Single tag to be added to the quest. Used by ExclusiveChoice, Numeric, MultipleChoice, and TextEntry quest types. This tag is sent as payload when the user answers the question. Not used for AutoCapture — use quest_tags instead.",
+					"description": "Single tag to be added to the quest. Used by ExclusiveChoice, Numeric, MultipleChoice, and TextEntry quest types. This tag is sent as payload when the user answers the question. Not used for AutoCapture — use auto_capture_attributes instead.",
 					"type": "string",
 					"examples": [
 						"driveways",
@@ -228,7 +228,7 @@
 						"crossing:markings"
 					]
 				},
-				"quest_tags": {
+				"auto_capture_attributes": {
 					"description": "List of tags for AutoCapture quests. Required when quest_type is AutoCapture. Must contain one or more values from the allowed AutoCapture tag set. Each tag is sent as part of the payload.",
 					"type": "array",
 					"items": {
@@ -340,7 +340,7 @@
 					}
 				},
 				{
-					"description": "AutoCapture quest type requires quest_tags (plural) instead of quest_tag.",
+					"description": "AutoCapture quest type requires auto_capture_attributes (plural) instead of quest_tag.",
 					"if": {
 						"properties": {
 							"quest_type": {
@@ -350,7 +350,7 @@
 					},
 					"then": {
 						"required": [
-							"quest_tags"
+							"auto_capture_attributes"
 						]
 					}
 				}
