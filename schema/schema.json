@@ -236,7 +236,11 @@
 						"enum": [
 							"width",
 							"incline",
-							"ext:ac:cross-slope"
+							"ext:ac:cross-slope",
+							"ext:ac:surface-integrity",
+							"ext:ac:surface-disruption",
+							"ext:ac:height-from-ground",
+							"ext:ac:lidar-depth"
 						]
 					},
 					"minItems": 1,
