@@ -1435,58 +1435,56 @@
             }
           ]
         },
-        [
-          {
-            "quest_id": 2013,
-            "quest_title": "Can cars turn right into this crossing without waiting for a green signal?",
-            "quest_description": "Check if right turns on red (RTOR) are permitted here, or if there is a 'No Turn on Red' sign or dedicated right-turn arrow controlling right-turning traffic into the crosswalk.",
-            "quest_type": "ExclusiveChoice",
-            "quest_tag": "ext:crossing_right_turn_on_red_permitted",
-            "quest_answer_choices": [
-              {
-                "value": "yes",
-                "choice_text": "Yes, right turn on red is permitted"
-              },
-              {
-                "value": "no",
-                "choice_text": "No, right turn on red is not permitted"
-              },
-              {
-                "value": "not_applicable",
-                "choice_text": "Not applicable (one-way street or no right turn possible)"
-              },
-              {
-                "value": "unable_to_determine",
-                "choice_text": "Unable to determine"
-              }
-            ]
-          },
-          {
-            "quest_id": 2014,
-            "quest_title": "Is there a dedicated left turn signal that cars need to wait for before turning left into this crossing?",
-            "quest_description": "Determine if left-turning traffic entering this crosswalk is controlled by a dedicated green arrow signal (protected left turn) rather than yielding on a solid green light.",
-            "quest_type": "ExclusiveChoice",
-            "quest_tag": "ext:crossing_dedicated_left_turn_signal_present",
-            "quest_answer_choices": [
-              {
-                "value": "yes",
-                "choice_text": "Yes, there is a dedicated left-turn arrow/signal"
-              },
-              {
-                "value": "no_permissive_only",
-                "choice_text": "No, left turns yield on solid green (permissive)"
-              },
-              {
-                "value": "not_applicable",
-                "choice_text": "Not applicable (one-way street or no left turn possible)"
-              },
-              {
-                "value": "unable_to_determine",
-                "choice_text": "Unable to determine"
-              }
-            ]
-          }
-        ],
+        {
+          "quest_id": 2013,
+          "quest_title": "Can cars turn right into this crossing without waiting for a green signal?",
+          "quest_description": "Check if right turns on red (RTOR) are permitted here, or if there is a 'No Turn on Red' sign or dedicated right-turn arrow controlling right-turning traffic into the crosswalk.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_right_turn_on_red_permitted",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes, right turn on red is permitted"
+            },
+            {
+              "value": "no",
+              "choice_text": "No, right turn on red is not permitted"
+            },
+            {
+              "value": "not_applicable",
+              "choice_text": "Not applicable (one-way street or no right turn possible)"
+            },
+            {
+              "value": "unable_to_determine",
+              "choice_text": "Unable to determine"
+            }
+          ]
+        },
+        {
+          "quest_id": 2014,
+          "quest_title": "Is there a dedicated left turn signal that cars need to wait for before turning left into this crossing?",
+          "quest_description": "Determine if left-turning traffic entering this crosswalk is controlled by a dedicated green arrow signal (protected left turn) rather than yielding on a solid green light.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_dedicated_left_turn_signal_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes, there is a dedicated left-turn arrow/signal"
+            },
+            {
+              "value": "no_permissive_only",
+              "choice_text": "No, left turns yield on solid green (permissive)"
+            },
+            {
+              "value": "not_applicable",
+              "choice_text": "Not applicable (one-way street or no left turn possible)"
+            },
+            {
+              "value": "unable_to_determine",
+              "choice_text": "Unable to determine"
+            }
+          ]
+        },
         {
           "quest_id": 2015,
           "quest_title": "How would you rate the level of motor vehicle traffic here?",
