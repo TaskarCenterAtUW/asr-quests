@@ -577,10 +577,9 @@
           },
           "quest_answer_dependency": [
             {
-              "question_id": 1012,
+              "question_id": 1011,
               "required_value": [
-                "cross_slope",
-                "both"
+                "yes"
               ]
             }
           ]
@@ -595,7 +594,15 @@
           "quest_answer_validation": {
             "min": 0,
             "max": 20
-          }
+          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 1011,
+              "required_value": [
+                "yes"
+              ]
+            }
+          ]
         },
         {
           "quest_id": 1017,
@@ -603,15 +610,6 @@
           "quest_description": "Observe if the sidewalk's incline follows the same grade as the adjacent street or if it has been leveled independently.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:sidewalk_matches_road_slope_home",
-          "quest_answer_dependency": [
-            {
-              "question_id": 1012,
-              "required_value": [
-                "running_slope",
-                "both"
-              ]
-            }
-          ],
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1245,6 +1243,27 @@
             {
               "value": "other",
               "choice_text": "Other"
+            },
+            {
+              "value": "unable_to_determine",
+              "choice_text": "Unable to determine"
+            }
+          ]
+        },
+        {
+          "quest_id": 2006,
+          "quest_title": "Is there a push button / pedestrian signal at this crossing?",
+          "quest_description": "Check for the presence of a pedestrian-activated button or a specific walking/hand signal head.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:crossing_push_button",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
             },
             {
               "value": "unable_to_determine",
