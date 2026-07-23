@@ -241,7 +241,6 @@
           "quest_type": "Numeric",
           "quest_tag": "ext:sidewalk_width",
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
-          "choice_follow_up": "You may take a picture of the narrowest point of the sidewalk if you wish.",
           "quest_answer_validation": {
             "min": 0,
             "max": 100
