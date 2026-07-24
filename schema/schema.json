@@ -228,29 +228,6 @@
 						"crossing:markings"
 					]
 				},
-				"auto_capture_attributes": {
-					"description": "List of tags for AutoCapture quests. Required when quest_type is AutoCapture. Must contain one or more values from the allowed AutoCapture tag set. Each tag is sent as part of the payload.",
-					"type": "array",
-					"items": {
-						"type": "string",
-						"enum": [
-							"width",
-							"incline",
-							"ext:ac:cross-slope",
-							"ext:ac:surface-integrity",
-							"ext:ac:surface-disruption",
-							"ext:ac:height-from-ground",
-							"ext:ac:lidar-depth"
-						]
-					},
-					"minItems": 1,
-					"uniqueItems": true,
-					"examples": [
-						["width"],
-						["width", "incline"],
-						["width", "incline", "ext:ac:cross-slope"]
-					]
-				},
 				"quest_answer_choices": {
 					"description": "Answer choices for the question. Only applicable for ExclusiveChoice and MultipleChoice quest types.",
 					"type": "array",
@@ -295,6 +272,78 @@
 								"$ref": "#/definitions/dependency"
 							},
 							"minItems": 1
+						}
+					]
+				},
+				"auto_capture_attributes": {
+					"description": "Attribute-to-tag mapping for AutoCapture quests. Required when quest_type is AutoCapture. Keys are abstract AutoCapture attribute names - all optional, but at least one must be present. Values are the free-form OSW/OSM tag keys to use when submitting the captured data, allowing the app to map attributes to the appropriate tag schema version without requiring schema changes.",
+					"type": "object",
+					"properties": {
+						"ac_width": {
+							"description": "The OSW/OSM tag key to use when submitting the captured width measurement.",
+							"type": "string",
+							"examples": [
+								"width"
+							]
+						},
+						"ac_incline": {
+							"description": "The OSW/OSM tag key to use when submitting the captured incline measurement.",
+							"type": "string",
+							"examples": [
+								"incline"
+							]
+						},
+						"ac_cross-slope": {
+							"description": "The OSW/OSM tag key to use when submitting the captured cross slope measurement.",
+							"type": "string",
+							"examples": [
+								"ext:ac:cross-slope",
+								"cross-slope"
+							]
+						},
+						"ac_surface-integrity": {
+							"description": "The OSW/OSM tag key to use when submitting the captured surface integrity measurement.",
+							"type": "string",
+							"examples": [
+								"ext:ac:surface-integrity"
+							]
+						},
+						"ac_surface-disruption": {
+							"description": "The OSW/OSM tag key to use when submitting the captured surface disruption measurement.",
+							"type": "string",
+							"examples": [
+								"ext:ac:surface-disruption"
+							]
+						},
+						"ac_height-from-ground": {
+							"description": "The OSW/OSM tag key to use when submitting the captured height from ground measurement.",
+							"type": "string",
+							"examples": [
+								"ext:ac:height-from-ground"
+							]
+						},
+						"ac_lidar-depth": {
+							"description": "The OSW/OSM tag key to use when submitting the captured LiDAR depth measurement.",
+							"type": "string",
+							"examples": [
+								"ext:ac:lidar-depth"
+							]
+						}
+					},
+					"additionalProperties": false,
+					"minProperties": 1,
+					"examples": [
+						{
+							"ac_width": "width"
+						},
+						{
+							"ac_width": "width",
+							"ac_incline": "incline"
+						},
+						{
+							"ac_width": "width",
+							"ac_incline": "incline",
+							"ac_cross-slope": "ext:ac:cross-slope"
 						}
 					]
 				}
@@ -344,7 +393,7 @@
 					}
 				},
 				{
-					"description": "AutoCapture quest type requires auto_capture_attributes (plural) instead of quest_tag.",
+					"description": "AutoCapture quest type requires auto_capture_attributes instead of quest_tag.",
 					"if": {
 						"properties": {
 							"quest_type": {
