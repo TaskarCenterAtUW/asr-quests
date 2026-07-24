@@ -293,7 +293,7 @@
 								"incline"
 							]
 						},
-						"ac_cross-slope": {
+						"ac_cross_slope": {
 							"description": "The OSW/OSM tag key to use when submitting the captured cross slope measurement.",
 							"type": "string",
 							"examples": [
@@ -301,28 +301,28 @@
 								"cross-slope"
 							]
 						},
-						"ac_surface-integrity": {
+						"ac_surface_integrity": {
 							"description": "The OSW/OSM tag key to use when submitting the captured surface integrity measurement.",
 							"type": "string",
 							"examples": [
 								"ext:ac:surface-integrity"
 							]
 						},
-						"ac_surface-disruption": {
+						"ac_surface_disruption": {
 							"description": "The OSW/OSM tag key to use when submitting the captured surface disruption measurement.",
 							"type": "string",
 							"examples": [
 								"ext:ac:surface-disruption"
 							]
 						},
-						"ac_height-from-ground": {
+						"ac_height_from_ground": {
 							"description": "The OSW/OSM tag key to use when submitting the captured height from ground measurement.",
 							"type": "string",
 							"examples": [
 								"ext:ac:height-from-ground"
 							]
 						},
-						"ac_lidar-depth": {
+						"ac_lidar_depth": {
 							"description": "The OSW/OSM tag key to use when submitting the captured LiDAR depth measurement.",
 							"type": "string",
 							"examples": [
@@ -343,7 +343,7 @@
 						{
 							"ac_width": "width",
 							"ac_incline": "incline",
-							"ac_cross-slope": "ext:ac:cross-slope"
+							"ac_cross_slope": "ext:ac:cross-slope"
 						}
 					]
 				}
