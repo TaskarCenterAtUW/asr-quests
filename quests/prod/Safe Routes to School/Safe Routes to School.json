@@ -2350,8 +2350,7 @@
           "quest_answer_dependency": {
             "question_id": 3004,
             "required_value": [
-              "yes",
-              "partial_discontinuous"
+              "yes"
             ]
           },
           "quest_answer_choices": [
@@ -2390,8 +2389,7 @@
           "quest_answer_dependency": {
             "question_id": 3004,
             "required_value": [
-              "yes",
-              "partial_discontinuous"
+              "yes"
             ]
           },
           "quest_answer_validation": {
@@ -2408,8 +2406,7 @@
           "quest_answer_dependency": {
             "question_id": 3004,
             "required_value": [
-              "yes",
-              "partial_discontinuous"
+              "yes"
             ]
           },
           "quest_answer_choices": [
