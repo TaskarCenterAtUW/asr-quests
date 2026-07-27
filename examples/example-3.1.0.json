@@ -224,8 +224,8 @@
           "quest_type": "AutoCapture",
           "quest_tag": "autocapture",
           "auto_capture_attributes": {
-            "ac_width": "width",
-            "ac_incline": "incline",
+            "ac_width": "ext:ac:width",
+            "ac_incline": "ext:ac:incline",
             "ac_cross_slope": "ext:ac:cross-slope"
           }
         }
