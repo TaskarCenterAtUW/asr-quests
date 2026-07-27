@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "elements": [
     {
       "element_type": "Sidewalks",
@@ -216,6 +216,18 @@
           "quest_description": "Add any additional observations you'd like to record about this crossing",
           "quest_type": "TextEntry",
           "quest_tag": "ext:crossing:description"
+        },
+        {
+          "quest_id": 206,
+          "quest_title": "Capture crossing attributes",
+          "quest_description": "Automatically captures width, incline and cross slope.",
+          "quest_type": "AutoCapture",
+          "quest_tag": "autocapture",
+          "auto_capture_attributes": {
+            "ac_width": "width",
+            "ac_incline": "incline",
+            "ac_cross_slope": "ext:ac:cross-slope"
+          }
         }
       ]
     },
