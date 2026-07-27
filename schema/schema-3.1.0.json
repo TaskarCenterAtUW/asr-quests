@@ -283,6 +283,7 @@
 							"description": "The OSW/OSM tag key to use when submitting the captured width measurement.",
 							"type": "string",
 							"examples": [
+								"ext:ac:width",
 								"width"
 							]
 						},
@@ -290,6 +291,7 @@
 							"description": "The OSW/OSM tag key to use when submitting the captured incline measurement.",
 							"type": "string",
 							"examples": [
+								"ext:ac:incline",
 								"incline"
 							]
 						},
@@ -297,36 +299,36 @@
 							"description": "The OSW/OSM tag key to use when submitting the captured cross slope measurement.",
 							"type": "string",
 							"examples": [
-								"ext:ac:cross-slope",
-								"cross-slope"
+								"ext:ac:cross_slope",
+								"ext:incline:across"
 							]
 						},
 						"ac_surface_integrity": {
 							"description": "The OSW/OSM tag key to use when submitting the captured surface integrity measurement.",
 							"type": "string",
 							"examples": [
-								"ext:ac:surface-integrity"
+								"ext:ac:surface_integrity"
 							]
 						},
 						"ac_surface_disruption": {
 							"description": "The OSW/OSM tag key to use when submitting the captured surface disruption measurement.",
 							"type": "string",
 							"examples": [
-								"ext:ac:surface-disruption"
+								"ext:ac:surface_disruption"
 							]
 						},
 						"ac_height_from_ground": {
 							"description": "The OSW/OSM tag key to use when submitting the captured height from ground measurement.",
 							"type": "string",
 							"examples": [
-								"ext:ac:height-from-ground"
+								"ext:ac:height_from_ground"
 							]
 						},
 						"ac_lidar_depth": {
 							"description": "The OSW/OSM tag key to use when submitting the captured LiDAR depth measurement.",
 							"type": "string",
 							"examples": [
-								"ext:ac:lidar-depth"
+								"ext:ac:lidar_depth"
 							]
 						}
 					},
@@ -341,9 +343,9 @@
 							"ac_incline": "incline"
 						},
 						{
-							"ac_width": "width",
-							"ac_incline": "incline",
-							"ac_cross_slope": "ext:ac:cross-slope"
+							"ac_width": "ext:ac:width",
+							"ac_incline": "ext:ac:incline",
+							"ac_cross_slope": "ext:ac:cross_slope"
 						}
 					]
 				}

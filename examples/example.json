@@ -226,7 +226,7 @@
           "auto_capture_attributes": {
             "ac_width": "ext:ac:width",
             "ac_incline": "ext:ac:incline",
-            "ac_cross_slope": "ext:ac:cross-slope"
+            "ac_cross_slope": "ext:ac:cross_slope"
           }
         }
       ]
