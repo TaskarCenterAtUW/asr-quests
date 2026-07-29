@@ -144,7 +144,7 @@
             {
               "value": "ponding_drainage_issue",
               "choice_text": "Ponding or drainage issue",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg/330px-Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg"
             }
           ]
         },
@@ -192,7 +192,7 @@
             {
               "value": "loose_gravel",
               "choice_text": "Loose Gravel",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Gravel_road_with_loose_gravel_in_the_middle_and_sunken_gravel_in_tracks.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Gravel_road_with_loose_gravel_in_the_middle_and_sunken_gravel_in_tracks.jpg/330px-Gravel_road_with_loose_gravel_in_the_middle_and_sunken_gravel_in_tracks.jpg"
             },
             {
               "value": "dirt_grass_natural",
@@ -349,17 +349,17 @@
             {
               "value": "bistro_tables_or_chairs",
               "choice_text": "Bistro tables or chairs",
-              "image_url": "https://images.pexels.com/photos/20801464/pexels-photo-20801464/free-photo-of-cafe-tables-and-chairs-on-sidewalk.jpeg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Easton_Lodge_Gardens%2C_Little_Easton%2C_Essex%2C_England_outdoor_caf%C3%A9_10_lighter.jpg/330px-Easton_Lodge_Gardens%2C_Little_Easton%2C_Essex%2C_England_outdoor_caf%C3%A9_10_lighter.jpg"
             },
             {
               "value": "uncleared_snow_or_ice",
               "choice_text": "Uncleared snow or ice",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Shoveled_sidewalk_after_February_2013_nor%27easter%2C_Walden%2C_NY.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Shoveled_sidewalk_after_February_2013_nor%27easter%2C_Walden%2C_NY.jpg/250px-Shoveled_sidewalk_after_February_2013_nor%27easter%2C_Walden%2C_NY.jpg"
             },
             {
               "value": "puddles_or_standing_water",
               "choice_text": "Puddles or standing water",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg/330px-Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg"
             },
             {
               "value": "temporary_construction_barrier",
@@ -515,17 +515,17 @@
             {
               "value": "bistro_tables_or_chairs",
               "choice_text": "Bistro tables or chairs",
-              "image_url": "https://images.pexels.com/photos/20801464/pexels-photo-20801464/free-photo-of-cafe-tables-and-chairs-on-sidewalk.jpeg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Easton_Lodge_Gardens%2C_Little_Easton%2C_Essex%2C_England_outdoor_caf%C3%A9_10_lighter.jpg/330px-Easton_Lodge_Gardens%2C_Little_Easton%2C_Essex%2C_England_outdoor_caf%C3%A9_10_lighter.jpg"
             },
             {
               "value": "uncleared_snow_or_ice",
               "choice_text": "Uncleared snow or ice",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Shoveled_sidewalk_after_February_2013_nor%27easter%2C_Walden%2C_NY.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Shoveled_sidewalk_after_February_2013_nor%27easter%2C_Walden%2C_NY.jpg/250px-Shoveled_sidewalk_after_February_2013_nor%27easter%2C_Walden%2C_NY.jpg"
             },
             {
               "value": "puddles_or_standing_water",
               "choice_text": "Puddles or standing water",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg/330px-Frozen_Puddle_-_geograph.org.uk_-_1159183.jpg"
             },
             {
               "value": "steep_driveway_curbs",
@@ -1233,12 +1233,12 @@
             {
               "value": "pedestrian_signal_only",
               "choice_text": "Pedestrian Signal Only",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Countdown_pedestrian_signal.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Countdown_pedestrian_signal.jpg/330px-Countdown_pedestrian_signal.jpg"
             },
             {
               "value": "pedestrian_signal_with_aps",
               "choice_text": "Pedestrian Signal with Accessible Pedestrian Signal (APS)",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/21/PedestrianSignalPushButton.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/PedestrianSignalPushButton.jpg/330px-PedestrianSignalPushButton.jpg"
             },
             {
               "value": "other",
@@ -2276,7 +2276,7 @@
             {
               "value": "obstructed_boarding_interface",
               "choice_text": "Obstructed boarding interface",
-              "image_url": "https://images.openai.com/static-rsc-4/0zQIjtjE7yQCtlaybd-W0G8l1ABmmsDJyYEQLjWqPp5VseKPSHhdJtiOx5YPrSlm_YoG1f_MYtJG794pEaQOSxXTuAZjPkG63t9f6dqTdnuxkNIAenryuBwXiwMUHaczUm-guztNJZDIgzmKYWHjzWzVsI_zjw95WisReZkNMPcCSc2cdx_8QhfGcaR6ZQyt?purpose=fullsize"
+              "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTHcZT-7L5NHLQY2LTKTAo2u7oxgt0341BgZf5bWvZBbeKqgh-Q"
             },
             {
               "value": "no_bench",
@@ -3892,12 +3892,12 @@
             {
               "value": "full_signal",
               "choice_text": "Full Signal",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Traffic_light_at_Jeffrey_Road_and_Smoketree.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Traffic_light_at_Jeffrey_Road_and_Smoketree.jpg/330px-Traffic_light_at_Jeffrey_Road_and_Smoketree.jpg"
             },
             {
               "value": "half_signal",
               "choice_text": "Half Signal",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Huntsville_Traffic_Lights.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Huntsville_Traffic_Lights.jpg/330px-Huntsville_Traffic_Lights.jpg"
             },
             {
               "value": "hawk_signal",
@@ -3912,12 +3912,12 @@
             {
               "value": "stop_sign",
               "choice_text": "Stop Sign",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/STOP_sign.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/STOP_sign.jpg/500px-STOP_sign.jpg"
             },
             {
               "value": "unsignalled_painted_crosswalk",
               "choice_text": "Unsignalled Intersection with Painted Crosswalk",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Median_island_and_crosswalk_2.jpg"
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Median_island_and_crosswalk_2.jpg/330px-Median_island_and_crosswalk_2.jpg"
             },
             {
               "value": "unsignalled_no_painted_crosswalk",
