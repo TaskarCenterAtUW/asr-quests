@@ -38,3 +38,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - **Core**: Refreshed agent-facing resources
 - **Core**: Updated readme
 - **Schema**: Updated schema to new major version: v4.0.0
+- **Examples**: Added example for v4.0.0
