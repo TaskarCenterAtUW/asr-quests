@@ -12,7 +12,8 @@
             "pattern": "^\\d+\\.\\d+\\.\\d+$",
             "examples": [
                 "1.0.0",
-                "2.1.3"
+                "2.1.3",
+                "3.1.0"
             ]
         },
         "recency_period": {
@@ -242,21 +243,23 @@
                     ]
                 },
                 "quest_type": {
-                    "description": "Type of the question. ExclusiveChoice for single choice questions and Numeric for numeric input questions. MultipleChoice is similar to ExclusiveChoice, but allows multiple options to be selected and enters them as a semicolon-delimited string. TextEntry allows users to enter free-form text as an answer.",
+                    "description": "Type of the question. ExclusiveChoice for single choice questions, Numeric for numeric input questions, MultipleChoice allows multiple selections entered as a semicolon-delimited string, TextEntry allows free-form text input, and AutoCapture automatically captures one or more tagged values without user interaction.",
                     "type": "string",
                     "examples": [
                         "ExclusiveChoice",
-                        "Numeric"
+                        "Numeric",
+                        "AutoCapture"
                     ],
                     "enum": [
                         "ExclusiveChoice",
                         "Numeric",
                         "MultipleChoice",
-                        "TextEntry"
+                        "TextEntry",
+                        "AutoCapture"
                     ]
                 },
                 "quest_tag": {
-                    "description": "Tag to be added to the quest. This tag is sent as payload when the user answers the question.",
+                    "description": "Single tag to be added to the quest. Used by ExclusiveChoice, Numeric, MultipleChoice, and TextEntry quest types. This tag is sent as a payload when the user answers the question. Not used for AutoCapture, which uses auto_capture_attributes instead.",
                     "type": "string",
                     "examples": [
                         "driveways",
@@ -310,17 +313,91 @@
                             "minItems": 1
                         }
                     ]
+                },
+                "auto_capture_attributes": {
+                    "description": "Attribute-to-tag mapping for AutoCapture quests. Required when quest_type is AutoCapture. Keys are abstract AutoCapture attribute names - all optional, but at least one must be present. Values are the free-form OSW/OSM tag keys to use when submitting the captured data, allowing the app to map attributes to the appropriate tag schema version without requiring schema changes.",
+                    "type": "object",
+                    "properties": {
+                        "ac_width": {
+                            "description": "The OSW/OSM tag key to use when submitting the captured width measurement.",
+                            "type": "string",
+                            "examples": [
+                                "ext:ac:width",
+                                "width"
+                            ]
+                        },
+                        "ac_incline": {
+                            "description": "The OSW/OSM tag key to use when submitting the captured incline measurement.",
+                            "type": "string",
+                            "examples": [
+                                "ext:ac:incline",
+                                "incline"
+                            ]
+                        },
+                        "ac_cross_slope": {
+                            "description": "The OSW/OSM tag key to use when submitting the captured cross slope measurement.",
+                            "type": "string",
+                            "examples": [
+                                "ext:ac:cross_slope",
+                                "ext:incline:across"
+                            ]
+                        },
+                        "ac_surface_integrity": {
+                            "description": "The OSW/OSM tag key to use when submitting the captured surface integrity measurement.",
+                            "type": "string",
+                            "examples": [
+                                "ext:ac:surface_integrity"
+                            ]
+                        },
+                        "ac_surface_disruption": {
+                            "description": "The OSW/OSM tag key to use when submitting the captured surface disruption measurement.",
+                            "type": "string",
+                            "examples": [
+                                "ext:ac:surface_disruption"
+                            ]
+                        },
+                        "ac_height_from_ground": {
+                            "description": "The OSW/OSM tag key to use when submitting the captured height from ground measurement.",
+                            "type": "string",
+                            "examples": [
+                                "ext:ac:height_from_ground"
+                            ]
+                        },
+                        "ac_lidar_depth": {
+                            "description": "The OSW/OSM tag key to use when submitting the captured LiDAR depth measurement.",
+                            "type": "string",
+                            "examples": [
+                                "ext:ac:lidar_depth"
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "minProperties": 1,
+                    "examples": [
+                        {
+                            "ac_width": "width"
+                        },
+                        {
+                            "ac_width": "width",
+                            "ac_incline": "incline"
+                        },
+                        {
+                            "ac_width": "ext:ac:width",
+                            "ac_incline": "ext:ac:incline",
+                            "ac_cross_slope": "ext:ac:cross_slope"
+                        }
+                    ]
                 }
             },
             "required": [
                 "quest_id",
                 "quest_title",
                 "quest_description",
-                "quest_type",
-                "quest_tag"
+                "quest_type"
             ],
             "allOf": [
                 {
+                    "description": "ExclusiveChoice and MultipleChoice quest types require quest_answer_choices.",
                     "if": {
                         "properties": {
                             "quest_type": {
@@ -333,7 +410,41 @@
                     },
                     "then": {
                         "required": [
-                            "quest_answer_choices"
+                            "quest_answer_choices",
+                            "quest_tag"
+                        ]
+                    }
+                },
+                {
+                    "description": "Numeric and TextEntry quest types require quest_tag.",
+                    "if": {
+                        "properties": {
+                            "quest_type": {
+                                "enum": [
+                                    "Numeric",
+                                    "TextEntry"
+                                ]
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "quest_tag"
+                        ]
+                    }
+                },
+                {
+                    "description": "AutoCapture quest type requires auto_capture_attributes instead of quest_tag.",
+                    "if": {
+                        "properties": {
+                            "quest_type": {
+                                "const": "AutoCapture"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "auto_capture_attributes"
                         ]
                     }
                 }
