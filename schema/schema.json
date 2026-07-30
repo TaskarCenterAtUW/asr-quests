@@ -77,7 +77,7 @@
     },
     "AnswerChoice": {
       "type": "object",
-      "description": "Answer choice for a single quest. There can be multiple answer choices",
+      "description": "Answer choice for a single quest. There can be multiple answer choices.",
       "additionalProperties": false,
       "properties": {
         "value": {
@@ -90,7 +90,7 @@
           ]
         },
         "choice_text": {
-          "description": "Text to display for the answer choice",
+          "description": "Text to display for the answer choice.",
           "type": "string",
           "examples": [
             "Yes",
@@ -106,7 +106,7 @@
           ]
         },
         "choice_follow_up": {
-          "description": "Used to define whether the user has to take a picture or not. If not provided, there will be no picture taken. If provided, this text will be shown to the user in the image taking screen.",
+          "description": "Used to define whether the user can take a picture or not. If not provided, there will be no picture prompt. If provided, this text will be shown to the user in the image taking screen.",
           "type": "string",
           "examples": [
             "Is the sidewalk on the left side of the road?",
@@ -125,7 +125,7 @@
       "additionalProperties": false,
       "properties": {
         "question_id": {
-          "description": "The Quest ID of the question that this questions visibility is dependent on.",
+          "description": "The Quest ID of the question that this question's visibility is dependent on.",
           "type": "number",
           "examples": [
             101,
@@ -172,7 +172,7 @@
       "additionalProperties": false,
       "properties": {
         "quest_id": {
-          "description": "Unique identifier for the question",
+          "description": "Unique identifier for the question.",
           "type": "number",
           "examples": [
             1,
@@ -181,7 +181,7 @@
           ]
         },
         "quest_title": {
-          "description": "Title of the question",
+          "description": "Title of the question.",
           "type": "string",
           "examples": [
             "Is the sidewalk on the left side of the road?",
@@ -189,7 +189,7 @@
           ]
         },
         "quest_description": {
-          "description": "Description of the question",
+          "description": "Description of the question.",
           "type": "string",
           "examples": [
             "Please select the option that best describes the sidewalk on the left side of the road.",
@@ -220,7 +220,7 @@
           ]
         },
         "quest_tag": {
-          "description": "Single tag to be added to the quest. Used by ExclusiveChoice, Numeric, MultipleChoice, and TextEntry quest types. This tag is sent as payload when the user answers the question. Not used for AutoCapture — use auto_capture_attributes instead.",
+          "description": "Single tag to be added to the quest. Used by ExclusiveChoice, Numeric, MultipleChoice, and TextEntry quest types. This tag is sent as a payload when the user answers the question. Not used for AutoCapture, which uses auto_capture_attributes instead.",
           "type": "string",
           "examples": [
             "driveways",
@@ -241,7 +241,7 @@
           "additionalProperties": false,
           "properties": {
             "min": {
-              "description": "Minimum value for the answer",
+              "description": "Minimum value for the answer.",
               "type": "number",
               "examples": [
                 0,
@@ -250,7 +250,7 @@
               ]
             },
             "max": {
-              "description": "Maximum value for the answer",
+              "description": "Maximum value for the answer.",
               "type": "number",
               "examples": [
                 0,
