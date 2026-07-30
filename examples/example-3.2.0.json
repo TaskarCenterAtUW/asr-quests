@@ -3,26 +3,26 @@
   "recency_period": 90,
   "feature-presets": [
     {
-        "name": "Street light",
-        "icon": "street_light",
-        "tags": {
-            "amenity": "street_light"
-        }
+      "name": "Street light",
+      "icon": "street_light",
+      "tags": {
+        "amenity": "street_light"
+      }
     },
     {
-        "name": "Bench",
-        "icon": "preset_temaki_bench",
-        "tags": {
-            "amenity": "bench"
-        }
+      "name": "Bench",
+      "icon": "preset_temaki_bench",
+      "tags": {
+        "amenity": "bench"
+      }
     },
     {
-        "name": "Subway",
-        "icon": "subway",
-        "tags": {
-            "public_transport": "platform",
-            "subway": "yes"
-        }
+      "name": "Subway",
+      "icon": "subway",
+      "tags": {
+        "public_transport": "platform",
+        "subway": "yes"
+      }
     }
   ],
   "elements": [
@@ -160,3 +160,4 @@
     }
   ]
 }
+

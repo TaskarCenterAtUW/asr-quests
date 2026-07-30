@@ -341,7 +341,7 @@
 		},
 		"FeaturePresets": {
 			"type": "object",
-			"description": "Feature preset for the \"Add new feature\" functionality. The user can upload images for the feature; if added, the image URLs will be appended as a single tag ext:image_url with the URLs separated by semicolons, e.g. ext:image_url=<url1>;<url2>.",
+			"description": "Feature preset for the \"Add new feature\" functionality. The user can upload images for the feature; if added, the image URLs will be appended as a single tag ext:image_url with the URLs separated by semicolons, e.g. ext:image_url=<url1>;<url2>. Custom notes can also be appened via tag ext:notes.",
 			"additionalProperties": false,
 			"properties": {
 				"name": {
