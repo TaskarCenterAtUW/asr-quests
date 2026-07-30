@@ -1,0 +1,52 @@
+{
+  "version": "3.1.0",
+  "elements": [
+    {
+      "element_type": "Quests",
+      "element_type_icon": "quest",
+      "quest_query": "nodes with ext:quest=yes",
+      "quests": [
+        {
+          "quest_id": 101,
+          "quest_title": "Component: AutoCapture Dependency (List) 1",
+          "quest_description": "Select Choice 1 and Choice 2 to show the dependent AutoCapture quest.",
+          "quest_type": "MultipleChoice",
+          "quest_tag": "ext:quest_type-AutoCapture-dependency-list_1",
+          "quest_answer_choices": [
+            {
+              "value": "choice_1",
+              "choice_text": "Choice 1"
+            },
+            {
+              "value": "choice_2",
+              "choice_text": "Choice 2"
+            },
+            {
+              "value": "choice_3",
+              "choice_text": "Choice 3"
+            }
+          ]
+        },
+        {
+          "quest_id": 102,
+          "quest_title": "Component: AutoCapture Dependency (List) 2",
+          "quest_description": "Automatically capture all attributes when Choice 1 and Choice 2 are selected.",
+          "quest_type": "AutoCapture",
+          "quest_answer_dependency": {
+            "question_id": 101,
+            "required_value": ["choice_1", "choice_2"]
+          },
+          "auto_capture_attributes": {
+            "ac_width": "ext:component:ac_width",
+            "ac_incline": "ext:component:ac_incline",
+            "ac_cross_slope": "ext:component:ac_cross_slope",
+            "ac_surface_integrity": "ext:component:ac_surface_integrity",
+            "ac_surface_disruption": "ext:component:ac_surface_disruption",
+            "ac_height_from_ground": "ext:component:ac_height_from_ground",
+            "ac_lidar_depth": "ext:component:ac_lidar_depth"
+          }
+        }
+      ]
+    }
+  ]
+}
