@@ -1,0 +1,21 @@
+{
+  "version": "3.1.0",
+  "elements": [
+    {
+      "element_type": "Quests",
+      "element_type_icon": "quest",
+      "quest_query": "nodes with ext:quest=yes",
+      "quests": [
+        {
+          "quest_id": 101,
+          "quest_title": "Component: AutoCapture Cross Slope",
+          "quest_description": "Automatically capture cross slope to test the AutoCapture cross slope attribute component.",
+          "quest_type": "AutoCapture",
+          "auto_capture_attributes": {
+            "ac_cross_slope": "ext:component:ac_cross_slope"
+          }
+        }
+      ]
+    }
+  ]
+}

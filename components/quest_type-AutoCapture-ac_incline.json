@@ -1,0 +1,21 @@
+{
+  "version": "3.1.0",
+  "elements": [
+    {
+      "element_type": "Quests",
+      "element_type_icon": "quest",
+      "quest_query": "nodes with ext:quest=yes",
+      "quests": [
+        {
+          "quest_id": 101,
+          "quest_title": "Component: AutoCapture Incline",
+          "quest_description": "Automatically capture incline to test the AutoCapture incline attribute component.",
+          "quest_type": "AutoCapture",
+          "auto_capture_attributes": {
+            "ac_incline": "ext:component:ac_incline"
+          }
+        }
+      ]
+    }
+  ]
+}
