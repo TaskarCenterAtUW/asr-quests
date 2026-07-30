@@ -222,7 +222,6 @@
           "quest_title": "Capture crossing attributes",
           "quest_description": "Automatically captures width, incline, and cross slope.",
           "quest_type": "AutoCapture",
-          "quest_tag": "autocapture",
           "auto_capture_attributes": {
             "ac_width": "ext:ac:width",
             "ac_incline": "ext:ac:incline",
