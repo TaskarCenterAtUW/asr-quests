@@ -7,6 +7,27 @@
       "quest_query": "ways with (footway=sidewalk)",
       "quests": [
         {
+          "quest_id": 1000,
+          "quest_title": "Is there an additional sidewalk instance to document here?",
+          "quest_description": "Indicate whether there is a second, distinct sidewalk instance at this location (for example, a sidewalk on the opposite side of the street with different characteristics) that should be documented separately using the additional instance questions.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk_additional_instance_present",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            },
+            {
+              "value": "unable_to_determine",
+              "choice_text": "Unable to determine"
+            }
+          ]
+        },
+        {
           "quest_id": 1001,
           "quest_title": "Are there any gaps in sidewalk coverage along this segment?",
           "quest_description": "Indicate whether there are any missing sections, discontinuities, or areas where the sidewalk abruptly ends or is interrupted.",
@@ -654,7 +675,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 1037,
+            "question_id": 1000,
             "required_value": "yes"
           }
         },
@@ -708,7 +729,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 1037,
+            "question_id": 1000,
             "required_value": "yes"
           }
         },
@@ -910,7 +931,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 1037,
+            "question_id": 1000,
             "required_value": "yes"
           }
         },
@@ -936,7 +957,7 @@
             "max": 20
           },
           "quest_answer_dependency": {
-            "question_id": 1037,
+            "question_id": 1000,
             "required_value": "yes"
           }
         },
@@ -962,7 +983,7 @@
             "max": 50
           },
           "quest_answer_dependency": {
-            "question_id": 1037,
+            "question_id": 1000,
             "required_value": "yes"
           }
         },
@@ -1016,7 +1037,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 1037,
+            "question_id": 1000,
             "required_value": "yes"
           }
         },
@@ -1042,7 +1063,7 @@
             "max": 100
           },
           "quest_answer_dependency": {
-            "question_id": 1037,
+            "question_id": 1000,
             "required_value": "yes"
           }
         },
@@ -1112,16 +1133,23 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 1037,
+            "question_id": 1000,
             "required_value": "yes"
           }
-        },
+        }
+      ]
+    },
+    {
+      "element_type": "Crossings",
+      "element_type_icon": "pedestrian_crossing",
+      "quest_query": "ways with (footway=crossing)",
+      "quests": [
         {
-          "quest_id": 1037,
-          "quest_title": "Is there an additional sidewalk instance to document here?",
-          "quest_description": "Indicate whether there is a second, distinct sidewalk instance at this location (for example, a sidewalk on the opposite side of the street with different characteristics) that should be documented separately using the additional instance questions.",
+          "quest_id": 2000,
+          "quest_title": "Is there an additional crossing instance to document here?",
+          "quest_description": "Indicate whether there is a second, distinct crossing instance at this location (for example, a second, separately-marked crossing at this same location) that should be documented separately using the additional instance questions.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:sidewalk_additional_instance_present",
+          "quest_tag": "ext:crossing_additional_instance_present",
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1136,14 +1164,7 @@
               "choice_text": "Unable to determine"
             }
           ]
-        }
-      ]
-    },
-    {
-      "element_type": "Crossings",
-      "element_type_icon": "pedestrian_crossing",
-      "quest_query": "ways with (footway=crossing)",
-      "quests": [
+        },
         {
           "quest_id": 2001,
           "quest_title": "What is the total number of motor vehicle travel lanes on the street being crossed?",
@@ -1622,7 +1643,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -1713,7 +1734,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -1824,7 +1845,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -1852,7 +1873,7 @@
             "max": 100
           },
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -1922,7 +1943,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -1968,7 +1989,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -2130,7 +2151,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -2176,7 +2197,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -2222,7 +2243,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
         },
@@ -2268,16 +2289,23 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 2042,
+            "question_id": 2000,
             "required_value": "yes"
           }
-        },
+        }
+      ]
+    },
+    {
+      "element_type": "Bus Stops",
+      "element_type_icon": "bus",
+      "quest_query": "nodes with (highway=bus_stop)",
+      "quests": [
         {
-          "quest_id": 2042,
-          "quest_title": "Is there an additional crossing instance to document here?",
-          "quest_description": "Indicate whether there is a second, distinct crossing instance at this location (for example, a second, separately-marked crossing at this same location) that should be documented separately using the additional instance questions.",
+          "quest_id": 3000,
+          "quest_title": "Is there an additional bus stop instance to document here?",
+          "quest_description": "Indicate whether there is a second, distinct bus stop instance at this location (for example, a second boarding pole or shelter serving a different route at this location) that should be documented separately using the additional instance questions.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing_additional_instance_present",
+          "quest_tag": "ext:bus_stop_additional_instance_present",
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -2292,14 +2320,7 @@
               "choice_text": "Unable to determine"
             }
           ]
-        }
-      ]
-    },
-    {
-      "element_type": "Bus Stops",
-      "element_type_icon": "bus",
-      "quest_query": "nodes with (highway=bus_stop)",
-      "quests": [
+        },
         {
           "quest_id": 3001,
           "quest_title": "Does this bus stop have a clear boarding zone / landing pad?",
@@ -2692,7 +2713,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -2846,7 +2867,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -2983,7 +3004,7 @@
               ]
             },
             {
-              "question_id": 3064,
+              "question_id": 3000,
               "required_value": "yes"
             }
           ]
@@ -3054,7 +3075,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3116,7 +3137,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3186,7 +3207,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3214,7 +3235,7 @@
             "max": 100
           },
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3260,7 +3281,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3396,7 +3417,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3450,7 +3471,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3604,7 +3625,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3674,7 +3695,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3720,7 +3741,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3766,7 +3787,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3878,7 +3899,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3924,7 +3945,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -3970,7 +3991,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -4016,7 +4037,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
         },
@@ -4070,16 +4091,23 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 3064,
+            "question_id": 3000,
             "required_value": "yes"
           }
-        },
+        }
+      ]
+    },
+    {
+      "element_type": "Intersections",
+      "element_type_icon": "traffic_lights",
+      "quest_query": "nodes with (ext:intersection=yes)",
+      "quests": [
         {
-          "quest_id": 3064,
-          "quest_title": "Is there an additional bus stop instance to document here?",
-          "quest_description": "Indicate whether there is a second, distinct bus stop instance at this location (for example, a second boarding pole or shelter serving a different route at this location) that should be documented separately using the additional instance questions.",
+          "quest_id": 4000,
+          "quest_title": "Is there an additional intersection instance to document here?",
+          "quest_description": "Indicate whether there is a second, distinct intersection instance at this location (for example, an additional approach/leg with different characteristics at this same intersection) that should be documented separately using the additional instance questions.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:bus_stop_additional_instance_present",
+          "quest_tag": "ext:intersection_additional_instance_present",
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -4094,14 +4122,7 @@
               "choice_text": "Unable to determine"
             }
           ]
-        }
-      ]
-    },
-    {
-      "element_type": "Intersections",
-      "element_type_icon": "traffic_lights",
-      "quest_query": "nodes with (ext:intersection=yes)",
-      "quests": [
+        },
         {
           "quest_id": 4001,
           "quest_title": "Is there a signal present at this intersection?",
@@ -4381,7 +4402,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 4023,
+            "question_id": 4000,
             "required_value": "yes"
           }
         },
@@ -4451,7 +4472,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 4023,
+            "question_id": 4000,
             "required_value": "yes"
           }
         },
@@ -4542,7 +4563,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 4023,
+            "question_id": 4000,
             "required_value": "yes"
           }
         },
@@ -4633,7 +4654,7 @@
             "max": 100
           },
           "quest_answer_dependency": {
-            "question_id": 4023,
+            "question_id": 4000,
             "required_value": "yes"
           }
         },
@@ -4687,7 +4708,7 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 4023,
+            "question_id": 4000,
             "required_value": "yes"
           }
         },
@@ -4757,16 +4778,23 @@
             }
           ],
           "quest_answer_dependency": {
-            "question_id": 4023,
+            "question_id": 4000,
             "required_value": "yes"
           }
-        },
+        }
+      ]
+    },
+    {
+      "element_type": "Curbs",
+      "element_type_icon": "kerb_type",
+      "quest_query": "nodes with (barrier=kerb)",
+      "quests": [
         {
-          "quest_id": 4023,
-          "quest_title": "Is there an additional intersection instance to document here?",
-          "quest_description": "Indicate whether there is a second, distinct intersection instance at this location (for example, an additional approach/leg with different characteristics at this same intersection) that should be documented separately using the additional instance questions.",
+          "quest_id": 5000,
+          "quest_title": "Is there an additional curb ramp instance to document here?",
+          "quest_description": "Indicate whether there is a second, distinct curb ramp instance at this location (for example, a second ramp at a corner with two separate ramps) that should be documented separately using the additional instance questions.",
           "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:intersection_additional_instance_present",
+          "quest_tag": "ext:curb_additional_instance_present",
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -4781,14 +4809,7 @@
               "choice_text": "Unable to determine"
             }
           ]
-        }
-      ]
-    },
-    {
-      "element_type": "Curbs",
-      "element_type_icon": "kerb_type",
-      "quest_query": "nodes with (barrier=kerb)",
-      "quests": [
+        },
         {
           "quest_id": 5001,
           "quest_title": "What curb or curb transition type is present?",
@@ -5092,7 +5113,7 @@
               ]
             },
             {
-              "question_id": 5025,
+              "question_id": 5000,
               "required_value": "yes"
             }
           ]
@@ -5136,7 +5157,7 @@
               ]
             },
             {
-              "question_id": 5025,
+              "question_id": 5000,
               "required_value": "yes"
             }
           ]
@@ -5180,7 +5201,7 @@
               ]
             },
             {
-              "question_id": 5025,
+              "question_id": 5000,
               "required_value": "yes"
             }
           ]
@@ -5224,7 +5245,7 @@
               ]
             },
             {
-              "question_id": 5025,
+              "question_id": 5000,
               "required_value": "yes"
             }
           ]
@@ -5268,7 +5289,7 @@
               ]
             },
             {
-              "question_id": 5025,
+              "question_id": 5000,
               "required_value": "yes"
             }
           ]
@@ -5312,7 +5333,7 @@
               ]
             },
             {
-              "question_id": 5025,
+              "question_id": 5000,
               "required_value": "yes"
             }
           ]
@@ -5356,7 +5377,7 @@
               ]
             },
             {
-              "question_id": 5025,
+              "question_id": 5000,
               "required_value": "yes"
             }
           ]
@@ -5430,29 +5451,8 @@
               ]
             },
             {
-              "question_id": 5025,
+              "question_id": 5000,
               "required_value": "yes"
-            }
-          ]
-        },
-        {
-          "quest_id": 5025,
-          "quest_title": "Is there an additional curb ramp instance to document here?",
-          "quest_description": "Indicate whether there is a second, distinct curb ramp instance at this location (for example, a second ramp at a corner with two separate ramps) that should be documented separately using the additional instance questions.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:curb_additional_instance_present",
-          "quest_answer_choices": [
-            {
-              "value": "yes",
-              "choice_text": "Yes"
-            },
-            {
-              "value": "no",
-              "choice_text": "No"
-            },
-            {
-              "value": "unable_to_determine",
-              "choice_text": "Unable to determine"
             }
           ]
         }
