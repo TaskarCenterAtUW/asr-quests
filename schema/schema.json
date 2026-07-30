@@ -460,9 +460,10 @@
           "description": "Name of the feature to be displayed in the \"Add new feature\" screen. This should be a string that describes the feature type. Must be unique within this file.",
           "type": "string",
           "examples": [
-            "Dustbin",
+            "Trash Can",
             "Streetlight",
-            "Bench"
+            "Bench",
+            "Solar Panel"
           ]
         },
         "icon": {
@@ -491,18 +492,18 @@
           "minProperties": 1,
           "examples": [
             {
-              "amenity": "dustbin"
+              "amenity": "waste_basket"
             },
             {
-              "highway": "streetlight"
+              "highway": "street_lamp"
             },
             {
               "amenity": "bench"
             },
             {
-              "power": "plant",
-              "plant:source": "solar",
-              "plant:method": "photovoltaic"
+              "ext:power": "generator",
+              "ext:generator:source": "solar",
+              "ext:generator:method": "photovoltaic"
             }
           ]
         }
@@ -521,9 +522,10 @@
           "description": "Name of the custom icon to be displayed in the app. This should be a string that describes the custom icon type. Must be unique within this file.",
           "type": "string",
           "examples": [
-            "dustbin",
+            "trash_can",
             "streetlight",
-            "bench"
+            "bench",
+            "solar_panel"
           ]
         },
         "url": {
