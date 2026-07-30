@@ -3,10 +3,17 @@
   "recency_period": 90,
   "feature-presets": [
     {
-      "name": "Street light",
-      "icon": "street_light",
+      "name": "Trash Can",
+      "icon": "preset_fas_dumpster",
       "tags": {
-        "amenity": "street_light"
+        "amenity": "waste_basket"
+      }
+    },
+    {
+      "name": "Streetlight",
+      "icon": "streetlight",
+      "tags": {
+        "highway": "street_lamp"
       }
     },
     {
@@ -17,11 +24,12 @@
       }
     },
     {
-      "name": "Subway",
-      "icon": "subway",
+      "name": "Solar Panel",
+      "icon": "solar_panel",
       "tags": {
-        "public_transport": "platform",
-        "subway": "yes"
+        "ext:power": "generator",
+        "ext:generator:source": "solar",
+        "ext:generator:method": "photovoltaic"
       }
     }
   ],
@@ -149,15 +157,14 @@
   ],
   "custom-icons": [
     {
-      "name": "street_light",
-      "url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/utility_2_square.png",
+      "name": "streetlight",
+      "url": "https://pinhead.ink/v25/lantern_lamppost.svg",
       "type": "feature-preset"
     },
     {
-      "name": "subway",
-      "url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/mailbox_landscape.png",
+      "name": "solar_panel",
+      "url": "https://pinhead.ink/v25/bolt.svg",
       "type": "feature-preset"
     }
   ]
 }
-

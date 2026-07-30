@@ -1,5 +1,38 @@
 {
-  "version": "3.1.0",
+  "version": "3.2.0",
+  "recency_period": 90,
+  "feature-presets": [
+    {
+      "name": "Trash Can",
+      "icon": "preset_fas_dumpster",
+      "tags": {
+        "amenity": "waste_basket"
+      }
+    },
+    {
+      "name": "Streetlight",
+      "icon": "streetlight",
+      "tags": {
+        "highway": "street_lamp"
+      }
+    },
+    {
+      "name": "Bench",
+      "icon": "preset_temaki_bench",
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "name": "Solar Panel",
+      "icon": "solar_panel",
+      "tags": {
+        "ext:power": "generator",
+        "ext:generator:source": "solar",
+        "ext:generator:method": "photovoltaic"
+      }
+    }
+  ],
   "elements": [
     {
       "element_type": "Sidewalks",
@@ -120,180 +153,18 @@
           ]
         }
       ]
+    }
+  ],
+  "custom-icons": [
+    {
+      "name": "streetlight",
+      "url": "https://pinhead.ink/v25/lantern_lamppost.svg",
+      "type": "feature-preset"
     },
     {
-      "element_type": "Crossings",
-      "element_type_icon": "pedestrian_crossing",
-      "quest_query": "ways with (highway=footway and footway=crossing)",
-      "quests": [
-        {
-          "quest_id": 201,
-          "quest_title": "Does this crossing have markings on the roadway?",
-          "quest_description": "Check if there are roadway markings present at this crossing.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "crossing:markings",
-          "quest_answer_choices": [
-            {
-              "value": "no",
-              "choice_text": "No",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/markings/no_square.png"
-            },
-            {
-              "value": "yes",
-              "choice_text": "Yes",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/markings/zebra_square.png"
-            }
-          ]
-        },
-        {
-          "quest_id": 202,
-          "quest_title": "Does this crossing have signals for pedestrians?",
-          "quest_description": "Indicate whether this crossing has pedestrian signals.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "ext:crossing:signals",
-          "quest_answer_choices": [
-            {
-              "value": "no",
-              "choice_text": "No",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/markings/no_2_square.png"
-            },
-            {
-              "value": "yes",
-              "choice_text": "Yes",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/arrow/yes_square.png"
-            }
-          ]
-        },
-        {
-          "quest_id": 203,
-          "quest_title": "What accessibility features are present at this signalized crossing?",
-          "quest_description": "Select all accessibility features present at this signalized crossing.",
-          "quest_type": "MultipleChoice",
-          "quest_tag": "ext:crossing:signals:features",
-          "quest_answer_dependency": [
-            {
-              "question_id": 202,
-              "required_value": "yes"
-            }
-          ],
-          "quest_answer_choices": [
-            {
-              "value": "button",
-              "choice_text": "Button",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/arrow/yes_square.png"
-            },
-            {
-              "value": "arrow",
-              "choice_text": "Tactile Arrow",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/arrow/yes_square.png"
-            },
-            {
-              "value": "sound",
-              "choice_text": "Sound",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/sound/yes_square.png"
-            },
-            {
-              "value": "vibration",
-              "choice_text": "Tactile Vibration",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/crossing/signals/vibration/yes_square.png"
-            }
-          ]
-        },
-        {
-          "quest_id": 204,
-          "quest_title": "How many lanes are crossed at this crossing?",
-          "quest_description": "Count the total number of traffic lanes crossed at this crossing.",
-          "quest_type": "Numeric",
-          "quest_tag": "ext:crossing:count_lanes_crossed",
-          "quest_answer_validation": {
-            "min": 1,
-            "max": 10
-          }
-        },
-        {
-          "quest_id": 205,
-          "quest_title": "Additional crossing notes...",
-          "quest_description": "Add any additional observations you'd like to record about this crossing",
-          "quest_type": "TextEntry",
-          "quest_tag": "ext:crossing:description"
-        },
-        {
-          "quest_id": 206,
-          "quest_title": "Capture crossing attributes",
-          "quest_description": "Automatically captures width, incline, and cross slope.",
-          "quest_type": "AutoCapture",
-          "auto_capture_attributes": {
-            "ac_width": "ext:ac:width",
-            "ac_incline": "ext:ac:incline",
-            "ac_cross_slope": "ext:ac:cross_slope"
-          }
-        }
-      ]
-    },
-    {
-      "element_type": "Kerbs",
-      "element_type_icon": "kerb",
-      "quest_query": "nodes with (barrier=kerb)",
-      "quests": [
-        {
-          "quest_id": 301,
-          "quest_title": "What type of curb is this?",
-          "quest_description": "Identify the type of curb here.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "kerb",
-          "quest_answer_choices": [
-            {
-              "value": "raised",
-              "choice_text": "Raised",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/raised_landscape.png"
-            },
-            {
-              "value": "lowered",
-              "choice_text": "Ramp",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/lowered_landscape.png"
-            },
-            {
-              "value": "flush",
-              "choice_text": "Flush",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/flush_landscape.png"
-            }
-          ]
-        },
-        {
-          "quest_id": 302,
-          "quest_title": "Does this curb have tactile paving?",
-          "quest_description": "Check if this curb ramp has tactile paving.",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "tactile_paving",
-          "quest_answer_choices": [
-            {
-              "value": "no",
-              "choice_text": "No",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/no_2_square.png"
-            },
-            {
-              "value": "yes",
-              "choice_text": "Yes",
-              "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/yes_square.png"
-            }
-          ]
-        },
-        {
-          "quest_id": 303,
-          "quest_title": "What is the height of this curb, in inches?",
-          "quest_description": "Specify the height of this curb, in inches.",
-          "quest_type": "Numeric",
-          "quest_tag": "height",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": "raised"
-          },
-          "quest_answer_validation": {
-            "min": 0,
-            "max": 12
-          }
-        }
-      ]
+      "name": "solar_panel",
+      "url": "https://pinhead.ink/v25/bolt.svg",
+      "type": "feature-preset"
     }
   ]
 }
