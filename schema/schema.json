@@ -537,7 +537,7 @@
           ]
         },
         "type": {
-          "description": "Type of the custom icon. The type can be either \"quest\" or \"feature-preset\". If the type is \"quest\", the custom icon will be used for the quests. If the type is \"feature-preset\", the custom icon will be used for the feature-presets.",
+          "description": "Type of the custom icon. The type can be either \"quest\" or \"feature-preset\". If the type is \"quest\", the custom icon can be used for the quests. If the type is \"feature-preset\", the custom icon can be used for the feature-presets.",
           "type": "string",
           "enum": [
             "quest",
