@@ -483,7 +483,7 @@
           ]
         },
         "tags": {
-          "description": "Tags for the feature as key/value pairs. These tags will be sent as payload when the user adds a new feature. Keys may themselves contain colons (e.g. \"plant:source\").",
+          "description": "Tags for the feature as key/value pairs. These tags will be sent as a payload when the user adds a new feature. Keys may themselves contain colons (e.g. \"plant:source\").",
           "type": "object",
           "additionalProperties": {
             "type": "string"
