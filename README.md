@@ -2,31 +2,26 @@
 
 # AVIV ScoutRoute Quests
 
-Repository for AVIV ScoutRoute (ASR) long form quest definition schemas,
-examples, quest definitions, validation tooling, and the Quest Definition
-Creator.
+Repository for AVIV ScoutRoute (ASR) Long Form Quest Definition (LFQD) schemas, examples, quest definitions, validation tooling, and the Quest Definition Creator.
 
 ## Repository Layout
 
-- [schema/](schema/) contains the latest and versioned JSON schemas.
-- [examples/](examples/) contains example quest definitions for each schema
-  version.
-- [quests/](quests/) contains quest definitions grouped by environment and
-  project.
-- [components/](components/) contains component-level JSON files used for
-  schema and UI testing.
+- [schema/](schema/) contains the latest and version-snapshot JSON schemas.
+- [examples/](examples/) contains example quest definitions for each major schema version.
+- [quests/](quests/) contains quest definitions, grouped by TDEI environment and project group.
+- [components/](components/) contains individual-component-level quest definitions used for schema and UI testing.
 - [creator/](creator/) contains the Quest Definition Creator web app.
-- [utilities/](utilities/) contains Python quest validation utility.
+- [utilities/](utilities/) contains the Python quest validation utility.
 
 ## Schema
 
-Long form quest definition JSON schema.
+Long Form Quest Definition JSON schema.
 
-Latest:
+Current schema version: **4.0.0**
 
 - [schema/schema.json](schema/schema.json)
 
-Snapshots:
+Archived snapshots:
 
 - [schema/schema-1.0.0.json](schema/schema-1.0.0.json)
 - [schema/schema-2.0.0.json](schema/schema-2.0.0.json)
@@ -34,13 +29,13 @@ Snapshots:
 
 ## Examples
 
-Long form quest definition JSON examples.
+Long Form Quest Definition JSON examples.
 
-Latest:
+Current example:
 
-- [examples/example.json](examples/example.json)
+- [examples/example-4.0.0.json](examples/example-4.0.0.json)
 
-Snapshots:
+Archived examples:
 
 - [examples/example-1.0.0.json](examples/example-1.0.0.json)
 - [examples/example-2.0.0.json](examples/example-2.0.0.json)
@@ -48,18 +43,7 @@ Snapshots:
 
 ## Validation
 
-Quest definitions can now be validated locally with the Python validator in
-[utilities/validate_quests.py](utilities/validate_quests.py).
-
-What it does:
-
-- Validates every quest JSON file under [quests/](quests/) by default.
-- Validates specific files when paths are passed on the command line.
-- Validates a text file containing one path per line with `--file-list`, which
-  is what the validation workflow uses.
-- Picks the correct schema version automatically.
-- Supports legacy `1.0.0` array-based quest files as well as later object-based
-  definitions.
+Quest definitions can be validated using the Python validator at [utilities/validate_quests.py](utilities/validate_quests.py).
 
 Install the validator dependencies from the repository root:
 
@@ -72,32 +56,17 @@ Common usage:
 ```bash
 python -m utilities.validate_quests
 python -m utilities.validate_quests "quests/prod/CSUN 2026/CSUN 2026.json"
+python -m utilities.validate_quests examples/example-4.0.0.json
 python -m utilities.validate_quests --file-list files_to_validate.txt
 ```
 
-The editable install also registers a `validate-quests` console script, but
-`python -m utilities.validate_quests` is the most reliable form across local
-environments and in workflows.
-
 ### CI Validation
 
-The GitHub Actions workflow in
-[.github/workflows/validate-quests.yml](.github/workflows/validate-quests.yml)
-uses the Python validator utility.
-
-Current behavior:
-
-- On quest JSON changes, CI validates only the changed quest files.
-- On schema, validator, packaging, or validator-workflow changes, CI validates
-  all quest files.
-- On manual workflow dispatch, CI validates all quest files.
+The GitHub Actions workflow in [.github/workflows/validate-quests.yml](.github/workflows/validate-quests.yml) uses the Python validator utility.
 
 ## Quest Definition Creator
 
-The Quest Definition Creator in [creator/](creator/) is a Vue 3 + Vite web app
-for creating and editing long form quest definition JSON files.
-
-Basic capabilities:
+The Quest Definition Creator in [creator/](creator/) is a Vue 3 + Vite web app for creating and editing LFQD JSON files.
 
 - Start a new definition using the latest bundled schema version.
 - Load an existing quest definition JSON file from disk.
@@ -116,21 +85,6 @@ bun install
 bun run dev
 ```
 
-For a production build:
-
-```bash
-bun run build
-bun run preview
-```
-
-### Basic Creator Workflow
-
-1. Open the creator and choose `Create New Definition` or `Load Existing JSON`.
-2. Add an element, then add quests under that element.
-3. Use element and quest presets to scaffold common blocks more quickly.
-4. Resolve any validation errors shown in the editor.
-5. Export the finished definition as JSON.
-
 Notes:
 
 - Drafts are autosaved in browser `localStorage` and can be restored when the
@@ -140,10 +94,8 @@ Notes:
 
 ## Components
 
-Long form quest definition JSON files for testing components.
+Long Form Quest Definition JSON files for testing individual components.
 
 ## Quests
 
-AVIV ScoutRoute long form quest JSON definitions for use in
-[TDEI Workspaces](https://workspaces.sidewalks.washington.edu/), sorted by
-environment and project group.
+AVIV ScoutRoute long form quest JSON definitions for use in [TDEI Workspaces](https://workspaces.sidewalks.washington.edu/), sorted by environment and project group.
