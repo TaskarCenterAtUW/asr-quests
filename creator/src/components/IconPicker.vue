@@ -2,12 +2,16 @@
 
 <script setup>
 import { computed, nextTick, ref, watch } from "vue";
+import { useQuestStore } from "../stores/questStore";
 import icons from "../assets/icons.json";
+import featureIcons from "../assets/featureIcons.json";
 
 const props = defineProps({
     modelValue: { type: String, default: "" },
+    context: { type: String, default: "quest" },
 });
 const emit = defineEmits(["update:modelValue"]);
+const store = useQuestStore();
 
 const filter = ref("");
 const open = ref(false);
@@ -15,20 +19,37 @@ const triggerButton = ref(null);
 const searchInput = ref(null);
 const searchId = `icon-search-${Math.random().toString(36).slice(2)}`;
 
+const builtInIcons = computed(() =>
+    props.context === "feature-preset" ? featureIcons : icons
+);
+const customIcons = computed(() =>
+    (store.definition["custom-icons"] || [])
+        .filter((icon) => icon.type === props.context)
+        .map((icon) => ({
+            ...icon,
+            label: `${icon.name} (custom)`,
+            custom: true,
+        }))
+);
+const availableIcons = computed(() => [
+    ...builtInIcons.value,
+    ...customIcons.value,
+]);
+
 const filtered = computed(() => {
     const q = filter.value.trim().toLowerCase();
     return q
-        ? icons.filter(
+        ? availableIcons.value.filter(
               (i) =>
                   i.label.toLowerCase().includes(q) ||
                   i.name.toLowerCase().includes(q)
           )
-        : icons;
+        : availableIcons.value;
 });
 
 const selected = computed(() => {
     if (!props.modelValue) return null;
-    return icons.find((i) => i.name === props.modelValue) || null;
+    return availableIcons.value.find((i) => i.name === props.modelValue) || null;
 });
 
 function pick(icon) {
@@ -114,7 +135,7 @@ watch(open, (isOpen) => {
             class="creator-icon-picker-dialog p-2"
             role="dialog"
             aria-modal="true"
-            aria-label="Icon picker"
+            :aria-label="`${props.context} icon picker`"
             @keydown.esc.prevent="closePicker"
         >
             <div class="mb-2">
@@ -160,6 +181,9 @@ watch(open, (isOpen) => {
                             height="32"
                             class="creator-icon-option-art"
                         />
+                        <span v-if="icon.custom" class="visually-hidden"
+                            >Custom icon</span
+                        >
                     </button>
                 </div>
 
@@ -216,15 +240,15 @@ watch(open, (isOpen) => {
 }
 
 .creator-icon-preview-art {
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     object-fit: cover;
 }
 
 .creator-icon-option-art {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
 }
 
 .creator-icon-grid-scroll {

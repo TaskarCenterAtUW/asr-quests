@@ -3,12 +3,19 @@
 import { defineStore } from "pinia";
 import { computed, ref, watch } from "vue";
 import Ajv from "ajv";
+import addFormats from "ajv-formats";
 import schema from "../assets/schema.json";
+import questIcons from "../assets/icons.json";
+import featureIcons from "../assets/featureIcons.json";
 
 const ajv = new Ajv({ allErrors: true, strict: false });
+addFormats(ajv);
 const validate = ajv.compile(schema);
 const STORAGE_KEY = "quest-creator:draft:v1";
-const LATEST_DEFINITION_VERSION = schema.version ?? "3.0.0";
+const LATEST_DEFINITION_VERSION = schema.version;
+const DEFAULT_RECENCY_PERIOD = schema.properties?.recency_period?.default ?? 90;
+const QUEST_ICON_NAMES = new Set(questIcons.map((icon) => icon.name));
+const FEATURE_ICON_NAMES = new Set(featureIcons.map((icon) => icon.name));
 
 function newChoice() {
   return {
@@ -45,6 +52,48 @@ function normalizeNumericBound(value) {
 
 function hasOwnField(object, fieldName) {
   return Object.prototype.hasOwnProperty.call(object, fieldName);
+}
+
+function normalizeRecencyPeriod(value) {
+  if (value === "" || value == null) {
+    return DEFAULT_RECENCY_PERIOD;
+  }
+
+  const parsedValue = Number(value);
+  return Number.isInteger(parsedValue) ? parsedValue : value;
+}
+
+function normalizeFeaturePreset(preset) {
+  const tags = {};
+  if (preset?.tags && typeof preset.tags === "object") {
+    Object.entries(preset.tags).forEach(([key, value]) => {
+      tags[String(key)] = value;
+    });
+  }
+
+  return {
+    name: typeof preset?.name === "string" ? preset.name.trim() : "",
+    icon: typeof preset?.icon === "string" ? preset.icon.trim() : "",
+    tags,
+  };
+}
+
+function normalizeCustomIcon(icon) {
+  return {
+    name: typeof icon?.name === "string" ? icon.name.trim() : "",
+    url: typeof icon?.url === "string" ? icon.url.trim() : "",
+    type: icon?.type === "feature-preset" ? "feature-preset" : icon?.type === "quest" ? "quest" : "",
+  };
+}
+
+function normalizeOptionalArray(object, fieldName, normalizeItem) {
+  if (!hasOwnField(object, fieldName)) {
+    return undefined;
+  }
+
+  return Array.isArray(object[fieldName])
+    ? object[fieldName].map(normalizeItem)
+    : [];
 }
 
 function compareSemver(leftVersion, rightVersion) {
@@ -184,12 +233,20 @@ function newElement() {
 }
 
 function blankDefinition() {
-  return { version: LATEST_DEFINITION_VERSION, elements: [] };
+  return {
+    version: LATEST_DEFINITION_VERSION,
+    recency_period: DEFAULT_RECENCY_PERIOD,
+    elements: [],
+  };
 }
 
 function normalizeIncomingDefinition(jsonObj) {
   if (Array.isArray(jsonObj)) {
-    return { version: "1.0.0", elements: jsonObj };
+    return {
+      version: "1.0.0",
+      recency_period: DEFAULT_RECENCY_PERIOD,
+      elements: jsonObj,
+    };
   }
 
   if (
@@ -197,13 +254,34 @@ function normalizeIncomingDefinition(jsonObj) {
     typeof jsonObj === "object" &&
     Array.isArray(jsonObj.elements)
   ) {
-    return {
+    const normalizedDefinition = {
       version: normalizeDefinitionVersion(
         jsonObj.version,
         jsonObj.version == null ? "2.0.0" : LATEST_DEFINITION_VERSION
       ),
+      recency_period: normalizeRecencyPeriod(jsonObj.recency_period),
       elements: jsonObj.elements,
     };
+
+    const featurePresets = normalizeOptionalArray(
+      jsonObj,
+      "feature-presets",
+      normalizeFeaturePreset
+    );
+    const customIcons = normalizeOptionalArray(
+      jsonObj,
+      "custom-icons",
+      normalizeCustomIcon
+    );
+
+    if (featurePresets !== undefined) {
+      normalizedDefinition["feature-presets"] = featurePresets;
+    }
+    if (customIcons !== undefined) {
+      normalizedDefinition["custom-icons"] = customIcons;
+    }
+
+    return normalizedDefinition;
   }
 
   throw new Error(
@@ -317,8 +395,9 @@ function createQuestFromTemplate(
 }
 
 function definitionFromDraft(draftDefinition) {
-  return {
+  const normalizedDefinition = {
     version: normalizeDefinitionVersion(draftDefinition?.version),
+    recency_period: normalizeRecencyPeriod(draftDefinition?.recency_period),
     elements: Array.isArray(draftDefinition?.elements)
       ? draftDefinition.elements.map((element) => ({
           element_type: element?.element_type ?? "",
@@ -330,6 +409,26 @@ function definitionFromDraft(draftDefinition) {
         }))
       : [],
   };
+
+  const featurePresets = normalizeOptionalArray(
+    draftDefinition || {},
+    "feature-presets",
+    normalizeFeaturePreset
+  );
+  const customIcons = normalizeOptionalArray(
+    draftDefinition || {},
+    "custom-icons",
+    normalizeCustomIcon
+  );
+
+  if (featurePresets !== undefined) {
+    normalizedDefinition["feature-presets"] = featurePresets;
+  }
+  if (customIcons !== undefined) {
+    normalizedDefinition["custom-icons"] = customIcons;
+  }
+
+  return normalizedDefinition;
 }
 
 function questToJson(quest) {
@@ -389,6 +488,168 @@ function questToJson(quest) {
   }
 
   return out;
+}
+
+function semanticError(instancePath, message, params = {}) {
+  return {
+    instancePath,
+    keyword: "semantic",
+    message,
+    params,
+  };
+}
+
+function isAbsoluteHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function validateIconReference(
+  iconName,
+  context,
+  instancePath,
+  customIconsByName
+) {
+  const builtInNames =
+    context === "quest" ? QUEST_ICON_NAMES : FEATURE_ICON_NAMES;
+  if (builtInNames.has(iconName)) {
+    return [];
+  }
+
+  const customIcon = customIconsByName.get(iconName);
+  if (!customIcon) {
+    return [
+      semanticError(
+        instancePath,
+        `Unknown ${context} icon "${iconName || "(empty)"}". Choose a built-in icon or a matching custom icon.`,
+        { context, iconName }
+      ),
+    ];
+  }
+
+  if (customIcon.type !== context) {
+    return [
+      semanticError(
+        instancePath,
+        `Custom icon "${iconName}" is for ${customIcon.type || "no context"}, not ${context}.`,
+        { context, iconName, actualType: customIcon.type }
+      ),
+    ];
+  }
+
+  return [];
+}
+
+function semanticValidationErrors(currentDefinition) {
+  const errors = [];
+  const customIcons = currentDefinition["custom-icons"] || [];
+  const customIconsByName = new Map();
+  const customIconNames = new Map();
+
+  customIcons.forEach((icon, index) => {
+    const name = icon.name.trim();
+    const path = `/custom-icons/${index}`;
+
+    if (!name) {
+      errors.push(semanticError(`${path}/name`, "Custom icon name is required."));
+    }
+
+    if (customIconNames.has(name)) {
+      errors.push(
+        semanticError(`${path}/name`, `Custom icon name "${name}" is duplicated.`)
+      );
+    } else {
+      customIconNames.set(name, index);
+    }
+
+    const builtInNames =
+      icon.type === "feature-preset" ? FEATURE_ICON_NAMES : QUEST_ICON_NAMES;
+    if (builtInNames.has(name)) {
+      errors.push(
+        semanticError(
+          `${path}/name`,
+          `Custom icon name "${name}" conflicts with a built-in ${icon.type || "quest"} icon.`
+        )
+      );
+    }
+
+    if (!isAbsoluteHttpUrl(icon.url)) {
+      errors.push(
+        semanticError(
+          `${path}/url`,
+          "Custom icon URL must be an absolute http or https URL."
+        )
+      );
+    }
+
+    if (icon.type !== "quest" && icon.type !== "feature-preset") {
+      errors.push(
+        semanticError(
+          `${path}/type`,
+          'Custom icon type must be "quest" or "feature-preset".'
+        )
+      );
+    }
+
+    if (name && !customIconsByName.has(name)) {
+      customIconsByName.set(name, icon);
+    }
+  });
+
+  const featurePresets = currentDefinition["feature-presets"] || [];
+  const presetNames = new Map();
+  featurePresets.forEach((preset, index) => {
+    const path = `/feature-presets/${index}`;
+    const name = preset.name.trim();
+
+    if (!name) {
+      errors.push(semanticError(`${path}/name`, "Feature preset name is required."));
+    }
+
+    if (presetNames.has(name)) {
+      errors.push(
+        semanticError(`${path}/name`, `Feature preset name "${name}" is duplicated.`)
+      );
+    } else {
+      presetNames.set(name, index);
+    }
+
+    const tagEntries = Object.entries(preset.tags || {});
+    if (
+      tagEntries.length === 0 ||
+      !tagEntries.some(([key, value]) => key.trim() && typeof value === "string" && value.trim())
+    ) {
+      errors.push(
+        semanticError(`${path}/tags`, "Add at least one non-empty string tag key and value.")
+      );
+    }
+
+    errors.push(
+      ...validateIconReference(
+        preset.icon,
+        "feature-preset",
+        `${path}/icon`,
+        customIconsByName
+      )
+    );
+  });
+
+  currentDefinition.elements.forEach((element, elementIndex) => {
+    errors.push(
+      ...validateIconReference(
+        element.element_type_icon,
+        "quest",
+        `/elements/${elementIndex}/element_type_icon`,
+        customIconsByName
+      )
+    );
+  });
+
+  return errors;
 }
 
 export const useQuestStore = defineStore("quest", () => {
@@ -555,9 +816,12 @@ export const useQuestStore = defineStore("quest", () => {
 
   const fullJson = computed(() => {
     const currentDefinition = definition.value;
+    const featurePresets = currentDefinition["feature-presets"];
+    const customIcons = currentDefinition["custom-icons"];
 
-    return {
+    const serializedDefinition = {
       version: currentDefinition.version,
+      recency_period: currentDefinition.recency_period,
       elements: currentDefinition.elements.map((element) => ({
         element_type: element.element_type,
         element_type_icon: element.element_type_icon,
@@ -565,11 +829,30 @@ export const useQuestStore = defineStore("quest", () => {
         quests: element.quests.map((quest) => questToJson(quest)),
       })),
     };
+
+    if (featurePresets !== undefined) {
+      serializedDefinition["feature-presets"] = featurePresets.map((preset) => ({
+        name: preset.name,
+        icon: preset.icon,
+        tags: { ...preset.tags },
+      }));
+    }
+
+    if (customIcons !== undefined) {
+      serializedDefinition["custom-icons"] = customIcons.map((icon) => ({
+        name: icon.name,
+        url: icon.url,
+        type: icon.type,
+      }));
+    }
+
+    return serializedDefinition;
   });
 
   const validationErrors = computed(() => {
-    const isValid = validate(fullJson.value);
-    return isValid ? [] : validate.errors || [];
+    validate(fullJson.value);
+    const structuralErrors = validate.errors ? [...validate.errors] : [];
+    return [...structuralErrors, ...semanticValidationErrors(fullJson.value)];
   });
 
   const validationWarnings = computed(() => {
@@ -658,14 +941,18 @@ export const useQuestStore = defineStore("quest", () => {
 
   function upgradeDefinitionVersion() {
     definition.value.version = LATEST_DEFINITION_VERSION;
+    definition.value.recency_period = normalizeRecencyPeriod(
+      definition.value.recency_period
+    );
     touchEditorSession();
   }
 
   function loadFromJson(jsonObj) {
     const normalizedDefinition = normalizeIncomingDefinition(jsonObj);
 
-    definition.value = {
+    const nextDefinition = {
       version: normalizedDefinition.version,
+      recency_period: normalizedDefinition.recency_period,
       elements: normalizedDefinition.elements.map((element) => ({
         element_type: element.element_type ?? "",
         element_type_icon: element.element_type_icon ?? "",
@@ -673,6 +960,17 @@ export const useQuestStore = defineStore("quest", () => {
         quests: (element.quests || []).map((quest) => questFromJson(quest)),
       })),
     };
+
+    if (hasOwnField(normalizedDefinition, "feature-presets")) {
+      nextDefinition["feature-presets"] = normalizedDefinition[
+        "feature-presets"
+      ];
+    }
+    if (hasOwnField(normalizedDefinition, "custom-icons")) {
+      nextDefinition["custom-icons"] = normalizedDefinition["custom-icons"];
+    }
+
+    definition.value = nextDefinition;
 
     selectedElementIndex.value =
       definition.value.elements.length > 0 ? 0 : null;
@@ -780,6 +1078,156 @@ export const useQuestStore = defineStore("quest", () => {
 
   function updateElement(elementIndex, fields) {
     Object.assign(definition.value.elements[elementIndex], fields);
+    touchEditorSession();
+  }
+
+  function setRecencyPeriod(value) {
+    definition.value.recency_period = normalizeRecencyPeriod(value);
+    touchEditorSession();
+  }
+
+  function ensureFeaturePresets() {
+    if (!hasOwnField(definition.value, "feature-presets")) {
+      definition.value["feature-presets"] = [];
+    }
+
+    return definition.value["feature-presets"];
+  }
+
+  function addFeaturePreset() {
+    const presets = ensureFeaturePresets();
+    presets.push({ name: "", icon: "", tags: { "": "" } });
+    touchEditorSession();
+  }
+
+  function updateFeaturePreset(presetIndex, fields) {
+    const preset = definition.value["feature-presets"]?.[presetIndex];
+    if (!preset) {
+      return;
+    }
+
+    if (hasOwnField(fields, "name")) {
+      preset.name = String(fields.name ?? "").trim();
+    }
+    if (hasOwnField(fields, "icon")) {
+      preset.icon = String(fields.icon ?? "").trim();
+    }
+    if (hasOwnField(fields, "tags")) {
+      preset.tags = { ...(fields.tags || {}) };
+    }
+    touchEditorSession();
+  }
+
+  function setFeaturePresetTag(presetIndex, tagKey, tagValue) {
+    const preset = definition.value["feature-presets"]?.[presetIndex];
+    if (!preset) {
+      return;
+    }
+
+    const nextTags = { ...preset.tags };
+    if (tagKey !== undefined) {
+      nextTags[String(tagKey)] = String(tagValue ?? "");
+    }
+    preset.tags = nextTags;
+    touchEditorSession();
+  }
+
+  function removeFeaturePresetTag(presetIndex, tagKey) {
+    const preset = definition.value["feature-presets"]?.[presetIndex];
+    if (!preset) {
+      return;
+    }
+
+    const nextTags = { ...preset.tags };
+    delete nextTags[tagKey];
+    preset.tags = nextTags;
+    touchEditorSession();
+  }
+
+  function removeFeaturePreset(presetIndex) {
+    definition.value["feature-presets"]?.splice(presetIndex, 1);
+    touchEditorSession();
+  }
+
+  function moveFeaturePresetUp(presetIndex) {
+    const presets = definition.value["feature-presets"];
+    if (!presets || presetIndex <= 0) {
+      return;
+    }
+
+    [presets[presetIndex - 1], presets[presetIndex]] = [
+      presets[presetIndex],
+      presets[presetIndex - 1],
+    ];
+    touchEditorSession();
+  }
+
+  function moveFeaturePresetDown(presetIndex) {
+    const presets = definition.value["feature-presets"];
+    if (!presets || presetIndex >= presets.length - 1) {
+      return;
+    }
+
+    [presets[presetIndex], presets[presetIndex + 1]] = [
+      presets[presetIndex + 1],
+      presets[presetIndex],
+    ];
+    touchEditorSession();
+  }
+
+  function ensureCustomIcons() {
+    if (!hasOwnField(definition.value, "custom-icons")) {
+      definition.value["custom-icons"] = [];
+    }
+
+    return definition.value["custom-icons"];
+  }
+
+  function addCustomIcon() {
+    ensureCustomIcons().push({ name: "", url: "", type: "quest" });
+    touchEditorSession();
+  }
+
+  function updateCustomIcon(iconIndex, fields) {
+    const icon = definition.value["custom-icons"]?.[iconIndex];
+    if (!icon) {
+      return;
+    }
+
+    if (hasOwnField(fields, "name")) {
+      icon.name = String(fields.name ?? "").trim();
+    }
+    if (hasOwnField(fields, "url")) {
+      icon.url = String(fields.url ?? "").trim();
+    }
+    if (hasOwnField(fields, "type")) {
+      icon.type = fields.type;
+    }
+    touchEditorSession();
+  }
+
+  function removeCustomIcon(iconIndex) {
+    definition.value["custom-icons"]?.splice(iconIndex, 1);
+    touchEditorSession();
+  }
+
+  function moveCustomIconUp(iconIndex) {
+    const icons = definition.value["custom-icons"];
+    if (!icons || iconIndex <= 0) {
+      return;
+    }
+
+    [icons[iconIndex - 1], icons[iconIndex]] = [icons[iconIndex], icons[iconIndex - 1]];
+    touchEditorSession();
+  }
+
+  function moveCustomIconDown(iconIndex) {
+    const icons = definition.value["custom-icons"];
+    if (!icons || iconIndex >= icons.length - 1) {
+      return;
+    }
+
+    [icons[iconIndex], icons[iconIndex + 1]] = [icons[iconIndex + 1], icons[iconIndex]];
     touchEditorSession();
   }
 
@@ -1056,6 +1504,19 @@ export const useQuestStore = defineStore("quest", () => {
     moveElementUp,
     moveElementDown,
     updateElement,
+    setRecencyPeriod,
+    addFeaturePreset,
+    updateFeaturePreset,
+    setFeaturePresetTag,
+    removeFeaturePresetTag,
+    removeFeaturePreset,
+    moveFeaturePresetUp,
+    moveFeaturePresetDown,
+    addCustomIcon,
+    updateCustomIcon,
+    removeCustomIcon,
+    moveCustomIconUp,
+    moveCustomIconDown,
     applyElementPreset,
     addQuest,
     insertSingleQuestTemplate,
