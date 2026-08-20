@@ -24,6 +24,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.6.0] - 2026-08-20
+
+### Fixed
+
+- Corrected the Creator store test for the initial v3.2.0 definition shape.
+
 ## Creator: [v0.5.0] - 2026-08-17
 
 ### Changed
