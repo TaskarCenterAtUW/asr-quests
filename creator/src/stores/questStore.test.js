@@ -184,3 +184,14 @@ describe("semantic v3.2 validation", () => {
         expect(paths).toContain("/elements/0/element_type_icon");
     });
 });
+
+describe("recency period normalization", () => {
+    it("keeps the recency period as an integer when given the old display text", () => {
+        const store = useQuestStore();
+
+        store.setRecencyPeriod("90 (default)");
+
+        expect(store.definition.recency_period).toBe(90);
+        expect(Number.isInteger(store.definition.recency_period)).toBe(true);
+    });
+});

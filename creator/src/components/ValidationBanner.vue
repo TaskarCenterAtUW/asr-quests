@@ -15,7 +15,9 @@ function formatPath(instancePath) {
         .split("/")
         .filter(Boolean)
         .map((segment) =>
-            String(Number(segment)) === segment ? `[${segment}]` : segment
+            String(Number(segment)) === segment
+                ? `[${Number(segment) + 1}]`
+                : segment
         )
         .join(".")
         .replace(/\.\[(\d+)\]/g, "[$1]");

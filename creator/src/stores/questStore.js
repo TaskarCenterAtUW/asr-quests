@@ -60,7 +60,7 @@ function normalizeRecencyPeriod(value) {
   }
 
   const parsedValue = Number(value);
-  return Number.isInteger(parsedValue) ? parsedValue : value;
+  return Number.isInteger(parsedValue) ? parsedValue : DEFAULT_RECENCY_PERIOD;
 }
 
 function normalizeFeaturePreset(preset) {
