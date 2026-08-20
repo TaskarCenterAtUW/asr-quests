@@ -1,11 +1,12 @@
 <!-- @format -->
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref, watch } from "vue";
 import { useQuestStore } from "../stores/questStore";
 
 const store = useQuestStore();
 const fieldPath = "/recency_period";
+const recencyInputValue = ref("");
 const hasError = computed(() => store.hasValidationError(fieldPath));
 const errorMessage = computed(
     () =>
@@ -13,16 +14,24 @@ const errorMessage = computed(
             (error) => error.instancePath === fieldPath
         )?.message || ""
 );
-const recencyInputValue = computed(() =>
-    store.definition.recency_period === 90
-        ? "90 (default)"
-        : String(store.definition.recency_period ?? "")
+
+watch(
+    () => store.definition.recency_period,
+    (value) => {
+        const nextInputValue = value === 90 ? "" : String(value ?? "");
+        if (
+            recencyInputValue.value !== String(value) &&
+            recencyInputValue.value !== nextInputValue
+        ) {
+            recencyInputValue.value = nextInputValue;
+        }
+    },
+    { immediate: true }
 );
 
 function updateRecency(event) {
-    store.setRecencyPeriod(
-        event.target.value.replace(/\s*\(default\)\s*$/, "")
-    );
+    recencyInputValue.value = event.target.value;
+    store.setRecencyPeriod(event.target.value);
 }
 </script>
 
@@ -39,11 +48,12 @@ function updateRecency(event) {
                 <div>
                     <input
                         id="recency-period"
-                        type="text"
+                        type="number"
                         class="form-control form-control-sm creator-recency-input"
                         min="1"
                         step="1"
                         inputmode="numeric"
+                        placeholder="90 (default)"
                         :value="recencyInputValue"
                         :class="{ 'is-invalid': hasError }"
                         :aria-describedby="hasError ? 'recency-period-error' : undefined"

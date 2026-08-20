@@ -1,13 +1,15 @@
 <!-- @format -->
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, onBeforeUnmount, ref } from "vue";
 import { useQuestStore } from "../stores/questStore";
 
 const store = useQuestStore();
 const icons = computed(() => store.definition["custom-icons"]);
 const hasSection = computed(() => Array.isArray(icons.value));
 const imageErrors = ref({});
+const previewUrls = ref({});
+const previewTimers = {};
 const isExpanded = ref(true);
 
 function iconHint(type) {
@@ -60,6 +62,33 @@ function usedBy(name) {
 function markImageError(index) {
     imageErrors.value[index] = true;
 }
+
+function getPreviewUrl(index, fallbackUrl) {
+    return Object.prototype.hasOwnProperty.call(previewUrls.value, index)
+        ? previewUrls.value[index]
+        : fallbackUrl;
+}
+
+function updateUrl(index, value) {
+    const currentUrl = icons.value?.[index]?.url || "";
+    if (!Object.prototype.hasOwnProperty.call(previewUrls.value, index)) {
+        previewUrls.value[index] = currentUrl;
+    }
+
+    store.updateCustomIcon(index, { url: value });
+    imageErrors.value[index] = false;
+
+    clearTimeout(previewTimers[index]);
+    previewTimers[index] = setTimeout(() => {
+        previewUrls.value[index] = String(value ?? "").trim();
+        imageErrors.value[index] = false;
+        delete previewTimers[index];
+    }, 180);
+}
+
+onBeforeUnmount(() => {
+    Object.values(previewTimers).forEach((timer) => clearTimeout(timer));
+});
 </script>
 
 <template>
@@ -196,11 +225,7 @@ function markImageError(index) {
                                     `/custom-icons/${index}/url`
                                 ).length,
                             }"
-                            @input="
-                                store.updateCustomIcon(index, {
-                                    url: $event.target.value,
-                                }); imageErrors[index] = false
-                            "
+                            @input="updateUrl(index, $event.target.value)"
                         />
                         <div
                             :id="`custom-icon-hint-${index}`"
@@ -257,32 +282,74 @@ function markImageError(index) {
                     </div>
                 </div>
 
-                <div class="d-flex align-items-center gap-3 flex-wrap mt-3">
+                <div
+                    class="d-flex align-items-start gap-3 flex-wrap mt-3 creator-icon-preview-row"
+                >
                     <div
                         class="creator-icon-preview-shell"
-                        aria-label="Custom icon preview"
+                        role="img"
+                        :aria-label="
+                            isHttpUrl(getPreviewUrl(index, icon.url)) &&
+                            !imageErrors[index]
+                                ? 'Custom icon preview'
+                                : 'Custom icon preview unavailable'
+                        "
                     >
                         <img
-                            v-if="isHttpUrl(icon.url) && !imageErrors[index]"
-                            :src="icon.url"
+                            v-if="isHttpUrl(getPreviewUrl(index, icon.url))"
+                            :src="getPreviewUrl(index, icon.url)"
                             alt=""
                             width="44"
                             height="44"
                             class="creator-icon-preview-art"
+                            :class="{
+                                'creator-icon-preview-art--hidden':
+                                    imageErrors[index],
+                            }"
                             @error="markImageError(index)"
                         />
-                        <span v-else class="small text-muted text-center px-1"
-                            >No preview</span
+                        <span
+                            v-if="
+                                !isHttpUrl(getPreviewUrl(index, icon.url)) ||
+                                imageErrors[index]
+                            "
+                            class="small text-muted text-center px-1 creator-icon-preview-fallback"
+                            aria-hidden="true"
+                        >
+                            <svg
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                                focusable="false"
+                                aria-hidden="true"
+                            >
+                                <rect
+                                    x="3"
+                                    y="4"
+                                    width="18"
+                                    height="16"
+                                    rx="2"
+                                />
+                                <circle cx="8" cy="9" r="1.5" />
+                                <path d="m5 17 4-4 3 3 2-2 5 5" />
+                                <path d="m4 4 16 16" />
+                            </svg>
+                        </span
                         >
                     </div>
-                    <div class="small text-muted">
+                    <div class="small text-muted creator-icon-preview-usage">
                         <span v-if="usedBy(icon.name).length > 0">
                             Used by: {{ usedBy(icon.name).join(", ") }}.
                         </span>
                         <span v-else>Not currently referenced.</span>
                         <span
-                            v-if="isHttpUrl(icon.url) && imageErrors[index]"
-                            class="d-block"
+                            class="d-block creator-icon-preview-status"
+                            :class="{
+                                invisible: !(
+                                    isHttpUrl(getPreviewUrl(index, icon.url)) &&
+                                    imageErrors[index]
+                                ),
+                            }"
                             >The URL is valid, but the image could not be
                             loaded.</span
                         >
@@ -292,3 +359,50 @@ function markImageError(index) {
         </div>
     </section>
 </template>
+
+<style scoped>
+.creator-icon-preview-shell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: 0 0 2.75rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.creator-icon-preview-art--hidden {
+    visibility: hidden;
+}
+
+.creator-icon-preview-fallback {
+    position: absolute;
+    inset: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creator-icon-preview-fallback svg {
+    fill: none;
+    stroke: var(--bs-danger);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+}
+
+.creator-icon-preview-row {
+    min-height: 2.75rem;
+}
+
+.creator-icon-preview-usage {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.creator-icon-preview-status {
+    min-height: 1.5em;
+}
+</style>

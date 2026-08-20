@@ -46,9 +46,11 @@ function updateTag(index, previousKey, nextKey, value) {
     const preset = presets.value?.[index];
     if (!preset) return;
 
-    const tags = { ...preset.tags };
-    delete tags[previousKey];
-    tags[nextKey] = value;
+    const tags = Object.fromEntries(
+        Object.entries(preset.tags || {}).map(([key, currentValue]) =>
+            key === previousKey ? [nextKey, value] : [key, currentValue]
+        )
+    );
     store.updateFeaturePreset(index, { tags });
 }
 
@@ -227,7 +229,7 @@ function removeTag(index, key) {
                     <div class="d-grid gap-2">
                         <div
                             v-for="([key, value], tagIndex) in tagEntries(preset)"
-                            :key="`${index}-${tagIndex}-${key}`"
+                            :key="`${index}-${tagIndex}`"
                             class="row g-2 align-items-end"
                         >
                             <div class="col-12 col-sm-5">

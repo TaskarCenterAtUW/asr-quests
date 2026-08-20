@@ -24,6 +24,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.6.1] - 2026-08-20
+
+### Fixed
+
+- Fixed the brief layout jump and preview flicker when editing Custom Icons URL fields
+- Improved UI when broken images are specified
+- Displayed one-based array numbers in validation issue paths to match the Creator UI
+- Fixed Feature Presets tag key inputs losing focus and reordering tag rows while typing
+- Fixed the resurvey interval default hint being stored as a literal value instead of an integer
+
 ## Creator: [v0.6.0] - 2026-08-20
 
 ### Added
