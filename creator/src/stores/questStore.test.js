@@ -66,7 +66,7 @@ describe("v3.2 definition state", () => {
     it("creates a v3.2 definition with the default recency period", () => {
         const store = useQuestStore();
 
-        expect(store.definition).toMatchObject({
+        expect(store.definition).toEqual({
             version: "3.2.0",
             recency_period: 90,
             elements: [],

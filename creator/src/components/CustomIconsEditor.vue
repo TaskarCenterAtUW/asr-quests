@@ -10,6 +10,12 @@ const hasSection = computed(() => Array.isArray(icons.value));
 const imageErrors = ref({});
 const isExpanded = ref(true);
 
+function iconHint(type) {
+    return type === "feature-preset"
+        ? "SVG, < 0.5 MB, square, ~28 px × ~28 px"
+        : "SVG, < 0.5 MB, square, ~96 px × ~96 px";
+}
+
 function addCustomIcon() {
     isExpanded.value = true;
     store.addCustomIcon();
@@ -184,6 +190,7 @@ function markImageError(index) {
                             class="form-control form-control-sm"
                             placeholder="https://example.com/icon.svg"
                             :value="icon.url"
+                            :aria-describedby="`custom-icon-hint-${index}`"
                             :class="{
                                 'is-invalid': fieldErrors(
                                     `/custom-icons/${index}/url`
@@ -195,6 +202,12 @@ function markImageError(index) {
                                 }); imageErrors[index] = false
                             "
                         />
+                        <div
+                            :id="`custom-icon-hint-${index}`"
+                            class="form-text small"
+                        >
+                            {{ iconHint(icon.type) }}
+                        </div>
                         <div
                             v-for="error in fieldErrors(
                                 `/custom-icons/${index}/url`
