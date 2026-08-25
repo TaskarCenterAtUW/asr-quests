@@ -156,11 +156,18 @@ function update(fields) {
                 class="form-control form-control-sm"
                 :value="quest.quest_image_url"
                 placeholder="https://example.com/image.jpg"
+                :aria-describedby="`quest-image-hint-${elementIndex}-${questIndex}`"
                 :class="{
                     'is-invalid': store.hasValidationError(questImagePath),
                 }"
                 @input="update({ quest_image_url: $event.target.value })"
             />
+            <div
+                :id="`quest-image-hint-${elementIndex}-${questIndex}`"
+                class="form-text small"
+            >
+                PNG or JPEG, &lt; 0.5 MB, portrait, ~480 px × ~720 px
+            </div>
             <ImagePreview
                 :url="quest.quest_image_url"
                 :alt="`Preview for quest ${quest.quest_title || quest.quest_id}`"

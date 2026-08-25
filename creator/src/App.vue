@@ -26,6 +26,10 @@ const currentView = ref(store.editorStarted ? "editor" : "welcome");
 const themeMode = ref(readStoredThemeMode());
 const systemPrefersDark = ref(false);
 
+// Injected at build time via vite.config.js define block.
+const appVersion = __APP_VERSION__;
+const schemaVersion = __LFQD_SCHEMA_VERSION__;
+
 let colorSchemeQuery = null;
 let colorSchemeHandler = null;
 
@@ -275,14 +279,25 @@ watch(
         </main>
 
         <footer class="creator-footer" aria-label="Site footer">
-            <span>© Taskar Center for Accessible Technology</span>&#8226;
+            <span
+                >©
+                <a
+                    href="https://tcat.cs.washington.edu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="creator-footer-link"
+                    >Taskar Center for Accessible Technology</a
+                ></span
+            >&#8226;
             <a
                 href="https://github.com/TaskarCenterAtUW/asr-quests"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="creator-footer-link"
                 >GitHub</a
-            >
+            >&#8226;
+            <span>Creator v{{ appVersion }}</span>&#8226;
+            <span>Schema v{{ schemaVersion }}</span>
         </footer>
     </div>
 </template>
@@ -322,6 +337,17 @@ watch(
 }
 
 @media (max-width: 767.98px) {
+    .creator-navbar .container-fluid > .d-flex.flex-grow-1 {
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .creator-navbar .container-fluid > .d-flex.flex-grow-1 > .min-w-0 {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
     .creator-nav-actions {
         width: 100%;
         justify-content: flex-start;

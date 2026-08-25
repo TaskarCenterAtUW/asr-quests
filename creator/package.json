@@ -1,25 +1,32 @@
 {
     "name": "creator",
     "private": true,
-    "version": "0.4.0",
+    "version": "0.6.1",
     "type": "module",
     "packageManager": "bun@1.3.14",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "scrape-icons": "bun scripts/scrape-icons.js"
+        "scrape-icons": "bun scripts/scrape-icons.js",
+        "scrape-feature-icons": "bun scripts/scrape-feature-icons.js",
+        "test": "vitest run"
     },
     "dependencies": {
-        "@vueuse/core": "^14.3.0",
+        "@vueuse/core": "^14.4.0",
         "ajv": "^8.20.0",
+        "ajv-formats": "^3.0.1",
         "bootstrap": "^5.3.8",
-        "pinia": "^4.0.2",
-        "vue": "^3.5.40"
+        "pinia": "^4.0.3",
+        "vue": "^3.5.41"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^6.0.8",
-        "vite": "^8.1.5"
+        "vite": "^8.2.2",
+        "vitest": "^4.1.11"
+    },
+    "overrides": {
+        "fast-uri": "3.1.5",
+        "nanoid": "3.3.18"
     }
 }
- 

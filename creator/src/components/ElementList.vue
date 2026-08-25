@@ -7,6 +7,9 @@ import ElementEditor from "./ElementEditor.vue";
 import JsonPreview from "./JsonPreview.vue";
 import ValidationBanner from "./ValidationBanner.vue";
 import ExportPanel from "./ExportPanel.vue";
+import DefinitionSettings from "./DefinitionSettings.vue";
+import FeaturePresetsEditor from "./FeaturePresetsEditor.vue";
+import CustomIconsEditor from "./CustomIconsEditor.vue";
 import icons from "../assets/icons.json";
 import { elementPresetLibrary } from "../assets/questTemplates";
 
@@ -21,7 +24,13 @@ const selectedQuestIndex = computed(() => store.selectedQuestIndex);
 
 function iconUrl(name) {
     if (!name) return null;
-    return icons.find((icon) => icon.name === name)?.url ?? null;
+    return (
+        icons.find((icon) => icon.name === name)?.url ??
+        store.definition["custom-icons"]?.find(
+            (icon) => icon.name === name && icon.type === "quest"
+        )?.url ??
+        null
+    );
 }
 
 function setElementButtonRef(element, index) {
@@ -354,6 +363,11 @@ watch(
         <section class="creator-main">
             <div class="creator-main-layout">
                 <section class="creator-editor-pane">
+                    <div class="creator-definition-tools">
+                        <DefinitionSettings />
+                        <FeaturePresetsEditor />
+                        <CustomIconsEditor />
+                    </div>
                     <div class="card creator-surface-card creator-panel-card">
                         <div
                             class="card-header d-flex justify-content-center align-items-center position-relative"

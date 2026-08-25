@@ -494,6 +494,11 @@ textarea.form-control {
   backdrop-filter: blur(18px);
 }
 
+.creator-editor-row + .creator-editor-row {
+  border-top: 1px solid var(--creator-surface-border);
+  padding-top: 1rem;
+}
+
 .creator-home-card {
   position: relative;
   overflow: hidden;
@@ -819,10 +824,42 @@ textarea.form-control {
   font-weight: 600;
 }
 
+.creator-section-toggle {
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: none;
+}
+
 .accordion-button:not(.collapsed) {
   color: var(--creator-ink);
   background: rgba(var(--creator-primary-rgb), 0.09);
   box-shadow: inset 0 -1px 0 rgba(var(--creator-primary-rgb), 0.12);
+}
+
+.accordion-button.creator-section-toggle::after {
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-left: auto;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  background-image: none !important;
+  transform: rotate(45deg);
+  transition: none;
+}
+
+.accordion-button.creator-section-toggle:not(.collapsed)::after {
+  background-image: none !important;
+  transform: rotate(-135deg);
+}
+
+.creator-panel-card-collapsed .card-header {
+  border-bottom: 0;
+  border-radius: calc(var(--creator-radius-xl) - 1px) !important;
 }
 
 .accordion-body {
