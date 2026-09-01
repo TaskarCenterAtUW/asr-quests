@@ -82,7 +82,12 @@ function normalizeCustomIcon(icon) {
   return {
     name: typeof icon?.name === "string" ? icon.name.trim() : "",
     url: typeof icon?.url === "string" ? icon.url.trim() : "",
-    type: icon?.type === "feature-preset" ? "feature-preset" : icon?.type === "quest" ? "quest" : "",
+    type:
+      icon?.type === "feature-preset"
+        ? "feature-preset"
+        : icon?.type === "quest"
+          ? "quest"
+          : "",
   };
 }
 
@@ -172,9 +177,35 @@ function normalizeDependencyRequiredValue(parentQuest, requiredValue) {
   return requiredValue ?? "";
 }
 
+function normalizeAutoCaptureAttributes(attributes) {
+  if (
+    !attributes ||
+    typeof attributes !== "object" ||
+    Array.isArray(attributes)
+  ) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(attributes).map(([key, value]) => [
+      String(key),
+      value == null ? "" : String(value),
+    ])
+  );
+}
+
 function normalizeQuestForType(quest) {
   if (!isChoiceQuestType(quest.quest_type)) {
     quest.quest_answer_choices = [];
+  }
+
+  if (quest.quest_type === "AutoCapture") {
+    quest.quest_tag = "";
+    quest.auto_capture_attributes = normalizeAutoCaptureAttributes(
+      quest.auto_capture_attributes
+    );
+  } else {
+    delete quest.auto_capture_attributes;
   }
 
   if (quest.quest_type !== "Numeric") {
@@ -302,6 +333,9 @@ function questFromJson(quest) {
     quest_type: quest.quest_type ?? "ExclusiveChoice",
     quest_tag: quest.quest_tag ?? "",
     quest_image_url: quest.quest_image_url ?? "",
+    auto_capture_attributes: normalizeAutoCaptureAttributes(
+      quest.auto_capture_attributes
+    ),
     quest_answer_choices: (quest.quest_answer_choices || []).map((choice) => ({
       value: choice.value ?? "",
       choice_text: choice.choice_text ?? "",
@@ -374,6 +408,9 @@ function createQuestFromTemplate(
     quest_type: templateQuest.quest_type ?? "ExclusiveChoice",
     quest_tag: templateQuest.quest_tag ?? "",
     quest_image_url: templateQuest.quest_image_url ?? "",
+    auto_capture_attributes: normalizeAutoCaptureAttributes(
+      templateQuest.auto_capture_attributes
+    ),
     quest_answer_choices: (templateQuest.quest_answer_choices || []).map(
       (choice) => ({
         value: choice.value ?? "",
@@ -437,8 +474,15 @@ function questToJson(quest) {
     quest_title: quest.quest_title,
     quest_description: quest.quest_description,
     quest_type: quest.quest_type,
-    quest_tag: quest.quest_tag,
   };
+
+  if (quest.quest_type !== "AutoCapture") {
+    out.quest_tag = quest.quest_tag;
+  } else {
+    out.auto_capture_attributes = {
+      ...normalizeAutoCaptureAttributes(quest.auto_capture_attributes),
+    };
+  }
 
   if (quest.quest_image_url) {
     out.quest_image_url = quest.quest_image_url;
@@ -555,12 +599,17 @@ function semanticValidationErrors(currentDefinition) {
     const path = `/custom-icons/${index}`;
 
     if (!name) {
-      errors.push(semanticError(`${path}/name`, "Custom icon name is required."));
+      errors.push(
+        semanticError(`${path}/name`, "Custom icon name is required.")
+      );
     }
 
     if (customIconNames.has(name)) {
       errors.push(
-        semanticError(`${path}/name`, `Custom icon name "${name}" is duplicated.`)
+        semanticError(
+          `${path}/name`,
+          `Custom icon name "${name}" is duplicated.`
+        )
       );
     } else {
       customIconNames.set(name, index);
@@ -607,12 +656,17 @@ function semanticValidationErrors(currentDefinition) {
     const name = preset.name.trim();
 
     if (!name) {
-      errors.push(semanticError(`${path}/name`, "Feature preset name is required."));
+      errors.push(
+        semanticError(`${path}/name`, "Feature preset name is required.")
+      );
     }
 
     if (presetNames.has(name)) {
       errors.push(
-        semanticError(`${path}/name`, `Feature preset name "${name}" is duplicated.`)
+        semanticError(
+          `${path}/name`,
+          `Feature preset name "${name}" is duplicated.`
+        )
       );
     } else {
       presetNames.set(name, index);
@@ -621,10 +675,16 @@ function semanticValidationErrors(currentDefinition) {
     const tagEntries = Object.entries(preset.tags || {});
     if (
       tagEntries.length === 0 ||
-      !tagEntries.some(([key, value]) => key.trim() && typeof value === "string" && value.trim())
+      !tagEntries.some(
+        ([key, value]) =>
+          key.trim() && typeof value === "string" && value.trim()
+      )
     ) {
       errors.push(
-        semanticError(`${path}/tags`, "Add at least one non-empty string tag key and value.")
+        semanticError(
+          `${path}/tags`,
+          "Add at least one non-empty string tag key and value."
+        )
       );
     }
 
@@ -831,11 +891,13 @@ export const useQuestStore = defineStore("quest", () => {
     };
 
     if (featurePresets !== undefined) {
-      serializedDefinition["feature-presets"] = featurePresets.map((preset) => ({
-        name: preset.name,
-        icon: preset.icon,
-        tags: { ...preset.tags },
-      }));
+      serializedDefinition["feature-presets"] = featurePresets.map(
+        (preset) => ({
+          name: preset.name,
+          icon: preset.icon,
+          tags: { ...preset.tags },
+        })
+      );
     }
 
     if (customIcons !== undefined) {
@@ -962,9 +1024,8 @@ export const useQuestStore = defineStore("quest", () => {
     };
 
     if (hasOwnField(normalizedDefinition, "feature-presets")) {
-      nextDefinition["feature-presets"] = normalizedDefinition[
-        "feature-presets"
-      ];
+      nextDefinition["feature-presets"] =
+        normalizedDefinition["feature-presets"];
     }
     if (hasOwnField(normalizedDefinition, "custom-icons")) {
       nextDefinition["custom-icons"] = normalizedDefinition["custom-icons"];
@@ -1217,7 +1278,10 @@ export const useQuestStore = defineStore("quest", () => {
       return;
     }
 
-    [icons[iconIndex - 1], icons[iconIndex]] = [icons[iconIndex], icons[iconIndex - 1]];
+    [icons[iconIndex - 1], icons[iconIndex]] = [
+      icons[iconIndex],
+      icons[iconIndex - 1],
+    ];
     touchEditorSession();
   }
 
@@ -1227,7 +1291,10 @@ export const useQuestStore = defineStore("quest", () => {
       return;
     }
 
-    [icons[iconIndex], icons[iconIndex + 1]] = [icons[iconIndex + 1], icons[iconIndex]];
+    [icons[iconIndex], icons[iconIndex + 1]] = [
+      icons[iconIndex + 1],
+      icons[iconIndex],
+    ];
     touchEditorSession();
   }
 

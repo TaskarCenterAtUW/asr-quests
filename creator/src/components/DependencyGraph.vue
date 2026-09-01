@@ -58,6 +58,7 @@ const QUEST_TYPE_LABELS = {
     MultipleChoice: "Multiple choice",
     Numeric: "Number entry",
     TextEntry: "Text entry",
+    AutoCapture: "Auto capture",
 };
 
 /**
