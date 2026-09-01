@@ -24,6 +24,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.7.0] - 2026-08-31
+
+### Added
+
+- Added support for AutoCapture quest type
+
 ## Creator: [v0.6.1] - 2026-08-20
 
 ### Fixed

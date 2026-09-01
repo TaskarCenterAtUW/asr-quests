@@ -312,6 +312,20 @@ a:hover {
   color: rgba(var(--creator-primary-rgb), 0.52);
 }
 
+.auto-capture-attribute-card {
+  background: color-mix(
+    in srgb,
+    var(--creator-primary-soft) 36%,
+    var(--creator-surface) 64%
+  );
+  border-color: var(--creator-surface-border) !important;
+}
+
+.auto-capture-attribute-card code {
+  font-family: var(--creator-mono-font);
+  font-size: 0.78em;
+}
+
 .btn {
   min-height: var(--creator-control-height);
   padding: 0.6rem 1.05rem;
