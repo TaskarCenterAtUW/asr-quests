@@ -1,6 +1,5 @@
 {
-    "version": "3.2.0",
-    "recency_period": 90,
+    "version": "3.0.0",
     "elements": [
       {
         "element_type": "Sidewalks",
@@ -50,6 +49,10 @@
             "quest_description": "Select the condition issues that best describe this sidewalk surface.",
             "quest_type": "MultipleChoice",
             "quest_tag": "ext:sidewalk_condition_detail",
+            "quest_answer_dependency": {
+              "question_id": 102,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "cracked",
@@ -88,14 +91,6 @@
               {
                 "value": "other",
                 "choice_text": "Other"
-              }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 102,
-                "required_value": [
-                  "yes"
-                ]
               }
             ]
           },
@@ -144,6 +139,23 @@
           },
           {
             "quest_id": 105,
+            "quest_title": "[AP][ADA] Is the surface material ADA compliant?",
+            "quest_description": "Evaluate whether the sidewalk surface is ADA compliant.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:sidewalk_surface_ada_compliance",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              }
+            ]
+          },
+          {
+            "quest_id": 106,
             "quest_title": "[CC] What is the width of this sidewalk (in feet)?",
             "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
             "quest_type": "Numeric",
@@ -155,7 +167,7 @@
             }
           },
           {
-            "quest_id": 106,
+            "quest_id": 107,
             "quest_title": "[AP][ADA][CtT] Is there a clear, continuous 3 feet wide accessible pathway present?",
             "quest_description": "Determine if there is an unobstructed, stable, and continuous path at least 3 feet (36 inches) wide along the entire sidewalk segment.",
             "quest_type": "ExclusiveChoice",
@@ -172,7 +184,7 @@
             ]
           },
           {
-            "quest_id": 107,
+            "quest_id": 108,
             "quest_title": "[AP][ADA] What is the cross slope of this sidewalk (in percent)?",
             "quest_description": "Measure or estimate the cross slope of the sidewalk from edge to edge, expressed as a percentage of rise over run",
             "quest_type": "Numeric",
@@ -184,7 +196,7 @@
             }
           },
           {
-            "quest_id": 108,
+            "quest_id": 109,
             "quest_title": "[CC] Are there obstructions on the access path leading to this bus stop?",
             "quest_description": "Indicate whether any permanent or semi-permanent obstructions are present along the access path leading to the bus stop.",
             "quest_type": "ExclusiveChoice",
@@ -201,11 +213,15 @@
             ]
           },
           {
-            "quest_id": 109,
+            "quest_id": 110,
             "quest_title": "[CC] What are the obstructions on the access path leading to this bus stop?",
             "quest_description": "Select any permanent or semi-permanent obstructions present along the access path leading to the bus stop.",
             "quest_type": "MultipleChoice",
             "quest_tag": "ext:sidewalk_stop_ap_obstructions",
+            "quest_answer_dependency": {
+              "question_id": 109,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "mail_boxes",
@@ -251,18 +267,136 @@
                 "value": "other",
                 "choice_text": "Other"
               }
-            ],
-            "quest_answer_dependency": [
+            ]
+          },
+          {
+            "quest_id": 111,
+            "quest_title": "[CC] Are there frequent temporary obstructions on this sidewalk?",
+            "quest_description": "Indicate whether temporary or recurring obstructions are often present and reduce the usable width of this sidewalk.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:sidewalk_temp_obstructions_present",
+            "quest_answer_choices": [
               {
-                "question_id": 108,
-                "required_value": [
-                  "yes"
-                ]
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
               }
             ]
           },
           {
-            "quest_id": 110,
+            "quest_id": 112,
+            "quest_title": "[CC] What are the frequent temporary obstructions on this sidewalk?",
+            "quest_description": "Select the type of temporary or recurring obstructions that often block or reduce the usable width of this sidewalk.",
+            "quest_type": "MultipleChoice",
+            "quest_tag": "ext:sidewalk_temp_obstructions",
+            "quest_answer_dependency": {
+              "question_id": 111,
+              "required_value": "yes"
+            },
+            "quest_answer_choices": [
+              {
+                "value": "overgrown_vegetation",
+                "choice_text": "Overgrown Vegetation",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/overgrown_landscape.png"
+              },
+              {
+                "value": "overhead_vegetation",
+                "choice_text": "Overhead Vegetation",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/overhead_landscape.png"
+              },
+              {
+                "value": "sandwich_boards",
+                "choice_text": "Sandwich Boards",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/sandwich_board_landscape.png"
+              },
+              {
+                "value": "micromobility",
+                "choice_text": "Micromobility Devices (e.g., scooters, bikes)",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/micromobility_vehicle_square.png"
+              },
+              {
+                "value": "parked_cars",
+                "choice_text": "Parked Cars",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/parked_cars_landscape.png"
+              },
+              {
+                "value": "debris",
+                "choice_text": "Debris",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/debris_original.png"
+              },
+              {
+                "value": "trash_bins",
+                "choice_text": "Trash Bins",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/waste_bin_square.png"
+              },
+              {
+                "value": "other",
+                "choice_text": "Other",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/temporary/other_landscape.png"
+              }
+            ]
+          },
+          {
+            "quest_id": 113,
+            "quest_title": "[CC] Is there a buffer between this sidewalk and motor vehicle travel lanes?",
+            "quest_description": "Indicate whether a physical separation (such as landscaping, curb space, parking space, bike lane, or other buffer) exists between the sidewalk and adjacent motor vehicle travel lanes.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:sidewalk_buffer_present",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              },
+              {
+                "value": "unknown",
+                "choice_text": "Unknown"
+              }
+            ]
+          },
+          {
+            "quest_id": 114,
+            "quest_title": "[CC] What type of buffer is between this sidewalk and motor vehicle travel lanes?",
+            "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
+            "quest_type": "MultipleChoice",
+            "quest_tag": "ext:sidewalk_buffer_type",
+            "quest_answer_dependency": {
+              "question_id": 113,
+              "required_value": "yes"
+            },
+            "quest_answer_choices": [
+              {
+                "value": "landscaping",
+                "choice_text": "Landscaping (grass, plants, trees)",
+                "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Massachusetts-devils_strip.JPG"
+              },
+              {
+                "value": "curb",
+                "choice_text": "Curb buffer (no landscaping)"
+              },
+              {
+                "value": "parking_lane",
+                "choice_text": "Parking lane"
+              },
+              {
+                "value": "bike_lane",
+                "choice_text": "Bike lane",
+                "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Narrow_bike_lane_on_Campbell_Ave.jpg"
+              },
+              {
+                "value": "other",
+                "choice_text": "Other"
+              }
+            ]
+          },
+          {
+            "quest_id": 117,
             "quest_title": "[CC] Is there a noticeable slope present on this sidewalk segment?",
             "quest_description": "Indicate whether there is a visible or perceptible incline along or across this sidewalk segment that may affect walking or rolling.",
             "quest_type": "ExclusiveChoice",
@@ -279,11 +413,15 @@
             ]
           },
           {
-            "quest_id": 111,
+            "quest_id": 118,
             "quest_title": "[CC] What type of slope is present on this sidewalk segment?",
             "quest_description": "Identify whether this sidewalk has a noticeable running slope (along the direction of travel) or cross slope (across the walking surface).",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:sidewalk_slope_type",
+            "quest_answer_dependency": {
+              "question_id": 117,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "running_slope",
@@ -297,18 +435,99 @@
                 "value": "both",
                 "choice_text": "Both Running and Cross Slope"
               }
-            ],
-            "quest_answer_dependency": [
+            ]
+          },
+          {
+            "quest_id": 119,
+            "quest_title": "[AP][ADA] Does the running slope match the roadway?",
+            "quest_description": "Observe if the sidewalk's incline follows the same grade as the adjacent street or if it has been leveled independently.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:sidewalk_matches_road_slope",
+            "quest_answer_dependency": {
+              "question_id": 118,
+              "required_value": [
+                "running_slope",
+                "both"
+              ]
+            },
+            "quest_answer_choices": [
               {
-                "question_id": 110,
-                "required_value": [
-                  "yes"
-                ]
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              },
+              {
+                "value": "n/a",
+                "choice_text": "N/A"
               }
             ]
           },
           {
-            "quest_id": 112,
+            "quest_id": 120,
+            "quest_title": "[CC] How would you rate the level of motor vehicle traffic on this street?",
+            "quest_description": "Rate the typical amount of motor vehicle traffic along this street on a scale of 1-5, where 1 indicates very low traffic and 5 indicates very heavy traffic.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:sidewalk_traffic_intensity_rating",
+            "quest_answer_choices": [
+              {
+                "value": "1",
+                "choice_text": "1"
+              },
+              {
+                "value": "2",
+                "choice_text": "2"
+              },
+              {
+                "value": "3",
+                "choice_text": "3"
+              },
+              {
+                "value": "4",
+                "choice_text": "4"
+              },
+              {
+                "value": "5",
+                "choice_text": "5"
+              }
+            ]
+          },
+          {
+            "quest_id": 121,
+            "quest_title": "[CC] How many light poles are on this sidewalk segment?",
+            "quest_description": "Count the number of light poles located directly along this sidewalk segment.",
+            "quest_type": "Numeric",
+            "quest_tag": "ext:sidewalk_light",
+            "quest_answer_validation": {
+              "min": 0,
+              "max": 20
+            }
+          },
+          {
+            "quest_id": 123,
+            "quest_title": "[AP][ADA][CtT] Is the sidewalk continuously flat through driveway aprons?",
+            "quest_description": "Indicate whether a level pedestrian path is maintained across all driveway aprons. A 'No' indicates the sidewalk dips or slants significantly to accommodate the vehicle transition.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:sidewalk_driveway_level_path",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              },
+              {
+                "value": "n/a",
+                "choice_text": "N/A (No driveways)"
+              }
+            ]
+          },
+          {
+            "quest_id": 125,
             "quest_title": "Take a picture of the sidewalk.",
             "quest_description": "Capture a clear photo of the sidewalk surface.",
             "quest_type": "ExclusiveChoice",
@@ -333,100 +552,7 @@
         "quest_query": "ways with (footway=crossing)",
         "quests": [
           {
-            "quest_id": 201,
-            "quest_title": "[AP][CtT] What is your comfort level when making this crossing?",
-            "quest_description": "Indicate whether this pedestrian crossing feels comfortable or uncomfortable to use, considering factors such as vehicle behavior, visibility, and available pedestrian infrastructure.",
-            "quest_type": "ExclusiveChoice",
-            "quest_tag": "ext:crossing_safety_comf",
-            "quest_answer_choices": [
-              {
-                "value": "very_comfortable",
-                "choice_text": "Very Comfortable"
-              },
-              {
-                "value": "comfortable",
-                "choice_text": "Comfortable"
-              },
-              {
-                "value": "somewhat_comfortable",
-                "choice_text": "Somewhat Comfortable"
-              },
-              {
-                "value": "somewhat_uncomfortable",
-                "choice_text": "Somewhat Uncomfortable"
-              },
-              {
-                "value": "uncomfortable",
-                "choice_text": "Uncomfortable"
-              },
-              {
-                "value": "very_uncomfortable",
-                "choice_text": "Very Uncomfortable"
-              }
-            ]
-          },
-          {
-            "quest_id": 202,
-            "quest_title": "[AP][CtT] Why does this crossing feel uncomfortable to you?",
-            "quest_description": "Assess the overall sense of comfort for pedestrians at this crossing. Consider factors such as vehicle speed, exposure, visibility, and pedestrian infrastructure.",
-            "quest_type": "MultipleChoice",
-            "quest_tag": "ext:crossing_safety_perception",
-            "quest_answer_choices": [
-              {
-                "value": "drivers_too_fast",
-                "choice_text": "Drivers Driving Too Fast"
-              },
-              {
-                "value": "low_visibility",
-                "choice_text": "Low Visibility"
-              },
-              {
-                "value": "lack_facilities",
-                "choice_text": "Lack of Pedestrian Facilities"
-              },
-              {
-                "value": "limited_separation",
-                "choice_text": "Limited Separation from Street"
-              },
-              {
-                "value": "crossing_distance_far",
-                "choice_text": "Crossing Distance Is Too Far"
-              },
-              {
-                "value": "other",
-                "choice_text": "Other"
-              }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 201,
-                "required_value": [
-                  "somewhat_uncomfortable",
-                  "uncomfortable",
-                  "very_uncomfortable"
-                ]
-              }
-            ]
-          },
-          {
-            "quest_id": 203,
-            "quest_title": "[AP][CtT] Please share more detail about why this crossing feels uncomfortable.",
-            "quest_description": "Use this space to elaborate on the reasons selected above, or add any other details about what makes this crossing feel uncomfortable.",
-            "quest_type": "TextEntry",
-            "quest_tag": "ext:crossing_comfort_explanation",
-            "quest_answer_dependency": [
-              {
-                "question_id": 201,
-                "required_value": [
-                  "somewhat_uncomfortable",
-                  "uncomfortable",
-                  "very_uncomfortable"
-                ]
-              }
-            ]
-          },
-          {
-            "quest_id": 204,
+            "quest_id": 206,
             "quest_title": "[CC] What is the total number of motor vehicle travel lanes on the street being crossed?",
             "quest_description": "Enter the total number of motor vehicle travel lanes in both directions.",
             "quest_type": "Numeric",
@@ -437,7 +563,7 @@
             }
           },
           {
-            "quest_id": 205,
+            "quest_id": 207,
             "quest_title": "[AP][ADA][CtT][S&R][TRF] In your opinion, is there adequate lighting at this crossing? (1 = very low and 5 = well lit)",
             "quest_description": "Rate how well-lit this crossing appears, considering visibility and lighting conditions.",
             "quest_type": "ExclusiveChoice",
@@ -466,36 +592,14 @@
             ]
           },
           {
-            "quest_id": 206,
+            "quest_id": 208,
             "quest_title": "Why did you rate the lighting at this crossing this way?",
             "quest_description": "Briefly explain what you observed (e.g., broken or missing streetlights, distance between lights, ambient lighting from nearby buildings) that led to your lighting rating.",
             "quest_type": "TextEntry",
             "quest_tag": "ext:crossing_lighting_explanation"
           },
           {
-            "quest_id": 207,
-            "quest_title": "[AP][CtT] Is there an accessible pathway to this crosswalk?",
-            "quest_description": "Determine whether there is an accessible, continuous connection from stop to nearest crossing across a full block.",
-            "quest_type": "ExclusiveChoice",
-            "quest_tag": "ext:crossing_crosswalk_path",
-            "quest_answer_choices": [
-              {
-                "value": "yes",
-                "choice_text": "Yes",
-                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/bus_stop/nearby_crossing/yes_2_square.png"
-              },
-              {
-                "value": "no",
-                "choice_text": "No"
-              },
-              {
-                "value": "unknown",
-                "choice_text": "Unknown"
-              }
-            ]
-          },
-          {
-            "quest_id": 208,
+            "quest_id": 212,
             "quest_title": "[ADA][AP][CtT][S&R] Is there a push button / pedestrian signal at this crossing?",
             "quest_description": "Check for the presence of a pedestrian-activated button or a specific walking/hand signal head.",
             "quest_type": "ExclusiveChoice",
@@ -512,11 +616,15 @@
             ]
           },
           {
-            "quest_id": 209,
+            "quest_id": 213,
             "quest_title": "[ADA][AP][CtT][S&R] Is there an audible prompt?",
             "quest_description": "Does the signal emit a sound (chirp, beep, or speech) to indicate it is safe to cross?",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:crossing_audible_signal",
+            "quest_answer_dependency": {
+              "question_id": 212,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "yes",
@@ -526,54 +634,63 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 208,
-                "required_value": [
-                  "yes"
-                ]
-              }
             ]
           },
           {
-            "quest_id": 210,
-            "quest_title": "[AP][CtT] How well do you feel seen by motor vehicle drivers when you're in this crossing?",
-            "quest_description": "Rate your perception of driver awareness and visibility (1 = hardly seen, 5 = very well seen)",
+            "quest_id": 214,
+            "quest_title": "[ADA][AP][CtT][S&R] In your opinion, does the signal provide enough time to cross?",
+            "quest_description": "Based on a normal walking pace, evaluate if the Walk and flashing Don't Walk intervals are sufficient.",
             "quest_type": "ExclusiveChoice",
-            "quest_tag": "ext:crossing_driver_visibility_perception",
+            "quest_tag": "ext:crossing_sufficient_time",
+            "quest_answer_dependency": {
+              "question_id": 212,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
-                "value": "1",
-                "choice_text": "1"
+                "value": "yes",
+                "choice_text": "Yes"
               },
               {
-                "value": "2",
-                "choice_text": "2"
-              },
-              {
-                "value": "3",
-                "choice_text": "3"
-              },
-              {
-                "value": "4",
-                "choice_text": "4"
-              },
-              {
-                "value": "5",
-                "choice_text": "5"
+                "value": "no",
+                "choice_text": "No"
               }
             ]
           },
           {
-            "quest_id": 211,
-            "quest_title": "[AP][CtT] Why do you feel this way about driver visibility at this crossing?",
-            "quest_description": "Briefly explain what made you feel seen or unseen by drivers (e.g., sightline obstructions, vehicle speed, lack of eye contact, crossing distance).",
+            "quest_id": 215,
+            "quest_title": "[ADA][AP][CtT][S&R] Why do you feel the signal does or does not provide enough time to cross?",
+            "quest_description": "Briefly explain your observation (e.g., you had to hurry or run, the signal changed while you were still in the crosswalk, plenty of time was given).",
             "quest_type": "TextEntry",
-            "quest_tag": "ext:crossing_driver_visibility_explanation"
+            "quest_answer_dependency": {
+              "question_id": 212,
+              "required_value": "yes"
+            },
+            "quest_tag": "ext:crossing_signal_timing_explanation"
           },
           {
-            "quest_id": 212,
+            "quest_id": 216,
+            "quest_title": "[ADA][AP][CtT][S&R] Is there a lead pedestrian interval (LPI) at this crossing?",
+            "quest_description": "Does the pedestrian Walk signal turn on a few seconds before the vehicle traffic light turns green?",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:crossing_lpi_present",
+            "quest_answer_dependency": {
+              "question_id": 212,
+              "required_value": "yes"
+            },
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              }
+            ]
+          },
+          {
+            "quest_id": 227,
             "quest_title": "Take a picture of the crossing.",
             "quest_description": "Capture a clear photo of the crossing.",
             "quest_type": "ExclusiveChoice",
@@ -598,6 +715,74 @@
         "quest_query": "nodes with (highway=bus_stop)",
         "quests": [
           {
+            "quest_id": 301,
+            "quest_title": "[TRF][ADA][CtT] Does this bus stop have a clear boarding zone / landing pad?",
+            "quest_description": "Identify if there is a level and unobstructed concrete or asphalt landing pad (minimum 5 ft x 8 ft) at the stop for passengers to board and alight safely. This is often a concrete pad adjacent to the curb.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:bus_stop_landing_pads_present",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              },
+              {
+                "value": "unknown",
+                "choice_text": "Unknown"
+              }
+            ]
+          },
+          {
+            "quest_id": 302,
+            "quest_title": "[TRF][ADA][CtT] Is the cross slope of this boarding zone less than 2%?",
+            "quest_description": "Measure whether the cross slope of the boarding area is less than 2%, ensuring it meets accessibility standards for wheelchair users and mobility devices. Measure the landing pad perpendicular to the sidewalk two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:bus_stop_boarding_cross_slope_lt2",
+            "quest_answer_dependency": {
+              "question_id": 301,
+              "required_value": "yes"
+            },
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              },
+              {
+                "value": "unknown",
+                "choice_text": "Unknown"
+              }
+            ]
+          },
+          {
+            "quest_id": 303,
+            "quest_title": "[TRF][ADA][CtT] Is the running slope of this bus zone less than or equal to the running slope of the street?",
+            "quest_description": "Compare the longitudinal slope of the bus zone to that of the adjacent street. Indicate whether the bus zone's running slope is less than or equal to the street's slope. Measure both the street and the landing pad two feet from the head of the landing pad (side closest to bus stop sign). Do not measure slope if there is no landing pad.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:bus_stop_zone_running_slope",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              },
+              {
+                "value": "unknown",
+                "choice_text": "Unknown"
+              }
+            ]
+          },
+          {
             "quest_id": 304,
             "quest_title": "[CC] Does this bus stop have a shelter?",
             "quest_description": "Identify the presence of a shelter at this bus stop.",
@@ -612,11 +797,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": "transit_route_facilities"
-            }
+            ]
           },
           {
             "quest_id": 305,
@@ -624,6 +805,10 @@
             "quest_description": "Identify the type of shelter structure at this bus stop.",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:bus_stop_shelter_type",
+            "quest_answer_dependency": {
+              "question_id": 304,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "double_shelter",
@@ -641,16 +826,6 @@
                 "value": "other",
                 "choice_text": "Other"
               }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 304,
-                "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": "transit_route_facilities"
-              }
             ]
           },
           {
@@ -659,6 +834,10 @@
             "quest_description": "Check whether a shelter footing or foundation pad is present at this bus stop, if a shelter structure has not been installed.",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:bus_stop_shelter_footing_present",
+            "quest_answer_dependency": {
+              "question_id": 304,
+              "required_value": "no"
+            },
             "quest_answer_choices": [
               {
                 "value": "yes",
@@ -667,16 +846,6 @@
               {
                 "value": "no",
                 "choice_text": "No"
-              }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 304,
-                "required_value": "no"
-              },
-              {
-                "question_id": 300,
-                "required_value": "transit_route_facilities"
               }
             ]
           },
@@ -695,11 +864,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": "transit_route_facilities"
-            }
+            ]
           },
           {
             "quest_id": 308,
@@ -707,6 +872,10 @@
             "quest_description": "Select the type of seating provided at this bus stop.",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:bus_stop_seating_type",
+            "quest_answer_dependency": {
+              "question_id": 307,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "metro_shelter_bench",
@@ -732,15 +901,47 @@
                 "value": "other",
                 "choice_text": "Other"
               }
-            ],
-            "quest_answer_dependency": [
+            ]
+          },
+          {
+            "quest_id": 309,
+            "quest_title": "[ADA][TRF] How many landing pads are available at this bus stop?",
+            "quest_description": "Select which boarding positions have landing pads.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:bus_stop_landing_pads",
+            "quest_answer_dependency": {
+              "question_id": 301,
+              "required_value": "yes"
+            },
+            "quest_answer_choices": [
               {
-                "question_id": 307,
-                "required_value": "yes"
+                "value": "all_three",
+                "choice_text": "All three doors"
               },
               {
-                "question_id": 300,
-                "required_value": "transit_route_facilities"
+                "value": "front_plus_one",
+                "choice_text": "Front door and one additional door"
+              },
+              {
+                "value": "front_only",
+                "choice_text": "Front door only"
+              }
+            ]
+          },
+          {
+            "quest_id": 310,
+            "quest_title": "[TRF][ADA] Does this bus stop have schedule information posted in braille or an audible recording?",
+            "quest_description": "Check whether braille schedule, audible recording, or stop information is available at this bus stop for visually impaired riders.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:bus_stop_braille_schedule_present",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
               }
             ]
           },
@@ -759,14 +960,43 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": [
-                "transit_route_facilities",
-                "ada_transition_plan"
-              ]
-            }
+            ]
+          },
+          {
+            "quest_id": 312,
+            "quest_title": "[TRF][ADA][CtT] In your opinion, is there adequate lighting at this bus stop? (1 = very low and 5 = well lit)",
+            "quest_description": "This bus stop feels well-lit and visible, especially in the evening or early morning.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:bus_stop_lighting",
+            "quest_answer_choices": [
+              {
+                "value": "1",
+                "choice_text": "1"
+              },
+              {
+                "value": "2",
+                "choice_text": "2"
+              },
+              {
+                "value": "3",
+                "choice_text": "3"
+              },
+              {
+                "value": "4",
+                "choice_text": "4"
+              },
+              {
+                "value": "5",
+                "choice_text": "5"
+              }
+            ]
+          },
+          {
+            "quest_id": 313,
+            "quest_title": "[TRF][ADA][CtT] Why did you rate the lighting at this bus stop this way?",
+            "quest_description": "Briefly explain what you observed (e.g., broken or missing streetlights, distance between lights, ambient lighting from nearby buildings) that led to your lighting rating.",
+            "quest_type": "TextEntry",
+            "quest_tag": "ext:busstop_lighting_explanation"
           },
           {
             "quest_id": 315,
@@ -783,15 +1013,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": [
-                "transit_route_facilities",
-                "access_pathways",
-                "connecting_to_transit"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 316,
@@ -799,6 +1021,10 @@
             "quest_description": "Identify the type of pedestrian infrastructure providing access.",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:bus_stop_ped_connection",
+            "quest_answer_dependency": {
+              "question_id": 315,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "sidewalk",
@@ -820,88 +1046,6 @@
                 "value": "other",
                 "choice_text": "Other"
               }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 315,
-                "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": [
-                  "transit_route_facilities",
-                  "access_pathways",
-                  "connecting_to_transit"
-                ]
-              }
-            ]
-          },
-          {
-            "quest_id": 317,
-            "quest_title": "[TRF][AP][CtT] What is the width of the pedestrian connection (in feet)?",
-            "quest_description": "Measure or estimate the width of the sidewalk or path connecting to the bus stop at its narrowest point.",
-            "quest_type": "Numeric",
-            "quest_tag": "ext:bus_stop_ped_connection_width",
-            "quest_answer_validation": {
-              "min": 0,
-              "max": 30
-            },
-            "quest_answer_dependency": [
-              {
-                "question_id": 315,
-                "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": [
-                  "transit_route_facilities",
-                  "access_pathways",
-                  "connecting_to_transit"
-                ]
-              }
-            ]
-          },
-          {
-            "quest_id": 318,
-            "quest_title": "[TRF][AP][CtT] How would you rate the quality of this pedestrian connection?",
-            "quest_description": "Rate the physical condition of the path. 1 = Poor (major cracks, overgrown, or obstructed); 5 = Excellent (smooth, clear, and well-maintained).",
-            "quest_type": "ExclusiveChoice",
-            "quest_tag": "ext:bus_stop_ped_connection_quality",
-            "quest_answer_choices": [
-              {
-                "value": "1",
-                "choice_text": "1 - Very Poor"
-              },
-              {
-                "value": "2",
-                "choice_text": "2"
-              },
-              {
-                "value": "3",
-                "choice_text": "3 - Fair"
-              },
-              {
-                "value": "4",
-                "choice_text": "4"
-              },
-              {
-                "value": "5",
-                "choice_text": "5 - Excellent"
-              }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 315,
-                "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": [
-                  "transit_route_facilities",
-                  "access_pathways",
-                  "connecting_to_transit"
-                ]
-              }
             ]
           },
           {
@@ -910,6 +1054,10 @@
             "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:bus_stop_bike_connection",
+            "quest_answer_dependency": {
+              "question_id": 319,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "bike_lane",
@@ -931,19 +1079,6 @@
                 "value": "other",
                 "choice_text": "Other"
               }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 319,
-                "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": [
-                  "connecting_to_transit",
-                  "transit_route_facilities"
-                ]
-              }
             ]
           },
           {
@@ -961,16 +1096,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": [
-                "transit_route_facilities",
-                "ada_transition_plan",
-                "access_pathways",
-                "connecting_to_transit"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 323,
@@ -991,11 +1117,7 @@
                 "value": "unknown",
                 "choice_text": "Unknown"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": "connecting_to_transit"
-            }
+            ]
           },
           {
             "quest_id": 324,
@@ -1003,6 +1125,10 @@
             "quest_description": "Select the type of buffer separating the sidewalk from adjacent motor vehicle lanes.",
             "quest_type": "MultipleChoice",
             "quest_tag": "ext:bus_stop_buffer_type",
+            "quest_answer_dependency": {
+              "question_id": 323,
+              "required_value": "yes"
+            },
             "quest_answer_choices": [
               {
                 "value": "landscaping",
@@ -1026,16 +1152,6 @@
                 "value": "other",
                 "choice_text": "Other"
               }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 323,
-                "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": "connecting_to_transit"
-              }
             ]
           },
           {
@@ -1053,11 +1169,36 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": "transit_route_facilities"
-            }
+            ]
+          },
+          {
+            "quest_id": 330,
+            "quest_title": "[TRF][ADA] Does the curb/platform allow for accessible boarding?",
+            "quest_description": "Evaluate the boarding interface. Select 'Level Boarding' if the platform is flush with the bus floor. Select 'Ramp/Kneeling Suitable' if the curb height allows a ramp to deploy at a safe, shallow angle.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:bus_stop_boarding_interface",
+            "quest_answer_choices": [
+              {
+                "value": "level_boarding",
+                "choice_text": "Level Boarding (Flush with bus floor)"
+              },
+              {
+                "value": "ramp_suitable",
+                "choice_text": "Curb height suitable for ramp/kneeling"
+              },
+              {
+                "value": "low_curb_steep_ramp",
+                "choice_text": "Low curb (Results in steep ramp angle)"
+              },
+              {
+                "value": "no_curb",
+                "choice_text": "No curb (Street level boarding)"
+              },
+              {
+                "value": "unknown",
+                "choice_text": "Unknown / Unable to determine"
+              }
+            ]
           },
           {
             "quest_id": 338,
@@ -1125,14 +1266,7 @@
                 "choice_text": "Yes, Unsignalled Intersection with Painted Crosswalk",
                 "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Median_island_and_crosswalk_2.jpg"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 400,
-              "required_value": [
-                "connecting_to_transit",
-                "speed_and_reliability"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 406,
@@ -1143,14 +1277,6 @@
             "quest_answer_validation": {
               "min": 0,
               "max": 10
-            },
-            "quest_answer_dependency": {
-              "question_id": 400,
-              "required_value": [
-                "connecting_to_transit",
-                "speed_and_reliability",
-                "transit_route_facilities"
-              ]
             }
           },
           {
@@ -1209,19 +1335,19 @@
                 "value": "unknown",
                 "choice_text": "Unknown"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 500,
-              "required_value": [
-                "ada_transition_plan",
-                "connecting_to_transit"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 502,
             "quest_title": "[CC] What type of lowered curb is this?",
             "quest_description": "Identify if this is a curb ramp or blended transition.",
+            "quest_answer_dependency": {
+              "question_id": 501,
+              "required_value": [
+                "lowered",
+                "flush"
+              ]
+            },
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:lowered_curb_type",
             "quest_answer_choices": [
@@ -1239,28 +1365,16 @@
                 "value": "unknown",
                 "choice_text": "Unknown"
               }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 501,
-                "required_value": [
-                  "lowered",
-                  "flush"
-                ]
-              },
-              {
-                "question_id": 500,
-                "required_value": [
-                  "ada_transition_plan",
-                  "connecting_to_transit"
-                ]
-              }
             ]
           },
           {
             "quest_id": 503,
             "quest_title": "[CC] What type of ramp placement is this?",
             "quest_description": "Select this ramp's placement type.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:ramp_placement_type",
             "quest_answer_choices": [
@@ -1282,15 +1396,32 @@
                 "value": "unknown",
                 "choice_text": "Unknown"
               }
-            ],
-            "quest_answer_dependency": [
+            ]
+          },
+          {
+            "quest_id": 504,
+            "quest_title": "[ADA][CtT] Does this curb ramp directionally align with the crosswalk?",
+            "quest_description": "Check if this curb ramp lines up with the pedestrian crossing.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:ramp_alignment_with_crossing",
+            "quest_answer_choices": [
               {
-                "question_id": 502,
-                "required_value": "curb_ramp"
+                "value": "aligned",
+                "choice_text": "Aligned",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/alignment/aligned_square.png"
               },
               {
-                "question_id": 500,
-                "required_value": "ada_transition_plan"
+                "value": "misaligned",
+                "choice_text": "Misaligned",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/alignment/misaligned_square.png"
+              },
+              {
+                "value": "unknown",
+                "choice_text": "Unknown"
               }
             ]
           },
@@ -1298,6 +1429,10 @@
             "quest_id": 505,
             "quest_title": "[CC] Does this curb ramp have edge protection?",
             "quest_description": "Check if there is a vertical barrier to prevent falls.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:ramp_edge_protection",
             "quest_answer_choices": [
@@ -1315,22 +1450,112 @@
                 "value": "unknown",
                 "choice_text": "Unknown"
               }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 502,
-                "required_value": "curb_ramp"
-              },
-              {
-                "question_id": 500,
-                "required_value": "ada_transition_plan"
-              }
             ]
+          },
+          {
+            "quest_id": 506,
+            "quest_title": "[ADA] What is the width of this curb ramp?",
+            "quest_description": "Measure the clear width of this curb ramp, in inches.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/width_square.png",
+            "quest_type": "Numeric",
+            "quest_tag": "ext:ramp_width",
+            "quest_answer_validation": {
+              "min": 4,
+              "max": 120
+            }
+          },
+          {
+            "quest_id": 507,
+            "quest_title": "[ADA] What is the running slope of this curb ramp?",
+            "quest_description": "Measure the incline along the direction of travel, as a percentage.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_type": "Numeric",
+            "quest_tag": "ext:ramp_running_slope",
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/running_slope_square.png",
+            "quest_answer_validation": {
+              "min": 0,
+              "max": 50
+            }
+          },
+          {
+            "quest_id": 508,
+            "quest_title": "[ADA] What is the cross slope of this curb ramp?",
+            "quest_description": "Measure the side-to-side incline of this curb ramp, as a percentage.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/cross_slope_square.png",
+            "quest_type": "Numeric",
+            "quest_tag": "ext:ramp_cross_slope",
+            "quest_answer_validation": {
+              "min": 0,
+              "max": 50
+            }
+          },
+          {
+            "quest_id": 509,
+            "quest_title": "[ADA] What is the width of this ramp's landing?",
+            "quest_description": "Measure the width of this ramp's top landing area, in inches.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/width_landscape.png",
+            "quest_type": "Numeric",
+            "quest_tag": "ext:landing_width",
+            "quest_answer_validation": {
+              "min": 3,
+              "max": 120
+            }
+          },
+          {
+            "quest_id": 510,
+            "quest_title": "[ADA] What is the depth of this ramp's landing?",
+            "quest_description": "Measure the depth of this ramp's top landing area, in inches.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/depth_landscape.png",
+            "quest_type": "Numeric",
+            "quest_tag": "ext:landing_depth",
+            "quest_answer_validation": {
+              "min": 3,
+              "max": 120
+            }
+          },
+          {
+            "quest_id": 511,
+            "quest_title": "[ADA] What is the slope of this ramp's side flares?",
+            "quest_description": "Measure the slope of this ramp's side flares, as a percentage.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/side_flare_slope_square.png",
+            "quest_type": "Numeric",
+            "quest_tag": "ext:ramp_side_flare_slope",
+            "quest_answer_validation": {
+              "min": 0,
+              "max": 50
+            }
           },
           {
             "quest_id": 512,
             "quest_title": "[CC] What is the surface material of this curb ramp?",
             "quest_description": "Identify the material this curb ramp is made of.",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:ramp_surface_material",
             "quest_answer_choices": [
@@ -1348,15 +1573,84 @@
                 "value": "other",
                 "choice_text": "Other"
               }
-            ],
-            "quest_answer_dependency": [
+            ]
+          },
+          {
+            "quest_id": 513,
+            "quest_title": "[ADA][CtT] Are detectable warnings (truncated domes) present?",
+            "quest_description": "Check for a tactile surface of raised domes at the base of the ramp. These are usually yellow or a contrasting color.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:curb_ramp_detectable_warning_present",
+            "quest_answer_dependency": {
+              "question_id": 501,
+              "required_value": "lowered"
+            },
+            "quest_answer_choices": [
               {
-                "question_id": 502,
-                "required_value": "curb_ramp"
+                "value": "yes_contrasting",
+                "choice_text": "Yes, with high color contrast (e.g. yellow on grey)"
               },
               {
-                "question_id": 500,
-                "required_value": "ada_transition_plan"
+                "value": "yes_non_contrasting",
+                "choice_text": "Yes, but lacks color contrast"
+              },
+              {
+                "value": "no",
+                "choice_text": "No"
+              }
+            ]
+          },
+          {
+            "quest_id": 514,
+            "quest_title": "[ADA][CtT] Is there a level landing area (at least 3' x 3') at the top of the ramp?",
+            "quest_description": "Determine if there is a flat, unobstructed space at the top of the ramp to allow for turning.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:curb_ramp_level_landing_present",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes, at least 3' x 3'"
+              },
+              {
+                "value": "no_small",
+                "choice_text": "No, landing is too small"
+              },
+              {
+                "value": "no_obstructed",
+                "choice_text": "No, landing is obstructed (e.g. by a pole/fire hydrant)"
+              },
+              {
+                "value": "none",
+                "choice_text": "No landing area exists"
+              }
+            ]
+          },
+          {
+            "quest_id": 515,
+            "quest_title": "[ADA][CtT] Is a pedestrian push button reachable from the curb ramp?",
+            "quest_description": "Can a person in a wheelchair reach the signal button without leaving the level landing or ramp surface?",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:curb_ramp_signal_proximity",
+            "quest_answer_dependency": {
+              "question_id": 502,
+              "required_value": "curb_ramp"
+            },
+            "quest_answer_choices": [
+              {
+                "value": "reachable",
+                "choice_text": "Yes, easily reachable"
+              },
+              {
+                "value": "unreachable",
+                "choice_text": "No, too far or blocked"
+              },
+              {
+                "value": "no_button",
+                "choice_text": "No push button present"
               }
             ]
           },
@@ -1377,29 +1671,6 @@
                 "choice_text": "No"
               }
             ]
-          }
-        ]
-      },
-      {
-        "element_type": "Sample Quests",
-        "element_type_icon": "board_type",
-        "quest_query": "nodes with (ext:sample=yes)",
-        "quests": [
-          {
-            "quest_id": 606,
-            "quest_title": "[AP] What is the width of this sidewalk (in feet)?",
-            "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
-            "quest_type": "Numeric",
-            "quest_tag": "ext:sidewalk_width",
-            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
-            "quest_answer_validation": {
-              "min": 0,
-              "max": 100
-            },
-            "quest_answer_dependency": {
-              "question_id": 605,
-              "required_value": "yes"
-            }
           }
         ]
       }
