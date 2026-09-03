@@ -3,6 +3,7 @@
 <script setup>
 import { computed, nextTick, ref, watch } from "vue";
 import { useQuestStore } from "../stores/questStore";
+import { useDragReorder } from "../composables/useDragReorder";
 import {
     inferElementCategories,
     questPresetLibrary,
@@ -19,6 +20,24 @@ const addQuestButton = ref(null);
 const questButtons = ref([]);
 const openQuestIndex = computed(() => store.selectedQuestIndex);
 const showDepGraph = ref(false);
+const reorderAnnouncement = ref("");
+
+const {
+    draggingIndex,
+    overIndex,
+    overBefore,
+    startDrag,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
+    endDrag,
+} = useDragReorder((fromIndex, toIndex) =>
+    (() => {
+        store.moveQuestTo(props.elementIndex, fromIndex, toIndex);
+        reorderAnnouncement.value = `Quest moved to position ${toIndex + 1} of ${quests.value.length}.`;
+        focusQuest(toIndex);
+    })()
+);
 
 const element = computed(
     () => store.definition.elements[props.elementIndex] ?? null
@@ -141,6 +160,9 @@ function toggleQuest(questIndex) {
 
 <template>
     <section class="creator-quest-section mt-3 pt-2 border-top">
+        <div class="visually-hidden" aria-live="polite">
+            {{ reorderAnnouncement }}
+        </div>
         <div
             class="d-flex align-items-center justify-content-between mb-2 gap-2 flex-wrap"
         >
@@ -223,12 +245,45 @@ function toggleQuest(questIndex) {
         <div v-else class="accordion" :id="`quest-accordion-${elementIndex}`">
             <template
                 v-for="(quest, questIndex) in quests"
-                :key="`q-${quest.quest_id}-${questIndex}`"
+                :key="quest"
             >
             <div
                 class="accordion-item"
+                :class="{
+                    'creator-dragging': draggingIndex === questIndex,
+                    'creator-drag-over': overIndex === questIndex,
+                    'creator-drag-over-before':
+                        overIndex === questIndex && overBefore,
+                    'creator-drag-over-after':
+                        overIndex === questIndex && !overBefore,
+                }"
+                @dragover="handleDragOver(questIndex, $event)"
+                @dragleave="handleDragLeave($event)"
+                @drop="handleDrop(questIndex, $event)"
             >
                 <h4 class="accordion-header">
+                    <span
+                        class="creator-drag-handle"
+                        aria-hidden="true"
+                        title="Drag to reorder"
+                        draggable="true"
+                        @dragstart.stop="startDrag(questIndex, $event)"
+                        @dragend.stop="endDrag"
+                    >
+                        <svg
+                            viewBox="0 0 16 16"
+                            width="14"
+                            height="14"
+                            fill="currentColor"
+                        >
+                            <circle cx="5" cy="3" r="1.5" />
+                            <circle cx="11" cy="3" r="1.5" />
+                            <circle cx="5" cy="8" r="1.5" />
+                            <circle cx="11" cy="8" r="1.5" />
+                            <circle cx="5" cy="13" r="1.5" />
+                            <circle cx="11" cy="13" r="1.5" />
+                        </svg>
+                    </span>
                     <button
                         :ref="
                             (elementRef) =>
@@ -263,7 +318,7 @@ function toggleQuest(questIndex) {
                                 type="button"
                                 class="btn btn-sm btn-outline-secondary py-1 px-2"
                                 :disabled="questIndex === 0"
-                                aria-label="Move quest up"
+                                :aria-label="`Move quest ${questIndex + 1} up`"
                                 @click="moveQuestUp(questIndex)"
                             >
                                 Move Up
@@ -272,7 +327,7 @@ function toggleQuest(questIndex) {
                                 type="button"
                                 class="btn btn-sm btn-outline-secondary py-1 px-2"
                                 :disabled="questIndex === quests.length - 1"
-                                aria-label="Move quest down"
+                                :aria-label="`Move quest ${questIndex + 1} down`"
                                 @click="moveQuestDown(questIndex)"
                             >
                                 Move Down

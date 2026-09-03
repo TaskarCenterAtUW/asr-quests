@@ -329,3 +329,139 @@ describe("recency period normalization", () => {
     expect(Number.isInteger(store.definition.recency_period)).toBe(true);
   });
 });
+
+describe("drag-and-drop reordering", () => {
+  it("moves an element to an arbitrary index and recomputes quest ids", () => {
+    const store = useQuestStore();
+    store.resetDefinition();
+    store.addElement();
+    store.updateElement(0, { element_type: "A" });
+    store.addElement();
+    store.updateElement(1, { element_type: "B" });
+    store.addElement();
+    store.updateElement(2, { element_type: "C" });
+
+    store.addQuest(0);
+    store.addQuest(0);
+    store.addQuest(1);
+
+    // Elements: [A(2 quests), B(1 quest), C(0 quests)].
+    expect(
+      store.definition.elements[0].quests.map((quest) => quest.quest_id)
+    ).toEqual([101, 102]);
+    expect(
+      store.definition.elements[1].quests.map((quest) => quest.quest_id)
+    ).toEqual([201]);
+
+    // Drag element A (index 0) down to the end (index 2).
+    store.moveElementTo(0, 2);
+
+    expect(
+      store.definition.elements.map((element) => element.element_type)
+    ).toEqual(["B", "C", "A"]);
+
+    // B (now index 0) recomputes its quest id to 1xx.
+    expect(
+      store.definition.elements[0].quests.map((quest) => quest.quest_id)
+    ).toEqual([101]);
+    // A (now index 2) recomputes its two quest ids to 3xx.
+    expect(
+      store.definition.elements[2].quests.map((quest) => quest.quest_id)
+    ).toEqual([301, 302]);
+    // C is empty.
+    expect(store.definition.elements[1].quests).toEqual([]);
+  });
+
+  it("moves a quest to an arbitrary index and remaps dependencies", () => {
+    const store = useQuestStore();
+    store.resetDefinition();
+    store.addElement();
+    store.addQuest(0);
+    store.updateQuest(0, 0, { quest_title: "Q0" });
+    store.addQuest(0);
+    store.updateQuest(0, 1, { quest_title: "Q1" });
+    store.addQuest(0);
+    store.updateQuest(0, 2, { quest_title: "Q2" });
+
+    // Give Q0 a dependency on Q1's answer (id 102).
+    const secondQuestId = store.definition.elements[0].quests[1].quest_id;
+    store.updateQuest(0, 0, {
+      quest_type: "ExclusiveChoice",
+      _deps: [{ question_id: secondQuestId, required_value: ["yes"] }],
+    });
+    expect(store.definition.elements[0].quests[0]._deps[0].question_id).toBe(
+      secondQuestId
+    );
+
+    // Drag Q0 (index 0) down to the end (index 2).
+    store.moveQuestTo(0, 0, 2);
+
+    const quests = store.definition.elements[0].quests;
+    expect(quests.map((quest) => quest.quest_title)).toEqual([
+      "Q1",
+      "Q2",
+      "Q0",
+    ]);
+
+    // The moved Q0 still depends on Q1, which is now at index 0 with id 101.
+    const movedQuest = quests.find((quest) => quest.quest_title === "Q0");
+    const referencedQuest = quests.find(
+      (quest) => quest.quest_id === movedQuest._deps[0].question_id
+    );
+    expect(referencedQuest.quest_title).toBe("Q1");
+  });
+
+  it("moves a feature preset to an arbitrary index", () => {
+    const store = useQuestStore();
+    store.resetDefinition();
+    store.addFeaturePreset();
+    store.updateFeaturePreset(0, { name: "A", icon: "", tags: { amenity: "a" } });
+    store.addFeaturePreset();
+    store.updateFeaturePreset(1, { name: "B", icon: "", tags: { amenity: "b" } });
+    store.addFeaturePreset();
+    store.updateFeaturePreset(2, { name: "C", icon: "", tags: { amenity: "c" } });
+
+    store.moveFeaturePresetTo(2, 0);
+
+    expect(
+      store.definition["feature-presets"].map((preset) => preset.name)
+    ).toEqual(["C", "A", "B"]);
+  });
+
+  it("moves a custom icon to an arbitrary index", () => {
+    const store = useQuestStore();
+    store.resetDefinition();
+    store.addCustomIcon();
+    store.updateCustomIcon(0, { name: "a", url: "https://example.com/a.svg" });
+    store.addCustomIcon();
+    store.updateCustomIcon(1, { name: "b", url: "https://example.com/b.svg" });
+
+    store.moveCustomIconTo(0, 1);
+
+    expect(
+      store.definition["custom-icons"].map((icon) => icon.name)
+    ).toEqual(["b", "a"]);
+  });
+
+  it("moves a choice to an arbitrary index", () => {
+    const store = useQuestStore();
+    store.resetDefinition();
+    store.addElement();
+    store.addQuest(0);
+    store.updateQuest(0, 0, { quest_type: "ExclusiveChoice" });
+    store.addChoice(0, 0);
+    store.updateChoice(0, 0, 0, { value: "one" });
+    store.addChoice(0, 0);
+    store.updateChoice(0, 0, 1, { value: "two" });
+    store.addChoice(0, 0);
+    store.updateChoice(0, 0, 2, { value: "three" });
+
+    store.moveChoiceTo(0, 0, 2, 0);
+
+    expect(
+      store.definition.elements[0].quests[0].quest_answer_choices.map(
+        (choice) => choice.value
+      )
+    ).toEqual(["three", "one", "two"]);
+  });
+});
