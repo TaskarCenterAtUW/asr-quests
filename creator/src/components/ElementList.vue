@@ -195,6 +195,18 @@ function shiftExpandedAfterRemove(index) {
     expandedElements.value = nextExpanded;
 }
 
+function shiftExpandedAfterInsert(index) {
+    const nextExpanded = new Set();
+
+    expandedElements.value.forEach((expandedIndex) => {
+        nextExpanded.add(
+            expandedIndex >= index ? expandedIndex + 1 : expandedIndex
+        );
+    });
+
+    expandedElements.value = nextExpanded;
+}
+
 function moveExpandedIndex(fromIndex, toIndex) {
     if (fromIndex === toIndex) {
         return;
@@ -239,6 +251,13 @@ function selectQuestFromTree(elementIndex, questIndex) {
 function addElement() {
     store.addElement();
     focusElement(store.selectedElementIndex);
+}
+
+function duplicateElement(index) {
+    shiftExpandedAfterInsert(index + 1);
+    store.duplicateElement(index);
+    ensureExpanded(index + 1);
+    focusElement(index + 1);
 }
 
 function applyElementPreset(preset) {
@@ -701,6 +720,26 @@ watch(
                                             />
                                         </svg>
                                         <span>Move Down</span>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-outline-secondary creator-toolbar-button creator-icon-action"
+                                        aria-label="Duplicate element"
+                                        title="Duplicate element"
+                                        @click="duplicateElement(selectedIndex)"
+                                    >
+                                        <svg
+                                            aria-hidden="true"
+                                            viewBox="0 0 16 16"
+                                            class="creator-button-icon"
+                                        >
+                                            <path
+                                                d="M4 1.5A1.5 1.5 0 0 0 2.5 3v8A1.5 1.5 0 0 0 4 12.5h1v-1H4a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1h1V3A1.5 1.5 0 0 0 10 1.5H4z"
+                                            />
+                                            <path
+                                                d="M7 4.5A1.5 1.5 0 0 0 5.5 6v7A1.5 1.5 0 0 0 7 14.5h5A1.5 1.5 0 0 0 13.5 13V6A1.5 1.5 0 0 0 12 4.5H7zM6.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V6z"
+                                            />
+                                        </svg>
                                     </button>
                                     <button
                                         type="button"

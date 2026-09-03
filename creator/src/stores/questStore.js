@@ -1056,6 +1056,33 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
+  function duplicateElement(elementIndex) {
+    const source = definition.value.elements[elementIndex];
+    if (!source) {
+      return;
+    }
+
+    const duplicate = {
+      element_type: source.element_type,
+      element_type_icon: source.element_type_icon,
+      quest_query: source.quest_query,
+      quests: source.quests.map((quest) => questFromDraft(quest)),
+    };
+    const duplicateIndex = elementIndex + 1;
+
+    definition.value.elements.splice(duplicateIndex, 0, duplicate);
+    for (
+      let nextElementIndex = duplicateIndex;
+      nextElementIndex < definition.value.elements.length;
+      nextElementIndex += 1
+    ) {
+      recomputeQuestIds(nextElementIndex);
+    }
+    selectedElementIndex.value = duplicateIndex;
+    selectedQuestIndex.value = duplicate.quests.length > 0 ? 0 : null;
+    touchEditorSession();
+  }
+
   function removeElement(elementIndex) {
     definition.value.elements.splice(elementIndex, 1);
 
@@ -1173,6 +1200,21 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
+  function duplicateFeaturePreset(presetIndex) {
+    const presets = definition.value["feature-presets"];
+    const source = presets?.[presetIndex];
+    if (!source) {
+      return;
+    }
+
+    presets.splice(presetIndex + 1, 0, {
+      name: source.name,
+      icon: source.icon,
+      tags: { ...(source.tags || {}) },
+    });
+    touchEditorSession();
+  }
+
   function updateFeaturePreset(presetIndex, fields) {
     const preset = definition.value["feature-presets"]?.[presetIndex];
     if (!preset) {
@@ -1270,6 +1312,17 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
+  function duplicateCustomIcon(iconIndex) {
+    const icons = definition.value["custom-icons"];
+    const source = icons?.[iconIndex];
+    if (!source) {
+      return;
+    }
+
+    icons.splice(iconIndex + 1, 0, { ...source });
+    touchEditorSession();
+  }
+
   function updateCustomIcon(iconIndex, fields) {
     const icon = definition.value["custom-icons"]?.[iconIndex];
     if (!icon) {
@@ -1349,6 +1402,47 @@ export const useQuestStore = defineStore("quest", () => {
     quests.push(newQuest(elementIndex, quests.length));
     selectedElementIndex.value = elementIndex;
     selectedQuestIndex.value = quests.length - 1;
+    touchEditorSession();
+  }
+
+  function duplicateQuest(elementIndex, questIndex) {
+    const element = definition.value.elements[elementIndex];
+    const source = element?.quests[questIndex];
+    if (!element || !source) {
+      return;
+    }
+
+    const originalQuests = element.quests.slice();
+    const originalIds = new Map(
+      originalQuests.map((quest) => [quest, quest.quest_id])
+    );
+    const duplicate = questFromDraft(source);
+    element.quests.splice(questIndex + 1, 0, duplicate);
+
+    const originalIdToNewId = new Map(
+      originalQuests.map((quest, index) => [
+        originalIds.get(quest),
+        (elementIndex + 1) * 100 + (index + (index > questIndex ? 1 : 0)) + 1,
+      ])
+    );
+    const duplicateId = (elementIndex + 1) * 100 + questIndex + 2;
+
+    element.quests.forEach((quest, index) => {
+      quest.quest_id =
+        index === questIndex + 1
+          ? duplicateId
+          : originalIdToNewId.get(originalIds.get(quest));
+      quest._deps = (quest._deps || []).map((dependency) => ({
+        ...dependency,
+        question_id:
+          dependency.question_id == null
+            ? null
+            : (originalIdToNewId.get(dependency.question_id) ?? null),
+      }));
+    });
+    normalizeDependenciesForElement(elementIndex);
+    selectedElementIndex.value = elementIndex;
+    selectedQuestIndex.value = questIndex + 1;
     touchEditorSession();
   }
 
@@ -1544,6 +1638,19 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
+  function duplicateChoice(elementIndex, questIndex, choiceIndex) {
+    const choices =
+      definition.value.elements[elementIndex]?.quests[questIndex]
+        ?.quest_answer_choices;
+    const source = choices?.[choiceIndex];
+    if (!choices || !source) {
+      return;
+    }
+
+    choices.splice(choiceIndex + 1, 0, { ...source });
+    touchEditorSession();
+  }
+
   function removeChoice(elementIndex, questIndex, choiceIndex) {
     definition.value.elements[elementIndex].quests[
       questIndex
@@ -1621,6 +1728,7 @@ export const useQuestStore = defineStore("quest", () => {
     loadFromJson,
     resetDefinition,
     addElement,
+    duplicateElement,
     removeElement,
     moveElementUp,
     moveElementDown,
@@ -1628,6 +1736,7 @@ export const useQuestStore = defineStore("quest", () => {
     updateElement,
     setRecencyPeriod,
     addFeaturePreset,
+    duplicateFeaturePreset,
     updateFeaturePreset,
     setFeaturePresetTag,
     removeFeaturePresetTag,
@@ -1636,6 +1745,7 @@ export const useQuestStore = defineStore("quest", () => {
     moveFeaturePresetDown,
     moveFeaturePresetTo,
     addCustomIcon,
+    duplicateCustomIcon,
     updateCustomIcon,
     removeCustomIcon,
     moveCustomIconUp,
@@ -1643,6 +1753,7 @@ export const useQuestStore = defineStore("quest", () => {
     moveCustomIconTo,
     applyElementPreset,
     addQuest,
+    duplicateQuest,
     insertSingleQuestTemplate,
     insertQuestPreset,
     insertQuestTemplatePack,
@@ -1653,6 +1764,7 @@ export const useQuestStore = defineStore("quest", () => {
     updateQuest,
     recomputeQuestIds,
     addChoice,
+    duplicateChoice,
     removeChoice,
     moveChoiceUp,
     moveChoiceDown,
