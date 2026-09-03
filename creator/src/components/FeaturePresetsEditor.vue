@@ -1,14 +1,35 @@
 <!-- @format -->
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, nextTick, ref } from "vue";
 import { useQuestStore } from "../stores/questStore";
+import { useDragReorder } from "../composables/useDragReorder";
 import IconPicker from "./IconPicker.vue";
 
 const store = useQuestStore();
 const presets = computed(() => store.definition["feature-presets"]);
 const hasSection = computed(() => Array.isArray(presets.value));
 const isExpanded = ref(true);
+const reorderAnnouncement = ref("");
+
+const {
+    draggingIndex,
+    overIndex,
+    overBefore,
+    startDrag,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
+    endDrag,
+} = useDragReorder((fromIndex, toIndex) =>
+    (() => {
+        store.moveFeaturePresetTo(fromIndex, toIndex);
+        reorderAnnouncement.value = `Feature preset moved to position ${toIndex + 1} of ${presets.value?.length ?? 0}.`;
+        nextTick(() =>
+            document.getElementById(`feature-preset-name-${toIndex}`)?.focus()
+        );
+    })()
+);
 
 function addFeaturePreset() {
     isExpanded.value = true;
@@ -102,6 +123,9 @@ function removeTag(index, key) {
             v-if="isExpanded"
             class="card-body d-grid gap-3"
         >
+            <div class="visually-hidden" aria-live="polite">
+                {{ reorderAnnouncement }}
+            </div>
             <p v-if="!hasSection" class="small text-muted mb-0">
                 No feature-preset section will be exported until you add a
                 preset.
@@ -115,13 +139,48 @@ function removeTag(index, key) {
 
             <article
                 v-for="(preset, index) in presets || []"
-                :key="`feature-preset-${index}`"
+                :key="preset"
                 class="creator-editor-row"
+                :class="{
+                    'creator-dragging': draggingIndex === index,
+                    'creator-drag-over': overIndex === index,
+                    'creator-drag-over-before':
+                        overIndex === index && overBefore,
+                    'creator-drag-over-after':
+                        overIndex === index && !overBefore,
+                }"
+                @dragover="handleDragOver(index, $event)"
+                @dragleave="handleDragLeave($event)"
+                @drop="handleDrop(index, $event)"
             >
                 <div
                     class="d-flex justify-content-between align-items-start gap-2 flex-wrap mb-3"
                 >
-                    <h3 class="h6 mb-0">Preset {{ index + 1 }}</h3>
+                    <h3 class="h6 mb-0 d-inline-flex align-items-center gap-2">
+                        <span
+                            class="creator-drag-handle"
+                            aria-hidden="true"
+                            title="Drag to reorder"
+                            draggable="true"
+                            @dragstart.stop="startDrag(index, $event)"
+                            @dragend.stop="endDrag"
+                        >
+                            <svg
+                                viewBox="0 0 16 16"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                            >
+                                <circle cx="5" cy="3" r="1.5" />
+                                <circle cx="11" cy="3" r="1.5" />
+                                <circle cx="5" cy="8" r="1.5" />
+                                <circle cx="11" cy="8" r="1.5" />
+                                <circle cx="5" cy="13" r="1.5" />
+                                <circle cx="11" cy="13" r="1.5" />
+                            </svg>
+                        </span>
+                        Preset {{ index + 1 }}
+                    </h3>
                     <div class="d-flex gap-2 flex-wrap">
                         <button
                             type="button"

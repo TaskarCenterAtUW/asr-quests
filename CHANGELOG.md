@@ -24,6 +24,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.8.0] - 2026-09-03
+
+### Changed
+
+- Added drag-and-drop reordering for elements, quests, answer choices, feature presets, and custom icons
+
 ## Creator: [v0.7.1] - 2026-09-03
 
 ### Fixed

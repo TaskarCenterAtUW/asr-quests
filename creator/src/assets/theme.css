@@ -898,6 +898,132 @@ textarea.form-control {
   opacity: 0.72;
 }
 
+/* ── Drag-and-drop reorder ──────────────────────────────── */
+
+.creator-drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: grab;
+  color: var(--creator-ink-muted);
+  opacity: 0.55;
+  border-radius: var(--creator-radius-sm);
+  user-select: none;
+  transition: opacity 0.18s ease, color 0.18s ease;
+}
+
+.creator-drag-handle:hover,
+.creator-drag-handle:focus-visible,
+[draggable="true"]:hover .creator-drag-handle,
+[draggable="true"]:focus-within .creator-drag-handle {
+  opacity: 1;
+  color: var(--creator-primary);
+}
+
+[draggable="true"] {
+  cursor: default;
+}
+
+.creator-dragging {
+  opacity: 0.4;
+}
+
+.creator-dragging * {
+  cursor: grabbing;
+}
+
+.creator-drag-over {
+  position: relative;
+}
+
+/* Accordion items clip their contents, so allow the drop indicator to
+   render just outside their bounds while a drag is hovering them. */
+.accordion-item.creator-drag-over {
+  overflow: visible;
+}
+
+.creator-drag-over-before::before,
+.creator-drag-over-after::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--creator-radius-pill);
+  background: var(--creator-primary);
+  pointer-events: none;
+  z-index: 1;
+  animation: creator-drag-indicator-fade-in 0.15s ease;
+}
+
+.creator-drag-over-before::before {
+  top: -2px;
+}
+
+.creator-drag-over-after::after {
+  bottom: -2px;
+}
+
+@keyframes creator-drag-indicator-fade-in {
+  from {
+    transform: scaleX(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Compact drag handle inside row headers */
+.creator-editor-row .creator-drag-handle {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-inline-end: 0.15rem;
+}
+
+/* Accordion header: drag handle next to the toggle button */
+.accordion-header {
+  display: flex;
+  align-items: stretch;
+}
+
+.accordion-header .creator-drag-handle {
+  align-self: center;
+  margin: 0 0.1rem 0 0.35rem;
+}
+
+.accordion-header .accordion-button {
+  flex: 1 1 auto;
+  width: auto;
+  padding-left: 0.4rem !important;
+}
+
+/* Sidebar tree row: drag handle */
+.creator-tree-row .creator-drag-handle {
+  align-self: center;
+  margin-inline-end: 0.15rem;
+}
+
+/* Choices: drag handle alongside action buttons */
+.creator-drag-handle.me-auto {
+  margin-inline-end: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .creator-drag-over-before::before,
+  .creator-drag-over-after::after {
+    animation: none;
+  }
+
+  .creator-drag-handle {
+    transition: none;
+  }
+}
+
 .alert-danger {
   background: rgba(var(--bs-danger-rgb), 0.12);
   border-color: rgba(var(--bs-danger-rgb), 0.26);

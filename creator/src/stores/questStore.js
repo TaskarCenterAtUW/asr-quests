@@ -1091,50 +1091,62 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
-  function moveElementUp(elementIndex) {
-    if (elementIndex === 0) {
+  function moveElementTo(fromIndex, toIndex) {
+    const elements = definition.value.elements;
+    if (
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= elements.length ||
+      toIndex < 0 ||
+      toIndex >= elements.length
+    ) {
       return;
     }
 
-    const elements = definition.value.elements;
-    [elements[elementIndex - 1], elements[elementIndex]] = [
-      elements[elementIndex],
-      elements[elementIndex - 1],
-    ];
+    const [moved] = elements.splice(fromIndex, 1);
+    elements.splice(toIndex, 0, moved);
 
-    recomputeQuestIds(elementIndex - 1);
-    recomputeQuestIds(elementIndex);
+    const start = Math.min(fromIndex, toIndex);
+    const end = Math.max(fromIndex, toIndex);
+    for (let index = start; index <= end; index += 1) {
+      recomputeQuestIds(index);
+    }
 
-    if (selectedElementIndex.value === elementIndex) {
-      selectedElementIndex.value = elementIndex - 1;
-    } else if (selectedElementIndex.value === elementIndex - 1) {
-      selectedElementIndex.value = elementIndex;
+    if (selectedElementIndex.value === fromIndex) {
+      selectedElementIndex.value = toIndex;
+    } else if (selectedElementIndex.value != null) {
+      if (
+        fromIndex < toIndex &&
+        selectedElementIndex.value > fromIndex &&
+        selectedElementIndex.value <= toIndex
+      ) {
+        selectedElementIndex.value -= 1;
+      } else if (
+        fromIndex > toIndex &&
+        selectedElementIndex.value >= toIndex &&
+        selectedElementIndex.value < fromIndex
+      ) {
+        selectedElementIndex.value += 1;
+      }
     }
 
     touchEditorSession();
   }
 
-  function moveElementDown(elementIndex) {
-    const elements = definition.value.elements;
-    if (elementIndex >= elements.length - 1) {
+  function moveElementUp(elementIndex) {
+    if (elementIndex === 0) {
       return;
     }
 
-    [elements[elementIndex], elements[elementIndex + 1]] = [
-      elements[elementIndex + 1],
-      elements[elementIndex],
-    ];
+    moveElementTo(elementIndex, elementIndex - 1);
+  }
 
-    recomputeQuestIds(elementIndex);
-    recomputeQuestIds(elementIndex + 1);
-
-    if (selectedElementIndex.value === elementIndex) {
-      selectedElementIndex.value = elementIndex + 1;
-    } else if (selectedElementIndex.value === elementIndex + 1) {
-      selectedElementIndex.value = elementIndex;
+  function moveElementDown(elementIndex) {
+    if (elementIndex >= definition.value.elements.length - 1) {
+      return;
     }
 
-    touchEditorSession();
+    moveElementTo(elementIndex, elementIndex + 1);
   }
 
   function updateElement(elementIndex, fields) {
@@ -1211,16 +1223,11 @@ export const useQuestStore = defineStore("quest", () => {
   }
 
   function moveFeaturePresetUp(presetIndex) {
-    const presets = definition.value["feature-presets"];
-    if (!presets || presetIndex <= 0) {
+    if (presetIndex <= 0) {
       return;
     }
 
-    [presets[presetIndex - 1], presets[presetIndex]] = [
-      presets[presetIndex],
-      presets[presetIndex - 1],
-    ];
-    touchEditorSession();
+    moveFeaturePresetTo(presetIndex, presetIndex - 1);
   }
 
   function moveFeaturePresetDown(presetIndex) {
@@ -1229,10 +1236,24 @@ export const useQuestStore = defineStore("quest", () => {
       return;
     }
 
-    [presets[presetIndex], presets[presetIndex + 1]] = [
-      presets[presetIndex + 1],
-      presets[presetIndex],
-    ];
+    moveFeaturePresetTo(presetIndex, presetIndex + 1);
+  }
+
+  function moveFeaturePresetTo(fromIndex, toIndex) {
+    const presets = definition.value["feature-presets"];
+    if (
+      !presets ||
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= presets.length ||
+      toIndex < 0 ||
+      toIndex >= presets.length
+    ) {
+      return;
+    }
+
+    const [moved] = presets.splice(fromIndex, 1);
+    presets.splice(toIndex, 0, moved);
     touchEditorSession();
   }
 
@@ -1273,16 +1294,11 @@ export const useQuestStore = defineStore("quest", () => {
   }
 
   function moveCustomIconUp(iconIndex) {
-    const icons = definition.value["custom-icons"];
-    if (!icons || iconIndex <= 0) {
+    if (iconIndex <= 0) {
       return;
     }
 
-    [icons[iconIndex - 1], icons[iconIndex]] = [
-      icons[iconIndex],
-      icons[iconIndex - 1],
-    ];
-    touchEditorSession();
+    moveCustomIconTo(iconIndex, iconIndex - 1);
   }
 
   function moveCustomIconDown(iconIndex) {
@@ -1291,10 +1307,24 @@ export const useQuestStore = defineStore("quest", () => {
       return;
     }
 
-    [icons[iconIndex], icons[iconIndex + 1]] = [
-      icons[iconIndex + 1],
-      icons[iconIndex],
-    ];
+    moveCustomIconTo(iconIndex, iconIndex + 1);
+  }
+
+  function moveCustomIconTo(fromIndex, toIndex) {
+    const icons = definition.value["custom-icons"];
+    if (
+      !icons ||
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= icons.length ||
+      toIndex < 0 ||
+      toIndex >= icons.length
+    ) {
+      return;
+    }
+
+    const [moved] = icons.splice(fromIndex, 1);
+    icons.splice(toIndex, 0, moved);
     touchEditorSession();
   }
 
@@ -1394,44 +1424,62 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
-  function moveQuestUp(elementIndex, questIndex) {
-    if (questIndex === 0) {
+  function moveQuestTo(elementIndex, fromIndex, toIndex) {
+    const quests = definition.value.elements[elementIndex]?.quests;
+    if (
+      !quests ||
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= quests.length ||
+      toIndex < 0 ||
+      toIndex >= quests.length
+    ) {
       return;
     }
 
-    const quests = definition.value.elements[elementIndex].quests;
-    [quests[questIndex - 1], quests[questIndex]] = [
-      quests[questIndex],
-      quests[questIndex - 1],
-    ];
+    const [moved] = quests.splice(fromIndex, 1);
+    quests.splice(toIndex, 0, moved);
 
     recomputeQuestIds(elementIndex);
 
     if (selectedElementIndex.value === elementIndex) {
-      selectedQuestIndex.value = questIndex - 1;
+      if (selectedQuestIndex.value === fromIndex) {
+        selectedQuestIndex.value = toIndex;
+      } else if (selectedQuestIndex.value != null) {
+        if (
+          fromIndex < toIndex &&
+          selectedQuestIndex.value > fromIndex &&
+          selectedQuestIndex.value <= toIndex
+        ) {
+          selectedQuestIndex.value -= 1;
+        } else if (
+          fromIndex > toIndex &&
+          selectedQuestIndex.value >= toIndex &&
+          selectedQuestIndex.value < fromIndex
+        ) {
+          selectedQuestIndex.value += 1;
+        }
+      }
     }
 
     touchEditorSession();
   }
 
-  function moveQuestDown(elementIndex, questIndex) {
-    const quests = definition.value.elements[elementIndex].quests;
-    if (questIndex >= quests.length - 1) {
+  function moveQuestUp(elementIndex, questIndex) {
+    if (questIndex === 0) {
       return;
     }
 
-    [quests[questIndex], quests[questIndex + 1]] = [
-      quests[questIndex + 1],
-      quests[questIndex],
-    ];
+    moveQuestTo(elementIndex, questIndex, questIndex - 1);
+  }
 
-    recomputeQuestIds(elementIndex);
-
-    if (selectedElementIndex.value === elementIndex) {
-      selectedQuestIndex.value = questIndex + 1;
+  function moveQuestDown(elementIndex, questIndex) {
+    const quests = definition.value.elements[elementIndex]?.quests;
+    if (!quests || questIndex >= quests.length - 1) {
+      return;
     }
 
-    touchEditorSession();
+    moveQuestTo(elementIndex, questIndex, questIndex + 1);
   }
 
   function updateQuest(elementIndex, questIndex, fields) {
@@ -1508,32 +1556,38 @@ export const useQuestStore = defineStore("quest", () => {
       return;
     }
 
-    const choices =
-      definition.value.elements[elementIndex].quests[questIndex]
-        .quest_answer_choices;
-
-    [choices[choiceIndex - 1], choices[choiceIndex]] = [
-      choices[choiceIndex],
-      choices[choiceIndex - 1],
-    ];
-
-    touchEditorSession();
+    moveChoiceTo(elementIndex, questIndex, choiceIndex, choiceIndex - 1);
   }
 
   function moveChoiceDown(elementIndex, questIndex, choiceIndex) {
     const choices =
-      definition.value.elements[elementIndex].quests[questIndex]
-        .quest_answer_choices;
+      definition.value.elements[elementIndex]?.quests[questIndex]
+        ?.quest_answer_choices;
 
-    if (choiceIndex >= choices.length - 1) {
+    if (!choices || choiceIndex >= choices.length - 1) {
       return;
     }
 
-    [choices[choiceIndex], choices[choiceIndex + 1]] = [
-      choices[choiceIndex + 1],
-      choices[choiceIndex],
-    ];
+    moveChoiceTo(elementIndex, questIndex, choiceIndex, choiceIndex + 1);
+  }
 
+  function moveChoiceTo(elementIndex, questIndex, fromIndex, toIndex) {
+    const choices =
+      definition.value.elements[elementIndex]?.quests[questIndex]
+        ?.quest_answer_choices;
+    if (
+      !choices ||
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= choices.length ||
+      toIndex < 0 ||
+      toIndex >= choices.length
+    ) {
+      return;
+    }
+
+    const [moved] = choices.splice(fromIndex, 1);
+    choices.splice(toIndex, 0, moved);
     touchEditorSession();
   }
 
@@ -1570,6 +1624,7 @@ export const useQuestStore = defineStore("quest", () => {
     removeElement,
     moveElementUp,
     moveElementDown,
+    moveElementTo,
     updateElement,
     setRecencyPeriod,
     addFeaturePreset,
@@ -1579,11 +1634,13 @@ export const useQuestStore = defineStore("quest", () => {
     removeFeaturePreset,
     moveFeaturePresetUp,
     moveFeaturePresetDown,
+    moveFeaturePresetTo,
     addCustomIcon,
     updateCustomIcon,
     removeCustomIcon,
     moveCustomIconUp,
     moveCustomIconDown,
+    moveCustomIconTo,
     applyElementPreset,
     addQuest,
     insertSingleQuestTemplate,
@@ -1592,12 +1649,14 @@ export const useQuestStore = defineStore("quest", () => {
     removeQuest,
     moveQuestUp,
     moveQuestDown,
+    moveQuestTo,
     updateQuest,
     recomputeQuestIds,
     addChoice,
     removeChoice,
     moveChoiceUp,
     moveChoiceDown,
+    moveChoiceTo,
     updateChoice,
   };
 });

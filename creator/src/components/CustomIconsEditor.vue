@@ -1,16 +1,37 @@
 <!-- @format -->
 
 <script setup>
-import { computed, onBeforeUnmount, ref } from "vue";
+import { computed, nextTick, onBeforeUnmount, reactive, ref } from "vue";
 import { useQuestStore } from "../stores/questStore";
+import { useDragReorder } from "../composables/useDragReorder";
 
 const store = useQuestStore();
 const icons = computed(() => store.definition["custom-icons"]);
 const hasSection = computed(() => Array.isArray(icons.value));
-const imageErrors = ref({});
-const previewUrls = ref({});
-const previewTimers = {};
+const reorderAnnouncement = ref("");
+const imageErrors = reactive(new Map());
+const previewUrls = reactive(new Map());
+const previewTimers = new Map();
 const isExpanded = ref(true);
+
+const {
+    draggingIndex,
+    overIndex,
+    overBefore,
+    startDrag,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
+    endDrag,
+} = useDragReorder((fromIndex, toIndex) =>
+    (() => {
+        store.moveCustomIconTo(fromIndex, toIndex);
+        reorderAnnouncement.value = `Custom icon moved to position ${toIndex + 1} of ${icons.value?.length ?? 0}.`;
+        nextTick(() =>
+            document.getElementById(`custom-icon-name-${toIndex}`)?.focus()
+        );
+    })()
+);
 
 function iconHint(type) {
     return type === "feature-preset"
@@ -59,35 +80,43 @@ function usedBy(name) {
     return usages;
 }
 
-function markImageError(index) {
-    imageErrors.value[index] = true;
+function markImageError(icon) {
+    imageErrors.set(icon, true);
 }
 
-function getPreviewUrl(index, fallbackUrl) {
-    return Object.prototype.hasOwnProperty.call(previewUrls.value, index)
-        ? previewUrls.value[index]
+function getPreviewUrl(icon, fallbackUrl) {
+    return previewUrls.has(icon)
+        ? previewUrls.get(icon)
         : fallbackUrl;
 }
 
 function updateUrl(index, value) {
-    const currentUrl = icons.value?.[index]?.url || "";
-    if (!Object.prototype.hasOwnProperty.call(previewUrls.value, index)) {
-        previewUrls.value[index] = currentUrl;
+    const icon = icons.value?.[index];
+    if (!icon) {
+        return;
+    }
+
+    const currentUrl = icon.url || "";
+    if (!previewUrls.has(icon)) {
+        previewUrls.set(icon, currentUrl);
     }
 
     store.updateCustomIcon(index, { url: value });
-    imageErrors.value[index] = false;
+    imageErrors.set(icon, false);
 
-    clearTimeout(previewTimers[index]);
-    previewTimers[index] = setTimeout(() => {
-        previewUrls.value[index] = String(value ?? "").trim();
-        imageErrors.value[index] = false;
-        delete previewTimers[index];
-    }, 180);
+    clearTimeout(previewTimers.get(icon));
+    previewTimers.set(
+        icon,
+        setTimeout(() => {
+            previewUrls.set(icon, String(value ?? "").trim());
+            imageErrors.set(icon, false);
+            previewTimers.delete(icon);
+        }, 180)
+    );
 }
 
 onBeforeUnmount(() => {
-    Object.values(previewTimers).forEach((timer) => clearTimeout(timer));
+    previewTimers.forEach((timer) => clearTimeout(timer));
 });
 </script>
 
@@ -125,6 +154,9 @@ onBeforeUnmount(() => {
             v-if="isExpanded"
             class="card-body d-grid gap-3"
         >
+            <div class="visually-hidden" aria-live="polite">
+                {{ reorderAnnouncement }}
+            </div>
             <p v-if="!hasSection" class="small text-muted mb-0">
                 Add a custom icon to include the optional custom-icons section
                 in the exported definition.
@@ -135,13 +167,48 @@ onBeforeUnmount(() => {
 
             <article
                 v-for="(icon, index) in icons || []"
-                :key="`custom-icon-${index}`"
+                :key="icon"
                 class="creator-editor-row"
+                :class="{
+                    'creator-dragging': draggingIndex === index,
+                    'creator-drag-over': overIndex === index,
+                    'creator-drag-over-before':
+                        overIndex === index && overBefore,
+                    'creator-drag-over-after':
+                        overIndex === index && !overBefore,
+                }"
+                @dragover="handleDragOver(index, $event)"
+                @dragleave="handleDragLeave($event)"
+                @drop="handleDrop(index, $event)"
             >
                 <div
                     class="d-flex justify-content-between align-items-start gap-2 flex-wrap mb-3"
                 >
-                    <h3 class="h6 mb-0">Custom Icon {{ index + 1 }}</h3>
+                    <h3 class="h6 mb-0 d-inline-flex align-items-center gap-2">
+                        <span
+                            class="creator-drag-handle"
+                            aria-hidden="true"
+                            title="Drag to reorder"
+                            draggable="true"
+                            @dragstart.stop="startDrag(index, $event)"
+                            @dragend.stop="endDrag"
+                        >
+                            <svg
+                                viewBox="0 0 16 16"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
+                            >
+                                <circle cx="5" cy="3" r="1.5" />
+                                <circle cx="11" cy="3" r="1.5" />
+                                <circle cx="5" cy="8" r="1.5" />
+                                <circle cx="11" cy="8" r="1.5" />
+                                <circle cx="5" cy="13" r="1.5" />
+                                <circle cx="11" cy="13" r="1.5" />
+                            </svg>
+                        </span>
+                        Custom Icon {{ index + 1 }}
+                    </h3>
                     <div class="d-flex gap-2 flex-wrap">
                         <button
                             type="button"
@@ -289,29 +356,29 @@ onBeforeUnmount(() => {
                         class="creator-icon-preview-shell"
                         role="img"
                         :aria-label="
-                            isHttpUrl(getPreviewUrl(index, icon.url)) &&
-                            !imageErrors[index]
+                            isHttpUrl(getPreviewUrl(icon, icon.url)) &&
+                            !imageErrors.get(icon)
                                 ? 'Custom icon preview'
                                 : 'Custom icon preview unavailable'
                         "
                     >
                         <img
-                            v-if="isHttpUrl(getPreviewUrl(index, icon.url))"
-                            :src="getPreviewUrl(index, icon.url)"
+                            v-if="isHttpUrl(getPreviewUrl(icon, icon.url))"
+                            :src="getPreviewUrl(icon, icon.url)"
                             alt=""
                             width="44"
                             height="44"
                             class="creator-icon-preview-art"
                             :class="{
                                 'creator-icon-preview-art--hidden':
-                                    imageErrors[index],
+                                    imageErrors.get(icon),
                             }"
-                            @error="markImageError(index)"
+                                @error="markImageError(icon)"
                         />
                         <span
                             v-if="
-                                !isHttpUrl(getPreviewUrl(index, icon.url)) ||
-                                imageErrors[index]
+                                !isHttpUrl(getPreviewUrl(icon, icon.url)) ||
+                                imageErrors.get(icon)
                             "
                             class="small text-muted text-center px-1 creator-icon-preview-fallback"
                             aria-hidden="true"
@@ -346,8 +413,8 @@ onBeforeUnmount(() => {
                             class="d-block creator-icon-preview-status"
                             :class="{
                                 invisible: !(
-                                    isHttpUrl(getPreviewUrl(index, icon.url)) &&
-                                    imageErrors[index]
+                                    isHttpUrl(getPreviewUrl(icon, icon.url)) &&
+                                    imageErrors.get(icon)
                                 ),
                             }"
                             >The URL is valid, but the image could not be

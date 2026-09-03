@@ -3,6 +3,7 @@
 <script setup>
 import { computed, nextTick, ref, watch } from "vue";
 import { useQuestStore } from "../stores/questStore";
+import { useDragReorder } from "../composables/useDragReorder";
 import ElementEditor from "./ElementEditor.vue";
 import JsonPreview from "./JsonPreview.vue";
 import ValidationBanner from "./ValidationBanner.vue";
@@ -21,6 +22,97 @@ const expandedElements = ref(new Set());
 const elements = computed(() => store.definition.elements);
 const selectedIndex = computed(() => store.selectedElementIndex);
 const selectedQuestIndex = computed(() => store.selectedQuestIndex);
+const reorderAnnouncement = ref("");
+
+const {
+    draggingIndex,
+    overIndex,
+    overBefore,
+    startDrag,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
+    endDrag,
+} = useDragReorder((fromIndex, toIndex) =>
+    (() => {
+        moveExpandedIndex(fromIndex, toIndex);
+        store.moveElementTo(fromIndex, toIndex);
+        reorderAnnouncement.value = `Element moved to position ${toIndex + 1} of ${elements.value.length}.`;
+        focusElement(toIndex);
+    })()
+);
+
+const questDragElementIndex = ref(null);
+
+const {
+    draggingIndex: draggingQuestIndex,
+    overIndex: overQuestIndex,
+    overBefore: overQuestBefore,
+    startDrag: startQuestDragRaw,
+    handleDragOver: handleQuestDragOver,
+    handleDragLeave: handleQuestDragLeave,
+    handleDrop: handleQuestDrop,
+    endDrag: endQuestDrag,
+} = useDragReorder((fromIndex, toIndex) => {
+    if (questDragElementIndex.value != null) {
+        store.moveQuestTo(questDragElementIndex.value, fromIndex, toIndex);
+        const questCount =
+            elements.value[questDragElementIndex.value]?.quests.length ?? 0;
+        reorderAnnouncement.value = `Quest moved to position ${toIndex + 1} of ${questCount}.`;
+        focusQuestTreeItem(questDragElementIndex.value, toIndex);
+    }
+});
+
+function startQuestDrag(elementIndex, questIndex, event) {
+    questDragElementIndex.value = elementIndex;
+    startQuestDragRaw(questIndex, event);
+    event.stopPropagation();
+}
+
+function dragOverQuest(elementIndex, questIndex, event) {
+    if (draggingQuestIndex.value == null) {
+        return;
+    }
+
+    event.stopPropagation();
+    if (questDragElementIndex.value !== elementIndex) {
+        handleQuestDragLeave(event);
+        return;
+    }
+
+    event.preventDefault();
+    handleQuestDragOver(questIndex, event);
+}
+
+function dropQuest(elementIndex, questIndex, event) {
+    if (draggingQuestIndex.value == null) {
+        return;
+    }
+
+    event.stopPropagation();
+    if (questDragElementIndex.value !== elementIndex) {
+        handleQuestDragLeave(event);
+        return;
+    }
+
+    event.preventDefault();
+    handleQuestDrop(questIndex, event);
+}
+
+function dragLeaveQuest(event) {
+    if (draggingQuestIndex.value == null) {
+        return;
+    }
+
+    event.stopPropagation();
+    handleQuestDragLeave(event);
+}
+
+function endQuestDragHandler(event) {
+    endQuestDrag();
+    questDragElementIndex.value = null;
+    event.stopPropagation();
+}
 
 function iconUrl(name) {
     if (!name) return null;
@@ -103,14 +195,28 @@ function shiftExpandedAfterRemove(index) {
     expandedElements.value = nextExpanded;
 }
 
-function swapExpandedIndices(firstIndex, secondIndex) {
+function moveExpandedIndex(fromIndex, toIndex) {
+    if (fromIndex === toIndex) {
+        return;
+    }
+
     const nextExpanded = new Set();
 
     expandedElements.value.forEach((expandedIndex) => {
-        if (expandedIndex === firstIndex) {
-            nextExpanded.add(secondIndex);
-        } else if (expandedIndex === secondIndex) {
-            nextExpanded.add(firstIndex);
+        if (expandedIndex === fromIndex) {
+            nextExpanded.add(toIndex);
+        } else if (
+            fromIndex < toIndex &&
+            expandedIndex > fromIndex &&
+            expandedIndex <= toIndex
+        ) {
+            nextExpanded.add(expandedIndex - 1);
+        } else if (
+            fromIndex > toIndex &&
+            expandedIndex >= toIndex &&
+            expandedIndex < fromIndex
+        ) {
+            nextExpanded.add(expandedIndex + 1);
         } else {
             nextExpanded.add(expandedIndex);
         }
@@ -154,7 +260,7 @@ function moveElementUp(index) {
         return;
     }
 
-    swapExpandedIndices(index, index - 1);
+    moveExpandedIndex(index, index - 1);
     store.moveElementUp(index);
     focusElement(index - 1);
 }
@@ -164,7 +270,7 @@ function moveElementDown(index) {
         return;
     }
 
-    swapExpandedIndices(index, index + 1);
+    moveExpandedIndex(index, index + 1);
     store.moveElementDown(index);
     focusElement(index + 1);
 }
@@ -182,6 +288,9 @@ watch(
 
 <template>
     <div class="creator-workspace">
+        <div class="visually-hidden" aria-live="polite">
+            {{ reorderAnnouncement }}
+        </div>
         <aside class="creator-sidebar creator-surface-card">
             <div
                 class="creator-sidebar-header d-flex justify-content-center align-items-center position-relative"
@@ -223,10 +332,44 @@ watch(
                 >
                     <li
                         v-for="(el, i) in elements"
-                        :key="`element-${i}`"
+                        :key="el"
                         class="creator-tree-item"
+                        :class="{
+                            'creator-dragging':
+                                draggingIndex === i,
+                            'creator-drag-over': overIndex === i,
+                            'creator-drag-over-before':
+                                overIndex === i && overBefore,
+                            'creator-drag-over-after':
+                                overIndex === i && !overBefore,
+                        }"
+                        @dragover="handleDragOver(i, $event)"
+                        @dragleave="handleDragLeave($event)"
+                        @drop="handleDrop(i, $event)"
                     >
                         <div class="creator-tree-row">
+                            <span
+                                class="creator-drag-handle"
+                                aria-hidden="true"
+                                title="Drag to reorder"
+                                draggable="true"
+                                @dragstart.stop="startDrag(i, $event)"
+                                @dragend.stop="endDrag"
+                            >
+                                <svg
+                                    viewBox="0 0 16 16"
+                                    width="14"
+                                    height="14"
+                                    fill="currentColor"
+                                >
+                                    <circle cx="5" cy="3" r="1.5" />
+                                    <circle cx="11" cy="3" r="1.5" />
+                                    <circle cx="5" cy="8" r="1.5" />
+                                    <circle cx="11" cy="8" r="1.5" />
+                                    <circle cx="5" cy="13" r="1.5" />
+                                    <circle cx="11" cy="13" r="1.5" />
+                                </svg>
+                            </span>
                             <button
                                 v-if="el.quests.length > 0"
                                 type="button"
@@ -294,8 +437,54 @@ watch(
                         >
                             <li
                                 v-for="(quest, questIndex) in el.quests"
-                                :key="`tree-quest-${quest.quest_id}-${questIndex}`"
+                                :key="quest"
+                                class="quest-tree-list-item"
+                                :class="{
+                                    'creator-dragging':
+                                        questDragElementIndex === i &&
+                                        draggingQuestIndex === questIndex,
+                                    'creator-drag-over':
+                                        questDragElementIndex === i &&
+                                        overQuestIndex === questIndex,
+                                    'creator-drag-over-before':
+                                        questDragElementIndex === i &&
+                                        overQuestIndex === questIndex &&
+                                        overQuestBefore,
+                                    'creator-drag-over-after':
+                                        questDragElementIndex === i &&
+                                        overQuestIndex === questIndex &&
+                                        !overQuestBefore,
+                                }"
+                                @dragover="
+                                    dragOverQuest(i, questIndex, $event)
+                                "
+                                @dragleave="dragLeaveQuest($event)"
+                                @drop="dropQuest(i, questIndex, $event)"
                             >
+                                <span
+                                    class="creator-drag-handle"
+                                    aria-hidden="true"
+                                    title="Drag to reorder"
+                                    draggable="true"
+                                    @dragstart.stop="
+                                        startQuestDrag(i, questIndex, $event)
+                                    "
+                                    @dragend.stop="endQuestDragHandler($event)"
+                                >
+                                    <svg
+                                        viewBox="0 0 16 16"
+                                        width="12"
+                                        height="12"
+                                        fill="currentColor"
+                                    >
+                                        <circle cx="5" cy="3" r="1.5" />
+                                        <circle cx="11" cy="3" r="1.5" />
+                                        <circle cx="5" cy="8" r="1.5" />
+                                        <circle cx="11" cy="8" r="1.5" />
+                                        <circle cx="5" cy="13" r="1.5" />
+                                        <circle cx="11" cy="13" r="1.5" />
+                                    </svg>
+                                </span>
                                 <button
                                     :ref="
                                         (element) =>
@@ -787,6 +976,20 @@ watch(
     gap: 0.35rem;
     margin: 0.35rem 0 0 2.4rem;
     padding-left: 0.65rem;
+}
+
+.quest-tree-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.quest-tree-list-item .creator-drag-handle {
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-left: -0.35rem;
 }
 
 .creator-main-layout {
