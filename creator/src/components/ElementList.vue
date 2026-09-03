@@ -844,8 +844,9 @@ watch(
         gap: 1.25rem;
     }
 
-    /* clip button hover-glows to utility card boundaries without affecting the editor card */
-    .creator-utility-pane .card-body {
+    /* clip button hover-glows to utility card boundaries without affecting the editor card.
+       the validation body opts out so its max-height + overflow-y scrollbar still work. */
+    .creator-utility-pane .card-body:not(.creator-validation-body) {
         overflow: hidden;
     }
 }
@@ -923,4 +924,5 @@ watch(
     overflow-y: auto;
     overflow-x: hidden;
 }
+
 </style>
