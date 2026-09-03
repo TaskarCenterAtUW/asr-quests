@@ -465,3 +465,95 @@ describe("drag-and-drop reordering", () => {
     ).toEqual(["three", "one", "two"]);
   });
 });
+
+describe("duplicate actions", () => {
+  it("duplicates an element and recomputes copied and following quest ids", () => {
+    const store = useQuestStore();
+    store.resetDefinition();
+    store.addElement();
+    store.updateElement(0, { element_type: "A" });
+    store.addQuest(0);
+    store.updateQuest(0, 0, { quest_title: "Q0" });
+    store.addElement();
+    store.updateElement(1, { element_type: "B" });
+    store.addQuest(1);
+
+    store.duplicateElement(0);
+
+    expect(store.definition.elements.map((element) => element.element_type)).toEqual([
+      "A",
+      "A",
+      "B",
+    ]);
+    expect(store.definition.elements[1].quests[0]).toMatchObject({
+      quest_id: 201,
+      quest_title: "Q0",
+    });
+    expect(store.definition.elements[2].quests[0].quest_id).toBe(301);
+    expect(store.selectedElementIndex).toBe(1);
+    expect(store.selectedQuestIndex).toBe(0);
+  });
+
+  it("duplicates a quest and preserves dependency relationships", () => {
+    const store = useQuestStore();
+    store.resetDefinition();
+    store.addElement();
+    store.addQuest(0);
+    store.updateQuest(0, 0, { quest_title: "Q0" });
+    store.addQuest(0);
+    store.updateQuest(0, 1, {
+      quest_title: "Q1",
+      _deps: [{ question_id: 101, required_value: "yes" }],
+    });
+
+    store.duplicateQuest(0, 1);
+
+    const quests = store.definition.elements[0].quests;
+    expect(quests.map((quest) => quest.quest_id)).toEqual([101, 102, 103]);
+    expect(quests[2].quest_title).toBe("Q1");
+    expect(quests[2]._deps[0].question_id).toBe(101);
+    expect(store.selectedQuestIndex).toBe(2);
+  });
+
+  it("duplicates choices, feature presets, and custom icons as independent copies", () => {
+    const store = useQuestStore();
+    store.resetDefinition();
+    store.addElement();
+    store.addQuest(0);
+    store.addChoice(0, 0);
+    store.updateChoice(0, 0, 0, { value: "yes" });
+    store.duplicateChoice(0, 0, 0);
+    store.updateChoice(0, 0, 1, { value: "copied" });
+
+    store.addFeaturePreset();
+    store.updateFeaturePreset(0, {
+      name: "Bench",
+      icon: "preset_temaki_bench",
+      tags: { amenity: "bench" },
+    });
+    store.duplicateFeaturePreset(0);
+    store.updateFeaturePreset(1, { name: "Copied bench" });
+
+    store.addCustomIcon();
+    store.updateCustomIcon(0, {
+      name: "lamp",
+      url: "https://example.com/lamp.svg",
+    });
+    store.duplicateCustomIcon(0);
+    store.updateCustomIcon(1, { name: "copied-lamp" });
+
+    expect(
+      store.definition.elements[0].quests[0].quest_answer_choices.map(
+        (choice) => choice.value
+      )
+    ).toEqual(["yes", "copied"]);
+    expect(store.definition["feature-presets"].map((preset) => preset.name)).toEqual([
+      "Bench",
+      "Copied bench",
+    ]);
+    expect(store.definition["custom-icons"].map((icon) => icon.name)).toEqual([
+      "lamp",
+      "copied-lamp",
+    ]);
+  });
+});

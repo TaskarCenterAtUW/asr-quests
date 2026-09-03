@@ -70,6 +70,11 @@ function removeChoice(choiceIndex) {
     );
 }
 
+function duplicateChoice(choiceIndex) {
+    store.duplicateChoice(props.elementIndex, props.questIndex, choiceIndex);
+    focusChoiceField(choiceIndex + 1);
+}
+
 function moveChoiceUp(choiceIndex) {
     if (choiceIndex === 0) return;
     store.moveChoiceUp(props.elementIndex, props.questIndex, choiceIndex);
@@ -174,6 +179,28 @@ function moveChoiceDown(choiceIndex) {
                         @click="moveChoiceDown(choiceIndex)"
                     >
                         ↓
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary creator-icon-action"
+                        :aria-label="`Duplicate choice ${choiceIndex + 1}`"
+                        title="Duplicate choice"
+                        @click="duplicateChoice(choiceIndex)"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            viewBox="0 0 16 16"
+                            width="14"
+                            height="14"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M4 1.5A1.5 1.5 0 0 0 2.5 3v8A1.5 1.5 0 0 0 4 12.5h1v-1H4a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1h1V3A1.5 1.5 0 0 0 10 1.5H4z"
+                            />
+                            <path
+                                d="M7 4.5A1.5 1.5 0 0 0 5.5 6v7A1.5 1.5 0 0 0 7 14.5h5A1.5 1.5 0 0 0 13.5 13V6A1.5 1.5 0 0 0 12 4.5H7zM6.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V6z"
+                            />
+                        </svg>
                     </button>
                     <button
                         type="button"

@@ -651,6 +651,20 @@ textarea.form-control {
   display: inline-block;
 }
 
+.creator-icon-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creator-icon-action svg {
+  fill: currentColor;
+}
+
+[data-theme="dark"] .creator-icon-action {
+  color: #ffffff;
+}
+
 .creator-add-button {
   display: inline-flex;
   align-items: center;
