@@ -109,3 +109,16 @@ const canUpgradeVersion = computed(() =>
         </div>
     </div>
 </template>
+
+<style>
+/* wrap long validation paths instead of underflowing off the right edge,
+   matching the JSON Preview line-wrapping behavior */
+.creator-validation-body li {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.creator-validation-body ul {
+    min-width: 0;
+}
+</style>
