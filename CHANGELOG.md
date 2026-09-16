@@ -24,6 +24,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.10.0] - 2026-09-16
+
+### Changed
+
+- Updated the quest review prompt for LFQD Schema v3.2.0
+
 ## Creator: [v0.9.1] - 2026-09-16
 
 ### Added
