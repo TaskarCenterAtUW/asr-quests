@@ -1369,5 +1369,14 @@
           }
         ]
       }
+    ],
+    "feature-presets": [
+      {
+        "name": "Pull out bus stop zone",
+        "icon": "preset_temaki_bus_guided",
+        "tags": {
+          "ext:pull_out_bus_stop_zone": "yes"
+        }
+      }
     ]
   }
