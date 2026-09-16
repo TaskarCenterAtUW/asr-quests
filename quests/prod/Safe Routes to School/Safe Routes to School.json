@@ -1865,20 +1865,6 @@
               "choice_text": "Unable to determine"
             }
           ]
-        },
-        {
-          "quest_id": 233,
-          "quest_title": "Do you want to capture the crossing with your device LiDAR?",
-          "quest_description": "Your device is capable of auto-capturing the Crossing properties. Give it a try.",
-          "quest_type": "AutoCapture",
-          "auto_capture_attributes": {
-            "ac_width": "ext:ac:width",
-            "ac_incline": "ext:ac:incline",
-            "ac_surface_integrity": "ext:ac:surface_integrity",
-            "ac_surface_disruption": "ext:ac:surface_disruption",
-            "ac_height_from_ground": "ext:ac:height_from_ground",
-            "ac_lidar_depth": "ext:ac:lidar_depth"
-          }
         }
       ]
     },
@@ -3745,16 +3731,6 @@
               "choice_text": "Unable to determine"
             }
           ]
-        },
-        {
-          "quest_id": 365,
-          "quest_title": "Do you want to capture the bus stop with your device LiDAR?",
-          "quest_description": "Your device is capable of auto-capturing the bus stop properties. Give it a try.",
-          "quest_type": "AutoCapture",
-          "auto_capture_attributes": {
-            "ac_width": "ext:ac:width",
-            "ac_height_from_ground": "ext:ac:height_from_ground"
-          }
         }
       ]
     },
@@ -4460,20 +4436,6 @@
               "yes"
             ]
           }
-        },
-        {
-          "quest_id": 4023,
-          "quest_title": "Do you want to capture the intersection with your device LiDAR?",
-          "quest_description": "Your device is capable of auto-capturing the intersection properties. Give it a try.",
-          "quest_type": "AutoCapture",
-          "auto_capture_attributes": {
-            "ac_width": "ext:ac:width",
-            "ac_incline": "ext:ac:incline",
-            "ac_surface_integrity": "ext:ac:surface_integrity",
-            "ac_surface_disruption": "ext:ac:surface_disruption",
-            "ac_height_from_ground": "ext:ac:height_from_ground",
-            "ac_lidar_depth": "ext:ac:lidar_depth"
-          }
         }
       ]
     },
@@ -4856,21 +4818,6 @@
               "choice_text": "Unable to determine"
             }
           ]
-        },
-        {
-          "quest_id": 512,
-          "quest_title": "Do you want to capture the curb with your device LiDAR?",
-          "quest_description": "Your device is capable of auto-capturing the curb properties. Give it a try.",
-          "quest_type": "AutoCapture",
-          "auto_capture_attributes": {
-            "ac_width": "ext:ac:width",
-            "ac_incline": "ext:ac:incline",
-            "ac_cross_slope": "ext:ac:cross_slope",
-            "ac_surface_integrity": "ext:ac:surface_integrity",
-            "ac_surface_disruption": "ext:ac:surface_disruption",
-            "ac_height_from_ground": "ext:ac:height_from_ground",
-            "ac_lidar_depth": "ext:ac:lidar_depth"
-          }
         }
       ]
     }
