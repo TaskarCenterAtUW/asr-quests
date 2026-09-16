@@ -25,6 +25,26 @@
             ]
           },
           {
+            "quest_id": 102,
+            "quest_title": "[CC] Are there any sidewalk surface defects present?",
+            "quest_description": "This condition is true if the sidewalk contains trip hazards ≥ 0.25 inches. You may also take a picture of the defect if it exists.",
+            "quest_type": "ExclusiveChoice",
+            "quest_tag": "ext:sidewalk_condition",
+            "quest_answer_choices": [
+              {
+                "value": "yes",
+                "choice_text": "Yes",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/bad_square.png",
+                "choice_follow_up": "You may take a picture of the sidewalk surface defect."
+              },
+              {
+                "value": "no",
+                "choice_text": "No",
+                "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/good_square.png"
+              }
+            ]
+          },
+          {
             "quest_id": 103,
             "quest_title": "[CC] What is the sidewalk surface defect?",
             "quest_description": "Select the condition issues that best describe this sidewalk surface.",
@@ -983,13 +1003,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 316,
-              "required_value": [
-                "yes"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 321,

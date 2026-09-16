@@ -521,7 +521,7 @@
           },
           {
             "quest_id": 207,
-            "quest_title": "[CtT][S&R] What kind of pedestrian signal is at this crossing?",
+            "quest_title": "[CtT][S&R] What type of traffic control or marking is present at this crossing?",
             "quest_description": "Select the type of pedestrian or traffic control present at this crossing. Include any pedestrian-specific signals or beacons if applicable.",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:crossing_signal_type",
@@ -935,12 +935,12 @@
               {
                 "value": "other",
                 "choice_text": "Other"
+              },
+              {
+                "value": "none",
+                "choice_text": "No bicycle infrastructure"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 319,
-              "required_value": "yes"
-            }
+            ]
           },
           {
             "quest_id": 321,

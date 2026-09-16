@@ -1054,10 +1054,6 @@
             "quest_description": "Determine what kind of bicycle infrastructure (if any) provides access between the bus stop and the nearby bike network.",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:bus_stop_bike_connection",
-            "quest_answer_dependency": {
-              "question_id": 319,
-              "required_value": "yes"
-            },
             "quest_answer_choices": [
               {
                 "value": "bike_lane",
@@ -1078,6 +1074,10 @@
               {
                 "value": "other",
                 "choice_text": "Other"
+              },
+              {
+                "value": "none",
+                "choice_text": "No bicycle infrastructure"
               }
             ]
           },

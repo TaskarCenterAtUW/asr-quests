@@ -612,11 +612,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": "transit_route_facilities"
-            }
+            ]
           },
           {
             "quest_id": 305,
@@ -646,10 +642,6 @@
               {
                 "question_id": 304,
                 "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": "transit_route_facilities"
               }
             ]
           },
@@ -673,10 +665,6 @@
               {
                 "question_id": 304,
                 "required_value": "no"
-              },
-              {
-                "question_id": 300,
-                "required_value": "transit_route_facilities"
               }
             ]
           },
@@ -695,11 +683,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": "transit_route_facilities"
-            }
+            ]
           },
           {
             "quest_id": 308,
@@ -737,10 +721,6 @@
               {
                 "question_id": 307,
                 "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": "transit_route_facilities"
               }
             ]
           },
@@ -759,14 +739,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": [
-                "transit_route_facilities",
-                "ada_transition_plan"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 315,
@@ -783,15 +756,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": [
-                "transit_route_facilities",
-                "access_pathways",
-                "connecting_to_transit"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 316,
@@ -825,14 +790,6 @@
               {
                 "question_id": 315,
                 "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": [
-                  "transit_route_facilities",
-                  "access_pathways",
-                  "connecting_to_transit"
-                ]
               }
             ]
           },
@@ -850,14 +807,6 @@
               {
                 "question_id": 315,
                 "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": [
-                  "transit_route_facilities",
-                  "access_pathways",
-                  "connecting_to_transit"
-                ]
               }
             ]
           },
@@ -893,14 +842,6 @@
               {
                 "question_id": 315,
                 "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": [
-                  "transit_route_facilities",
-                  "access_pathways",
-                  "connecting_to_transit"
-                ]
               }
             ]
           },
@@ -930,19 +871,10 @@
               {
                 "value": "other",
                 "choice_text": "Other"
-              }
-            ],
-            "quest_answer_dependency": [
-              {
-                "question_id": 319,
-                "required_value": "yes"
               },
               {
-                "question_id": 300,
-                "required_value": [
-                  "connecting_to_transit",
-                  "transit_route_facilities"
-                ]
+                "value": "none",
+                "choice_text": "No bicycle infrastructure"
               }
             ]
           },
@@ -961,16 +893,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": [
-                "transit_route_facilities",
-                "ada_transition_plan",
-                "access_pathways",
-                "connecting_to_transit"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 323,
@@ -991,11 +914,7 @@
                 "value": "unknown",
                 "choice_text": "Unknown"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": "connecting_to_transit"
-            }
+            ]
           },
           {
             "quest_id": 324,
@@ -1031,10 +950,6 @@
               {
                 "question_id": 323,
                 "required_value": "yes"
-              },
-              {
-                "question_id": 300,
-                "required_value": "connecting_to_transit"
               }
             ]
           },
@@ -1053,11 +968,7 @@
                 "value": "no",
                 "choice_text": "No"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 300,
-              "required_value": "transit_route_facilities"
-            }
+            ]
           },
           {
             "quest_id": 338,
