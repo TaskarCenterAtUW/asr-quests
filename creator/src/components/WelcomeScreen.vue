@@ -26,17 +26,17 @@ function triggerFileInput() {
     fileInput.value?.click();
 }
 
-async function onFileChange(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    event.target.value = "";
+function loadDefinitionText(text, source) {
+    if (!text.trim()) {
+        loadError.value = `Could not load ${source}. The input is empty.`;
+        return;
+    }
 
     let parsed;
     try {
-        const text = await file.text();
         parsed = JSON.parse(text);
     } catch {
-        loadError.value = "Could not parse file. Make sure it is valid JSON.";
+        loadError.value = `Could not parse ${source}. Make sure it contains valid JSON.`;
         return;
     }
 
@@ -45,6 +45,36 @@ async function onFileChange(event) {
         emit("navigate", "editor");
     } catch (error) {
         loadError.value = error.message;
+    }
+}
+
+async function onFileChange(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    event.target.value = "";
+
+    try {
+        const text = await file.text();
+        loadDefinitionText(text, "file");
+    } catch {
+        loadError.value = "Could not parse file. Make sure it is valid JSON.";
+    }
+}
+
+async function loadFromClipboard() {
+    loadError.value = "";
+
+    if (!navigator.clipboard?.readText) {
+        loadError.value = "Clipboard access is not available in this browser.";
+        return;
+    }
+
+    try {
+        const text = await navigator.clipboard.readText();
+        loadDefinitionText(text, "clipboard");
+    } catch {
+        loadError.value =
+            "Could not read the clipboard. Check the browser permission and try again.";
     }
 }
 
@@ -143,12 +173,22 @@ function createNew() {
                             @change="onFileChange"
                         />
 
-                        <button
-                            class="btn btn-outline-primary mt-auto"
-                            @click="triggerFileInput"
-                        >
-                            Choose File...
-                        </button>
+                        <div class="d-flex gap-2 mt-auto">
+                            <button
+                                type="button"
+                                class="btn btn-outline-primary flex-fill"
+                                @click="triggerFileInput"
+                            >
+                                Choose File...
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-outline-primary flex-fill"
+                                @click="loadFromClipboard"
+                            >
+                                From Clipboard
+                            </button>
+                        </div>
 
                         <div
                             v-if="loadError"
