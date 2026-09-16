@@ -1377,6 +1377,41 @@
         "tags": {
           "ext:pull_out_bus_stop_zone": "yes"
         }
-      }
+      },
+      {
+        "name": "Left-turn movement",
+        "icon": "preset_maki_hospital",
+        "tags": {
+          "ext:left_turn_movement": "yes"
+        }
+      },
+      {
+        "name": "Signal timing",
+        "icon": "preset_temaki_traffic_signals",
+        "tags": {
+          "ext:signal_timing": "yes"
+        }
+      },
+      {
+        "name": "Traffic congestion",
+        "icon": "preset_maki_car",
+        "tags": {
+          "ext:traffic_congestion": "yes"
+        }
+      },
+      {
+        "name": "Driver behavior",
+        "icon": "preset_fas_car_crash",
+        "tags": {
+          "ext:driver_behavior": "yes"
+        }
+      },
+      {
+        "name": "Limited right of way",
+        "icon": "preset_temaki_yield",
+        "tags": {
+          "ext:limited_row": "yes"
+        }
+      }  
     ]
   }
