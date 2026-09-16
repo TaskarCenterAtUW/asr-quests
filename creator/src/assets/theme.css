@@ -198,6 +198,7 @@ a:hover {
 }
 
 .navbar.creator-navbar {
+  --bs-navbar-padding-y: 0.25rem;
   position: relative;
   background: linear-gradient(
     120deg,
@@ -207,6 +208,11 @@ a:hover {
   );
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 18px 40px rgba(22, 10, 44, 0.28);
+}
+
+.creator-navbar > .container-fluid {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
 }
 
 .navbar.creator-navbar::after {
@@ -223,6 +229,7 @@ a:hover {
 }
 
 .creator-navbar .navbar-brand {
+  padding-bottom: 0;
   letter-spacing: -0.01em;
 }
 
@@ -256,15 +263,17 @@ a:hover {
 }
 
 .creator-theme-button {
-  min-height: 1.85rem;
-  padding-top: 0.2rem !important;
-  padding-bottom: 0.2rem !important;
+  height: 100%;
+  min-height: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   font-size: 0.82rem;
 }
 
 .creator-theme-group {
   display: inline-flex;
-  padding: 0.22rem;
+  height: var(--creator-control-height-sm);
+  padding: 0.12rem;
   background: rgba(255, 255, 255, 0.09);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--creator-radius-pill);
@@ -272,7 +281,11 @@ a:hover {
 }
 
 .creator-theme-group .btn {
+  height: 100%;
+  min-height: 0 !important;
   min-width: 3.4rem;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   border-color: transparent !important;
 }
 

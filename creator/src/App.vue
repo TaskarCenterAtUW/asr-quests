@@ -41,29 +41,6 @@ const resolvedTheme = computed(() => {
     return themeMode.value;
 });
 
-const navbarStatus = computed(() => {
-    if (store.persistenceError) {
-        return {
-            className: "text-warning",
-            text: store.persistenceError,
-        };
-    }
-
-    if (currentView.value !== "editor") {
-        return {
-            className: "text-white-50",
-            text: "Build, edit, validate, and export long form quest definitions",
-        };
-    }
-
-    return {
-        className: "text-white-50",
-        text: store.restoredDraft
-            ? "Draft restored and autosaved locally"
-            : "Draft autosaves locally as you edit",
-    };
-});
-
 const editorBreadcrumb = computed(() => {
     const element = store.definition.elements[store.selectedElementIndex ?? -1];
     const quest = element?.quests[store.selectedQuestIndex ?? -1];
@@ -186,11 +163,8 @@ watch(
                         <div class="navbar-brand mb-0 fw-semibold">
                             Quest Definition Creator
                         </div>
-                        <div
-                            class="small creator-status"
-                            :class="navbarStatus.className"
-                        >
-                            {{ navbarStatus.text }}
+                        <div class="small creator-status text-white-50">
+                            AVIV ScoutRoute Long Form Quest Definition Creator
                         </div>
                     </div>
                 </div>
@@ -295,6 +269,13 @@ watch(
                 rel="noopener noreferrer"
                 class="creator-footer-link"
                 >GitHub</a
+            >&#8226;
+            <a
+                href="https://taskarcenteratuw.github.io/tcat-wiki/aviv-scoutroute/quests/creator/user-manual/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="creator-footer-link"
+                >User Manual</a
             >&#8226;
             <span>Creator v{{ appVersion }}</span>&#8226;
             <span>Schema v{{ schemaVersion }}</span>
