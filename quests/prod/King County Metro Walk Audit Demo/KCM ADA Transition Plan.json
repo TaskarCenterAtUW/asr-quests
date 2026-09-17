@@ -1,5 +1,6 @@
 {
-    "version": "3.0.0",
+    "version": "3.2.0",
+    "recency_period": 90,
     "elements": [
       {
         "element_type": "Sidewalks",
@@ -780,7 +781,11 @@
                 "value": "unknown",
                 "choice_text": "Unknown"
               }
-            ]
+            ],
+            "quest_answer_dependency": {
+              "question_id": 301,
+              "required_value": "yes"
+            }
           },
           {
             "quest_id": 304,
@@ -1344,8 +1349,7 @@
             "quest_answer_dependency": {
               "question_id": 501,
               "required_value": [
-                "lowered",
-                "flush"
+                "lowered"
               ]
             },
             "quest_type": "ExclusiveChoice",

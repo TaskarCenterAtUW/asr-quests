@@ -4637,12 +4637,6 @@
               "required_value": [
                 "lowered_curb_ramp"
               ]
-            },
-            {
-              "question_id": 511,
-              "required_value": [
-                "yes"
-              ]
             }
           ]
         },

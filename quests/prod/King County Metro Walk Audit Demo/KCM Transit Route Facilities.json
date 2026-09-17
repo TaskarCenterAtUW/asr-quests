@@ -1204,8 +1204,7 @@
             "quest_answer_dependency": {
               "question_id": 501,
               "required_value": [
-                "lowered",
-                "flush"
+                "lowered"
               ]
             }
           },

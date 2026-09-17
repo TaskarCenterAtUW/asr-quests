@@ -1036,14 +1036,7 @@
                 "choice_text": "Yes, Unsignalled Intersection with Painted Crosswalk",
                 "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Median_island_and_crosswalk_2.jpg"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 400,
-              "required_value": [
-                "connecting_to_transit",
-                "speed_and_reliability"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 406,
@@ -1054,14 +1047,6 @@
             "quest_answer_validation": {
               "min": 0,
               "max": 10
-            },
-            "quest_answer_dependency": {
-              "question_id": 400,
-              "required_value": [
-                "connecting_to_transit",
-                "speed_and_reliability",
-                "transit_route_facilities"
-              ]
             }
           },
           {
@@ -1120,14 +1105,7 @@
                 "value": "unknown",
                 "choice_text": "Unknown"
               }
-            ],
-            "quest_answer_dependency": {
-              "question_id": 500,
-              "required_value": [
-                "ada_transition_plan",
-                "connecting_to_transit"
-              ]
-            }
+            ]
           },
           {
             "quest_id": 502,
@@ -1155,15 +1133,7 @@
               {
                 "question_id": 501,
                 "required_value": [
-                  "lowered",
-                  "flush"
-                ]
-              },
-              {
-                "question_id": 500,
-                "required_value": [
-                  "ada_transition_plan",
-                  "connecting_to_transit"
+                  "lowered"
                 ]
               }
             ]
@@ -1198,10 +1168,6 @@
               {
                 "question_id": 502,
                 "required_value": "curb_ramp"
-              },
-              {
-                "question_id": 500,
-                "required_value": "ada_transition_plan"
               }
             ]
           },
@@ -1231,10 +1197,6 @@
               {
                 "question_id": 502,
                 "required_value": "curb_ramp"
-              },
-              {
-                "question_id": 500,
-                "required_value": "ada_transition_plan"
               }
             ]
           },
@@ -1264,10 +1226,6 @@
               {
                 "question_id": 502,
                 "required_value": "curb_ramp"
-              },
-              {
-                "question_id": 500,
-                "required_value": "ada_transition_plan"
               }
             ]
           },

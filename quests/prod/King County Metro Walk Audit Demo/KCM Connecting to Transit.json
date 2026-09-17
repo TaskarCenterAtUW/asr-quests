@@ -323,7 +323,7 @@
           {
             "quest_id": 113,
             "quest_title": "[CtT] What is contributing to your sense of safety?",
-            "quest_description": "Assess the overall sense of comfort for pedestrians at this crossing. Consider factors such as vehicle speed, exposure, visibility, and pedestrian infrastructure.",
+            "quest_description": "Assess the overall sense of comfort for pedestrians at this sidewalk. Consider factors such as vehicle speed, exposure, visibility, and pedestrian infrastructure.",
             "quest_type": "TextEntry",
             "quest_tag": "ext:sidewalk_safety_sense"
           },
@@ -512,7 +512,7 @@
           },
           {
             "quest_id": 208,
-            "quest_title": "[CtT][S&R] Is the crossing controlled/signalized?",
+            "quest_title": "[CtT][S&R] Is the crossing controlled or otherwise marked?",
             "quest_description": "Indicate whether the pedestrian crossing is governed by active traffic control devices.",
             "quest_type": "ExclusiveChoice",
             "quest_tag": "ext:crossing_is_signalized",
@@ -1439,8 +1439,7 @@
             "quest_answer_dependency": {
               "question_id": 501,
               "required_value": [
-                "lowered",
-                "flush"
+                "lowered"
               ]
             }
           },
