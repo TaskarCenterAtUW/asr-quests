@@ -319,6 +319,60 @@ describe("AutoCapture quests", () => {
   });
 });
 
+describe("quest preset dependencies", () => {
+  it("resolves dependencies when preset quests are inserted individually", () => {
+    const store = useQuestStore();
+    const preset = questPresetLibrary.find(
+      (entry) => entry.id === "sidewalk-surface-basics"
+    );
+
+    store.resetDefinition();
+    store.addElement();
+    store.updateElement(0, {
+      element_type: "Sidewalk",
+      element_type_icon: "sidewalk",
+    });
+
+    store.insertSingleQuestTemplate(0, preset.quests[0]);
+    store.insertSingleQuestTemplate(0, preset.quests[1]);
+
+    expect(store.fullJson.elements[0].quests[1]).toMatchObject({
+      quest_id: 102,
+      quest_answer_dependency: {
+        question_id: 101,
+        required_value: "other",
+      },
+    });
+    expect(store.validationErrors).toEqual([]);
+  });
+
+  it("resolves a dependent preset quest even when inserted first", () => {
+    const store = useQuestStore();
+    const preset = questPresetLibrary.find(
+      (entry) => entry.id === "sidewalk-surface-basics"
+    );
+
+    store.resetDefinition();
+    store.addElement();
+    store.updateElement(0, {
+      element_type: "Sidewalk",
+      element_type_icon: "sidewalk",
+    });
+
+    store.insertSingleQuestTemplate(0, preset.quests[1]);
+    store.insertSingleQuestTemplate(0, preset.quests[0]);
+
+    expect(store.fullJson.elements[0].quests[0].quest_answer_dependency).toEqual(
+      {
+        question_id: 102,
+        required_value: "other",
+      }
+    );
+    expect(store.fullJson.elements[0].quests[0]._templateQuestionId).toBeUndefined();
+    expect(store.validationErrors).toEqual([]);
+  });
+});
+
 describe("recency period normalization", () => {
   it("keeps the recency period as an integer when given the old display text", () => {
     const store = useQuestStore();
