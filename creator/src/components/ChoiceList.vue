@@ -96,7 +96,7 @@ function moveChoiceDown(choiceIndex) {
             (quest.quest_type === 'ExclusiveChoice' ||
                 quest.quest_type === 'MultipleChoice')
         "
-        class="col-12 mt-3 pt-2 border-top"
+        class="col-12 mt-2 pt-1 border-top"
     >
         <div class="visually-hidden" aria-live="polite">
             {{ reorderAnnouncement }}
@@ -115,7 +115,7 @@ function moveChoiceDown(choiceIndex) {
 
         <div
             v-if="quest.quest_answer_choices.length === 0"
-            class="text-muted small fst-italic border rounded p-3"
+            class="text-muted small fst-italic border rounded p-2"
         >
             No choices yet. Add one for this quest type.
         </div>

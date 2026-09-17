@@ -95,7 +95,32 @@ function removeTag(index, key) {
         <div
             class="card-header d-flex align-items-center justify-content-between gap-2 flex-wrap"
         >
-            <h2 class="h6 mb-0">Feature Presets</h2>
+            <div class="creator-panel-heading flex-grow-1">
+                <div class="creator-card-info-wrap">
+                <button
+                    type="button"
+                    class="creator-card-info-btn"
+                    aria-label="About Feature Presets: Specify the types of new points able to be added in the app via long-press on the map."
+                >
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 16 16"
+                        width="15"
+                        height="15"
+                        fill="currentColor"
+                    >
+                        <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507a.905.905 0 0 0-1.1 0zM8.002 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                        />
+                    </svg>
+                </button>
+                <div role="tooltip" class="creator-card-tooltip">
+                    Specify the types of new points able to be added in the app
+                    via long-press on the map.
+                </div>
+                </div>
+                <h2 class="h6 mb-0">Feature Presets</h2>
+            </div>
             <div class="d-flex align-items-center gap-2 ms-auto">
                 <button
                     v-if="!hasSection"

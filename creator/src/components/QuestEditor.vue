@@ -129,6 +129,8 @@ function update(fields) {
         <div v-if="isAutoCapture" class="col-md-6 d-flex align-items-end">
             <div class="form-text small mb-2">
                 (only available on iOS devices with LiDAR sensors)
+                <br />
+                (currently sidewalks-only)
             </div>
         </div>
 

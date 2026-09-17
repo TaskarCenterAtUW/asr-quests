@@ -164,7 +164,7 @@ function toggleQuest(questIndex) {
 </script>
 
 <template>
-    <section class="creator-quest-section mt-3 pt-2 border-top">
+    <section class="creator-quest-section border-top">
         <div class="visually-hidden" aria-live="polite">
             {{ reorderAnnouncement }}
         </div>
@@ -190,12 +190,23 @@ function toggleQuest(questIndex) {
                 <div class="dropdown">
                     <button
                         type="button"
-                        class="btn btn-sm btn-outline-primary dropdown-toggle"
+                        class="btn btn-sm btn-outline-primary dropdown-toggle creator-preset-button"
                         data-bs-toggle="dropdown"
                         data-bs-display="static"
                         aria-expanded="false"
                         :disabled="!hasQuestPresets"
                     >
+                        <svg
+                            aria-hidden="true"
+                            viewBox="0 0 16 16"
+                            width="14"
+                            height="14"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M8 1.25a.75.75 0 0 1 .72.54l.7 2.35 2.35.7a.75.75 0 0 1 0 1.44l-2.35.7-.7 2.35a.75.75 0 0 1-1.44 0l-.7-2.35-2.35-.7a.75.75 0 0 1 0-1.44l2.35-.7.7-2.35A.75.75 0 0 1 8 1.25Zm4.75 7.5a.5.5 0 0 1 .48.36l.3 1.01 1.01.3a.5.5 0 0 1 0 .96l-1.01.3-.3 1.01a.5.5 0 0 1-.96 0l-.3-1.01-1.01-.3a.5.5 0 0 1 0-.96l1.01-.3.3-1.01a.5.5 0 0 1 .48-.36Z"
+                            />
+                        </svg>
                         Quest Presets
                     </button>
 
@@ -238,11 +249,11 @@ function toggleQuest(questIndex) {
             </div>
         </div>
 
-        <p class="small text-muted mb-3">{{ questPresetHint }}</p>
+        <p class="small text-muted mb-1">{{ questPresetHint }}</p>
 
         <div
             v-if="quests.length === 0"
-            class="creator-empty-subpanel text-muted small fst-italic border rounded p-3"
+            class="creator-empty-subpanel text-muted small fst-italic border rounded p-2"
         >
             No quests yet. Add one manually or apply a matching quest preset.
         </div>
@@ -509,7 +520,7 @@ function toggleQuest(questIndex) {
 }
 
 .ql-dep-panel-body {
-    padding: 1rem 1rem 1.15rem;
+    padding: 0.65rem 0.7rem 0.75rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
