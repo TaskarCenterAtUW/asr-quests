@@ -15,7 +15,9 @@ function formatPath(instancePath) {
         .split("/")
         .filter(Boolean)
         .map((segment) =>
-            String(Number(segment)) === segment ? `[${segment}]` : segment
+            String(Number(segment)) === segment
+                ? `[${Number(segment) + 1}]`
+                : segment
         )
         .join(".")
         .replace(/\.\[(\d+)\]/g, "[$1]");
@@ -107,3 +109,16 @@ const canUpgradeVersion = computed(() =>
         </div>
     </div>
 </template>
+
+<style>
+/* wrap long validation paths instead of underflowing off the right edge,
+   matching the JSON Preview line-wrapping behavior */
+.creator-validation-body li {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.creator-validation-body ul {
+    min-width: 0;
+}
+</style>

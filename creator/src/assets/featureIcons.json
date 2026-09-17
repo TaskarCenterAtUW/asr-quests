@@ -1,0 +1,3712 @@
+[
+  {
+    "name": "preset_far_credit_card",
+    "label": "Preset Far Credit Card",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_far_credit_card.svg"
+  },
+  {
+    "name": "preset_far_snowflake",
+    "label": "Preset Far Snowflake",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_far_snowflake.svg"
+  },
+  {
+    "name": "preset_fas_ambulance",
+    "label": "Preset Fas Ambulance",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_ambulance.svg"
+  },
+  {
+    "name": "preset_fas_apple_alt",
+    "label": "Preset Fas Apple Alt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_apple_alt.svg"
+  },
+  {
+    "name": "preset_fas_archive",
+    "label": "Preset Fas Archive",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_archive.svg"
+  },
+  {
+    "name": "preset_fas_archway",
+    "label": "Preset Fas Archway",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_archway.svg"
+  },
+  {
+    "name": "preset_fas_baby",
+    "label": "Preset Fas Baby",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_baby.svg"
+  },
+  {
+    "name": "preset_fas_baby_carriage",
+    "label": "Preset Fas Baby Carriage",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_baby_carriage.svg"
+  },
+  {
+    "name": "preset_fas_balance_scale",
+    "label": "Preset Fas Balance Scale",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_balance_scale.svg"
+  },
+  {
+    "name": "preset_fas_bath",
+    "label": "Preset Fas Bath",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_bath.svg"
+  },
+  {
+    "name": "preset_fas_beer",
+    "label": "Preset Fas Beer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_beer.svg"
+  },
+  {
+    "name": "preset_fas_bell",
+    "label": "Preset Fas Bell",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_bell.svg"
+  },
+  {
+    "name": "preset_fas_biking",
+    "label": "Preset Fas Biking",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_biking.svg"
+  },
+  {
+    "name": "preset_fas_blender",
+    "label": "Preset Fas Blender",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_blender.svg"
+  },
+  {
+    "name": "preset_fas_book",
+    "label": "Preset Fas Book",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_book.svg"
+  },
+  {
+    "name": "preset_fas_border_all",
+    "label": "Preset Fas Border All",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_border_all.svg"
+  },
+  {
+    "name": "preset_fas_bowl_rice",
+    "label": "Preset Fas Bowl Rice",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_bowl_rice.svg"
+  },
+  {
+    "name": "preset_fas_box",
+    "label": "Preset Fas Box",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_box.svg"
+  },
+  {
+    "name": "preset_fas_box_open",
+    "label": "Preset Fas Box Open",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_box_open.svg"
+  },
+  {
+    "name": "preset_fas_bugs",
+    "label": "Preset Fas Bugs",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_bugs.svg"
+  },
+  {
+    "name": "preset_fas_building_flag",
+    "label": "Preset Fas Building Flag",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_building_flag.svg"
+  },
+  {
+    "name": "preset_fas_bullseye",
+    "label": "Preset Fas Bullseye",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_bullseye.svg"
+  },
+  {
+    "name": "preset_fas_burn",
+    "label": "Preset Fas Burn",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_burn.svg"
+  },
+  {
+    "name": "preset_fas_camera_retro",
+    "label": "Preset Fas Camera Retro",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_camera_retro.svg"
+  },
+  {
+    "name": "preset_fas_cannabis",
+    "label": "Preset Fas Cannabis",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_cannabis.svg"
+  },
+  {
+    "name": "preset_fas_car_battery",
+    "label": "Preset Fas Car Battery",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_car_battery.svg"
+  },
+  {
+    "name": "preset_fas_car_crash",
+    "label": "Preset Fas Car Crash",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_car_crash.svg"
+  },
+  {
+    "name": "preset_fas_carrot",
+    "label": "Preset Fas Carrot",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_carrot.svg"
+  },
+  {
+    "name": "preset_fas_cat",
+    "label": "Preset Fas Cat",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_cat.svg"
+  },
+  {
+    "name": "preset_fas_charging_station",
+    "label": "Preset Fas Charging Station",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_charging_station.svg"
+  },
+  {
+    "name": "preset_fas_cheese",
+    "label": "Preset Fas Cheese",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_cheese.svg"
+  },
+  {
+    "name": "preset_fas_chess_bishop",
+    "label": "Preset Fas Chess Bishop",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_chess_bishop.svg"
+  },
+  {
+    "name": "preset_fas_chess_knight",
+    "label": "Preset Fas Chess Knight",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_chess_knight.svg"
+  },
+  {
+    "name": "preset_fas_chess_pawn",
+    "label": "Preset Fas Chess Pawn",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_chess_pawn.svg"
+  },
+  {
+    "name": "preset_fas_chevron_circle_up",
+    "label": "Preset Fas Chevron Circle Up",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_chevron_circle_up.svg"
+  },
+  {
+    "name": "preset_fas_child_reaching",
+    "label": "Preset Fas Child Reaching",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_child_reaching.svg"
+  },
+  {
+    "name": "preset_fas_church",
+    "label": "Preset Fas Church",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_church.svg"
+  },
+  {
+    "name": "preset_fas_cocktail",
+    "label": "Preset Fas Cocktail",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_cocktail.svg"
+  },
+  {
+    "name": "preset_fas_code",
+    "label": "Preset Fas Code",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_code.svg"
+  },
+  {
+    "name": "preset_fas_coins",
+    "label": "Preset Fas Coins",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_coins.svg"
+  },
+  {
+    "name": "preset_fas_comment",
+    "label": "Preset Fas Comment",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_comment.svg"
+  },
+  {
+    "name": "preset_fas_comments",
+    "label": "Preset Fas Comments",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_comments.svg"
+  },
+  {
+    "name": "preset_fas_compact_disc",
+    "label": "Preset Fas Compact Disc",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_compact_disc.svg"
+  },
+  {
+    "name": "preset_fas_compress_arrows_alt",
+    "label": "Preset Fas Compress Arrows Alt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_compress_arrows_alt.svg"
+  },
+  {
+    "name": "preset_fas_concierge_bell",
+    "label": "Preset Fas Concierge Bell",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_concierge_bell.svg"
+  },
+  {
+    "name": "preset_fas_couch",
+    "label": "Preset Fas Couch",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_couch.svg"
+  },
+  {
+    "name": "preset_fas_crosshairs",
+    "label": "Preset Fas Crosshairs",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_crosshairs.svg"
+  },
+  {
+    "name": "preset_fas_crown",
+    "label": "Preset Fas Crown",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_crown.svg"
+  },
+  {
+    "name": "preset_fas_crutch",
+    "label": "Preset Fas Crutch",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_crutch.svg"
+  },
+  {
+    "name": "preset_fas_cube",
+    "label": "Preset Fas Cube",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_cube.svg"
+  },
+  {
+    "name": "preset_fas_dice",
+    "label": "Preset Fas Dice",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_dice.svg"
+  },
+  {
+    "name": "preset_fas_directions",
+    "label": "Preset Fas Directions",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_directions.svg"
+  },
+  {
+    "name": "preset_fas_dolly",
+    "label": "Preset Fas Dolly",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_dolly.svg"
+  },
+  {
+    "name": "preset_fas_door_closed",
+    "label": "Preset Fas Door Closed",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_door_closed.svg"
+  },
+  {
+    "name": "preset_fas_door_open",
+    "label": "Preset Fas Door Open",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_door_open.svg"
+  },
+  {
+    "name": "preset_fas_dove",
+    "label": "Preset Fas Dove",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_dove.svg"
+  },
+  {
+    "name": "preset_fas_drafting_compass",
+    "label": "Preset Fas Drafting Compass",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_drafting_compass.svg"
+  },
+  {
+    "name": "preset_fas_dragon",
+    "label": "Preset Fas Dragon",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_dragon.svg"
+  },
+  {
+    "name": "preset_fas_drumstick_bite",
+    "label": "Preset Fas Drumstick Bite",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_drumstick_bite.svg"
+  },
+  {
+    "name": "preset_fas_dumbbell",
+    "label": "Preset Fas Dumbbell",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_dumbbell.svg"
+  },
+  {
+    "name": "preset_fas_dumpster",
+    "label": "Preset Fas Dumpster",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_dumpster.svg"
+  },
+  {
+    "name": "preset_fas_dumpster_fire",
+    "label": "Preset Fas Dumpster Fire",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_dumpster_fire.svg"
+  },
+  {
+    "name": "preset_fas_dungeon",
+    "label": "Preset Fas Dungeon",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_dungeon.svg"
+  },
+  {
+    "name": "preset_fas_eye",
+    "label": "Preset Fas Eye",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_eye.svg"
+  },
+  {
+    "name": "preset_fas_film",
+    "label": "Preset Fas Film",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_film.svg"
+  },
+  {
+    "name": "preset_fas_fire_extinguisher",
+    "label": "Preset Fas Fire Extinguisher",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_fire_extinguisher.svg"
+  },
+  {
+    "name": "preset_fas_fish",
+    "label": "Preset Fas Fish",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_fish.svg"
+  },
+  {
+    "name": "preset_fas_flag_checkered",
+    "label": "Preset Fas Flag Checkered",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_flag_checkered.svg"
+  },
+  {
+    "name": "preset_fas_flask",
+    "label": "Preset Fas Flask",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_flask.svg"
+  },
+  {
+    "name": "preset_fas_frog",
+    "label": "Preset Fas Frog",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_frog.svg"
+  },
+  {
+    "name": "preset_fas_futbol",
+    "label": "Preset Fas Futbol",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_futbol.svg"
+  },
+  {
+    "name": "preset_fas_gavel",
+    "label": "Preset Fas Gavel",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_gavel.svg"
+  },
+  {
+    "name": "preset_fas_guitar",
+    "label": "Preset Fas Guitar",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_guitar.svg"
+  },
+  {
+    "name": "preset_fas_hammer",
+    "label": "Preset Fas Hammer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_hammer.svg"
+  },
+  {
+    "name": "preset_fas_hand_holding",
+    "label": "Preset Fas Hand Holding",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_hand_holding.svg"
+  },
+  {
+    "name": "preset_fas_handshake",
+    "label": "Preset Fas Handshake",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_handshake.svg"
+  },
+  {
+    "name": "preset_fas_hat_cowboy_side",
+    "label": "Preset Fas Hat Cowboy Side",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_hat_cowboy_side.svg"
+  },
+  {
+    "name": "preset_fas_helmet_safety",
+    "label": "Preset Fas Helmet Safety",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_helmet_safety.svg"
+  },
+  {
+    "name": "preset_fas_hiking",
+    "label": "Preset Fas Hiking",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_hiking.svg"
+  },
+  {
+    "name": "preset_fas_horse",
+    "label": "Preset Fas Horse",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_horse.svg"
+  },
+  {
+    "name": "preset_fas_hospital_alt",
+    "label": "Preset Fas Hospital Alt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_hospital_alt.svg"
+  },
+  {
+    "name": "preset_fas_hot_tub_person",
+    "label": "Preset Fas Hot Tub Person",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_hot_tub_person.svg"
+  },
+  {
+    "name": "preset_fas_hotdog",
+    "label": "Preset Fas Hotdog",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_hotdog.svg"
+  },
+  {
+    "name": "preset_fas_hotel",
+    "label": "Preset Fas Hotel",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_hotel.svg"
+  },
+  {
+    "name": "preset_fas_house_damage",
+    "label": "Preset Fas House Damage",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_house_damage.svg"
+  },
+  {
+    "name": "preset_fas_house_fire",
+    "label": "Preset Fas House Fire",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_house_fire.svg"
+  },
+  {
+    "name": "preset_fas_ice_cream",
+    "label": "Preset Fas Ice Cream",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_ice_cream.svg"
+  },
+  {
+    "name": "preset_fas_jar",
+    "label": "Preset Fas Jar",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_jar.svg"
+  },
+  {
+    "name": "preset_fas_key",
+    "label": "Preset Fas Key",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_key.svg"
+  },
+  {
+    "name": "preset_fas_language",
+    "label": "Preset Fas Language",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_language.svg"
+  },
+  {
+    "name": "preset_fas_laptop",
+    "label": "Preset Fas Laptop",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_laptop.svg"
+  },
+  {
+    "name": "preset_fas_leaf",
+    "label": "Preset Fas Leaf",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_leaf.svg"
+  },
+  {
+    "name": "preset_fas_life_ring",
+    "label": "Preset Fas Life Ring",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_life_ring.svg"
+  },
+  {
+    "name": "preset_fas_mail_bulk",
+    "label": "Preset Fas Mail Bulk",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_mail_bulk.svg"
+  },
+  {
+    "name": "preset_fas_map",
+    "label": "Preset Fas Map",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_map.svg"
+  },
+  {
+    "name": "preset_fas_map_signs",
+    "label": "Preset Fas Map Signs",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_map_signs.svg"
+  },
+  {
+    "name": "preset_fas_medkit",
+    "label": "Preset Fas Medkit",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_medkit.svg"
+  },
+  {
+    "name": "preset_fas_microchip",
+    "label": "Preset Fas Microchip",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_microchip.svg"
+  },
+  {
+    "name": "preset_fas_microphone",
+    "label": "Preset Fas Microphone",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_microphone.svg"
+  },
+  {
+    "name": "preset_fas_mobile_alt",
+    "label": "Preset Fas Mobile Alt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_mobile_alt.svg"
+  },
+  {
+    "name": "preset_fas_mosque",
+    "label": "Preset Fas Mosque",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_mosque.svg"
+  },
+  {
+    "name": "preset_fas_motorcycle",
+    "label": "Preset Fas Motorcycle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_motorcycle.svg"
+  },
+  {
+    "name": "preset_fas_music",
+    "label": "Preset Fas Music",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_music.svg"
+  },
+  {
+    "name": "preset_fas_newspaper",
+    "label": "Preset Fas Newspaper",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_newspaper.svg"
+  },
+  {
+    "name": "preset_fas_paint_roller",
+    "label": "Preset Fas Paint Roller",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_paint_roller.svg"
+  },
+  {
+    "name": "preset_fas_palette",
+    "label": "Preset Fas Palette",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_palette.svg"
+  },
+  {
+    "name": "preset_fas_paperclip",
+    "label": "Preset Fas Paperclip",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_paperclip.svg"
+  },
+  {
+    "name": "preset_fas_pen_ruler",
+    "label": "Preset Fas Pen Ruler",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_pen_ruler.svg"
+  },
+  {
+    "name": "preset_fas_people_carry",
+    "label": "Preset Fas People Carry",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_people_carry.svg"
+  },
+  {
+    "name": "preset_fas_pepper_hot",
+    "label": "Preset Fas Pepper Hot",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_pepper_hot.svg"
+  },
+  {
+    "name": "preset_fas_person_arrow_up_from_line",
+    "label": "Preset Fas Person Arrow Up From Line",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_person_arrow_up_from_line.svg"
+  },
+  {
+    "name": "preset_fas_person_booth",
+    "label": "Preset Fas Person Booth",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_person_booth.svg"
+  },
+  {
+    "name": "preset_fas_phone_alt",
+    "label": "Preset Fas Phone Alt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_phone_alt.svg"
+  },
+  {
+    "name": "preset_fas_pills",
+    "label": "Preset Fas Pills",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_pills.svg"
+  },
+  {
+    "name": "preset_fas_plane",
+    "label": "Preset Fas Plane",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_plane.svg"
+  },
+  {
+    "name": "preset_fas_plane_departure",
+    "label": "Preset Fas Plane Departure",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_plane_departure.svg"
+  },
+  {
+    "name": "preset_fas_plate_wheat",
+    "label": "Preset Fas Plate Wheat",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_plate_wheat.svg"
+  },
+  {
+    "name": "preset_fas_plug",
+    "label": "Preset Fas Plug",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_plug.svg"
+  },
+  {
+    "name": "preset_fas_plug_circle_bolt",
+    "label": "Preset Fas Plug Circle Bolt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_plug_circle_bolt.svg"
+  },
+  {
+    "name": "preset_fas_print",
+    "label": "Preset Fas Print",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_print.svg"
+  },
+  {
+    "name": "preset_fas_procedures",
+    "label": "Preset Fas Procedures",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_procedures.svg"
+  },
+  {
+    "name": "preset_fas_puzzle_piece",
+    "label": "Preset Fas Puzzle Piece",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_puzzle_piece.svg"
+  },
+  {
+    "name": "preset_fas_rocket",
+    "label": "Preset Fas Rocket",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_rocket.svg"
+  },
+  {
+    "name": "preset_fas_running",
+    "label": "Preset Fas Running",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_running.svg"
+  },
+  {
+    "name": "preset_fas_satellite_dish",
+    "label": "Preset Fas Satellite Dish",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_satellite_dish.svg"
+  },
+  {
+    "name": "preset_fas_school",
+    "label": "Preset Fas School",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_school.svg"
+  },
+  {
+    "name": "preset_fas_screwdriver",
+    "label": "Preset Fas Screwdriver",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_screwdriver.svg"
+  },
+  {
+    "name": "preset_fas_seedling",
+    "label": "Preset Fas Seedling",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_seedling.svg"
+  },
+  {
+    "name": "preset_fas_server",
+    "label": "Preset Fas Server",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_server.svg"
+  },
+  {
+    "name": "preset_fas_shoe_prints",
+    "label": "Preset Fas Shoe Prints",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_shoe_prints.svg"
+  },
+  {
+    "name": "preset_fas_shopping_basket",
+    "label": "Preset Fas Shopping Basket",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_shopping_basket.svg"
+  },
+  {
+    "name": "preset_fas_shopping_cart",
+    "label": "Preset Fas Shopping Cart",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_shopping_cart.svg"
+  },
+  {
+    "name": "preset_fas_sign_hanging",
+    "label": "Preset Fas Sign Hanging",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_sign_hanging.svg"
+  },
+  {
+    "name": "preset_fas_skating",
+    "label": "Preset Fas Skating",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_skating.svg"
+  },
+  {
+    "name": "preset_fas_skiing",
+    "label": "Preset Fas Skiing",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_skiing.svg"
+  },
+  {
+    "name": "preset_fas_skiing_nordic",
+    "label": "Preset Fas Skiing Nordic",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_skiing_nordic.svg"
+  },
+  {
+    "name": "preset_fas_sleigh",
+    "label": "Preset Fas Sleigh",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_sleigh.svg"
+  },
+  {
+    "name": "preset_fas_smoking",
+    "label": "Preset Fas Smoking",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_smoking.svg"
+  },
+  {
+    "name": "preset_fas_snowboarding",
+    "label": "Preset Fas Snowboarding",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_snowboarding.svg"
+  },
+  {
+    "name": "preset_fas_solar_panel",
+    "label": "Preset Fas Solar Panel",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_solar_panel.svg"
+  },
+  {
+    "name": "preset_fas_spa",
+    "label": "Preset Fas Spa",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_spa.svg"
+  },
+  {
+    "name": "preset_fas_space_shuttle",
+    "label": "Preset Fas Space Shuttle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_space_shuttle.svg"
+  },
+  {
+    "name": "preset_fas_spoon",
+    "label": "Preset Fas Spoon",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_spoon.svg"
+  },
+  {
+    "name": "preset_fas_stamp",
+    "label": "Preset Fas Stamp",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_stamp.svg"
+  },
+  {
+    "name": "preset_fas_store",
+    "label": "Preset Fas Store",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_store.svg"
+  },
+  {
+    "name": "preset_fas_store_alt_slash",
+    "label": "Preset Fas Store Alt Slash",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_store_alt_slash.svg"
+  },
+  {
+    "name": "preset_fas_suitcase",
+    "label": "Preset Fas Suitcase",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_suitcase.svg"
+  },
+  {
+    "name": "preset_fas_suitcase_rolling",
+    "label": "Preset Fas Suitcase Rolling",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_suitcase_rolling.svg"
+  },
+  {
+    "name": "preset_fas_swimmer",
+    "label": "Preset Fas Swimmer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_swimmer.svg"
+  },
+  {
+    "name": "preset_fas_swimming_pool",
+    "label": "Preset Fas Swimming Pool",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_swimming_pool.svg"
+  },
+  {
+    "name": "preset_fas_synagogue",
+    "label": "Preset Fas Synagogue",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_synagogue.svg"
+  },
+  {
+    "name": "preset_fas_table_tennis",
+    "label": "Preset Fas Table Tennis",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_table_tennis.svg"
+  },
+  {
+    "name": "preset_fas_tachometer_alt",
+    "label": "Preset Fas Tachometer Alt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_tachometer_alt.svg"
+  },
+  {
+    "name": "preset_fas_tape",
+    "label": "Preset Fas Tape",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_tape.svg"
+  },
+  {
+    "name": "preset_fas_taxi",
+    "label": "Preset Fas Taxi",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_taxi.svg"
+  },
+  {
+    "name": "preset_fas_teeth",
+    "label": "Preset Fas Teeth",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_teeth.svg"
+  },
+  {
+    "name": "preset_fas_th",
+    "label": "Preset Fas Th",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_th.svg"
+  },
+  {
+    "name": "preset_fas_thermometer_three_quarters",
+    "label": "Preset Fas Thermometer Three Quarters",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_thermometer_three_quarters.svg"
+  },
+  {
+    "name": "preset_fas_ticket_alt",
+    "label": "Preset Fas Ticket Alt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_ticket_alt.svg"
+  },
+  {
+    "name": "preset_fas_tint",
+    "label": "Preset Fas Tint",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_tint.svg"
+  },
+  {
+    "name": "preset_fas_toilet",
+    "label": "Preset Fas Toilet",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_toilet.svg"
+  },
+  {
+    "name": "preset_fas_tools",
+    "label": "Preset Fas Tools",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_tools.svg"
+  },
+  {
+    "name": "preset_fas_tractor",
+    "label": "Preset Fas Tractor",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_tractor.svg"
+  },
+  {
+    "name": "preset_fas_tram",
+    "label": "Preset Fas Tram",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_tram.svg"
+  },
+  {
+    "name": "preset_fas_trash_restore",
+    "label": "Preset Fas Trash Restore",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_trash_restore.svg"
+  },
+  {
+    "name": "preset_fas_triangle_exclamation",
+    "label": "Preset Fas Triangle Exclamation",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_triangle_exclamation.svg"
+  },
+  {
+    "name": "preset_fas_trophy",
+    "label": "Preset Fas Trophy",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_trophy.svg"
+  },
+  {
+    "name": "preset_fas_truck_fast",
+    "label": "Preset Fas Truck Fast",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_truck_fast.svg"
+  },
+  {
+    "name": "preset_fas_truck_loading",
+    "label": "Preset Fas Truck Loading",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_truck_loading.svg"
+  },
+  {
+    "name": "preset_fas_truck_monster",
+    "label": "Preset Fas Truck Monster",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_truck_monster.svg"
+  },
+  {
+    "name": "preset_fas_tshirt",
+    "label": "Preset Fas Tshirt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_tshirt.svg"
+  },
+  {
+    "name": "preset_fas_umbrella_beach",
+    "label": "Preset Fas Umbrella Beach",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_umbrella_beach.svg"
+  },
+  {
+    "name": "preset_fas_user_alt",
+    "label": "Preset Fas User Alt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_user_alt.svg"
+  },
+  {
+    "name": "preset_fas_user_secret",
+    "label": "Preset Fas User Secret",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_user_secret.svg"
+  },
+  {
+    "name": "preset_fas_user_tie",
+    "label": "Preset Fas User Tie",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_user_tie.svg"
+  },
+  {
+    "name": "preset_fas_users",
+    "label": "Preset Fas Users",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_users.svg"
+  },
+  {
+    "name": "preset_fas_vest",
+    "label": "Preset Fas Vest",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_vest.svg"
+  },
+  {
+    "name": "preset_fas_vial",
+    "label": "Preset Fas Vial",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_vial.svg"
+  },
+  {
+    "name": "preset_fas_video",
+    "label": "Preset Fas Video",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_video.svg"
+  },
+  {
+    "name": "preset_fas_vihara",
+    "label": "Preset Fas Vihara",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_vihara.svg"
+  },
+  {
+    "name": "preset_fas_volume_up",
+    "label": "Preset Fas Volume Up",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_volume_up.svg"
+  },
+  {
+    "name": "preset_fas_vote_yea",
+    "label": "Preset Fas Vote Yea",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_vote_yea.svg"
+  },
+  {
+    "name": "preset_fas_warehouse",
+    "label": "Preset Fas Warehouse",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_warehouse.svg"
+  },
+  {
+    "name": "preset_fas_water_ladder",
+    "label": "Preset Fas Water Ladder",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_water_ladder.svg"
+  },
+  {
+    "name": "preset_fas_weight",
+    "label": "Preset Fas Weight",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_weight.svg"
+  },
+  {
+    "name": "preset_fas_wifi",
+    "label": "Preset Fas Wifi",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_wifi.svg"
+  },
+  {
+    "name": "preset_fas_wine_bottle",
+    "label": "Preset Fas Wine Bottle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_fas_wine_bottle.svg"
+  },
+  {
+    "name": "preset_id_restriction_no_u_turn",
+    "label": "Preset Id Restriction No U Turn",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_id_restriction_no_u_turn.svg"
+  },
+  {
+    "name": "preset_maki_aerialway",
+    "label": "Preset Maki Aerialway",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_aerialway.svg"
+  },
+  {
+    "name": "preset_maki_airport",
+    "label": "Preset Maki Airport",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_airport.svg"
+  },
+  {
+    "name": "preset_maki_alcohol_shop",
+    "label": "Preset Maki Alcohol Shop",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_alcohol_shop.svg"
+  },
+  {
+    "name": "preset_maki_american_football",
+    "label": "Preset Maki American Football",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_american_football.svg"
+  },
+  {
+    "name": "preset_maki_amusement_park",
+    "label": "Preset Maki Amusement Park",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_amusement_park.svg"
+  },
+  {
+    "name": "preset_maki_aquarium",
+    "label": "Preset Maki Aquarium",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_aquarium.svg"
+  },
+  {
+    "name": "preset_maki_art_gallery",
+    "label": "Preset Maki Art Gallery",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_art_gallery.svg"
+  },
+  {
+    "name": "preset_maki_attraction",
+    "label": "Preset Maki Attraction",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_attraction.svg"
+  },
+  {
+    "name": "preset_maki_bakery",
+    "label": "Preset Maki Bakery",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_bakery.svg"
+  },
+  {
+    "name": "preset_maki_bank",
+    "label": "Preset Maki Bank",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_bank.svg"
+  },
+  {
+    "name": "preset_maki_bar",
+    "label": "Preset Maki Bar",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_bar.svg"
+  },
+  {
+    "name": "preset_maki_barrier",
+    "label": "Preset Maki Barrier",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_barrier.svg"
+  },
+  {
+    "name": "preset_maki_baseball",
+    "label": "Preset Maki Baseball",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_baseball.svg"
+  },
+  {
+    "name": "preset_maki_basketball",
+    "label": "Preset Maki Basketball",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_basketball.svg"
+  },
+  {
+    "name": "preset_maki_bbq",
+    "label": "Preset Maki Bbq",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_bbq.svg"
+  },
+  {
+    "name": "preset_maki_beer",
+    "label": "Preset Maki Beer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_beer.svg"
+  },
+  {
+    "name": "preset_maki_bicycle",
+    "label": "Preset Maki Bicycle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_bicycle.svg"
+  },
+  {
+    "name": "preset_maki_blood_bank",
+    "label": "Preset Maki Blood Bank",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_blood_bank.svg"
+  },
+  {
+    "name": "preset_maki_bridge",
+    "label": "Preset Maki Bridge",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_bridge.svg"
+  },
+  {
+    "name": "preset_maki_building",
+    "label": "Preset Maki Building",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_building.svg"
+  },
+  {
+    "name": "preset_maki_cafe",
+    "label": "Preset Maki Cafe",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_cafe.svg"
+  },
+  {
+    "name": "preset_maki_campsite",
+    "label": "Preset Maki Campsite",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_campsite.svg"
+  },
+  {
+    "name": "preset_maki_car",
+    "label": "Preset Maki Car",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_car.svg"
+  },
+  {
+    "name": "preset_maki_car_rental",
+    "label": "Preset Maki Car Rental",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_car_rental.svg"
+  },
+  {
+    "name": "preset_maki_car_repair",
+    "label": "Preset Maki Car Repair",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_car_repair.svg"
+  },
+  {
+    "name": "preset_maki_casino",
+    "label": "Preset Maki Casino",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_casino.svg"
+  },
+  {
+    "name": "preset_maki_castle",
+    "label": "Preset Maki Castle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_castle.svg"
+  },
+  {
+    "name": "preset_maki_cemetery",
+    "label": "Preset Maki Cemetery",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_cemetery.svg"
+  },
+  {
+    "name": "preset_maki_cinema",
+    "label": "Preset Maki Cinema",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_cinema.svg"
+  },
+  {
+    "name": "preset_maki_circle",
+    "label": "Preset Maki Circle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_circle.svg"
+  },
+  {
+    "name": "preset_maki_circle_stroked",
+    "label": "Preset Maki Circle Stroked",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_circle_stroked.svg"
+  },
+  {
+    "name": "preset_maki_city",
+    "label": "Preset Maki City",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_city.svg"
+  },
+  {
+    "name": "preset_maki_clothing_store",
+    "label": "Preset Maki Clothing Store",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_clothing_store.svg"
+  },
+  {
+    "name": "preset_maki_college",
+    "label": "Preset Maki College",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_college.svg"
+  },
+  {
+    "name": "preset_maki_commercial",
+    "label": "Preset Maki Commercial",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_commercial.svg"
+  },
+  {
+    "name": "preset_maki_communications_tower",
+    "label": "Preset Maki Communications Tower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_communications_tower.svg"
+  },
+  {
+    "name": "preset_maki_confectionery",
+    "label": "Preset Maki Confectionery",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_confectionery.svg"
+  },
+  {
+    "name": "preset_maki_cricket",
+    "label": "Preset Maki Cricket",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_cricket.svg"
+  },
+  {
+    "name": "preset_maki_cross",
+    "label": "Preset Maki Cross",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_cross.svg"
+  },
+  {
+    "name": "preset_maki_dam",
+    "label": "Preset Maki Dam",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_dam.svg"
+  },
+  {
+    "name": "preset_maki_danger",
+    "label": "Preset Maki Danger",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_danger.svg"
+  },
+  {
+    "name": "preset_maki_defibrillator",
+    "label": "Preset Maki Defibrillator",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_defibrillator.svg"
+  },
+  {
+    "name": "preset_maki_dentist",
+    "label": "Preset Maki Dentist",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_dentist.svg"
+  },
+  {
+    "name": "preset_maki_doctor",
+    "label": "Preset Maki Doctor",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_doctor.svg"
+  },
+  {
+    "name": "preset_maki_dog_park",
+    "label": "Preset Maki Dog Park",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_dog_park.svg"
+  },
+  {
+    "name": "preset_maki_drinking_water",
+    "label": "Preset Maki Drinking Water",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_drinking_water.svg"
+  },
+  {
+    "name": "preset_maki_embassy",
+    "label": "Preset Maki Embassy",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_embassy.svg"
+  },
+  {
+    "name": "preset_maki_emergency_phone",
+    "label": "Preset Maki Emergency Phone",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_emergency_phone.svg"
+  },
+  {
+    "name": "preset_maki_entrance",
+    "label": "Preset Maki Entrance",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_entrance.svg"
+  },
+  {
+    "name": "preset_maki_entrance_alt1",
+    "label": "Preset Maki Entrance Alt1",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_entrance_alt1.svg"
+  },
+  {
+    "name": "preset_maki_farm",
+    "label": "Preset Maki Farm",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_farm.svg"
+  },
+  {
+    "name": "preset_maki_fast_food",
+    "label": "Preset Maki Fast Food",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_fast_food.svg"
+  },
+  {
+    "name": "preset_maki_fence",
+    "label": "Preset Maki Fence",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_fence.svg"
+  },
+  {
+    "name": "preset_maki_ferry",
+    "label": "Preset Maki Ferry",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_ferry.svg"
+  },
+  {
+    "name": "preset_maki_fire_station",
+    "label": "Preset Maki Fire Station",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_fire_station.svg"
+  },
+  {
+    "name": "preset_maki_florist",
+    "label": "Preset Maki Florist",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_florist.svg"
+  },
+  {
+    "name": "preset_maki_fuel",
+    "label": "Preset Maki Fuel",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_fuel.svg"
+  },
+  {
+    "name": "preset_maki_gaming",
+    "label": "Preset Maki Gaming",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_gaming.svg"
+  },
+  {
+    "name": "preset_maki_garden",
+    "label": "Preset Maki Garden",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_garden.svg"
+  },
+  {
+    "name": "preset_maki_garden_centre",
+    "label": "Preset Maki Garden Centre",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_garden_centre.svg"
+  },
+  {
+    "name": "preset_maki_gift",
+    "label": "Preset Maki Gift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_gift.svg"
+  },
+  {
+    "name": "preset_maki_globe",
+    "label": "Preset Maki Globe",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_globe.svg"
+  },
+  {
+    "name": "preset_maki_golf",
+    "label": "Preset Maki Golf",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_golf.svg"
+  },
+  {
+    "name": "preset_maki_grocery",
+    "label": "Preset Maki Grocery",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_grocery.svg"
+  },
+  {
+    "name": "preset_maki_harbor",
+    "label": "Preset Maki Harbor",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_harbor.svg"
+  },
+  {
+    "name": "preset_maki_heart",
+    "label": "Preset Maki Heart",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_heart.svg"
+  },
+  {
+    "name": "preset_maki_heliport",
+    "label": "Preset Maki Heliport",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_heliport.svg"
+  },
+  {
+    "name": "preset_maki_highway_rest_area",
+    "label": "Preset Maki Highway Rest Area",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_highway_rest_area.svg"
+  },
+  {
+    "name": "preset_maki_home",
+    "label": "Preset Maki Home",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_home.svg"
+  },
+  {
+    "name": "preset_maki_horse_riding",
+    "label": "Preset Maki Horse Riding",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_horse_riding.svg"
+  },
+  {
+    "name": "preset_maki_hospital",
+    "label": "Preset Maki Hospital",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_hospital.svg"
+  },
+  {
+    "name": "preset_maki_hot_spring",
+    "label": "Preset Maki Hot Spring",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_hot_spring.svg"
+  },
+  {
+    "name": "preset_maki_ice_cream",
+    "label": "Preset Maki Ice Cream",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_ice_cream.svg"
+  },
+  {
+    "name": "preset_maki_industry",
+    "label": "Preset Maki Industry",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_industry.svg"
+  },
+  {
+    "name": "preset_maki_information",
+    "label": "Preset Maki Information",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_information.svg"
+  },
+  {
+    "name": "preset_maki_jewelry_store",
+    "label": "Preset Maki Jewelry Store",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_jewelry_store.svg"
+  },
+  {
+    "name": "preset_maki_karaoke",
+    "label": "Preset Maki Karaoke",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_karaoke.svg"
+  },
+  {
+    "name": "preset_maki_landmark",
+    "label": "Preset Maki Landmark",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_landmark.svg"
+  },
+  {
+    "name": "preset_maki_library",
+    "label": "Preset Maki Library",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_library.svg"
+  },
+  {
+    "name": "preset_maki_lighthouse",
+    "label": "Preset Maki Lighthouse",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_lighthouse.svg"
+  },
+  {
+    "name": "preset_maki_lodging",
+    "label": "Preset Maki Lodging",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_lodging.svg"
+  },
+  {
+    "name": "preset_maki_logging",
+    "label": "Preset Maki Logging",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_logging.svg"
+  },
+  {
+    "name": "preset_maki_marker_stroked",
+    "label": "Preset Maki Marker Stroked",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_marker_stroked.svg"
+  },
+  {
+    "name": "preset_maki_monument",
+    "label": "Preset Maki Monument",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_monument.svg"
+  },
+  {
+    "name": "preset_maki_mountain",
+    "label": "Preset Maki Mountain",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_mountain.svg"
+  },
+  {
+    "name": "preset_maki_natural",
+    "label": "Preset Maki Natural",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_natural.svg"
+  },
+  {
+    "name": "preset_maki_observation_tower",
+    "label": "Preset Maki Observation Tower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_observation_tower.svg"
+  },
+  {
+    "name": "preset_maki_optician",
+    "label": "Preset Maki Optician",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_optician.svg"
+  },
+  {
+    "name": "preset_maki_park",
+    "label": "Preset Maki Park",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_park.svg"
+  },
+  {
+    "name": "preset_maki_park_alt1",
+    "label": "Preset Maki Park Alt1",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_park_alt1.svg"
+  },
+  {
+    "name": "preset_maki_pharmacy",
+    "label": "Preset Maki Pharmacy",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_pharmacy.svg"
+  },
+  {
+    "name": "preset_maki_picnic_site",
+    "label": "Preset Maki Picnic Site",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_picnic_site.svg"
+  },
+  {
+    "name": "preset_maki_pitch",
+    "label": "Preset Maki Pitch",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_pitch.svg"
+  },
+  {
+    "name": "preset_maki_place_of_worship",
+    "label": "Preset Maki Place Of Worship",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_place_of_worship.svg"
+  },
+  {
+    "name": "preset_maki_playground",
+    "label": "Preset Maki Playground",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_playground.svg"
+  },
+  {
+    "name": "preset_maki_post",
+    "label": "Preset Maki Post",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_post.svg"
+  },
+  {
+    "name": "preset_maki_prison",
+    "label": "Preset Maki Prison",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_prison.svg"
+  },
+  {
+    "name": "preset_maki_racetrack_cycling",
+    "label": "Preset Maki Racetrack Cycling",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_racetrack_cycling.svg"
+  },
+  {
+    "name": "preset_maki_racetrack_horse",
+    "label": "Preset Maki Racetrack Horse",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_racetrack_horse.svg"
+  },
+  {
+    "name": "preset_maki_rail_metro",
+    "label": "Preset Maki Rail Metro",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_rail_metro.svg"
+  },
+  {
+    "name": "preset_maki_ranger_station",
+    "label": "Preset Maki Ranger Station",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_ranger_station.svg"
+  },
+  {
+    "name": "preset_maki_recycling",
+    "label": "Preset Maki Recycling",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_recycling.svg"
+  },
+  {
+    "name": "preset_maki_religious_buddhist",
+    "label": "Preset Maki Religious Buddhist",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_religious_buddhist.svg"
+  },
+  {
+    "name": "preset_maki_religious_christian",
+    "label": "Preset Maki Religious Christian",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_religious_christian.svg"
+  },
+  {
+    "name": "preset_maki_religious_jewish",
+    "label": "Preset Maki Religious Jewish",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_religious_jewish.svg"
+  },
+  {
+    "name": "preset_maki_religious_muslim",
+    "label": "Preset Maki Religious Muslim",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_religious_muslim.svg"
+  },
+  {
+    "name": "preset_maki_residential_community",
+    "label": "Preset Maki Residential Community",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_residential_community.svg"
+  },
+  {
+    "name": "preset_maki_restaurant",
+    "label": "Preset Maki Restaurant",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_restaurant.svg"
+  },
+  {
+    "name": "preset_maki_restaurant_bbq",
+    "label": "Preset Maki Restaurant Bbq",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_restaurant_bbq.svg"
+  },
+  {
+    "name": "preset_maki_restaurant_noodle",
+    "label": "Preset Maki Restaurant Noodle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_restaurant_noodle.svg"
+  },
+  {
+    "name": "preset_maki_restaurant_pizza",
+    "label": "Preset Maki Restaurant Pizza",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_restaurant_pizza.svg"
+  },
+  {
+    "name": "preset_maki_restaurant_seafood",
+    "label": "Preset Maki Restaurant Seafood",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_restaurant_seafood.svg"
+  },
+  {
+    "name": "preset_maki_roadblock",
+    "label": "Preset Maki Roadblock",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_roadblock.svg"
+  },
+  {
+    "name": "preset_maki_school",
+    "label": "Preset Maki School",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_school.svg"
+  },
+  {
+    "name": "preset_maki_shelter",
+    "label": "Preset Maki Shelter",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_shelter.svg"
+  },
+  {
+    "name": "preset_maki_shoe",
+    "label": "Preset Maki Shoe",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_shoe.svg"
+  },
+  {
+    "name": "preset_maki_shop",
+    "label": "Preset Maki Shop",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_shop.svg"
+  },
+  {
+    "name": "preset_maki_skateboard",
+    "label": "Preset Maki Skateboard",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_skateboard.svg"
+  },
+  {
+    "name": "preset_maki_slaughterhouse",
+    "label": "Preset Maki Slaughterhouse",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_slaughterhouse.svg"
+  },
+  {
+    "name": "preset_maki_slipway",
+    "label": "Preset Maki Slipway",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_slipway.svg"
+  },
+  {
+    "name": "preset_maki_soccer",
+    "label": "Preset Maki Soccer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_soccer.svg"
+  },
+  {
+    "name": "preset_maki_square_stroked",
+    "label": "Preset Maki Square Stroked",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_square_stroked.svg"
+  },
+  {
+    "name": "preset_maki_stadium",
+    "label": "Preset Maki Stadium",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_stadium.svg"
+  },
+  {
+    "name": "preset_maki_star",
+    "label": "Preset Maki Star",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_star.svg"
+  },
+  {
+    "name": "preset_maki_suitcase",
+    "label": "Preset Maki Suitcase",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_suitcase.svg"
+  },
+  {
+    "name": "preset_maki_teahouse",
+    "label": "Preset Maki Teahouse",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_teahouse.svg"
+  },
+  {
+    "name": "preset_maki_telephone",
+    "label": "Preset Maki Telephone",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_telephone.svg"
+  },
+  {
+    "name": "preset_maki_tennis",
+    "label": "Preset Maki Tennis",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_tennis.svg"
+  },
+  {
+    "name": "preset_maki_theatre",
+    "label": "Preset Maki Theatre",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_theatre.svg"
+  },
+  {
+    "name": "preset_maki_toilet",
+    "label": "Preset Maki Toilet",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_toilet.svg"
+  },
+  {
+    "name": "preset_maki_toll",
+    "label": "Preset Maki Toll",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_toll.svg"
+  },
+  {
+    "name": "preset_maki_town",
+    "label": "Preset Maki Town",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_town.svg"
+  },
+  {
+    "name": "preset_maki_town_hall",
+    "label": "Preset Maki Town Hall",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_town_hall.svg"
+  },
+  {
+    "name": "preset_maki_triangle",
+    "label": "Preset Maki Triangle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_triangle.svg"
+  },
+  {
+    "name": "preset_maki_triangle_stroked",
+    "label": "Preset Maki Triangle Stroked",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_triangle_stroked.svg"
+  },
+  {
+    "name": "preset_maki_veterinary",
+    "label": "Preset Maki Veterinary",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_veterinary.svg"
+  },
+  {
+    "name": "preset_maki_village",
+    "label": "Preset Maki Village",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_village.svg"
+  },
+  {
+    "name": "preset_maki_volcano",
+    "label": "Preset Maki Volcano",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_volcano.svg"
+  },
+  {
+    "name": "preset_maki_volleyball",
+    "label": "Preset Maki Volleyball",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_volleyball.svg"
+  },
+  {
+    "name": "preset_maki_warehouse",
+    "label": "Preset Maki Warehouse",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_warehouse.svg"
+  },
+  {
+    "name": "preset_maki_waste_basket",
+    "label": "Preset Maki Waste Basket",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_waste_basket.svg"
+  },
+  {
+    "name": "preset_maki_watch",
+    "label": "Preset Maki Watch",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_watch.svg"
+  },
+  {
+    "name": "preset_maki_water",
+    "label": "Preset Maki Water",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_water.svg"
+  },
+  {
+    "name": "preset_maki_waterfall",
+    "label": "Preset Maki Waterfall",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_waterfall.svg"
+  },
+  {
+    "name": "preset_maki_watermill",
+    "label": "Preset Maki Watermill",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_watermill.svg"
+  },
+  {
+    "name": "preset_maki_wetland",
+    "label": "Preset Maki Wetland",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_wetland.svg"
+  },
+  {
+    "name": "preset_maki_wheelchair",
+    "label": "Preset Maki Wheelchair",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_wheelchair.svg"
+  },
+  {
+    "name": "preset_maki_windmill",
+    "label": "Preset Maki Windmill",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_windmill.svg"
+  },
+  {
+    "name": "preset_maki_zoo",
+    "label": "Preset Maki Zoo",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_maki_zoo.svg"
+  },
+  {
+    "name": "preset_roentgen_advertising_column",
+    "label": "Preset Roentgen Advertising Column",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_advertising_column.svg"
+  },
+  {
+    "name": "preset_roentgen_bus_stop_sign",
+    "label": "Preset Roentgen Bus Stop Sign",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_bus_stop_sign.svg"
+  },
+  {
+    "name": "preset_roentgen_buses",
+    "label": "Preset Roentgen Buses",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_buses.svg"
+  },
+  {
+    "name": "preset_roentgen_cannon",
+    "label": "Preset Roentgen Cannon",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_cannon.svg"
+  },
+  {
+    "name": "preset_roentgen_city_limit_sign",
+    "label": "Preset Roentgen City Limit Sign",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_city_limit_sign.svg"
+  },
+  {
+    "name": "preset_roentgen_crane",
+    "label": "Preset Roentgen Crane",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_crane.svg"
+  },
+  {
+    "name": "preset_roentgen_crane_gantry",
+    "label": "Preset Roentgen Crane Gantry",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_crane_gantry.svg"
+  },
+  {
+    "name": "preset_roentgen_crane_portal",
+    "label": "Preset Roentgen Crane Portal",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_crane_portal.svg"
+  },
+  {
+    "name": "preset_roentgen_diving_1_platforms",
+    "label": "Preset Roentgen Diving 1 Platforms",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_diving_1_platforms.svg"
+  },
+  {
+    "name": "preset_roentgen_food_court",
+    "label": "Preset Roentgen Food Court",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_food_court.svg"
+  },
+  {
+    "name": "preset_roentgen_ford",
+    "label": "Preset Roentgen Ford",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_ford.svg"
+  },
+  {
+    "name": "preset_roentgen_fort",
+    "label": "Preset Roentgen Fort",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_fort.svg"
+  },
+  {
+    "name": "preset_roentgen_golf_tee",
+    "label": "Preset Roentgen Golf Tee",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_golf_tee.svg"
+  },
+  {
+    "name": "preset_roentgen_hopscotch",
+    "label": "Preset Roentgen Hopscotch",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_hopscotch.svg"
+  },
+  {
+    "name": "preset_roentgen_horizontal_ladder",
+    "label": "Preset Roentgen Horizontal Ladder",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_horizontal_ladder.svg"
+  },
+  {
+    "name": "preset_roentgen_needleleaved_tree",
+    "label": "Preset Roentgen Needleleaved Tree",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_needleleaved_tree.svg"
+  },
+  {
+    "name": "preset_roentgen_plane",
+    "label": "Preset Roentgen Plane",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_plane.svg"
+  },
+  {
+    "name": "preset_roentgen_pole_dancer",
+    "label": "Preset Roentgen Pole Dancer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_pole_dancer.svg"
+  },
+  {
+    "name": "preset_roentgen_rings",
+    "label": "Preset Roentgen Rings",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_rings.svg"
+  },
+  {
+    "name": "preset_roentgen_slide",
+    "label": "Preset Roentgen Slide",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_slide.svg"
+  },
+  {
+    "name": "preset_roentgen_slide_and_water",
+    "label": "Preset Roentgen Slide And Water",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_slide_and_water.svg"
+  },
+  {
+    "name": "preset_roentgen_tower",
+    "label": "Preset Roentgen Tower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_tower.svg"
+  },
+  {
+    "name": "preset_roentgen_tree",
+    "label": "Preset Roentgen Tree",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_tree.svg"
+  },
+  {
+    "name": "preset_roentgen_turning_loop",
+    "label": "Preset Roentgen Turning Loop",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_roentgen_turning_loop.svg"
+  },
+  {
+    "name": "preset_temaki_abseiling",
+    "label": "Preset Temaki Abseiling",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_abseiling.svg"
+  },
+  {
+    "name": "preset_temaki_accessible_space",
+    "label": "Preset Temaki Accessible Space",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_accessible_space.svg"
+  },
+  {
+    "name": "preset_temaki_accounting",
+    "label": "Preset Temaki Accounting",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_accounting.svg"
+  },
+  {
+    "name": "preset_temaki_adit_profile",
+    "label": "Preset Temaki Adit Profile",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_adit_profile.svg"
+  },
+  {
+    "name": "preset_temaki_aerialway_pole",
+    "label": "Preset Temaki Aerialway Pole",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_aerialway_pole.svg"
+  },
+  {
+    "name": "preset_temaki_airport",
+    "label": "Preset Temaki Airport",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_airport.svg"
+  },
+  {
+    "name": "preset_temaki_amusement_park",
+    "label": "Preset Temaki Amusement Park",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_amusement_park.svg"
+  },
+  {
+    "name": "preset_temaki_anchor_medal",
+    "label": "Preset Temaki Anchor Medal",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_anchor_medal.svg"
+  },
+  {
+    "name": "preset_temaki_antenna",
+    "label": "Preset Temaki Antenna",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_antenna.svg"
+  },
+  {
+    "name": "preset_temaki_anvil_and_hammer",
+    "label": "Preset Temaki Anvil And Hammer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_anvil_and_hammer.svg"
+  },
+  {
+    "name": "preset_temaki_app_terminal",
+    "label": "Preset Temaki App Terminal",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_app_terminal.svg"
+  },
+  {
+    "name": "preset_temaki_archery",
+    "label": "Preset Temaki Archery",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_archery.svg"
+  },
+  {
+    "name": "preset_temaki_army_tent",
+    "label": "Preset Temaki Army Tent",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_army_tent.svg"
+  },
+  {
+    "name": "preset_temaki_atm2",
+    "label": "Preset Temaki Atm2",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_atm2.svg"
+  },
+  {
+    "name": "preset_temaki_balance_beam",
+    "label": "Preset Temaki Balance Beam",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_balance_beam.svg"
+  },
+  {
+    "name": "preset_temaki_balloon",
+    "label": "Preset Temaki Balloon",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_balloon.svg"
+  },
+  {
+    "name": "preset_temaki_barn",
+    "label": "Preset Temaki Barn",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_barn.svg"
+  },
+  {
+    "name": "preset_temaki_beach",
+    "label": "Preset Temaki Beach",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_beach.svg"
+  },
+  {
+    "name": "preset_temaki_beauty_salon",
+    "label": "Preset Temaki Beauty Salon",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_beauty_salon.svg"
+  },
+  {
+    "name": "preset_temaki_bench",
+    "label": "Preset Temaki Bench",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bench.svg"
+  },
+  {
+    "name": "preset_temaki_benchmark_disk",
+    "label": "Preset Temaki Benchmark Disk",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_benchmark_disk.svg"
+  },
+  {
+    "name": "preset_temaki_bicycle_locker",
+    "label": "Preset Temaki Bicycle Locker",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bicycle_locker.svg"
+  },
+  {
+    "name": "preset_temaki_bicycle_parked",
+    "label": "Preset Temaki Bicycle Parked",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bicycle_parked.svg"
+  },
+  {
+    "name": "preset_temaki_bicycle_rental",
+    "label": "Preset Temaki Bicycle Rental",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bicycle_rental.svg"
+  },
+  {
+    "name": "preset_temaki_bicycle_repair",
+    "label": "Preset Temaki Bicycle Repair",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bicycle_repair.svg"
+  },
+  {
+    "name": "preset_temaki_bicycle_shed",
+    "label": "Preset Temaki Bicycle Shed",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bicycle_shed.svg"
+  },
+  {
+    "name": "preset_temaki_bicycle_structure",
+    "label": "Preset Temaki Bicycle Structure",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bicycle_structure.svg"
+  },
+  {
+    "name": "preset_temaki_bicycle_wash",
+    "label": "Preset Temaki Bicycle Wash",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bicycle_wash.svg"
+  },
+  {
+    "name": "preset_temaki_bikini",
+    "label": "Preset Temaki Bikini",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bikini.svg"
+  },
+  {
+    "name": "preset_temaki_billboard",
+    "label": "Preset Temaki Billboard",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_billboard.svg"
+  },
+  {
+    "name": "preset_temaki_binoculars",
+    "label": "Preset Temaki Binoculars",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_binoculars.svg"
+  },
+  {
+    "name": "preset_temaki_bleachers",
+    "label": "Preset Temaki Bleachers",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bleachers.svg"
+  },
+  {
+    "name": "preset_temaki_board_bus",
+    "label": "Preset Temaki Board Bus",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_bus.svg"
+  },
+  {
+    "name": "preset_temaki_board_ferry",
+    "label": "Preset Temaki Board Ferry",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_ferry.svg"
+  },
+  {
+    "name": "preset_temaki_board_gondola_lift",
+    "label": "Preset Temaki Board Gondola Lift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_gondola_lift.svg"
+  },
+  {
+    "name": "preset_temaki_board_light_rail",
+    "label": "Preset Temaki Board Light Rail",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_light_rail.svg"
+  },
+  {
+    "name": "preset_temaki_board_monorail",
+    "label": "Preset Temaki Board Monorail",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_monorail.svg"
+  },
+  {
+    "name": "preset_temaki_board_subway",
+    "label": "Preset Temaki Board Subway",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_subway.svg"
+  },
+  {
+    "name": "preset_temaki_board_train",
+    "label": "Preset Temaki Board Train",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_train.svg"
+  },
+  {
+    "name": "preset_temaki_board_tram",
+    "label": "Preset Temaki Board Tram",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_tram.svg"
+  },
+  {
+    "name": "preset_temaki_board_transit",
+    "label": "Preset Temaki Board Transit",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_transit.svg"
+  },
+  {
+    "name": "preset_temaki_board_trolleybus",
+    "label": "Preset Temaki Board Trolleybus",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_board_trolleybus.svg"
+  },
+  {
+    "name": "preset_temaki_boat",
+    "label": "Preset Temaki Boat",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_boat.svg"
+  },
+  {
+    "name": "preset_temaki_boat_dry_dock",
+    "label": "Preset Temaki Boat Dry Dock",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_boat_dry_dock.svg"
+  },
+  {
+    "name": "preset_temaki_boat_rental",
+    "label": "Preset Temaki Boat Rental",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_boat_rental.svg"
+  },
+  {
+    "name": "preset_temaki_boat_repair",
+    "label": "Preset Temaki Boat Repair",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_boat_repair.svg"
+  },
+  {
+    "name": "preset_temaki_boat_tour",
+    "label": "Preset Temaki Boat Tour",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_boat_tour.svg"
+  },
+  {
+    "name": "preset_temaki_bollard",
+    "label": "Preset Temaki Bollard",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bollard.svg"
+  },
+  {
+    "name": "preset_temaki_bollard_row",
+    "label": "Preset Temaki Bollard Row",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bollard_row.svg"
+  },
+  {
+    "name": "preset_temaki_bottles",
+    "label": "Preset Temaki Bottles",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bottles.svg"
+  },
+  {
+    "name": "preset_temaki_boulder1",
+    "label": "Preset Temaki Boulder1",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_boulder1.svg"
+  },
+  {
+    "name": "preset_temaki_boulder2",
+    "label": "Preset Temaki Boulder2",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_boulder2.svg"
+  },
+  {
+    "name": "preset_temaki_boulder3",
+    "label": "Preset Temaki Boulder3",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_boulder3.svg"
+  },
+  {
+    "name": "preset_temaki_bow_and_arrow",
+    "label": "Preset Temaki Bow And Arrow",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bow_and_arrow.svg"
+  },
+  {
+    "name": "preset_temaki_bowling",
+    "label": "Preset Temaki Bowling",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bowling.svg"
+  },
+  {
+    "name": "preset_temaki_bread",
+    "label": "Preset Temaki Bread",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bread.svg"
+  },
+  {
+    "name": "preset_temaki_brick_trowel",
+    "label": "Preset Temaki Brick Trowel",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_brick_trowel.svg"
+  },
+  {
+    "name": "preset_temaki_briefcase_bolt",
+    "label": "Preset Temaki Briefcase Bolt",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_briefcase_bolt.svg"
+  },
+  {
+    "name": "preset_temaki_briefcase_shield",
+    "label": "Preset Temaki Briefcase Shield",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_briefcase_shield.svg"
+  },
+  {
+    "name": "preset_temaki_bubble_tea",
+    "label": "Preset Temaki Bubble Tea",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bubble_tea.svg"
+  },
+  {
+    "name": "preset_temaki_buffer_stop",
+    "label": "Preset Temaki Buffer Stop",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_buffer_stop.svg"
+  },
+  {
+    "name": "preset_temaki_bulldozer",
+    "label": "Preset Temaki Bulldozer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bulldozer.svg"
+  },
+  {
+    "name": "preset_temaki_bulletin_board",
+    "label": "Preset Temaki Bulletin Board",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bulletin_board.svg"
+  },
+  {
+    "name": "preset_temaki_bunk_beds",
+    "label": "Preset Temaki Bunk Beds",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bunk_beds.svg"
+  },
+  {
+    "name": "preset_temaki_bunker",
+    "label": "Preset Temaki Bunker",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bunker.svg"
+  },
+  {
+    "name": "preset_temaki_bunker_silo",
+    "label": "Preset Temaki Bunker Silo",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bunker_silo.svg"
+  },
+  {
+    "name": "preset_temaki_buoy",
+    "label": "Preset Temaki Buoy",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_buoy.svg"
+  },
+  {
+    "name": "preset_temaki_bus",
+    "label": "Preset Temaki Bus",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bus.svg"
+  },
+  {
+    "name": "preset_temaki_bus_guided",
+    "label": "Preset Temaki Bus Guided",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_bus_guided.svg"
+  },
+  {
+    "name": "preset_temaki_cabin",
+    "label": "Preset Temaki Cabin",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cabin.svg"
+  },
+  {
+    "name": "preset_temaki_cable",
+    "label": "Preset Temaki Cable",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cable.svg"
+  },
+  {
+    "name": "preset_temaki_cable_manhole",
+    "label": "Preset Temaki Cable Manhole",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cable_manhole.svg"
+  },
+  {
+    "name": "preset_temaki_cairn",
+    "label": "Preset Temaki Cairn",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cairn.svg"
+  },
+  {
+    "name": "preset_temaki_camper_trailer",
+    "label": "Preset Temaki Camper Trailer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_camper_trailer.svg"
+  },
+  {
+    "name": "preset_temaki_camper_trailer_dump",
+    "label": "Preset Temaki Camper Trailer Dump",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_camper_trailer_dump.svg"
+  },
+  {
+    "name": "preset_temaki_campfire",
+    "label": "Preset Temaki Campfire",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_campfire.svg"
+  },
+  {
+    "name": "preset_temaki_cape_landform",
+    "label": "Preset Temaki Cape Landform",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cape_landform.svg"
+  },
+  {
+    "name": "preset_temaki_capitol",
+    "label": "Preset Temaki Capitol",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_capitol.svg"
+  },
+  {
+    "name": "preset_temaki_car_dealer",
+    "label": "Preset Temaki Car Dealer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_car_dealer.svg"
+  },
+  {
+    "name": "preset_temaki_car_parked",
+    "label": "Preset Temaki Car Parked",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_car_parked.svg"
+  },
+  {
+    "name": "preset_temaki_car_pool",
+    "label": "Preset Temaki Car Pool",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_car_pool.svg"
+  },
+  {
+    "name": "preset_temaki_car_structure",
+    "label": "Preset Temaki Car Structure",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_car_structure.svg"
+  },
+  {
+    "name": "preset_temaki_car_wash",
+    "label": "Preset Temaki Car Wash",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_car_wash.svg"
+  },
+  {
+    "name": "preset_temaki_carport",
+    "label": "Preset Temaki Carport",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_carport.svg"
+  },
+  {
+    "name": "preset_temaki_casino",
+    "label": "Preset Temaki Casino",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_casino.svg"
+  },
+  {
+    "name": "preset_temaki_catering",
+    "label": "Preset Temaki Catering",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_catering.svg"
+  },
+  {
+    "name": "preset_temaki_cattle_grid",
+    "label": "Preset Temaki Cattle Grid",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cattle_grid.svg"
+  },
+  {
+    "name": "preset_temaki_chairlift",
+    "label": "Preset Temaki Chairlift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_chairlift.svg"
+  },
+  {
+    "name": "preset_temaki_chicane_arrow",
+    "label": "Preset Temaki Chicane Arrow",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_chicane_arrow.svg"
+  },
+  {
+    "name": "preset_temaki_chimney",
+    "label": "Preset Temaki Chimney",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_chimney.svg"
+  },
+  {
+    "name": "preset_temaki_cleaver",
+    "label": "Preset Temaki Cleaver",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cleaver.svg"
+  },
+  {
+    "name": "preset_temaki_cliff_falling_rocks",
+    "label": "Preset Temaki Cliff Falling Rocks",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cliff_falling_rocks.svg"
+  },
+  {
+    "name": "preset_temaki_climbing",
+    "label": "Preset Temaki Climbing",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_climbing.svg"
+  },
+  {
+    "name": "preset_temaki_clock",
+    "label": "Preset Temaki Clock",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_clock.svg"
+  },
+  {
+    "name": "preset_temaki_cloth",
+    "label": "Preset Temaki Cloth",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cloth.svg"
+  },
+  {
+    "name": "preset_temaki_clothes_hanger",
+    "label": "Preset Temaki Clothes Hanger",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_clothes_hanger.svg"
+  },
+  {
+    "name": "preset_temaki_coffee",
+    "label": "Preset Temaki Coffee",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_coffee.svg"
+  },
+  {
+    "name": "preset_temaki_compass",
+    "label": "Preset Temaki Compass",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_compass.svg"
+  },
+  {
+    "name": "preset_temaki_conveyor",
+    "label": "Preset Temaki Conveyor",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_conveyor.svg"
+  },
+  {
+    "name": "preset_temaki_cooling_tower",
+    "label": "Preset Temaki Cooling Tower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cooling_tower.svg"
+  },
+  {
+    "name": "preset_temaki_coral_reef",
+    "label": "Preset Temaki Coral Reef",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_coral_reef.svg"
+  },
+  {
+    "name": "preset_temaki_crossing_markings_ladder",
+    "label": "Preset Temaki Crossing Markings Ladder",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_crossing_markings_ladder.svg"
+  },
+  {
+    "name": "preset_temaki_crossing_tram_solid",
+    "label": "Preset Temaki Crossing Tram Solid",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_crossing_tram_solid.svg"
+  },
+  {
+    "name": "preset_temaki_crossing_tram_striped",
+    "label": "Preset Temaki Crossing Tram Striped",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_crossing_tram_striped.svg"
+  },
+  {
+    "name": "preset_temaki_curtains",
+    "label": "Preset Temaki Curtains",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_curtains.svg"
+  },
+  {
+    "name": "preset_temaki_cycle_barrier",
+    "label": "Preset Temaki Cycle Barrier",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cycle_barrier.svg"
+  },
+  {
+    "name": "preset_temaki_cyclist_crosswalk",
+    "label": "Preset Temaki Cyclist Crosswalk",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_cyclist_crosswalk.svg"
+  },
+  {
+    "name": "preset_temaki_dagger",
+    "label": "Preset Temaki Dagger",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_dagger.svg"
+  },
+  {
+    "name": "preset_temaki_desk_lamp",
+    "label": "Preset Temaki Desk Lamp",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_desk_lamp.svg"
+  },
+  {
+    "name": "preset_temaki_detergent_bottle",
+    "label": "Preset Temaki Detergent Bottle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_detergent_bottle.svg"
+  },
+  {
+    "name": "preset_temaki_diamond",
+    "label": "Preset Temaki Diamond",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_diamond.svg"
+  },
+  {
+    "name": "preset_temaki_disc_golf_basket",
+    "label": "Preset Temaki Disc Golf Basket",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_disc_golf_basket.svg"
+  },
+  {
+    "name": "preset_temaki_domed_tower",
+    "label": "Preset Temaki Domed Tower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_domed_tower.svg"
+  },
+  {
+    "name": "preset_temaki_donut",
+    "label": "Preset Temaki Donut",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_donut.svg"
+  },
+  {
+    "name": "preset_temaki_drag_lift",
+    "label": "Preset Temaki Drag Lift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_drag_lift.svg"
+  },
+  {
+    "name": "preset_temaki_dress",
+    "label": "Preset Temaki Dress",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_dress.svg"
+  },
+  {
+    "name": "preset_temaki_drink_cup",
+    "label": "Preset Temaki Drink Cup",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_drink_cup.svg"
+  },
+  {
+    "name": "preset_temaki_elevator",
+    "label": "Preset Temaki Elevator",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_elevator.svg"
+  },
+  {
+    "name": "preset_temaki_embassy",
+    "label": "Preset Temaki Embassy",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_embassy.svg"
+  },
+  {
+    "name": "preset_temaki_fashion_accessories",
+    "label": "Preset Temaki Fashion Accessories",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_fashion_accessories.svg"
+  },
+  {
+    "name": "preset_temaki_ferry",
+    "label": "Preset Temaki Ferry",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_ferry.svg"
+  },
+  {
+    "name": "preset_temaki_field_hockey",
+    "label": "Preset Temaki Field Hockey",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_field_hockey.svg"
+  },
+  {
+    "name": "preset_temaki_fighter_jet",
+    "label": "Preset Temaki Fighter Jet",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_fighter_jet.svg"
+  },
+  {
+    "name": "preset_temaki_fire_hydrant",
+    "label": "Preset Temaki Fire Hydrant",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_fire_hydrant.svg"
+  },
+  {
+    "name": "preset_temaki_fire_hydrant_underground",
+    "label": "Preset Temaki Fire Hydrant Underground",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_fire_hydrant_underground.svg"
+  },
+  {
+    "name": "preset_temaki_fireplace",
+    "label": "Preset Temaki Fireplace",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_fireplace.svg"
+  },
+  {
+    "name": "preset_temaki_fish_cleaning",
+    "label": "Preset Temaki Fish Cleaning",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_fish_cleaning.svg"
+  },
+  {
+    "name": "preset_temaki_fish_ladder",
+    "label": "Preset Temaki Fish Ladder",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_fish_ladder.svg"
+  },
+  {
+    "name": "preset_temaki_footwear_decontamination",
+    "label": "Preset Temaki Footwear Decontamination",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_footwear_decontamination.svg"
+  },
+  {
+    "name": "preset_temaki_fountain",
+    "label": "Preset Temaki Fountain",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_fountain.svg"
+  },
+  {
+    "name": "preset_temaki_freight_car",
+    "label": "Preset Temaki Freight Car",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_freight_car.svg"
+  },
+  {
+    "name": "preset_temaki_furniture",
+    "label": "Preset Temaki Furniture",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_furniture.svg"
+  },
+  {
+    "name": "preset_temaki_garden_bed",
+    "label": "Preset Temaki Garden Bed",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_garden_bed.svg"
+  },
+  {
+    "name": "preset_temaki_gas",
+    "label": "Preset Temaki Gas",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_gas.svg"
+  },
+  {
+    "name": "preset_temaki_gas_manhole",
+    "label": "Preset Temaki Gas Manhole",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_gas_manhole.svg"
+  },
+  {
+    "name": "preset_temaki_gate",
+    "label": "Preset Temaki Gate",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_gate.svg"
+  },
+  {
+    "name": "preset_temaki_golf_cart",
+    "label": "Preset Temaki Golf Cart",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_golf_cart.svg"
+  },
+  {
+    "name": "preset_temaki_golf_green",
+    "label": "Preset Temaki Golf Green",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_golf_green.svg"
+  },
+  {
+    "name": "preset_temaki_gondola_lift",
+    "label": "Preset Temaki Gondola Lift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_gondola_lift.svg"
+  },
+  {
+    "name": "preset_temaki_goods_lift",
+    "label": "Preset Temaki Goods Lift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_goods_lift.svg"
+  },
+  {
+    "name": "preset_temaki_gown",
+    "label": "Preset Temaki Gown",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_gown.svg"
+  },
+  {
+    "name": "preset_temaki_grapes",
+    "label": "Preset Temaki Grapes",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_grapes.svg"
+  },
+  {
+    "name": "preset_temaki_grass",
+    "label": "Preset Temaki Grass",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_grass.svg"
+  },
+  {
+    "name": "preset_temaki_guard_rail",
+    "label": "Preset Temaki Guard Rail",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_guard_rail.svg"
+  },
+  {
+    "name": "preset_temaki_hair_care",
+    "label": "Preset Temaki Hair Care",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hair_care.svg"
+  },
+  {
+    "name": "preset_temaki_hammer_shoe",
+    "label": "Preset Temaki Hammer Shoe",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hammer_shoe.svg"
+  },
+  {
+    "name": "preset_temaki_handbag",
+    "label": "Preset Temaki Handbag",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_handbag.svg"
+  },
+  {
+    "name": "preset_temaki_hangar",
+    "label": "Preset Temaki Hangar",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hangar.svg"
+  },
+  {
+    "name": "preset_temaki_hanging_rail",
+    "label": "Preset Temaki Hanging Rail",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hanging_rail.svg"
+  },
+  {
+    "name": "preset_temaki_hearing_aid",
+    "label": "Preset Temaki Hearing Aid",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hearing_aid.svg"
+  },
+  {
+    "name": "preset_temaki_hedge",
+    "label": "Preset Temaki Hedge",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hedge.svg"
+  },
+  {
+    "name": "preset_temaki_height_restrictor",
+    "label": "Preset Temaki Height Restrictor",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_height_restrictor.svg"
+  },
+  {
+    "name": "preset_temaki_hinduism",
+    "label": "Preset Temaki Hinduism",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hinduism.svg"
+  },
+  {
+    "name": "preset_temaki_horizontal_bar",
+    "label": "Preset Temaki Horizontal Bar",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_horizontal_bar.svg"
+  },
+  {
+    "name": "preset_temaki_horn_cleat",
+    "label": "Preset Temaki Horn Cleat",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_horn_cleat.svg"
+  },
+  {
+    "name": "preset_temaki_horse_shelter",
+    "label": "Preset Temaki Horse Shelter",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_horse_shelter.svg"
+  },
+  {
+    "name": "preset_temaki_horseshoes",
+    "label": "Preset Temaki Horseshoes",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_horseshoes.svg"
+  },
+  {
+    "name": "preset_temaki_hot_drink_cup",
+    "label": "Preset Temaki Hot Drink Cup",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hot_drink_cup.svg"
+  },
+  {
+    "name": "preset_temaki_houseboat",
+    "label": "Preset Temaki Houseboat",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_houseboat.svg"
+  },
+  {
+    "name": "preset_temaki_hunting_blind",
+    "label": "Preset Temaki Hunting Blind",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hunting_blind.svg"
+  },
+  {
+    "name": "preset_temaki_hut",
+    "label": "Preset Temaki Hut",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_hut.svg"
+  },
+  {
+    "name": "preset_temaki_ice_fishing",
+    "label": "Preset Temaki Ice Fishing",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_ice_fishing.svg"
+  },
+  {
+    "name": "preset_temaki_info_board",
+    "label": "Preset Temaki Info Board",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_info_board.svg"
+  },
+  {
+    "name": "preset_temaki_island_trees_building",
+    "label": "Preset Temaki Island Trees Building",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_island_trees_building.svg"
+  },
+  {
+    "name": "preset_temaki_islet_tree",
+    "label": "Preset Temaki Islet Tree",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_islet_tree.svg"
+  },
+  {
+    "name": "preset_temaki_j_bar_lift",
+    "label": "Preset Temaki J Bar Lift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_j_bar_lift.svg"
+  },
+  {
+    "name": "preset_temaki_junction",
+    "label": "Preset Temaki Junction",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_junction.svg"
+  },
+  {
+    "name": "preset_temaki_junk_car",
+    "label": "Preset Temaki Junk Car",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_junk_car.svg"
+  },
+  {
+    "name": "preset_temaki_kerb_flush",
+    "label": "Preset Temaki Kerb Flush",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_kerb_flush.svg"
+  },
+  {
+    "name": "preset_temaki_kerb_lowered",
+    "label": "Preset Temaki Kerb Lowered",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_kerb_lowered.svg"
+  },
+  {
+    "name": "preset_temaki_kerb_raised",
+    "label": "Preset Temaki Kerb Raised",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_kerb_raised.svg"
+  },
+  {
+    "name": "preset_temaki_kerb_rolled",
+    "label": "Preset Temaki Kerb Rolled",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_kerb_rolled.svg"
+  },
+  {
+    "name": "preset_temaki_kerb_unspecified",
+    "label": "Preset Temaki Kerb Unspecified",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_kerb_unspecified.svg"
+  },
+  {
+    "name": "preset_temaki_kitchen_sink",
+    "label": "Preset Temaki Kitchen Sink",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_kitchen_sink.svg"
+  },
+  {
+    "name": "preset_temaki_latrine",
+    "label": "Preset Temaki Latrine",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_latrine.svg"
+  },
+  {
+    "name": "preset_temaki_laundry",
+    "label": "Preset Temaki Laundry",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_laundry.svg"
+  },
+  {
+    "name": "preset_temaki_lawn",
+    "label": "Preset Temaki Lawn",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_lawn.svg"
+  },
+  {
+    "name": "preset_temaki_letter_box",
+    "label": "Preset Temaki Letter Box",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_letter_box.svg"
+  },
+  {
+    "name": "preset_temaki_lift_gate",
+    "label": "Preset Temaki Lift Gate",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_lift_gate.svg"
+  },
+  {
+    "name": "preset_temaki_light_rail",
+    "label": "Preset Temaki Light Rail",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_light_rail.svg"
+  },
+  {
+    "name": "preset_temaki_lipstick",
+    "label": "Preset Temaki Lipstick",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_lipstick.svg"
+  },
+  {
+    "name": "preset_temaki_lounger",
+    "label": "Preset Temaki Lounger",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_lounger.svg"
+  },
+  {
+    "name": "preset_temaki_manhole",
+    "label": "Preset Temaki Manhole",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_manhole.svg"
+  },
+  {
+    "name": "preset_temaki_manufactured_home",
+    "label": "Preset Temaki Manufactured Home",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_manufactured_home.svg"
+  },
+  {
+    "name": "preset_temaki_mast",
+    "label": "Preset Temaki Mast",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_mast.svg"
+  },
+  {
+    "name": "preset_temaki_mast_communication",
+    "label": "Preset Temaki Mast Communication",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_mast_communication.svg"
+  },
+  {
+    "name": "preset_temaki_mast_lighting",
+    "label": "Preset Temaki Mast Lighting",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_mast_lighting.svg"
+  },
+  {
+    "name": "preset_temaki_maze",
+    "label": "Preset Temaki Maze",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_maze.svg"
+  },
+  {
+    "name": "preset_temaki_milestone",
+    "label": "Preset Temaki Milestone",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_milestone.svg"
+  },
+  {
+    "name": "preset_temaki_military",
+    "label": "Preset Temaki Military",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_military.svg"
+  },
+  {
+    "name": "preset_temaki_military_checkpoint",
+    "label": "Preset Temaki Military Checkpoint",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_military_checkpoint.svg"
+  },
+  {
+    "name": "preset_temaki_milk_jug",
+    "label": "Preset Temaki Milk Jug",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_milk_jug.svg"
+  },
+  {
+    "name": "preset_temaki_mineshaft_cage",
+    "label": "Preset Temaki Mineshaft Cage",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_mineshaft_cage.svg"
+  },
+  {
+    "name": "preset_temaki_money_hand",
+    "label": "Preset Temaki Money Hand",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_money_hand.svg"
+  },
+  {
+    "name": "preset_temaki_monorail",
+    "label": "Preset Temaki Monorail",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_monorail.svg"
+  },
+  {
+    "name": "preset_temaki_motorcycle_rental",
+    "label": "Preset Temaki Motorcycle Rental",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_motorcycle_rental.svg"
+  },
+  {
+    "name": "preset_temaki_motorcycle_repair",
+    "label": "Preset Temaki Motorcycle Repair",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_motorcycle_repair.svg"
+  },
+  {
+    "name": "preset_temaki_mountain_cross",
+    "label": "Preset Temaki Mountain Cross",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_mountain_cross.svg"
+  },
+  {
+    "name": "preset_temaki_mountain_range",
+    "label": "Preset Temaki Mountain Range",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_mountain_range.svg"
+  },
+  {
+    "name": "preset_temaki_movie_rental",
+    "label": "Preset Temaki Movie Rental",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_movie_rental.svg"
+  },
+  {
+    "name": "preset_temaki_museum",
+    "label": "Preset Temaki Museum",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_museum.svg"
+  },
+  {
+    "name": "preset_temaki_natural_arch",
+    "label": "Preset Temaki Natural Arch",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_natural_arch.svg"
+  },
+  {
+    "name": "preset_temaki_needle_and_spool",
+    "label": "Preset Temaki Needle And Spool",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_needle_and_spool.svg"
+  },
+  {
+    "name": "preset_temaki_obelisk",
+    "label": "Preset Temaki Obelisk",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_obelisk.svg"
+  },
+  {
+    "name": "preset_temaki_oil_well",
+    "label": "Preset Temaki Oil Well",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_oil_well.svg"
+  },
+  {
+    "name": "preset_temaki_parking_space",
+    "label": "Preset Temaki Parking Space",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_parking_space.svg"
+  },
+  {
+    "name": "preset_temaki_passport_checkpoint",
+    "label": "Preset Temaki Passport Checkpoint",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_passport_checkpoint.svg"
+  },
+  {
+    "name": "preset_temaki_ped_cyclist_crosswalk",
+    "label": "Preset Temaki Ped Cyclist Crosswalk",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_ped_cyclist_crosswalk.svg"
+  },
+  {
+    "name": "preset_temaki_pedestrian",
+    "label": "Preset Temaki Pedestrian",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pedestrian.svg"
+  },
+  {
+    "name": "preset_temaki_pedestrian_and_cyclist",
+    "label": "Preset Temaki Pedestrian And Cyclist",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pedestrian_and_cyclist.svg"
+  },
+  {
+    "name": "preset_temaki_pedestrian_crosswalk",
+    "label": "Preset Temaki Pedestrian Crosswalk",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pedestrian_crosswalk.svg"
+  },
+  {
+    "name": "preset_temaki_pedestrian_walled",
+    "label": "Preset Temaki Pedestrian Walled",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pedestrian_walled.svg"
+  },
+  {
+    "name": "preset_temaki_perfume",
+    "label": "Preset Temaki Perfume",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_perfume.svg"
+  },
+  {
+    "name": "preset_temaki_pet_grooming",
+    "label": "Preset Temaki Pet Grooming",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pet_grooming.svg"
+  },
+  {
+    "name": "preset_temaki_physiotherapist",
+    "label": "Preset Temaki Physiotherapist",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_physiotherapist.svg"
+  },
+  {
+    "name": "preset_temaki_pick_hammer",
+    "label": "Preset Temaki Pick Hammer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pick_hammer.svg"
+  },
+  {
+    "name": "preset_temaki_picnic_shelter",
+    "label": "Preset Temaki Picnic Shelter",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_picnic_shelter.svg"
+  },
+  {
+    "name": "preset_temaki_pier_fixed",
+    "label": "Preset Temaki Pier Fixed",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pier_fixed.svg"
+  },
+  {
+    "name": "preset_temaki_pier_floating",
+    "label": "Preset Temaki Pier Floating",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pier_floating.svg"
+  },
+  {
+    "name": "preset_temaki_pipe",
+    "label": "Preset Temaki Pipe",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_pipe.svg"
+  },
+  {
+    "name": "preset_temaki_plane_taxiing",
+    "label": "Preset Temaki Plane Taxiing",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_plane_taxiing.svg"
+  },
+  {
+    "name": "preset_temaki_planes",
+    "label": "Preset Temaki Planes",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_planes.svg"
+  },
+  {
+    "name": "preset_temaki_plaque",
+    "label": "Preset Temaki Plaque",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_plaque.svg"
+  },
+  {
+    "name": "preset_temaki_platter_lift",
+    "label": "Preset Temaki Platter Lift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_platter_lift.svg"
+  },
+  {
+    "name": "preset_temaki_play_structure",
+    "label": "Preset Temaki Play Structure",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_play_structure.svg"
+  },
+  {
+    "name": "preset_temaki_plumber",
+    "label": "Preset Temaki Plumber",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_plumber.svg"
+  },
+  {
+    "name": "preset_temaki_police_officer",
+    "label": "Preset Temaki Police Officer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_police_officer.svg"
+  },
+  {
+    "name": "preset_temaki_polished_nail",
+    "label": "Preset Temaki Polished Nail",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_polished_nail.svg"
+  },
+  {
+    "name": "preset_temaki_post_box",
+    "label": "Preset Temaki Post Box",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_post_box.svg"
+  },
+  {
+    "name": "preset_temaki_poster_box",
+    "label": "Preset Temaki Poster Box",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_poster_box.svg"
+  },
+  {
+    "name": "preset_temaki_power",
+    "label": "Preset Temaki Power",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_power.svg"
+  },
+  {
+    "name": "preset_temaki_power_manhole",
+    "label": "Preset Temaki Power Manhole",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_power_manhole.svg"
+  },
+  {
+    "name": "preset_temaki_power_pole",
+    "label": "Preset Temaki Power Pole",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_power_pole.svg"
+  },
+  {
+    "name": "preset_temaki_power_switch",
+    "label": "Preset Temaki Power Switch",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_power_switch.svg"
+  },
+  {
+    "name": "preset_temaki_power_tower",
+    "label": "Preset Temaki Power Tower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_power_tower.svg"
+  },
+  {
+    "name": "preset_temaki_power_transformer",
+    "label": "Preset Temaki Power Transformer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_power_transformer.svg"
+  },
+  {
+    "name": "preset_temaki_powered_pump",
+    "label": "Preset Temaki Powered Pump",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_powered_pump.svg"
+  },
+  {
+    "name": "preset_temaki_propane_tank",
+    "label": "Preset Temaki Propane Tank",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_propane_tank.svg"
+  },
+  {
+    "name": "preset_temaki_psychic",
+    "label": "Preset Temaki Psychic",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_psychic.svg"
+  },
+  {
+    "name": "preset_temaki_quakerism",
+    "label": "Preset Temaki Quakerism",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_quakerism.svg"
+  },
+  {
+    "name": "preset_temaki_quay",
+    "label": "Preset Temaki Quay",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_quay.svg"
+  },
+  {
+    "name": "preset_temaki_racetrack_oval",
+    "label": "Preset Temaki Racetrack Oval",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_racetrack_oval.svg"
+  },
+  {
+    "name": "preset_temaki_radiation",
+    "label": "Preset Temaki Radiation",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_radiation.svg"
+  },
+  {
+    "name": "preset_temaki_rail_flag",
+    "label": "Preset Temaki Rail Flag",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_rail_flag.svg"
+  },
+  {
+    "name": "preset_temaki_rail_profile",
+    "label": "Preset Temaki Rail Profile",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_rail_profile.svg"
+  },
+  {
+    "name": "preset_temaki_railing",
+    "label": "Preset Temaki Railing",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_railing.svg"
+  },
+  {
+    "name": "preset_temaki_railway_cable_track",
+    "label": "Preset Temaki Railway Cable Track",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_railway_cable_track.svg"
+  },
+  {
+    "name": "preset_temaki_railway_signals",
+    "label": "Preset Temaki Railway Signals",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_railway_signals.svg"
+  },
+  {
+    "name": "preset_temaki_railway_track",
+    "label": "Preset Temaki Railway Track",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_railway_track.svg"
+  },
+  {
+    "name": "preset_temaki_railway_track_askew",
+    "label": "Preset Temaki Railway Track Askew",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_railway_track_askew.svg"
+  },
+  {
+    "name": "preset_temaki_railway_track_mini",
+    "label": "Preset Temaki Railway Track Mini",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_railway_track_mini.svg"
+  },
+  {
+    "name": "preset_temaki_railway_track_narrow",
+    "label": "Preset Temaki Railway Track Narrow",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_railway_track_narrow.svg"
+  },
+  {
+    "name": "preset_temaki_railway_track_partial",
+    "label": "Preset Temaki Railway Track Partial",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_railway_track_partial.svg"
+  },
+  {
+    "name": "preset_temaki_real_estate_agency",
+    "label": "Preset Temaki Real Estate Agency",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_real_estate_agency.svg"
+  },
+  {
+    "name": "preset_temaki_rocket_firework",
+    "label": "Preset Temaki Rocket Firework",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_rocket_firework.svg"
+  },
+  {
+    "name": "preset_temaki_roller_coaster",
+    "label": "Preset Temaki Roller Coaster",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_roller_coaster.svg"
+  },
+  {
+    "name": "preset_temaki_room",
+    "label": "Preset Temaki Room",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_room.svg"
+  },
+  {
+    "name": "preset_temaki_rope_fence",
+    "label": "Preset Temaki Rope Fence",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_rope_fence.svg"
+  },
+  {
+    "name": "preset_temaki_row_houses",
+    "label": "Preset Temaki Row Houses",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_row_houses.svg"
+  },
+  {
+    "name": "preset_temaki_ruins",
+    "label": "Preset Temaki Ruins",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_ruins.svg"
+  },
+  {
+    "name": "preset_temaki_rumble_strip",
+    "label": "Preset Temaki Rumble Strip",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_rumble_strip.svg"
+  },
+  {
+    "name": "preset_temaki_saddle",
+    "label": "Preset Temaki Saddle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_saddle.svg"
+  },
+  {
+    "name": "preset_temaki_sailboat",
+    "label": "Preset Temaki Sailboat",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sailboat.svg"
+  },
+  {
+    "name": "preset_temaki_sandbox",
+    "label": "Preset Temaki Sandbox",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sandbox.svg"
+  },
+  {
+    "name": "preset_temaki_sandwich",
+    "label": "Preset Temaki Sandwich",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sandwich.svg"
+  },
+  {
+    "name": "preset_temaki_scaffold",
+    "label": "Preset Temaki Scaffold",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_scaffold.svg"
+  },
+  {
+    "name": "preset_temaki_school",
+    "label": "Preset Temaki School",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_school.svg"
+  },
+  {
+    "name": "preset_temaki_scuba_diving",
+    "label": "Preset Temaki Scuba Diving",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_scuba_diving.svg"
+  },
+  {
+    "name": "preset_temaki_sculpture",
+    "label": "Preset Temaki Sculpture",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sculpture.svg"
+  },
+  {
+    "name": "preset_temaki_security_camera",
+    "label": "Preset Temaki Security Camera",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_security_camera.svg"
+  },
+  {
+    "name": "preset_temaki_seesaw",
+    "label": "Preset Temaki Seesaw",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_seesaw.svg"
+  },
+  {
+    "name": "preset_temaki_shinto",
+    "label": "Preset Temaki Shinto",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_shinto.svg"
+  },
+  {
+    "name": "preset_temaki_shopping_mall",
+    "label": "Preset Temaki Shopping Mall",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_shopping_mall.svg"
+  },
+  {
+    "name": "preset_temaki_shower",
+    "label": "Preset Temaki Shower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_shower.svg"
+  },
+  {
+    "name": "preset_temaki_shrub",
+    "label": "Preset Temaki Shrub",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_shrub.svg"
+  },
+  {
+    "name": "preset_temaki_shrub_low",
+    "label": "Preset Temaki Shrub Low",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_shrub_low.svg"
+  },
+  {
+    "name": "preset_temaki_shuffleboard",
+    "label": "Preset Temaki Shuffleboard",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_shuffleboard.svg"
+  },
+  {
+    "name": "preset_temaki_sign_and_bench",
+    "label": "Preset Temaki Sign And Bench",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sign_and_bench.svg"
+  },
+  {
+    "name": "preset_temaki_sign_and_car",
+    "label": "Preset Temaki Sign And Car",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sign_and_car.svg"
+  },
+  {
+    "name": "preset_temaki_sikhism",
+    "label": "Preset Temaki Sikhism",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sikhism.svg"
+  },
+  {
+    "name": "preset_temaki_silo",
+    "label": "Preset Temaki Silo",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_silo.svg"
+  },
+  {
+    "name": "preset_temaki_ski_jumping",
+    "label": "Preset Temaki Ski Jumping",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_ski_jumping.svg"
+  },
+  {
+    "name": "preset_temaki_sledding",
+    "label": "Preset Temaki Sledding",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sledding.svg"
+  },
+  {
+    "name": "preset_temaki_sleep_shelter",
+    "label": "Preset Temaki Sleep Shelter",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_sleep_shelter.svg"
+  },
+  {
+    "name": "preset_temaki_slide",
+    "label": "Preset Temaki Slide",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_slide.svg"
+  },
+  {
+    "name": "preset_temaki_snow",
+    "label": "Preset Temaki Snow",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_snow.svg"
+  },
+  {
+    "name": "preset_temaki_snow_shoeing",
+    "label": "Preset Temaki Snow Shoeing",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_snow_shoeing.svg"
+  },
+  {
+    "name": "preset_temaki_social_facility",
+    "label": "Preset Temaki Social Facility",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_social_facility.svg"
+  },
+  {
+    "name": "preset_temaki_spa",
+    "label": "Preset Temaki Spa",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_spa.svg"
+  },
+  {
+    "name": "preset_temaki_speaker",
+    "label": "Preset Temaki Speaker",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_speaker.svg"
+  },
+  {
+    "name": "preset_temaki_speed_bump",
+    "label": "Preset Temaki Speed Bump",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_speed_bump.svg"
+  },
+  {
+    "name": "preset_temaki_speed_dip",
+    "label": "Preset Temaki Speed Dip",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_speed_dip.svg"
+  },
+  {
+    "name": "preset_temaki_speed_hump",
+    "label": "Preset Temaki Speed Hump",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_speed_hump.svg"
+  },
+  {
+    "name": "preset_temaki_speed_table",
+    "label": "Preset Temaki Speed Table",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_speed_table.svg"
+  },
+  {
+    "name": "preset_temaki_speedway_8",
+    "label": "Preset Temaki Speedway 8",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_speedway_8.svg"
+  },
+  {
+    "name": "preset_temaki_speedway_oval",
+    "label": "Preset Temaki Speedway Oval",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_speedway_oval.svg"
+  },
+  {
+    "name": "preset_temaki_spice_bottle",
+    "label": "Preset Temaki Spice Bottle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_spice_bottle.svg"
+  },
+  {
+    "name": "preset_temaki_spike_strip",
+    "label": "Preset Temaki Spike Strip",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_spike_strip.svg"
+  },
+  {
+    "name": "preset_temaki_spotting_scope",
+    "label": "Preset Temaki Spotting Scope",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_spotting_scope.svg"
+  },
+  {
+    "name": "preset_temaki_spring_rider",
+    "label": "Preset Temaki Spring Rider",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_spring_rider.svg"
+  },
+  {
+    "name": "preset_temaki_statue",
+    "label": "Preset Temaki Statue",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_statue.svg"
+  },
+  {
+    "name": "preset_temaki_stile_squeezer",
+    "label": "Preset Temaki Stile Squeezer",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_stile_squeezer.svg"
+  },
+  {
+    "name": "preset_temaki_stop",
+    "label": "Preset Temaki Stop",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_stop.svg"
+  },
+  {
+    "name": "preset_temaki_storage_fermenter",
+    "label": "Preset Temaki Storage Fermenter",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_storage_fermenter.svg"
+  },
+  {
+    "name": "preset_temaki_storage_rental",
+    "label": "Preset Temaki Storage Rental",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_storage_rental.svg"
+  },
+  {
+    "name": "preset_temaki_storage_tank",
+    "label": "Preset Temaki Storage Tank",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_storage_tank.svg"
+  },
+  {
+    "name": "preset_temaki_street_lamp_arm",
+    "label": "Preset Temaki Street Lamp Arm",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_street_lamp_arm.svg"
+  },
+  {
+    "name": "preset_temaki_striped_zone",
+    "label": "Preset Temaki Striped Zone",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_striped_zone.svg"
+  },
+  {
+    "name": "preset_temaki_subway",
+    "label": "Preset Temaki Subway",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_subway.svg"
+  },
+  {
+    "name": "preset_temaki_suitcase_key",
+    "label": "Preset Temaki Suitcase Key",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_suitcase_key.svg"
+  },
+  {
+    "name": "preset_temaki_swamp",
+    "label": "Preset Temaki Swamp",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_swamp.svg"
+  },
+  {
+    "name": "preset_temaki_t_bar_lift",
+    "label": "Preset Temaki T Bar Lift",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_t_bar_lift.svg"
+  },
+  {
+    "name": "preset_temaki_tanning",
+    "label": "Preset Temaki Tanning",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tanning.svg"
+  },
+  {
+    "name": "preset_temaki_taoism",
+    "label": "Preset Temaki Taoism",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_taoism.svg"
+  },
+  {
+    "name": "preset_temaki_tattoo_machine",
+    "label": "Preset Temaki Tattoo Machine",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tattoo_machine.svg"
+  },
+  {
+    "name": "preset_temaki_telescope",
+    "label": "Preset Temaki Telescope",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_telescope.svg"
+  },
+  {
+    "name": "preset_temaki_temaki",
+    "label": "Preset Temaki Temaki",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_temaki.svg"
+  },
+  {
+    "name": "preset_temaki_tents",
+    "label": "Preset Temaki Tents",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tents.svg"
+  },
+  {
+    "name": "preset_temaki_tiling",
+    "label": "Preset Temaki Tiling",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tiling.svg"
+  },
+  {
+    "name": "preset_temaki_tire",
+    "label": "Preset Temaki Tire",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tire.svg"
+  },
+  {
+    "name": "preset_temaki_tire_course",
+    "label": "Preset Temaki Tire Course",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tire_course.svg"
+  },
+  {
+    "name": "preset_temaki_toll_gantry",
+    "label": "Preset Temaki Toll Gantry",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_toll_gantry.svg"
+  },
+  {
+    "name": "preset_temaki_tools",
+    "label": "Preset Temaki Tools",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tools.svg"
+  },
+  {
+    "name": "preset_temaki_tower",
+    "label": "Preset Temaki Tower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tower.svg"
+  },
+  {
+    "name": "preset_temaki_tower_communication",
+    "label": "Preset Temaki Tower Communication",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tower_communication.svg"
+  },
+  {
+    "name": "preset_temaki_town_hall",
+    "label": "Preset Temaki Town Hall",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_town_hall.svg"
+  },
+  {
+    "name": "preset_temaki_traffic_signals",
+    "label": "Preset Temaki Traffic Signals",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_traffic_signals.svg"
+  },
+  {
+    "name": "preset_temaki_train",
+    "label": "Preset Temaki Train",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_train.svg"
+  },
+  {
+    "name": "preset_temaki_train_bullet",
+    "label": "Preset Temaki Train Bullet",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_train_bullet.svg"
+  },
+  {
+    "name": "preset_temaki_train_kids",
+    "label": "Preset Temaki Train Kids",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_train_kids.svg"
+  },
+  {
+    "name": "preset_temaki_train_steam",
+    "label": "Preset Temaki Train Steam",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_train_steam.svg"
+  },
+  {
+    "name": "preset_temaki_train_wash",
+    "label": "Preset Temaki Train Wash",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_train_wash.svg"
+  },
+  {
+    "name": "preset_temaki_tram",
+    "label": "Preset Temaki Tram",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tram.svg"
+  },
+  {
+    "name": "preset_temaki_transit",
+    "label": "Preset Temaki Transit",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_transit.svg"
+  },
+  {
+    "name": "preset_temaki_transit_shelter",
+    "label": "Preset Temaki Transit Shelter",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_transit_shelter.svg"
+  },
+  {
+    "name": "preset_temaki_tree_and_bench",
+    "label": "Preset Temaki Tree And Bench",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tree_and_bench.svg"
+  },
+  {
+    "name": "preset_temaki_tree_row",
+    "label": "Preset Temaki Tree Row",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tree_row.svg"
+  },
+  {
+    "name": "preset_temaki_tree_stump",
+    "label": "Preset Temaki Tree Stump",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tree_stump.svg"
+  },
+  {
+    "name": "preset_temaki_trench",
+    "label": "Preset Temaki Trench",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_trench.svg"
+  },
+  {
+    "name": "preset_temaki_trolleybus",
+    "label": "Preset Temaki Trolleybus",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_trolleybus.svg"
+  },
+  {
+    "name": "preset_temaki_tunnel",
+    "label": "Preset Temaki Tunnel",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_tunnel.svg"
+  },
+  {
+    "name": "preset_temaki_turnstile",
+    "label": "Preset Temaki Turnstile",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_turnstile.svg"
+  },
+  {
+    "name": "preset_temaki_utility_pole",
+    "label": "Preset Temaki Utility Pole",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_utility_pole.svg"
+  },
+  {
+    "name": "preset_temaki_vacuum",
+    "label": "Preset Temaki Vacuum",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vacuum.svg"
+  },
+  {
+    "name": "preset_temaki_vacuum_station",
+    "label": "Preset Temaki Vacuum Station",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vacuum_station.svg"
+  },
+  {
+    "name": "preset_temaki_valley",
+    "label": "Preset Temaki Valley",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_valley.svg"
+  },
+  {
+    "name": "preset_temaki_vase",
+    "label": "Preset Temaki Vase",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vase.svg"
+  },
+  {
+    "name": "preset_temaki_vending_bread",
+    "label": "Preset Temaki Vending Bread",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_bread.svg"
+  },
+  {
+    "name": "preset_temaki_vending_cigarettes",
+    "label": "Preset Temaki Vending Cigarettes",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_cigarettes.svg"
+  },
+  {
+    "name": "preset_temaki_vending_cold_drink",
+    "label": "Preset Temaki Vending Cold Drink",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_cold_drink.svg"
+  },
+  {
+    "name": "preset_temaki_vending_eggs",
+    "label": "Preset Temaki Vending Eggs",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_eggs.svg"
+  },
+  {
+    "name": "preset_temaki_vending_flat_coin",
+    "label": "Preset Temaki Vending Flat Coin",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_flat_coin.svg"
+  },
+  {
+    "name": "preset_temaki_vending_hot_drink",
+    "label": "Preset Temaki Vending Hot Drink",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_hot_drink.svg"
+  },
+  {
+    "name": "preset_temaki_vending_ice",
+    "label": "Preset Temaki Vending Ice",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_ice.svg"
+  },
+  {
+    "name": "preset_temaki_vending_ice_cream",
+    "label": "Preset Temaki Vending Ice Cream",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_ice_cream.svg"
+  },
+  {
+    "name": "preset_temaki_vending_lockers",
+    "label": "Preset Temaki Vending Lockers",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_lockers.svg"
+  },
+  {
+    "name": "preset_temaki_vending_love",
+    "label": "Preset Temaki Vending Love",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_love.svg"
+  },
+  {
+    "name": "preset_temaki_vending_machine",
+    "label": "Preset Temaki Vending Machine",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_machine.svg"
+  },
+  {
+    "name": "preset_temaki_vending_newspaper",
+    "label": "Preset Temaki Vending Newspaper",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_newspaper.svg"
+  },
+  {
+    "name": "preset_temaki_vending_pet_waste",
+    "label": "Preset Temaki Vending Pet Waste",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_pet_waste.svg"
+  },
+  {
+    "name": "preset_temaki_vending_stamps",
+    "label": "Preset Temaki Vending Stamps",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_stamps.svg"
+  },
+  {
+    "name": "preset_temaki_vending_tickets",
+    "label": "Preset Temaki Vending Tickets",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_tickets.svg"
+  },
+  {
+    "name": "preset_temaki_vending_venus",
+    "label": "Preset Temaki Vending Venus",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vending_venus.svg"
+  },
+  {
+    "name": "preset_temaki_vertical_rotisserie",
+    "label": "Preset Temaki Vertical Rotisserie",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_vertical_rotisserie.svg"
+  },
+  {
+    "name": "preset_temaki_veterinary_care",
+    "label": "Preset Temaki Veterinary Care",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_veterinary_care.svg"
+  },
+  {
+    "name": "preset_temaki_wall",
+    "label": "Preset Temaki Wall",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_wall.svg"
+  },
+  {
+    "name": "preset_temaki_waste",
+    "label": "Preset Temaki Waste",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_waste.svg"
+  },
+  {
+    "name": "preset_temaki_waste_manhole",
+    "label": "Preset Temaki Waste Manhole",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_waste_manhole.svg"
+  },
+  {
+    "name": "preset_temaki_water",
+    "label": "Preset Temaki Water",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_water.svg"
+  },
+  {
+    "name": "preset_temaki_water_bottle",
+    "label": "Preset Temaki Water Bottle",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_water_bottle.svg"
+  },
+  {
+    "name": "preset_temaki_water_tap",
+    "label": "Preset Temaki Water Tap",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_water_tap.svg"
+  },
+  {
+    "name": "preset_temaki_water_tower",
+    "label": "Preset Temaki Water Tower",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_water_tower.svg"
+  },
+  {
+    "name": "preset_temaki_well_pump_manual",
+    "label": "Preset Temaki Well Pump Manual",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_well_pump_manual.svg"
+  },
+  {
+    "name": "preset_temaki_wheel",
+    "label": "Preset Temaki Wheel",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_wheel.svg"
+  },
+  {
+    "name": "preset_temaki_wind_turbine",
+    "label": "Preset Temaki Wind Turbine",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_wind_turbine.svg"
+  },
+  {
+    "name": "preset_temaki_window",
+    "label": "Preset Temaki Window",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_window.svg"
+  },
+  {
+    "name": "preset_temaki_windpump",
+    "label": "Preset Temaki Windpump",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_windpump.svg"
+  },
+  {
+    "name": "preset_temaki_windsock",
+    "label": "Preset Temaki Windsock",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_windsock.svg"
+  },
+  {
+    "name": "preset_temaki_x_oblique",
+    "label": "Preset Temaki X Oblique",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_x_oblique.svg"
+  },
+  {
+    "name": "preset_temaki_yield",
+    "label": "Preset Temaki Yield",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_yield.svg"
+  },
+  {
+    "name": "preset_temaki_zoo",
+    "label": "Preset Temaki Zoo",
+    "url": "https://provisodevstorage.blob.core.windows.net/projects/asr-feature-icons/preset_temaki_zoo.svg"
+  }
+]

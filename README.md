@@ -26,6 +26,8 @@ Archived snapshots:
 - [schema/schema-1.0.0.json](schema/schema-1.0.0.json)
 - [schema/schema-2.0.0.json](schema/schema-2.0.0.json)
 - [schema/schema-3.0.0.json](schema/schema-3.0.0.json)
+- [schema/schema-3.1.0.json](schema/schema-3.1.0.json)
+- [schema/schema-3.2.0.json](schema/schema-3.2.0.json)
 
 ## Examples
 
@@ -40,14 +42,17 @@ Archived examples:
 - [examples/example-1.0.0.json](examples/example-1.0.0.json)
 - [examples/example-2.0.0.json](examples/example-2.0.0.json)
 - [examples/example-3.0.0.json](examples/example-3.0.0.json)
+- [examples/example-3.1.0.json](examples/example-3.1.0.json)
+- [examples/example-3.2.0.json](examples/example-3.2.0.json)
 
 ## Validation
 
 Quest definitions can be validated using the Python validator at [utilities/validate_quests.py](utilities/validate_quests.py).
 
-Install the validator dependencies from the repository root:
+From the repo root, activate the project virtual environment and install the validator dependencies:
 
-```bash
+```powershell
+.\.venv\Scripts\Activate.ps1
 python -m pip install -e .
 ```
 
@@ -68,15 +73,18 @@ The GitHub Actions workflow in [.github/workflows/validate-quests.yml](.github/w
 
 The Quest Definition Creator in [creator/](creator/) is a Vue 3 + Vite web app for creating and editing LFQD JSON files.
 
-- Start a new definition using the latest bundled schema version.
+- Start from the latest bundled schema version.
+- Create and edit recency settings, feature presets, arbitrary tags, and custom quest or feature-preset icons.
 - Load an existing quest definition JSON file from disk.
 - Resume a locally autosaved draft from browser storage.
 - Add elements and quests manually or from preset libraries.
 - Edit choice answers, follow-up prompts, dependencies, and numeric bounds.
-- See live validation errors and warnings while editing.
-- Export valid JSON by download or by copying it to the clipboard.
+- View live validation errors and warnings while editing.
+- Export valid JSON by downloading it or copying it to the clipboard.
 
-### Run the Creator Locally
+The creator bundles the latest supported schema and keeps optional `feature-presets` and `custom-icons` sections hidden until they are enabled. Legacy definitions remain loadable and can be upgraded from the validation panel.
+
+### Run the creator locally
 
 From the [creator/](creator/) directory:
 
@@ -87,9 +95,8 @@ bun run dev
 
 Notes:
 
-- Drafts are autosaved in browser `localStorage` and can be restored when the
-  app is reopened in the same browser.
-- Export is blocked when validation errors are present.
+- Drafts are autosaved in browser `localStorage` and can be restored when the app is reopened in the same browser.
+- Export is blocked while validation errors are present.
 - Warnings do not block export, but they should still be reviewed.
 
 ## Components

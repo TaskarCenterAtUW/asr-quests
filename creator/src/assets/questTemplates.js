@@ -460,6 +460,31 @@ export const questPresetLibrary = [
     ],
   },
   {
+    id: "sidewalk-auto-capture",
+    label: "Sidewalk AutoCapture",
+    description:
+      "Adds an AutoCapture quest for width, incline, cross-slope, surface, height from ground, and LiDAR measurements.",
+    elementCategories: ["sidewalk"],
+    quests: [
+      {
+        template_quest_id: "sidewalk-auto-capture",
+        quest_title: "Capture sidewalk attributes",
+        quest_description:
+          "Automatically captures width, incline, cross-slope, surface condition, height from ground, and LiDAR depth.",
+        quest_type: "AutoCapture",
+        auto_capture_attributes: {
+          ac_width: "ext:ac:width",
+          ac_incline: "ext:ac:incline",
+          ac_cross_slope: "ext:ac:cross_slope",
+          ac_surface_integrity: "ext:ac:surface_integrity",
+          ac_surface_disruption: "ext:ac:surface_disruption",
+          ac_height_from_ground: "ext:ac:height_from_ground",
+          ac_lidar_depth: "ext:ac:lidar_depth",
+        },
+      },
+    ],
+  },
+  {
     id: "crossing-basics",
     label: "Crossing Details",
     description:

@@ -3,10 +3,14 @@
 <script setup>
 import { computed, nextTick, ref, watch } from "vue";
 import { useQuestStore } from "../stores/questStore";
+import { useDragReorder } from "../composables/useDragReorder";
 import ElementEditor from "./ElementEditor.vue";
 import JsonPreview from "./JsonPreview.vue";
 import ValidationBanner from "./ValidationBanner.vue";
 import ExportPanel from "./ExportPanel.vue";
+import DefinitionSettings from "./DefinitionSettings.vue";
+import FeaturePresetsEditor from "./FeaturePresetsEditor.vue";
+import CustomIconsEditor from "./CustomIconsEditor.vue";
 import icons from "../assets/icons.json";
 import { elementPresetLibrary } from "../assets/questTemplates";
 
@@ -18,10 +22,107 @@ const expandedElements = ref(new Set());
 const elements = computed(() => store.definition.elements);
 const selectedIndex = computed(() => store.selectedElementIndex);
 const selectedQuestIndex = computed(() => store.selectedQuestIndex);
+const reorderAnnouncement = ref("");
+
+const {
+    draggingIndex,
+    overIndex,
+    overBefore,
+    startDrag,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
+    endDrag,
+} = useDragReorder((fromIndex, toIndex) =>
+    (() => {
+        moveExpandedIndex(fromIndex, toIndex);
+        store.moveElementTo(fromIndex, toIndex);
+        reorderAnnouncement.value = `Element moved to position ${toIndex + 1} of ${elements.value.length}.`;
+        focusElement(toIndex);
+    })()
+);
+
+const questDragElementIndex = ref(null);
+
+const {
+    draggingIndex: draggingQuestIndex,
+    overIndex: overQuestIndex,
+    overBefore: overQuestBefore,
+    startDrag: startQuestDragRaw,
+    handleDragOver: handleQuestDragOver,
+    handleDragLeave: handleQuestDragLeave,
+    handleDrop: handleQuestDrop,
+    endDrag: endQuestDrag,
+} = useDragReorder((fromIndex, toIndex) => {
+    if (questDragElementIndex.value != null) {
+        store.moveQuestTo(questDragElementIndex.value, fromIndex, toIndex);
+        const questCount =
+            elements.value[questDragElementIndex.value]?.quests.length ?? 0;
+        reorderAnnouncement.value = `Quest moved to position ${toIndex + 1} of ${questCount}.`;
+        focusQuestTreeItem(questDragElementIndex.value, toIndex);
+    }
+});
+
+function startQuestDrag(elementIndex, questIndex, event) {
+    questDragElementIndex.value = elementIndex;
+    startQuestDragRaw(questIndex, event);
+    event.stopPropagation();
+}
+
+function dragOverQuest(elementIndex, questIndex, event) {
+    if (draggingQuestIndex.value == null) {
+        return;
+    }
+
+    event.stopPropagation();
+    if (questDragElementIndex.value !== elementIndex) {
+        handleQuestDragLeave(event);
+        return;
+    }
+
+    event.preventDefault();
+    handleQuestDragOver(questIndex, event);
+}
+
+function dropQuest(elementIndex, questIndex, event) {
+    if (draggingQuestIndex.value == null) {
+        return;
+    }
+
+    event.stopPropagation();
+    if (questDragElementIndex.value !== elementIndex) {
+        handleQuestDragLeave(event);
+        return;
+    }
+
+    event.preventDefault();
+    handleQuestDrop(questIndex, event);
+}
+
+function dragLeaveQuest(event) {
+    if (draggingQuestIndex.value == null) {
+        return;
+    }
+
+    event.stopPropagation();
+    handleQuestDragLeave(event);
+}
+
+function endQuestDragHandler(event) {
+    endQuestDrag();
+    questDragElementIndex.value = null;
+    event.stopPropagation();
+}
 
 function iconUrl(name) {
     if (!name) return null;
-    return icons.find((icon) => icon.name === name)?.url ?? null;
+    return (
+        icons.find((icon) => icon.name === name)?.url ??
+        store.definition["custom-icons"]?.find(
+            (icon) => icon.name === name && icon.type === "quest"
+        )?.url ??
+        null
+    );
 }
 
 function setElementButtonRef(element, index) {
@@ -94,14 +195,40 @@ function shiftExpandedAfterRemove(index) {
     expandedElements.value = nextExpanded;
 }
 
-function swapExpandedIndices(firstIndex, secondIndex) {
+function shiftExpandedAfterInsert(index) {
     const nextExpanded = new Set();
 
     expandedElements.value.forEach((expandedIndex) => {
-        if (expandedIndex === firstIndex) {
-            nextExpanded.add(secondIndex);
-        } else if (expandedIndex === secondIndex) {
-            nextExpanded.add(firstIndex);
+        nextExpanded.add(
+            expandedIndex >= index ? expandedIndex + 1 : expandedIndex
+        );
+    });
+
+    expandedElements.value = nextExpanded;
+}
+
+function moveExpandedIndex(fromIndex, toIndex) {
+    if (fromIndex === toIndex) {
+        return;
+    }
+
+    const nextExpanded = new Set();
+
+    expandedElements.value.forEach((expandedIndex) => {
+        if (expandedIndex === fromIndex) {
+            nextExpanded.add(toIndex);
+        } else if (
+            fromIndex < toIndex &&
+            expandedIndex > fromIndex &&
+            expandedIndex <= toIndex
+        ) {
+            nextExpanded.add(expandedIndex - 1);
+        } else if (
+            fromIndex > toIndex &&
+            expandedIndex >= toIndex &&
+            expandedIndex < fromIndex
+        ) {
+            nextExpanded.add(expandedIndex + 1);
         } else {
             nextExpanded.add(expandedIndex);
         }
@@ -126,6 +253,13 @@ function addElement() {
     focusElement(store.selectedElementIndex);
 }
 
+function duplicateElement(index) {
+    shiftExpandedAfterInsert(index + 1);
+    store.duplicateElement(index);
+    ensureExpanded(index + 1);
+    focusElement(index + 1);
+}
+
 function applyElementPreset(preset) {
     if (selectedIndex.value == null) {
         return;
@@ -145,7 +279,7 @@ function moveElementUp(index) {
         return;
     }
 
-    swapExpandedIndices(index, index - 1);
+    moveExpandedIndex(index, index - 1);
     store.moveElementUp(index);
     focusElement(index - 1);
 }
@@ -155,7 +289,7 @@ function moveElementDown(index) {
         return;
     }
 
-    swapExpandedIndices(index, index + 1);
+    moveExpandedIndex(index, index + 1);
     store.moveElementDown(index);
     focusElement(index + 1);
 }
@@ -173,6 +307,9 @@ watch(
 
 <template>
     <div class="creator-workspace">
+        <div class="visually-hidden" aria-live="polite">
+            {{ reorderAnnouncement }}
+        </div>
         <aside class="creator-sidebar creator-surface-card">
             <div
                 class="creator-sidebar-header d-flex justify-content-center align-items-center position-relative"
@@ -214,10 +351,44 @@ watch(
                 >
                     <li
                         v-for="(el, i) in elements"
-                        :key="`element-${i}`"
+                        :key="el"
                         class="creator-tree-item"
+                        :class="{
+                            'creator-dragging':
+                                draggingIndex === i,
+                            'creator-drag-over': overIndex === i,
+                            'creator-drag-over-before':
+                                overIndex === i && overBefore,
+                            'creator-drag-over-after':
+                                overIndex === i && !overBefore,
+                        }"
+                        @dragover="handleDragOver(i, $event)"
+                        @dragleave="handleDragLeave($event)"
+                        @drop="handleDrop(i, $event)"
                     >
                         <div class="creator-tree-row">
+                            <span
+                                class="creator-drag-handle"
+                                aria-hidden="true"
+                                title="Drag to reorder"
+                                draggable="true"
+                                @dragstart.stop="startDrag(i, $event)"
+                                @dragend.stop="endDrag"
+                            >
+                                <svg
+                                    viewBox="0 0 16 16"
+                                    width="14"
+                                    height="14"
+                                    fill="currentColor"
+                                >
+                                    <circle cx="5" cy="3" r="1.5" />
+                                    <circle cx="11" cy="3" r="1.5" />
+                                    <circle cx="5" cy="8" r="1.5" />
+                                    <circle cx="11" cy="8" r="1.5" />
+                                    <circle cx="5" cy="13" r="1.5" />
+                                    <circle cx="11" cy="13" r="1.5" />
+                                </svg>
+                            </span>
                             <button
                                 v-if="el.quests.length > 0"
                                 type="button"
@@ -285,8 +456,54 @@ watch(
                         >
                             <li
                                 v-for="(quest, questIndex) in el.quests"
-                                :key="`tree-quest-${quest.quest_id}-${questIndex}`"
+                                :key="quest"
+                                class="quest-tree-list-item"
+                                :class="{
+                                    'creator-dragging':
+                                        questDragElementIndex === i &&
+                                        draggingQuestIndex === questIndex,
+                                    'creator-drag-over':
+                                        questDragElementIndex === i &&
+                                        overQuestIndex === questIndex,
+                                    'creator-drag-over-before':
+                                        questDragElementIndex === i &&
+                                        overQuestIndex === questIndex &&
+                                        overQuestBefore,
+                                    'creator-drag-over-after':
+                                        questDragElementIndex === i &&
+                                        overQuestIndex === questIndex &&
+                                        !overQuestBefore,
+                                }"
+                                @dragover="
+                                    dragOverQuest(i, questIndex, $event)
+                                "
+                                @dragleave="dragLeaveQuest($event)"
+                                @drop="dropQuest(i, questIndex, $event)"
                             >
+                                <span
+                                    class="creator-drag-handle"
+                                    aria-hidden="true"
+                                    title="Drag to reorder"
+                                    draggable="true"
+                                    @dragstart.stop="
+                                        startQuestDrag(i, questIndex, $event)
+                                    "
+                                    @dragend.stop="endQuestDragHandler($event)"
+                                >
+                                    <svg
+                                        viewBox="0 0 16 16"
+                                        width="12"
+                                        height="12"
+                                        fill="currentColor"
+                                    >
+                                        <circle cx="5" cy="3" r="1.5" />
+                                        <circle cx="11" cy="3" r="1.5" />
+                                        <circle cx="5" cy="8" r="1.5" />
+                                        <circle cx="11" cy="8" r="1.5" />
+                                        <circle cx="5" cy="13" r="1.5" />
+                                        <circle cx="11" cy="13" r="1.5" />
+                                    </svg>
+                                </span>
                                 <button
                                     :ref="
                                         (element) =>
@@ -354,6 +571,11 @@ watch(
         <section class="creator-main">
             <div class="creator-main-layout">
                 <section class="creator-editor-pane">
+                    <div class="creator-definition-tools">
+                        <DefinitionSettings />
+                        <FeaturePresetsEditor />
+                        <CustomIconsEditor />
+                    </div>
                     <div class="card creator-surface-card creator-panel-card">
                         <div
                             class="card-header d-flex justify-content-center align-items-center position-relative"
@@ -420,11 +642,22 @@ watch(
                                     <div class="dropdown">
                                         <button
                                             type="button"
-                                            class="btn btn-sm btn-outline-primary dropdown-toggle creator-toolbar-button"
+                                            class="btn btn-sm btn-outline-primary dropdown-toggle creator-toolbar-button creator-preset-button"
                                             data-bs-toggle="dropdown"
                                             data-bs-display="static"
                                             aria-expanded="false"
                                         >
+                                            <svg
+                                                aria-hidden="true"
+                                                viewBox="0 0 16 16"
+                                                width="14"
+                                                height="14"
+                                                fill="currentColor"
+                                            >
+                                                <path
+                                                    d="M8 1.25a.75.75 0 0 1 .72.54l.7 2.35 2.35.7a.75.75 0 0 1 0 1.44l-2.35.7-.7 2.35a.75.75 0 0 1-1.44 0l-.7-2.35-2.35-.7a.75.75 0 0 1 0-1.44l2.35-.7.7-2.35A.75.75 0 0 1 8 1.25Zm4.75 7.5a.5.5 0 0 1 .48.36l.3 1.01 1.01.3a.5.5 0 0 1 0 .96l-1.01.3-.3 1.01a.5.5 0 0 1-.96 0l-.3-1.01-1.01-.3a.5.5 0 0 1 0-.96l1.01-.3.3-1.01a.5.5 0 0 1 .48-.36Z"
+                                                />
+                                            </svg>
                                             Element Presets
                                         </button>
 
@@ -501,6 +734,26 @@ watch(
                                     </button>
                                     <button
                                         type="button"
+                                        class="btn btn-sm btn-outline-secondary creator-toolbar-button creator-icon-action"
+                                        aria-label="Duplicate element"
+                                        title="Duplicate element"
+                                        @click="duplicateElement(selectedIndex)"
+                                    >
+                                        <svg
+                                            aria-hidden="true"
+                                            viewBox="0 0 16 16"
+                                            class="creator-button-icon"
+                                        >
+                                            <path
+                                                d="M4 1.5A1.5 1.5 0 0 0 2.5 3v8A1.5 1.5 0 0 0 4 12.5h1v-1H4a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1h1V3A1.5 1.5 0 0 0 10 1.5H4z"
+                                            />
+                                            <path
+                                                d="M7 4.5A1.5 1.5 0 0 0 5.5 6v7A1.5 1.5 0 0 0 7 14.5h5A1.5 1.5 0 0 0 13.5 13V6A1.5 1.5 0 0 0 12 4.5H7zM6.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V6z"
+                                            />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        type="button"
                                         class="btn btn-sm btn-outline-danger creator-toolbar-button"
                                         aria-label="Delete element"
                                         @click="removeElement(selectedIndex)"
@@ -515,7 +768,7 @@ watch(
                                                 d="M6 2h4l1 1h3v2H2V3h3l1-1zm-1 4h1v6H5V6zm3 0h1v6H8V6zm3 0h1v6h-1V6zM4 14h8a1 1 0 0 0 1-1V5H3v8a1 1 0 0 0 1 1z"
                                             />
                                         </svg>
-                                        <span>Delete Element</span>
+                                        <span>Delete</span>
                                     </button>
                                 </div>
 
@@ -540,7 +793,7 @@ watch(
                     </div>
                 </section>
 
-                <aside class="creator-utility-pane d-grid gap-3">
+                <aside class="creator-utility-pane d-grid">
                     <div class="card creator-surface-card creator-panel-card">
                         <div
                             class="card-header d-flex justify-content-center align-items-center position-relative"
@@ -671,8 +924,8 @@ watch(
 <style scoped>
 .creator-workspace {
     display: grid;
-    gap: 1rem;
-    padding: 0.75rem;
+    gap: 0.5rem;
+    padding: 0.25rem;
 }
 
 .creator-sidebar,
@@ -683,7 +936,7 @@ watch(
 .creator-sidebar {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .creator-tree-row {
@@ -751,15 +1004,16 @@ watch(
 }
 
 .element-list-button {
-    padding: 0.65rem 0.75rem;
+    padding: 0.45rem 0.55rem;
 }
 
 .quest-tree-button {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    gap: 0.35rem;
+    padding: 0.3rem 0.45rem;
     overflow: hidden;
+    font-size: 0.9rem;
 }
 
 .quest-tree-button .text-truncate {
@@ -771,18 +1025,40 @@ watch(
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0.35rem;
-    margin: 0.35rem 0 0 2.4rem;
-    padding-left: 0.65rem;
+    margin: 0.3rem 0 0 0.875rem;
+    padding-left: 0.225rem;
+}
+
+.quest-tree-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    min-width: 0;
+    padding-left: 0.2rem;
+}
+
+.quest-tree-list-item .creator-drag-handle {
+    flex-shrink: 0;
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-left: -0.25rem;
 }
 
 .creator-main-layout {
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .creator-editor-pane,
 .creator-utility-pane {
     min-width: 0;
+}
+
+.creator-editor-pane,
+.creator-definition-tools,
+.creator-utility-pane {
+    display: grid;
+    gap: var(--creator-section-gap);
 }
 
 @media (min-width: 992px) {
@@ -795,8 +1071,8 @@ watch(
         container-type: size; /* enable cqh for sidebar height auto-adaptation */
         grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
         height: 100%;
-        padding: 1.25rem;
-        gap: 1.25rem;
+        padding: 0.45rem;
+        gap: var(--creator-section-gap);
         overflow-y: auto;
         overflow-x: clip;
         overflow-clip-margin: 3rem; /* allow card shadows to bleed past the left/right workspace edge */
@@ -826,21 +1102,52 @@ watch(
     .creator-main-layout {
         grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
         align-items: start;
-        padding-bottom: 3.5rem;
-        gap: 1.25rem;
+        padding-bottom: 1rem;
+        gap: var(--creator-section-gap);
     }
 
-    /* clip button hover-glows to utility card boundaries without affecting the editor card */
-    .creator-utility-pane .card-body {
+    /* clip button hover-glows to utility card boundaries without affecting the editor card.
+       the validation body opts out so its max-height + overflow-y scrollbar still work. */
+    .creator-utility-pane .card-body:not(.creator-validation-body) {
         overflow: hidden;
     }
 }
 
 .creator-card-info-wrap {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
+    position: static;
+    flex: 0 0 auto;
+    transform: none;
+    z-index: 2;
+}
+
+.creator-card-info-wrap.creator-card-info-inline {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: inline-flex;
+    flex: 0 0 auto;
+    transform: none;
+}
+
+.creator-panel-heading {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.creator-panel-heading h2 {
+    flex: 0 0 auto;
+}
+
+.creator-panel-heading .creator-card-info-wrap {
+    order: -1;
+}
+
+.card-header > .creator-card-info-wrap,
+.creator-sidebar-header > .creator-card-info-wrap {
+    order: -1;
 }
 
 .creator-card-info-btn {
@@ -868,8 +1175,10 @@ watch(
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    right: 0;
+    left: 50%;
+    right: auto;
     top: calc(100% + 6px);
+    transform: translateX(-50%);
     min-width: 14rem;
     max-width: 22rem;
     background-color: var(--creator-surface-muted);
@@ -897,6 +1206,14 @@ watch(
     pointer-events: auto;
 }
 
+.creator-panel-card:has(.creator-card-info-wrap:hover),
+.creator-panel-card:has(.creator-card-info-wrap:focus-within),
+.creator-sidebar:has(.creator-card-info-wrap:hover),
+.creator-sidebar:has(.creator-card-info-wrap:focus-within) {
+    position: relative;
+    z-index: 1070;
+}
+
 /* Ensure card-header stacks above card-body within backdrop-filter stacking context */
 .card-header,
 .creator-sidebar-header {
@@ -909,4 +1226,5 @@ watch(
     overflow-y: auto;
     overflow-x: hidden;
 }
+
 </style>

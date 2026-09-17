@@ -7,6 +7,7 @@ import ImagePreview from "./ImagePreview.vue";
 import ChoiceList from "./ChoiceList.vue";
 import NumericValidation from "./NumericValidation.vue";
 import DependencyEditor from "./DependencyEditor.vue";
+import AutoCaptureAttributes from "./AutoCaptureAttributes.vue";
 
 const props = defineProps({
     elementIndex: { type: Number, required: true },
@@ -31,6 +32,7 @@ const questDescriptionPath = computed(
 const questTypePath = computed(() => `${questBase.value}/quest_type`);
 const questTagPath = computed(() => `${questBase.value}/quest_tag`);
 const questImagePath = computed(() => `${questBase.value}/quest_image_url`);
+const isAutoCapture = computed(() => quest.value?.quest_type === "AutoCapture");
 
 function update(fields) {
     store.updateQuest(props.elementIndex, props.questIndex, fields);
@@ -120,10 +122,19 @@ function update(fields) {
                 <option value="MultipleChoice">MultipleChoice</option>
                 <option value="Numeric">Numeric</option>
                 <option value="TextEntry">TextEntry</option>
+                <option value="AutoCapture">AutoCapture</option>
             </select>
         </div>
 
-        <div class="col-md-6">
+        <div v-if="isAutoCapture" class="col-md-6 d-flex align-items-end">
+            <div class="form-text small mb-2">
+                (only available on iOS devices with LiDAR sensors)
+                <br />
+                (currently sidewalks-only)
+            </div>
+        </div>
+
+        <div v-else class="col-md-6">
             <label
                 :for="`quest-tag-${elementIndex}-${questIndex}`"
                 class="form-label"
@@ -156,11 +167,18 @@ function update(fields) {
                 class="form-control form-control-sm"
                 :value="quest.quest_image_url"
                 placeholder="https://example.com/image.jpg"
+                :aria-describedby="`quest-image-hint-${elementIndex}-${questIndex}`"
                 :class="{
                     'is-invalid': store.hasValidationError(questImagePath),
                 }"
                 @input="update({ quest_image_url: $event.target.value })"
             />
+            <div
+                :id="`quest-image-hint-${elementIndex}-${questIndex}`"
+                class="form-text small"
+            >
+                PNG or JPEG, &lt; 0.5 MB, portrait, ~480 px × ~720 px
+            </div>
             <ImagePreview
                 :url="quest.quest_image_url"
                 :alt="`Preview for quest ${quest.quest_title || quest.quest_id}`"
@@ -169,6 +187,10 @@ function update(fields) {
 
         <ChoiceList :element-index="elementIndex" :quest-index="questIndex" />
         <NumericValidation
+            :element-index="elementIndex"
+            :quest-index="questIndex"
+        />
+        <AutoCaptureAttributes
             :element-index="elementIndex"
             :quest-index="questIndex"
         />

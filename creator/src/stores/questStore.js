@@ -3,12 +3,19 @@
 import { defineStore } from "pinia";
 import { computed, ref, watch } from "vue";
 import Ajv from "ajv";
+import addFormats from "ajv-formats";
 import schema from "../assets/schema.json";
+import questIcons from "../assets/icons.json";
+import featureIcons from "../assets/featureIcons.json";
 
 const ajv = new Ajv({ allErrors: true, strict: false });
+addFormats(ajv);
 const validate = ajv.compile(schema);
 const STORAGE_KEY = "quest-creator:draft:v1";
-const LATEST_DEFINITION_VERSION = schema.version ?? "3.0.0";
+const LATEST_DEFINITION_VERSION = schema.version;
+const DEFAULT_RECENCY_PERIOD = schema.properties?.recency_period?.default ?? 90;
+const QUEST_ICON_NAMES = new Set(questIcons.map((icon) => icon.name));
+const FEATURE_ICON_NAMES = new Set(featureIcons.map((icon) => icon.name));
 
 function newChoice() {
   return {
@@ -45,6 +52,53 @@ function normalizeNumericBound(value) {
 
 function hasOwnField(object, fieldName) {
   return Object.prototype.hasOwnProperty.call(object, fieldName);
+}
+
+function normalizeRecencyPeriod(value) {
+  if (value === "" || value == null) {
+    return DEFAULT_RECENCY_PERIOD;
+  }
+
+  const parsedValue = Number(value);
+  return Number.isInteger(parsedValue) ? parsedValue : DEFAULT_RECENCY_PERIOD;
+}
+
+function normalizeFeaturePreset(preset) {
+  const tags = {};
+  if (preset?.tags && typeof preset.tags === "object") {
+    Object.entries(preset.tags).forEach(([key, value]) => {
+      tags[String(key)] = value;
+    });
+  }
+
+  return {
+    name: typeof preset?.name === "string" ? preset.name.trim() : "",
+    icon: typeof preset?.icon === "string" ? preset.icon.trim() : "",
+    tags,
+  };
+}
+
+function normalizeCustomIcon(icon) {
+  return {
+    name: typeof icon?.name === "string" ? icon.name.trim() : "",
+    url: typeof icon?.url === "string" ? icon.url.trim() : "",
+    type:
+      icon?.type === "feature-preset"
+        ? "feature-preset"
+        : icon?.type === "quest"
+          ? "quest"
+          : "",
+  };
+}
+
+function normalizeOptionalArray(object, fieldName, normalizeItem) {
+  if (!hasOwnField(object, fieldName)) {
+    return undefined;
+  }
+
+  return Array.isArray(object[fieldName])
+    ? object[fieldName].map(normalizeItem)
+    : [];
 }
 
 function compareSemver(leftVersion, rightVersion) {
@@ -93,14 +147,23 @@ function normalizeDependencyList(dependencies) {
     return [];
   }
 
-  return dependencies.map((dependency) => ({
-    question_id: normalizeQuestionId(dependency?.question_id),
-    required_value: Array.isArray(dependency?.required_value)
-      ? dependency.required_value.filter(
-          (value) => value != null && value !== ""
-        )
-      : (dependency?.required_value ?? ""),
-  }));
+  return dependencies.map((dependency) => {
+    const normalizedDependency = {
+      question_id: normalizeQuestionId(dependency?.question_id),
+      required_value: Array.isArray(dependency?.required_value)
+        ? dependency.required_value.filter(
+            (value) => value != null && value !== ""
+          )
+        : (dependency?.required_value ?? ""),
+    };
+
+    if (typeof dependency?._templateQuestionId === "string") {
+      normalizedDependency._templateQuestionId =
+        dependency._templateQuestionId;
+    }
+
+    return normalizedDependency;
+  });
 }
 
 function normalizeDependencyRequiredValue(parentQuest, requiredValue) {
@@ -110,10 +173,15 @@ function normalizeDependencyRequiredValue(parentQuest, requiredValue) {
 
   if (isChoiceQuestType(parentQuest.quest_type)) {
     if (Array.isArray(requiredValue)) {
-      return requiredValue.filter((value) => value != null && value !== "");
+      const values = requiredValue.filter(
+        (value) => value != null && value !== ""
+      );
+      return parentQuest.quest_type === "ExclusiveChoice"
+        ? (values[0] ?? "")
+        : values;
     }
 
-    return requiredValue ? [requiredValue] : [];
+    return requiredValue ?? "";
   }
 
   if (Array.isArray(requiredValue)) {
@@ -123,9 +191,35 @@ function normalizeDependencyRequiredValue(parentQuest, requiredValue) {
   return requiredValue ?? "";
 }
 
+function normalizeAutoCaptureAttributes(attributes) {
+  if (
+    !attributes ||
+    typeof attributes !== "object" ||
+    Array.isArray(attributes)
+  ) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(attributes).map(([key, value]) => [
+      String(key),
+      value == null ? "" : String(value),
+    ])
+  );
+}
+
 function normalizeQuestForType(quest) {
   if (!isChoiceQuestType(quest.quest_type)) {
     quest.quest_answer_choices = [];
+  }
+
+  if (quest.quest_type === "AutoCapture") {
+    quest.quest_tag = "";
+    quest.auto_capture_attributes = normalizeAutoCaptureAttributes(
+      quest.auto_capture_attributes
+    );
+  } else {
+    delete quest.auto_capture_attributes;
   }
 
   if (quest.quest_type !== "Numeric") {
@@ -184,12 +278,20 @@ function newElement() {
 }
 
 function blankDefinition() {
-  return { version: LATEST_DEFINITION_VERSION, elements: [] };
+  return {
+    version: LATEST_DEFINITION_VERSION,
+    recency_period: DEFAULT_RECENCY_PERIOD,
+    elements: [],
+  };
 }
 
 function normalizeIncomingDefinition(jsonObj) {
   if (Array.isArray(jsonObj)) {
-    return { version: "1.0.0", elements: jsonObj };
+    return {
+      version: "1.0.0",
+      recency_period: DEFAULT_RECENCY_PERIOD,
+      elements: jsonObj,
+    };
   }
 
   if (
@@ -197,13 +299,34 @@ function normalizeIncomingDefinition(jsonObj) {
     typeof jsonObj === "object" &&
     Array.isArray(jsonObj.elements)
   ) {
-    return {
+    const normalizedDefinition = {
       version: normalizeDefinitionVersion(
         jsonObj.version,
         jsonObj.version == null ? "2.0.0" : LATEST_DEFINITION_VERSION
       ),
+      recency_period: normalizeRecencyPeriod(jsonObj.recency_period),
       elements: jsonObj.elements,
     };
+
+    const featurePresets = normalizeOptionalArray(
+      jsonObj,
+      "feature-presets",
+      normalizeFeaturePreset
+    );
+    const customIcons = normalizeOptionalArray(
+      jsonObj,
+      "custom-icons",
+      normalizeCustomIcon
+    );
+
+    if (featurePresets !== undefined) {
+      normalizedDefinition["feature-presets"] = featurePresets;
+    }
+    if (customIcons !== undefined) {
+      normalizedDefinition["custom-icons"] = customIcons;
+    }
+
+    return normalizedDefinition;
   }
 
   throw new Error(
@@ -224,6 +347,9 @@ function questFromJson(quest) {
     quest_type: quest.quest_type ?? "ExclusiveChoice",
     quest_tag: quest.quest_tag ?? "",
     quest_image_url: quest.quest_image_url ?? "",
+    auto_capture_attributes: normalizeAutoCaptureAttributes(
+      quest.auto_capture_attributes
+    ),
     quest_answer_choices: (quest.quest_answer_choices || []).map((choice) => ({
       value: choice.value ?? "",
       choice_text: choice.choice_text ?? "",
@@ -266,6 +392,9 @@ function questFromDraft(quest) {
     _deps: Array.isArray(quest?._deps)
       ? normalizeDependencyList(quest._deps)
       : normalizedQuest._deps,
+    ...(typeof quest?._templateQuestId === "string"
+      ? { _templateQuestId: quest._templateQuestId }
+      : {}),
   };
 }
 
@@ -277,17 +406,29 @@ function createQuestFromTemplate(
   const validation = templateQuest.quest_answer_validation || {};
   const dependencies = arrayifyDependency(
     templateQuest.quest_answer_dependency
-  ).map((dependency) => ({
-    question_id:
+  ).map((dependency) => {
+    const templateQuestionId =
       typeof dependency?.question_id === "string"
-        ? (templateQuestionIdMap.get(dependency.question_id) ?? null)
-        : normalizeQuestionId(dependency?.question_id),
-    required_value: Array.isArray(dependency?.required_value)
-      ? dependency.required_value.filter(
-          (value) => value != null && value !== ""
-        )
-      : (dependency?.required_value ?? ""),
-  }));
+        ? dependency.question_id
+        : null;
+    const normalizedDependency = {
+      question_id:
+        templateQuestionId !== null
+          ? (templateQuestionIdMap.get(templateQuestionId) ?? null)
+          : normalizeQuestionId(dependency?.question_id),
+      required_value: Array.isArray(dependency?.required_value)
+        ? dependency.required_value.filter(
+            (value) => value != null && value !== ""
+          )
+        : (dependency?.required_value ?? ""),
+    };
+
+    if (templateQuestionId !== null) {
+      normalizedDependency._templateQuestionId = templateQuestionId;
+    }
+
+    return normalizedDependency;
+  });
 
   const quest = {
     quest_id: questId,
@@ -296,6 +437,9 @@ function createQuestFromTemplate(
     quest_type: templateQuest.quest_type ?? "ExclusiveChoice",
     quest_tag: templateQuest.quest_tag ?? "",
     quest_image_url: templateQuest.quest_image_url ?? "",
+    auto_capture_attributes: normalizeAutoCaptureAttributes(
+      templateQuest.auto_capture_attributes
+    ),
     quest_answer_choices: (templateQuest.quest_answer_choices || []).map(
       (choice) => ({
         value: choice.value ?? "",
@@ -312,13 +456,18 @@ function createQuestFromTemplate(
     _deps: dependencies,
   };
 
+  if (typeof templateQuest.template_quest_id === "string") {
+    quest._templateQuestId = templateQuest.template_quest_id;
+  }
+
   normalizeQuestForType(quest);
   return quest;
 }
 
 function definitionFromDraft(draftDefinition) {
-  return {
+  const normalizedDefinition = {
     version: normalizeDefinitionVersion(draftDefinition?.version),
+    recency_period: normalizeRecencyPeriod(draftDefinition?.recency_period),
     elements: Array.isArray(draftDefinition?.elements)
       ? draftDefinition.elements.map((element) => ({
           element_type: element?.element_type ?? "",
@@ -330,6 +479,26 @@ function definitionFromDraft(draftDefinition) {
         }))
       : [],
   };
+
+  const featurePresets = normalizeOptionalArray(
+    draftDefinition || {},
+    "feature-presets",
+    normalizeFeaturePreset
+  );
+  const customIcons = normalizeOptionalArray(
+    draftDefinition || {},
+    "custom-icons",
+    normalizeCustomIcon
+  );
+
+  if (featurePresets !== undefined) {
+    normalizedDefinition["feature-presets"] = featurePresets;
+  }
+  if (customIcons !== undefined) {
+    normalizedDefinition["custom-icons"] = customIcons;
+  }
+
+  return normalizedDefinition;
 }
 
 function questToJson(quest) {
@@ -338,8 +507,15 @@ function questToJson(quest) {
     quest_title: quest.quest_title,
     quest_description: quest.quest_description,
     quest_type: quest.quest_type,
-    quest_tag: quest.quest_tag,
   };
+
+  if (quest.quest_type !== "AutoCapture") {
+    out.quest_tag = quest.quest_tag;
+  } else {
+    out.auto_capture_attributes = {
+      ...normalizeAutoCaptureAttributes(quest.auto_capture_attributes),
+    };
+  }
 
   if (quest.quest_image_url) {
     out.quest_image_url = quest.quest_image_url;
@@ -381,14 +557,196 @@ function questToJson(quest) {
   }
 
   if (quest._deps.length === 1) {
-    out.quest_answer_dependency = { ...quest._deps[0] };
+    out.quest_answer_dependency = {
+      question_id: quest._deps[0].question_id,
+      required_value: quest._deps[0].required_value,
+    };
   } else if (quest._deps.length > 1) {
     out.quest_answer_dependency = quest._deps.map((dependency) => ({
-      ...dependency,
+      question_id: dependency.question_id,
+      required_value: dependency.required_value,
     }));
   }
 
   return out;
+}
+
+function semanticError(instancePath, message, params = {}) {
+  return {
+    instancePath,
+    keyword: "semantic",
+    message,
+    params,
+  };
+}
+
+function isAbsoluteHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function validateIconReference(
+  iconName,
+  context,
+  instancePath,
+  customIconsByName
+) {
+  const builtInNames =
+    context === "quest" ? QUEST_ICON_NAMES : FEATURE_ICON_NAMES;
+  if (builtInNames.has(iconName)) {
+    return [];
+  }
+
+  const customIcon = customIconsByName.get(iconName);
+  if (!customIcon) {
+    return [
+      semanticError(
+        instancePath,
+        `Unknown ${context} icon "${iconName || "(empty)"}". Choose a built-in icon or a matching custom icon.`,
+        { context, iconName }
+      ),
+    ];
+  }
+
+  if (customIcon.type !== context) {
+    return [
+      semanticError(
+        instancePath,
+        `Custom icon "${iconName}" is for ${customIcon.type || "no context"}, not ${context}.`,
+        { context, iconName, actualType: customIcon.type }
+      ),
+    ];
+  }
+
+  return [];
+}
+
+function semanticValidationErrors(currentDefinition) {
+  const errors = [];
+  const customIcons = currentDefinition["custom-icons"] || [];
+  const customIconsByName = new Map();
+  const customIconNames = new Map();
+
+  customIcons.forEach((icon, index) => {
+    const name = icon.name.trim();
+    const path = `/custom-icons/${index}`;
+
+    if (!name) {
+      errors.push(
+        semanticError(`${path}/name`, "Custom icon name is required.")
+      );
+    }
+
+    if (customIconNames.has(name)) {
+      errors.push(
+        semanticError(
+          `${path}/name`,
+          `Custom icon name "${name}" is duplicated.`
+        )
+      );
+    } else {
+      customIconNames.set(name, index);
+    }
+
+    const builtInNames =
+      icon.type === "feature-preset" ? FEATURE_ICON_NAMES : QUEST_ICON_NAMES;
+    if (builtInNames.has(name)) {
+      errors.push(
+        semanticError(
+          `${path}/name`,
+          `Custom icon name "${name}" conflicts with a built-in ${icon.type || "quest"} icon.`
+        )
+      );
+    }
+
+    if (!isAbsoluteHttpUrl(icon.url)) {
+      errors.push(
+        semanticError(
+          `${path}/url`,
+          "Custom icon URL must be an absolute http or https URL."
+        )
+      );
+    }
+
+    if (icon.type !== "quest" && icon.type !== "feature-preset") {
+      errors.push(
+        semanticError(
+          `${path}/type`,
+          'Custom icon type must be "quest" or "feature-preset".'
+        )
+      );
+    }
+
+    if (name && !customIconsByName.has(name)) {
+      customIconsByName.set(name, icon);
+    }
+  });
+
+  const featurePresets = currentDefinition["feature-presets"] || [];
+  const presetNames = new Map();
+  featurePresets.forEach((preset, index) => {
+    const path = `/feature-presets/${index}`;
+    const name = preset.name.trim();
+
+    if (!name) {
+      errors.push(
+        semanticError(`${path}/name`, "Feature preset name is required.")
+      );
+    }
+
+    if (presetNames.has(name)) {
+      errors.push(
+        semanticError(
+          `${path}/name`,
+          `Feature preset name "${name}" is duplicated.`
+        )
+      );
+    } else {
+      presetNames.set(name, index);
+    }
+
+    const tagEntries = Object.entries(preset.tags || {});
+    if (
+      tagEntries.length === 0 ||
+      !tagEntries.some(
+        ([key, value]) =>
+          key.trim() && typeof value === "string" && value.trim()
+      )
+    ) {
+      errors.push(
+        semanticError(
+          `${path}/tags`,
+          "Add at least one non-empty string tag key and value."
+        )
+      );
+    }
+
+    errors.push(
+      ...validateIconReference(
+        preset.icon,
+        "feature-preset",
+        `${path}/icon`,
+        customIconsByName
+      )
+    );
+  });
+
+  currentDefinition.elements.forEach((element, elementIndex) => {
+    errors.push(
+      ...validateIconReference(
+        element.element_type_icon,
+        "quest",
+        `/elements/${elementIndex}/element_type_icon`,
+        customIconsByName
+      )
+    );
+  });
+
+  return errors;
 }
 
 export const useQuestStore = defineStore("quest", () => {
@@ -507,16 +865,30 @@ export const useQuestStore = defineStore("quest", () => {
     element.quests.forEach((quest) => {
       quest._deps = (quest._deps || []).map((dependency) => {
         const parentQuest =
-          dependency.question_id == null
+          (dependency.question_id == null
             ? null
-            : questionsById.get(dependency.question_id) || null;
+            : questionsById.get(dependency.question_id)) ||
+          (typeof dependency._templateQuestionId === "string"
+            ? element.quests.find(
+                (candidate) =>
+                  candidate._templateQuestId === dependency._templateQuestionId
+              )
+            : null) ||
+          null;
 
         return {
-          question_id: parentQuest ? dependency.question_id : null,
-          required_value: normalizeDependencyRequiredValue(
-            parentQuest,
-            dependency.required_value
-          ),
+          question_id: parentQuest ? parentQuest.quest_id : null,
+          required_value: parentQuest
+            ? normalizeDependencyRequiredValue(
+                  parentQuest,
+                  dependency.required_value
+              )
+            : dependency._templateQuestionId
+              ? dependency.required_value
+              : "",
+          ...(typeof dependency._templateQuestionId === "string"
+            ? { _templateQuestionId: dependency._templateQuestionId }
+            : {}),
         };
       });
     });
@@ -555,9 +927,12 @@ export const useQuestStore = defineStore("quest", () => {
 
   const fullJson = computed(() => {
     const currentDefinition = definition.value;
+    const featurePresets = currentDefinition["feature-presets"];
+    const customIcons = currentDefinition["custom-icons"];
 
-    return {
+    const serializedDefinition = {
       version: currentDefinition.version,
+      recency_period: currentDefinition.recency_period,
       elements: currentDefinition.elements.map((element) => ({
         element_type: element.element_type,
         element_type_icon: element.element_type_icon,
@@ -565,11 +940,32 @@ export const useQuestStore = defineStore("quest", () => {
         quests: element.quests.map((quest) => questToJson(quest)),
       })),
     };
+
+    if (featurePresets !== undefined) {
+      serializedDefinition["feature-presets"] = featurePresets.map(
+        (preset) => ({
+          name: preset.name,
+          icon: preset.icon,
+          tags: { ...preset.tags },
+        })
+      );
+    }
+
+    if (customIcons !== undefined) {
+      serializedDefinition["custom-icons"] = customIcons.map((icon) => ({
+        name: icon.name,
+        url: icon.url,
+        type: icon.type,
+      }));
+    }
+
+    return serializedDefinition;
   });
 
   const validationErrors = computed(() => {
-    const isValid = validate(fullJson.value);
-    return isValid ? [] : validate.errors || [];
+    validate(fullJson.value);
+    const structuralErrors = validate.errors ? [...validate.errors] : [];
+    return [...structuralErrors, ...semanticValidationErrors(fullJson.value)];
   });
 
   const validationWarnings = computed(() => {
@@ -658,14 +1054,18 @@ export const useQuestStore = defineStore("quest", () => {
 
   function upgradeDefinitionVersion() {
     definition.value.version = LATEST_DEFINITION_VERSION;
+    definition.value.recency_period = normalizeRecencyPeriod(
+      definition.value.recency_period
+    );
     touchEditorSession();
   }
 
   function loadFromJson(jsonObj) {
     const normalizedDefinition = normalizeIncomingDefinition(jsonObj);
 
-    definition.value = {
+    const nextDefinition = {
       version: normalizedDefinition.version,
+      recency_period: normalizedDefinition.recency_period,
       elements: normalizedDefinition.elements.map((element) => ({
         element_type: element.element_type ?? "",
         element_type_icon: element.element_type_icon ?? "",
@@ -673,6 +1073,16 @@ export const useQuestStore = defineStore("quest", () => {
         quests: (element.quests || []).map((quest) => questFromJson(quest)),
       })),
     };
+
+    if (hasOwnField(normalizedDefinition, "feature-presets")) {
+      nextDefinition["feature-presets"] =
+        normalizedDefinition["feature-presets"];
+    }
+    if (hasOwnField(normalizedDefinition, "custom-icons")) {
+      nextDefinition["custom-icons"] = normalizedDefinition["custom-icons"];
+    }
+
+    definition.value = nextDefinition;
 
     selectedElementIndex.value =
       definition.value.elements.length > 0 ? 0 : null;
@@ -694,6 +1104,33 @@ export const useQuestStore = defineStore("quest", () => {
     definition.value.elements.push(newElement());
     selectedElementIndex.value = definition.value.elements.length - 1;
     selectedQuestIndex.value = null;
+    touchEditorSession();
+  }
+
+  function duplicateElement(elementIndex) {
+    const source = definition.value.elements[elementIndex];
+    if (!source) {
+      return;
+    }
+
+    const duplicate = {
+      element_type: source.element_type,
+      element_type_icon: source.element_type_icon,
+      quest_query: source.quest_query,
+      quests: source.quests.map((quest) => questFromDraft(quest)),
+    };
+    const duplicateIndex = elementIndex + 1;
+
+    definition.value.elements.splice(duplicateIndex, 0, duplicate);
+    for (
+      let nextElementIndex = duplicateIndex;
+      nextElementIndex < definition.value.elements.length;
+      nextElementIndex += 1
+    ) {
+      recomputeQuestIds(nextElementIndex);
+    }
+    selectedElementIndex.value = duplicateIndex;
+    selectedQuestIndex.value = duplicate.quests.length > 0 ? 0 : null;
     touchEditorSession();
   }
 
@@ -732,54 +1169,266 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
+  function moveElementTo(fromIndex, toIndex) {
+    const elements = definition.value.elements;
+    if (
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= elements.length ||
+      toIndex < 0 ||
+      toIndex >= elements.length
+    ) {
+      return;
+    }
+
+    const [moved] = elements.splice(fromIndex, 1);
+    elements.splice(toIndex, 0, moved);
+
+    const start = Math.min(fromIndex, toIndex);
+    const end = Math.max(fromIndex, toIndex);
+    for (let index = start; index <= end; index += 1) {
+      recomputeQuestIds(index);
+    }
+
+    if (selectedElementIndex.value === fromIndex) {
+      selectedElementIndex.value = toIndex;
+    } else if (selectedElementIndex.value != null) {
+      if (
+        fromIndex < toIndex &&
+        selectedElementIndex.value > fromIndex &&
+        selectedElementIndex.value <= toIndex
+      ) {
+        selectedElementIndex.value -= 1;
+      } else if (
+        fromIndex > toIndex &&
+        selectedElementIndex.value >= toIndex &&
+        selectedElementIndex.value < fromIndex
+      ) {
+        selectedElementIndex.value += 1;
+      }
+    }
+
+    touchEditorSession();
+  }
+
   function moveElementUp(elementIndex) {
     if (elementIndex === 0) {
       return;
     }
 
-    const elements = definition.value.elements;
-    [elements[elementIndex - 1], elements[elementIndex]] = [
-      elements[elementIndex],
-      elements[elementIndex - 1],
-    ];
-
-    recomputeQuestIds(elementIndex - 1);
-    recomputeQuestIds(elementIndex);
-
-    if (selectedElementIndex.value === elementIndex) {
-      selectedElementIndex.value = elementIndex - 1;
-    } else if (selectedElementIndex.value === elementIndex - 1) {
-      selectedElementIndex.value = elementIndex;
-    }
-
-    touchEditorSession();
+    moveElementTo(elementIndex, elementIndex - 1);
   }
 
   function moveElementDown(elementIndex) {
-    const elements = definition.value.elements;
-    if (elementIndex >= elements.length - 1) {
+    if (elementIndex >= definition.value.elements.length - 1) {
       return;
     }
 
-    [elements[elementIndex], elements[elementIndex + 1]] = [
-      elements[elementIndex + 1],
-      elements[elementIndex],
-    ];
-
-    recomputeQuestIds(elementIndex);
-    recomputeQuestIds(elementIndex + 1);
-
-    if (selectedElementIndex.value === elementIndex) {
-      selectedElementIndex.value = elementIndex + 1;
-    } else if (selectedElementIndex.value === elementIndex + 1) {
-      selectedElementIndex.value = elementIndex;
-    }
-
-    touchEditorSession();
+    moveElementTo(elementIndex, elementIndex + 1);
   }
 
   function updateElement(elementIndex, fields) {
     Object.assign(definition.value.elements[elementIndex], fields);
+    touchEditorSession();
+  }
+
+  function setRecencyPeriod(value) {
+    definition.value.recency_period = normalizeRecencyPeriod(value);
+    touchEditorSession();
+  }
+
+  function ensureFeaturePresets() {
+    if (!hasOwnField(definition.value, "feature-presets")) {
+      definition.value["feature-presets"] = [];
+    }
+
+    return definition.value["feature-presets"];
+  }
+
+  function addFeaturePreset() {
+    const presets = ensureFeaturePresets();
+    presets.push({ name: "", icon: "", tags: { "": "" } });
+    touchEditorSession();
+  }
+
+  function duplicateFeaturePreset(presetIndex) {
+    const presets = definition.value["feature-presets"];
+    const source = presets?.[presetIndex];
+    if (!source) {
+      return;
+    }
+
+    presets.splice(presetIndex + 1, 0, {
+      name: source.name,
+      icon: source.icon,
+      tags: { ...(source.tags || {}) },
+    });
+    touchEditorSession();
+  }
+
+  function updateFeaturePreset(presetIndex, fields) {
+    const preset = definition.value["feature-presets"]?.[presetIndex];
+    if (!preset) {
+      return;
+    }
+
+    if (hasOwnField(fields, "name")) {
+      preset.name = String(fields.name ?? "").trim();
+    }
+    if (hasOwnField(fields, "icon")) {
+      preset.icon = String(fields.icon ?? "").trim();
+    }
+    if (hasOwnField(fields, "tags")) {
+      preset.tags = { ...(fields.tags || {}) };
+    }
+    touchEditorSession();
+  }
+
+  function setFeaturePresetTag(presetIndex, tagKey, tagValue) {
+    const preset = definition.value["feature-presets"]?.[presetIndex];
+    if (!preset) {
+      return;
+    }
+
+    const nextTags = { ...preset.tags };
+    if (tagKey !== undefined) {
+      nextTags[String(tagKey)] = String(tagValue ?? "");
+    }
+    preset.tags = nextTags;
+    touchEditorSession();
+  }
+
+  function removeFeaturePresetTag(presetIndex, tagKey) {
+    const preset = definition.value["feature-presets"]?.[presetIndex];
+    if (!preset) {
+      return;
+    }
+
+    const nextTags = { ...preset.tags };
+    delete nextTags[tagKey];
+    preset.tags = nextTags;
+    touchEditorSession();
+  }
+
+  function removeFeaturePreset(presetIndex) {
+    definition.value["feature-presets"]?.splice(presetIndex, 1);
+    touchEditorSession();
+  }
+
+  function moveFeaturePresetUp(presetIndex) {
+    if (presetIndex <= 0) {
+      return;
+    }
+
+    moveFeaturePresetTo(presetIndex, presetIndex - 1);
+  }
+
+  function moveFeaturePresetDown(presetIndex) {
+    const presets = definition.value["feature-presets"];
+    if (!presets || presetIndex >= presets.length - 1) {
+      return;
+    }
+
+    moveFeaturePresetTo(presetIndex, presetIndex + 1);
+  }
+
+  function moveFeaturePresetTo(fromIndex, toIndex) {
+    const presets = definition.value["feature-presets"];
+    if (
+      !presets ||
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= presets.length ||
+      toIndex < 0 ||
+      toIndex >= presets.length
+    ) {
+      return;
+    }
+
+    const [moved] = presets.splice(fromIndex, 1);
+    presets.splice(toIndex, 0, moved);
+    touchEditorSession();
+  }
+
+  function ensureCustomIcons() {
+    if (!hasOwnField(definition.value, "custom-icons")) {
+      definition.value["custom-icons"] = [];
+    }
+
+    return definition.value["custom-icons"];
+  }
+
+  function addCustomIcon() {
+    ensureCustomIcons().push({ name: "", url: "", type: "quest" });
+    touchEditorSession();
+  }
+
+  function duplicateCustomIcon(iconIndex) {
+    const icons = definition.value["custom-icons"];
+    const source = icons?.[iconIndex];
+    if (!source) {
+      return;
+    }
+
+    icons.splice(iconIndex + 1, 0, { ...source });
+    touchEditorSession();
+  }
+
+  function updateCustomIcon(iconIndex, fields) {
+    const icon = definition.value["custom-icons"]?.[iconIndex];
+    if (!icon) {
+      return;
+    }
+
+    if (hasOwnField(fields, "name")) {
+      icon.name = String(fields.name ?? "").trim();
+    }
+    if (hasOwnField(fields, "url")) {
+      icon.url = String(fields.url ?? "").trim();
+    }
+    if (hasOwnField(fields, "type")) {
+      icon.type = fields.type;
+    }
+    touchEditorSession();
+  }
+
+  function removeCustomIcon(iconIndex) {
+    definition.value["custom-icons"]?.splice(iconIndex, 1);
+    touchEditorSession();
+  }
+
+  function moveCustomIconUp(iconIndex) {
+    if (iconIndex <= 0) {
+      return;
+    }
+
+    moveCustomIconTo(iconIndex, iconIndex - 1);
+  }
+
+  function moveCustomIconDown(iconIndex) {
+    const icons = definition.value["custom-icons"];
+    if (!icons || iconIndex >= icons.length - 1) {
+      return;
+    }
+
+    moveCustomIconTo(iconIndex, iconIndex + 1);
+  }
+
+  function moveCustomIconTo(fromIndex, toIndex) {
+    const icons = definition.value["custom-icons"];
+    if (
+      !icons ||
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= icons.length ||
+      toIndex < 0 ||
+      toIndex >= icons.length
+    ) {
+      return;
+    }
+
+    const [moved] = icons.splice(fromIndex, 1);
+    icons.splice(toIndex, 0, moved);
     touchEditorSession();
   }
 
@@ -807,13 +1456,59 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
+  function duplicateQuest(elementIndex, questIndex) {
+    const element = definition.value.elements[elementIndex];
+    const source = element?.quests[questIndex];
+    if (!element || !source) {
+      return;
+    }
+
+    const originalQuests = element.quests.slice();
+    const originalIds = new Map(
+      originalQuests.map((quest) => [quest, quest.quest_id])
+    );
+    const duplicate = questFromDraft(source);
+    element.quests.splice(questIndex + 1, 0, duplicate);
+
+    const originalIdToNewId = new Map(
+      originalQuests.map((quest, index) => [
+        originalIds.get(quest),
+        (elementIndex + 1) * 100 + (index + (index > questIndex ? 1 : 0)) + 1,
+      ])
+    );
+    const duplicateId = (elementIndex + 1) * 100 + questIndex + 2;
+
+    element.quests.forEach((quest, index) => {
+      quest.quest_id =
+        index === questIndex + 1
+          ? duplicateId
+          : originalIdToNewId.get(originalIds.get(quest));
+      quest._deps = (quest._deps || []).map((dependency) => ({
+        ...dependency,
+        question_id:
+          dependency.question_id == null
+            ? null
+            : (originalIdToNewId.get(dependency.question_id) ?? null),
+      }));
+    });
+    normalizeDependenciesForElement(elementIndex);
+    selectedElementIndex.value = elementIndex;
+    selectedQuestIndex.value = questIndex + 1;
+    touchEditorSession();
+  }
+
   function insertSingleQuestTemplate(elementIndex, templateQuest) {
     const element = definition.value.elements[elementIndex];
     if (!element || !templateQuest) return null;
 
     const questId = (elementIndex + 1) * 100 + element.quests.length + 1;
+    const templateQuestionIdMap = new Map(
+      element.quests
+        .filter((quest) => typeof quest._templateQuestId === "string")
+        .map((quest) => [quest._templateQuestId, quest.quest_id])
+    );
     element.quests.push(
-      createQuestFromTemplate(templateQuest, questId, new Map())
+      createQuestFromTemplate(templateQuest, questId, templateQuestionIdMap)
     );
 
     normalizeDependenciesForElement(elementIndex);
@@ -879,44 +1574,62 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
-  function moveQuestUp(elementIndex, questIndex) {
-    if (questIndex === 0) {
+  function moveQuestTo(elementIndex, fromIndex, toIndex) {
+    const quests = definition.value.elements[elementIndex]?.quests;
+    if (
+      !quests ||
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= quests.length ||
+      toIndex < 0 ||
+      toIndex >= quests.length
+    ) {
       return;
     }
 
-    const quests = definition.value.elements[elementIndex].quests;
-    [quests[questIndex - 1], quests[questIndex]] = [
-      quests[questIndex],
-      quests[questIndex - 1],
-    ];
+    const [moved] = quests.splice(fromIndex, 1);
+    quests.splice(toIndex, 0, moved);
 
     recomputeQuestIds(elementIndex);
 
     if (selectedElementIndex.value === elementIndex) {
-      selectedQuestIndex.value = questIndex - 1;
+      if (selectedQuestIndex.value === fromIndex) {
+        selectedQuestIndex.value = toIndex;
+      } else if (selectedQuestIndex.value != null) {
+        if (
+          fromIndex < toIndex &&
+          selectedQuestIndex.value > fromIndex &&
+          selectedQuestIndex.value <= toIndex
+        ) {
+          selectedQuestIndex.value -= 1;
+        } else if (
+          fromIndex > toIndex &&
+          selectedQuestIndex.value >= toIndex &&
+          selectedQuestIndex.value < fromIndex
+        ) {
+          selectedQuestIndex.value += 1;
+        }
+      }
     }
 
     touchEditorSession();
   }
 
-  function moveQuestDown(elementIndex, questIndex) {
-    const quests = definition.value.elements[elementIndex].quests;
-    if (questIndex >= quests.length - 1) {
+  function moveQuestUp(elementIndex, questIndex) {
+    if (questIndex === 0) {
       return;
     }
 
-    [quests[questIndex], quests[questIndex + 1]] = [
-      quests[questIndex + 1],
-      quests[questIndex],
-    ];
+    moveQuestTo(elementIndex, questIndex, questIndex - 1);
+  }
 
-    recomputeQuestIds(elementIndex);
-
-    if (selectedElementIndex.value === elementIndex) {
-      selectedQuestIndex.value = questIndex + 1;
+  function moveQuestDown(elementIndex, questIndex) {
+    const quests = definition.value.elements[elementIndex]?.quests;
+    if (!quests || questIndex >= quests.length - 1) {
+      return;
     }
 
-    touchEditorSession();
+    moveQuestTo(elementIndex, questIndex, questIndex + 1);
   }
 
   function updateQuest(elementIndex, questIndex, fields) {
@@ -981,6 +1694,19 @@ export const useQuestStore = defineStore("quest", () => {
     touchEditorSession();
   }
 
+  function duplicateChoice(elementIndex, questIndex, choiceIndex) {
+    const choices =
+      definition.value.elements[elementIndex]?.quests[questIndex]
+        ?.quest_answer_choices;
+    const source = choices?.[choiceIndex];
+    if (!choices || !source) {
+      return;
+    }
+
+    choices.splice(choiceIndex + 1, 0, { ...source });
+    touchEditorSession();
+  }
+
   function removeChoice(elementIndex, questIndex, choiceIndex) {
     definition.value.elements[elementIndex].quests[
       questIndex
@@ -993,32 +1719,38 @@ export const useQuestStore = defineStore("quest", () => {
       return;
     }
 
-    const choices =
-      definition.value.elements[elementIndex].quests[questIndex]
-        .quest_answer_choices;
-
-    [choices[choiceIndex - 1], choices[choiceIndex]] = [
-      choices[choiceIndex],
-      choices[choiceIndex - 1],
-    ];
-
-    touchEditorSession();
+    moveChoiceTo(elementIndex, questIndex, choiceIndex, choiceIndex - 1);
   }
 
   function moveChoiceDown(elementIndex, questIndex, choiceIndex) {
     const choices =
-      definition.value.elements[elementIndex].quests[questIndex]
-        .quest_answer_choices;
+      definition.value.elements[elementIndex]?.quests[questIndex]
+        ?.quest_answer_choices;
 
-    if (choiceIndex >= choices.length - 1) {
+    if (!choices || choiceIndex >= choices.length - 1) {
       return;
     }
 
-    [choices[choiceIndex], choices[choiceIndex + 1]] = [
-      choices[choiceIndex + 1],
-      choices[choiceIndex],
-    ];
+    moveChoiceTo(elementIndex, questIndex, choiceIndex, choiceIndex + 1);
+  }
 
+  function moveChoiceTo(elementIndex, questIndex, fromIndex, toIndex) {
+    const choices =
+      definition.value.elements[elementIndex]?.quests[questIndex]
+        ?.quest_answer_choices;
+    if (
+      !choices ||
+      fromIndex === toIndex ||
+      fromIndex < 0 ||
+      fromIndex >= choices.length ||
+      toIndex < 0 ||
+      toIndex >= choices.length
+    ) {
+      return;
+    }
+
+    const [moved] = choices.splice(fromIndex, 1);
+    choices.splice(toIndex, 0, moved);
     touchEditorSession();
   }
 
@@ -1052,24 +1784,47 @@ export const useQuestStore = defineStore("quest", () => {
     loadFromJson,
     resetDefinition,
     addElement,
+    duplicateElement,
     removeElement,
     moveElementUp,
     moveElementDown,
+    moveElementTo,
     updateElement,
+    setRecencyPeriod,
+    addFeaturePreset,
+    duplicateFeaturePreset,
+    updateFeaturePreset,
+    setFeaturePresetTag,
+    removeFeaturePresetTag,
+    removeFeaturePreset,
+    moveFeaturePresetUp,
+    moveFeaturePresetDown,
+    moveFeaturePresetTo,
+    addCustomIcon,
+    duplicateCustomIcon,
+    updateCustomIcon,
+    removeCustomIcon,
+    moveCustomIconUp,
+    moveCustomIconDown,
+    moveCustomIconTo,
     applyElementPreset,
     addQuest,
+    duplicateQuest,
     insertSingleQuestTemplate,
     insertQuestPreset,
     insertQuestTemplatePack,
     removeQuest,
     moveQuestUp,
     moveQuestDown,
+    moveQuestTo,
     updateQuest,
     recomputeQuestIds,
     addChoice,
+    duplicateChoice,
     removeChoice,
     moveChoiceUp,
     moveChoiceDown,
+    moveChoiceTo,
     updateChoice,
   };
 });

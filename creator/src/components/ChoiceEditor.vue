@@ -124,11 +124,18 @@ function setFollowUpEnabled(enabled) {
                     class="form-control form-control-sm"
                     :value="choice.image_url"
                     placeholder="https://example.com/choice.jpg"
+                    :aria-describedby="`choice-image-hint-${elementIndex}-${questIndex}-${choiceIndex}`"
                     :class="{
                         'is-invalid': store.hasValidationError(choiceImagePath),
                     }"
                     @input="update({ image_url: $event.target.value })"
                 />
+                <div
+                    :id="`choice-image-hint-${elementIndex}-${questIndex}-${choiceIndex}`"
+                    class="form-text small"
+                >
+                    PNG or JPEG, &lt; 0.5 MB, portrait, ~480 px × ~720 px
+                </div>
                 <ImagePreview
                     :url="choice.image_url"
                     :alt="`Preview for choice ${choiceIndex + 1}`"
