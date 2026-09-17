@@ -642,11 +642,22 @@ watch(
                                     <div class="dropdown">
                                         <button
                                             type="button"
-                                            class="btn btn-sm btn-outline-primary dropdown-toggle creator-toolbar-button"
+                                            class="btn btn-sm btn-outline-primary dropdown-toggle creator-toolbar-button creator-preset-button"
                                             data-bs-toggle="dropdown"
                                             data-bs-display="static"
                                             aria-expanded="false"
                                         >
+                                            <svg
+                                                aria-hidden="true"
+                                                viewBox="0 0 16 16"
+                                                width="14"
+                                                height="14"
+                                                fill="currentColor"
+                                            >
+                                                <path
+                                                    d="M8 1.25a.75.75 0 0 1 .72.54l.7 2.35 2.35.7a.75.75 0 0 1 0 1.44l-2.35.7-.7 2.35a.75.75 0 0 1-1.44 0l-.7-2.35-2.35-.7a.75.75 0 0 1 0-1.44l2.35-.7.7-2.35A.75.75 0 0 1 8 1.25Zm4.75 7.5a.5.5 0 0 1 .48.36l.3 1.01 1.01.3a.5.5 0 0 1 0 .96l-1.01.3-.3 1.01a.5.5 0 0 1-.96 0l-.3-1.01-1.01-.3a.5.5 0 0 1 0-.96l1.01-.3.3-1.01a.5.5 0 0 1 .48-.36Z"
+                                                />
+                                            </svg>
                                             Element Presets
                                         </button>
 
@@ -913,8 +924,8 @@ watch(
 <style scoped>
 .creator-workspace {
     display: grid;
-    gap: 1rem;
-    padding: 0.75rem;
+    gap: 0.75rem;
+    padding: 0.5rem;
 }
 
 .creator-sidebar,
@@ -1033,7 +1044,7 @@ watch(
 
 .creator-main-layout {
     display: grid;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .creator-editor-pane,
@@ -1051,8 +1062,8 @@ watch(
         container-type: size; /* enable cqh for sidebar height auto-adaptation */
         grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
         height: 100%;
-        padding: 1.25rem;
-        gap: 1.25rem;
+        padding: 0.9rem;
+        gap: 0.9rem;
         overflow-y: auto;
         overflow-x: clip;
         overflow-clip-margin: 3rem; /* allow card shadows to bleed past the left/right workspace edge */
@@ -1082,8 +1093,8 @@ watch(
     .creator-main-layout {
         grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
         align-items: start;
-        padding-bottom: 3.5rem;
-        gap: 1.25rem;
+        padding-bottom: 2rem;
+        gap: 0.9rem;
     }
 
     /* clip button hover-glows to utility card boundaries without affecting the editor card.

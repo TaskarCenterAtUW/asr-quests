@@ -90,8 +90,8 @@ function createNew() {
 </script>
 
 <template>
-    <div class="creator-home container py-4 py-lg-5">
-        <div class="row justify-content-center mb-4">
+    <div class="creator-home container py-3 py-lg-4">
+        <div class="row justify-content-center mb-3">
             <div class="col-12 col-xl-10 text-center">
                 <h1 class="display-5 fw-light mb-2">
                     Quest Definition Creator
@@ -114,7 +114,7 @@ function createNew() {
             </div>
         </div>
 
-        <div class="row justify-content-center g-4">
+        <div class="row justify-content-center g-3">
             <div v-if="hasDraft" class="col-sm-10 col-lg-4">
                 <div class="card creator-surface-card creator-home-card h-100">
                     <div class="card-body d-flex flex-column">

@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Changed
 
+- Updated styling to emphasize preset buttons
 - Updated the quest review prompt for LFQD Schema v3.2.0
 
 ## Creator: [v0.9.1] - 2026-09-16
