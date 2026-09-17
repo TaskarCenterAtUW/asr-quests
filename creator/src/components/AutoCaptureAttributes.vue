@@ -141,7 +141,7 @@ function attributePath(attributeKey) {
 <template>
     <section
         v-if="quest && quest.quest_type === 'AutoCapture'"
-        class="col-12 mt-3 pt-2 border-top"
+        class="col-12 mt-2 pt-1 border-top"
         :aria-labelledby="`auto-capture-heading-${elementIndex}-${questIndex}`"
     >
         <div class="d-flex align-items-center justify-content-between gap-2 mb-1">
@@ -155,7 +155,7 @@ function attributePath(attributeKey) {
         </div>
         <p
             :id="`auto-capture-help-${elementIndex}-${questIndex}`"
-            class="form-text small mb-3"
+            class="form-text small mb-2"
         >
             Select the measurements to capture, and map each one to the tag key
             that should be included in the exported definition.

@@ -642,11 +642,22 @@ watch(
                                     <div class="dropdown">
                                         <button
                                             type="button"
-                                            class="btn btn-sm btn-outline-primary dropdown-toggle creator-toolbar-button"
+                                            class="btn btn-sm btn-outline-primary dropdown-toggle creator-toolbar-button creator-preset-button"
                                             data-bs-toggle="dropdown"
                                             data-bs-display="static"
                                             aria-expanded="false"
                                         >
+                                            <svg
+                                                aria-hidden="true"
+                                                viewBox="0 0 16 16"
+                                                width="14"
+                                                height="14"
+                                                fill="currentColor"
+                                            >
+                                                <path
+                                                    d="M8 1.25a.75.75 0 0 1 .72.54l.7 2.35 2.35.7a.75.75 0 0 1 0 1.44l-2.35.7-.7 2.35a.75.75 0 0 1-1.44 0l-.7-2.35-2.35-.7a.75.75 0 0 1 0-1.44l2.35-.7.7-2.35A.75.75 0 0 1 8 1.25Zm4.75 7.5a.5.5 0 0 1 .48.36l.3 1.01 1.01.3a.5.5 0 0 1 0 .96l-1.01.3-.3 1.01a.5.5 0 0 1-.96 0l-.3-1.01-1.01-.3a.5.5 0 0 1 0-.96l1.01-.3.3-1.01a.5.5 0 0 1 .48-.36Z"
+                                                />
+                                            </svg>
                                             Element Presets
                                         </button>
 
@@ -757,7 +768,7 @@ watch(
                                                 d="M6 2h4l1 1h3v2H2V3h3l1-1zm-1 4h1v6H5V6zm3 0h1v6H8V6zm3 0h1v6h-1V6zM4 14h8a1 1 0 0 0 1-1V5H3v8a1 1 0 0 0 1 1z"
                                             />
                                         </svg>
-                                        <span>Delete Element</span>
+                                        <span>Delete</span>
                                     </button>
                                 </div>
 
@@ -782,7 +793,7 @@ watch(
                     </div>
                 </section>
 
-                <aside class="creator-utility-pane d-grid gap-3">
+                <aside class="creator-utility-pane d-grid">
                     <div class="card creator-surface-card creator-panel-card">
                         <div
                             class="card-header d-flex justify-content-center align-items-center position-relative"
@@ -913,8 +924,8 @@ watch(
 <style scoped>
 .creator-workspace {
     display: grid;
-    gap: 1rem;
-    padding: 0.75rem;
+    gap: 0.5rem;
+    padding: 0.25rem;
 }
 
 .creator-sidebar,
@@ -925,7 +936,7 @@ watch(
 .creator-sidebar {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .creator-tree-row {
@@ -993,15 +1004,16 @@ watch(
 }
 
 .element-list-button {
-    padding: 0.65rem 0.75rem;
+    padding: 0.45rem 0.55rem;
 }
 
 .quest-tree-button {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.75rem;
+    gap: 0.35rem;
+    padding: 0.3rem 0.45rem;
     overflow: hidden;
+    font-size: 0.9rem;
 }
 
 .quest-tree-button .text-truncate {
@@ -1013,8 +1025,8 @@ watch(
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 0.35rem;
-    margin: 0.35rem 0 0 2.4rem;
-    padding-left: 0.65rem;
+    margin: 0.3rem 0 0 0.875rem;
+    padding-left: 0.225rem;
 }
 
 .quest-tree-list-item {
@@ -1022,23 +1034,31 @@ watch(
     align-items: center;
     gap: 0.15rem;
     min-width: 0;
+    padding-left: 0.2rem;
 }
 
 .quest-tree-list-item .creator-drag-handle {
     flex-shrink: 0;
-    width: 1.1rem;
-    height: 1.1rem;
-    margin-left: -0.35rem;
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-left: -0.25rem;
 }
 
 .creator-main-layout {
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .creator-editor-pane,
 .creator-utility-pane {
     min-width: 0;
+}
+
+.creator-editor-pane,
+.creator-definition-tools,
+.creator-utility-pane {
+    display: grid;
+    gap: var(--creator-section-gap);
 }
 
 @media (min-width: 992px) {
@@ -1051,8 +1071,8 @@ watch(
         container-type: size; /* enable cqh for sidebar height auto-adaptation */
         grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
         height: 100%;
-        padding: 1.25rem;
-        gap: 1.25rem;
+        padding: 0.45rem;
+        gap: var(--creator-section-gap);
         overflow-y: auto;
         overflow-x: clip;
         overflow-clip-margin: 3rem; /* allow card shadows to bleed past the left/right workspace edge */
@@ -1082,8 +1102,8 @@ watch(
     .creator-main-layout {
         grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
         align-items: start;
-        padding-bottom: 3.5rem;
-        gap: 1.25rem;
+        padding-bottom: 1rem;
+        gap: var(--creator-section-gap);
     }
 
     /* clip button hover-glows to utility card boundaries without affecting the editor card.
@@ -1094,10 +1114,40 @@ watch(
 }
 
 .creator-card-info-wrap {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
+    position: static;
+    flex: 0 0 auto;
+    transform: none;
+    z-index: 2;
+}
+
+.creator-card-info-wrap.creator-card-info-inline {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: inline-flex;
+    flex: 0 0 auto;
+    transform: none;
+}
+
+.creator-panel-heading {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.creator-panel-heading h2 {
+    flex: 0 0 auto;
+}
+
+.creator-panel-heading .creator-card-info-wrap {
+    order: -1;
+}
+
+.card-header > .creator-card-info-wrap,
+.creator-sidebar-header > .creator-card-info-wrap {
+    order: -1;
 }
 
 .creator-card-info-btn {
@@ -1125,8 +1175,10 @@ watch(
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    right: 0;
+    left: 50%;
+    right: auto;
     top: calc(100% + 6px);
+    transform: translateX(-50%);
     min-width: 14rem;
     max-width: 22rem;
     background-color: var(--creator-surface-muted);
@@ -1152,6 +1204,14 @@ watch(
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
+}
+
+.creator-panel-card:has(.creator-card-info-wrap:hover),
+.creator-panel-card:has(.creator-card-info-wrap:focus-within),
+.creator-sidebar:has(.creator-card-info-wrap:hover),
+.creator-sidebar:has(.creator-card-info-wrap:focus-within) {
+    position: relative;
+    z-index: 1070;
 }
 
 /* Ensure card-header stacks above card-body within backdrop-filter stacking context */

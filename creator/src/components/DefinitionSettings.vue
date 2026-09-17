@@ -38,7 +38,31 @@ function updateRecency(event) {
 <template>
     <section class="card creator-surface-card creator-panel-card">
         <div class="card-header">
-            <h2 class="h6 mb-0">Definition Settings</h2>
+            <div class="creator-panel-heading flex-grow-1">
+                <div class="creator-card-info-wrap">
+                    <button
+                        type="button"
+                        class="creator-card-info-btn"
+                        aria-label="About Definition Settings: Adjust global settings for all elements and quests."
+                    >
+                        <svg
+                            aria-hidden="true"
+                            viewBox="0 0 16 16"
+                            width="15"
+                            height="15"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0-0-2z"
+                            />
+                        </svg>
+                    </button>
+                    <div role="tooltip" class="creator-card-tooltip">
+                        Adjust global settings for all elements and quests.
+                    </div>
+                </div>
+                <h2 class="h6 mb-0">Definition Settings</h2>
+            </div>
         </div>
         <div class="card-body">
             <div class="d-flex align-items-center gap-2 flex-wrap">

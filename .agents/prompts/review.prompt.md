@@ -23,20 +23,24 @@ Report errors exactly as output. Continue to logical checks even on schema failu
 
 ## Check 3 — Structural Conventions
 
-- `version` present, semver format, current expected value `3.0.0`.
-- `elements` is a non-empty array; each element has `element_type`, `element_type_icon`, `quest_query`, `quests` (non-empty).
-- Each quest has `quest_id`, `quest_title`, `quest_description`, `quest_type`, `quest_tag`.
-- `quest_type` is one of: `ExclusiveChoice`, `MultipleChoice`, `Numeric`, `TextEntry`.
-- `ExclusiveChoice`/`MultipleChoice` have `quest_answer_choices`; `Numeric`/`TextEntry` do not.
-- `quest_answer_validation` (`min`/`max`, `min < max`) only on `Numeric` quests.
+- `version` present, semver format, current expected value `3.2.0`.
+- `recency_period`, when present, is an integer greater than or equal to `0`; `0` means immediately resurveyable.
+- `elements` is a non-empty array; each element has non-empty `element_type`, `element_type_icon`, `quest_query`, and non-empty `quests`.
+- `element_type_icon` contains only lowercase letters and underscores, unless it references a declared custom quest icon.
+- `feature-presets`, when present, is a non-empty array. Each preset has a unique non-empty `name`, a lowercase/underscore `icon` or declared custom feature-preset icon, and non-empty string tag keys and values.
+- `custom-icons`, when present, is a non-empty array. Each icon has a unique lowercase/underscore `name`, an HTTPS `url`, and `type` equal to `quest` or `feature-preset`.
+- Each quest has `quest_id`, `quest_title`, `quest_description`, and `quest_type`; titles and descriptions must be non-empty/non-whitespace-only strings.
+- `quest_type` is one of: `ExclusiveChoice`, `MultipleChoice`, `Numeric`, `TextEntry`, `AutoCapture`.
+- `ExclusiveChoice`/`MultipleChoice` have `quest_answer_choices` and `quest_tag`; `Numeric`/`TextEntry` have `quest_tag`; `AutoCapture` has `auto_capture_attributes` instead of `quest_tag`.
+- `quest_answer_validation` (`min`/`max`, with `min < max` when both are present) is only on `Numeric` quests.
 - All `quest_id`s are unique across the entire file.
-- Property order per quest: `quest_id` → `quest_title` → `quest_description` → `quest_type` → `quest_tag` → `quest_answer_dependency` → `quest_answer_choices`/`quest_answer_validation`. Flag deviations.
+- Property order per quest: `quest_id` → `quest_title` → `quest_description` → `quest_image_url` (optional) → `quest_type` → `quest_tag`/`auto_capture_attributes` → `quest_answer_dependency` → `quest_answer_choices`/`quest_answer_validation`. Flag deviations as warnings only.
 
 ## Check 4 — Quest ID Range Conventions
 
-IDs are hundreds-based by element position (element 1: 101–199, element 2: 201–299, etc.). Verify:
+IDs are conventionally hundreds-based by element position (element 1: 101–199, element 2: 201–299, etc.). Verify:
 
-- Each element's IDs fall within its expected range and are in ascending order with no duplicates.
+- Each element's IDs fall within its expected range and are in ascending order with no duplicates. IDs ending in `00` are allowed and should only be warned about, not failed.
 - No `quest_id` is reused across elements.
 
 ## Check 5 — Answer Choice Integrity
@@ -67,7 +71,7 @@ For each quest with `quest_answer_dependency`:
 
 **Title ↔ Description:** Description must elaborate on or clarify the title's question — not contradict it, not re-ask a different question. Scale questions (e.g., "Rate 1–5") should have descriptions explaining the extremes.
 
-**Title/Description ↔ Tag:** Tag must reflect what the quest measures. Mismatch example: title "What is the sidewalk width?" with tag `ext:sidewalk_cross_slope`. Quests within the same element should share a consistent tag prefix. No two quests should share a `quest_tag` unless intentionally documented.
+**Title/Description ↔ Tag:** Tag must reflect what the quest measures. Mismatch example: title "What is the sidewalk width?" with tag `ext:sidewalk_cross_slope`. Quests within the same element should share a consistent tag prefix. Reusing a `quest_tag` across different elements is acceptable; flag reuse within the same element unless intentionally documented. For `AutoCapture`, evaluate each `auto_capture_attributes` mapping instead of `quest_tag`.
 
 **Answer choices ↔ Title/Description:** Choices must be appropriate responses to the question. Mismatch example: title "What is the surface material?" with choices `["Yes", "No"]`.
 
@@ -87,6 +91,7 @@ Each follow-up quest must make sense _given the specific required value(s)_ of i
 - Multiple simultaneous attributes → `MultipleChoice`.
 - Count, width, slope, speed, or other measured quantity → `Numeric`.
 - Free-text observation/comment → `TextEntry`.
+- Automatically captured measurements or attributes without user interaction → `AutoCapture`; verify that each `auto_capture_attributes` key starts with `ac_` and maps to a non-empty tag string.
 - Flag `Numeric` quests missing `quest_answer_validation` (strongly recommended).
 
 ---
