@@ -24,6 +24,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.10.0] - 2026-09-16
+
+### Added
+
+- Added an option to load an existing quest definition directly from the clipboard
+
+### Changed
+
+- Updated UI to improve use of screen space and emphasize presets
+- Updated the quest review prompt for LFQD Schema v3.2.0
+
+### Fixed
+
+- Fixed quest preset dependencies being exported with a `null` question ID when dependent quests were added individually
+
 ## Creator: [v0.9.1] - 2026-09-16
 
 ### Added

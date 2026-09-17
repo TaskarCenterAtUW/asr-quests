@@ -147,14 +147,23 @@ function normalizeDependencyList(dependencies) {
     return [];
   }
 
-  return dependencies.map((dependency) => ({
-    question_id: normalizeQuestionId(dependency?.question_id),
-    required_value: Array.isArray(dependency?.required_value)
-      ? dependency.required_value.filter(
-          (value) => value != null && value !== ""
-        )
-      : (dependency?.required_value ?? ""),
-  }));
+  return dependencies.map((dependency) => {
+    const normalizedDependency = {
+      question_id: normalizeQuestionId(dependency?.question_id),
+      required_value: Array.isArray(dependency?.required_value)
+        ? dependency.required_value.filter(
+            (value) => value != null && value !== ""
+          )
+        : (dependency?.required_value ?? ""),
+    };
+
+    if (typeof dependency?._templateQuestionId === "string") {
+      normalizedDependency._templateQuestionId =
+        dependency._templateQuestionId;
+    }
+
+    return normalizedDependency;
+  });
 }
 
 function normalizeDependencyRequiredValue(parentQuest, requiredValue) {
@@ -164,10 +173,15 @@ function normalizeDependencyRequiredValue(parentQuest, requiredValue) {
 
   if (isChoiceQuestType(parentQuest.quest_type)) {
     if (Array.isArray(requiredValue)) {
-      return requiredValue.filter((value) => value != null && value !== "");
+      const values = requiredValue.filter(
+        (value) => value != null && value !== ""
+      );
+      return parentQuest.quest_type === "ExclusiveChoice"
+        ? (values[0] ?? "")
+        : values;
     }
 
-    return requiredValue ? [requiredValue] : [];
+    return requiredValue ?? "";
   }
 
   if (Array.isArray(requiredValue)) {
@@ -378,6 +392,9 @@ function questFromDraft(quest) {
     _deps: Array.isArray(quest?._deps)
       ? normalizeDependencyList(quest._deps)
       : normalizedQuest._deps,
+    ...(typeof quest?._templateQuestId === "string"
+      ? { _templateQuestId: quest._templateQuestId }
+      : {}),
   };
 }
 
@@ -389,17 +406,29 @@ function createQuestFromTemplate(
   const validation = templateQuest.quest_answer_validation || {};
   const dependencies = arrayifyDependency(
     templateQuest.quest_answer_dependency
-  ).map((dependency) => ({
-    question_id:
+  ).map((dependency) => {
+    const templateQuestionId =
       typeof dependency?.question_id === "string"
-        ? (templateQuestionIdMap.get(dependency.question_id) ?? null)
-        : normalizeQuestionId(dependency?.question_id),
-    required_value: Array.isArray(dependency?.required_value)
-      ? dependency.required_value.filter(
-          (value) => value != null && value !== ""
-        )
-      : (dependency?.required_value ?? ""),
-  }));
+        ? dependency.question_id
+        : null;
+    const normalizedDependency = {
+      question_id:
+        templateQuestionId !== null
+          ? (templateQuestionIdMap.get(templateQuestionId) ?? null)
+          : normalizeQuestionId(dependency?.question_id),
+      required_value: Array.isArray(dependency?.required_value)
+        ? dependency.required_value.filter(
+            (value) => value != null && value !== ""
+          )
+        : (dependency?.required_value ?? ""),
+    };
+
+    if (templateQuestionId !== null) {
+      normalizedDependency._templateQuestionId = templateQuestionId;
+    }
+
+    return normalizedDependency;
+  });
 
   const quest = {
     quest_id: questId,
@@ -426,6 +455,10 @@ function createQuestFromTemplate(
     _validMax: normalizeNumericBound(validation.max),
     _deps: dependencies,
   };
+
+  if (typeof templateQuest.template_quest_id === "string") {
+    quest._templateQuestId = templateQuest.template_quest_id;
+  }
 
   normalizeQuestForType(quest);
   return quest;
@@ -524,10 +557,14 @@ function questToJson(quest) {
   }
 
   if (quest._deps.length === 1) {
-    out.quest_answer_dependency = { ...quest._deps[0] };
+    out.quest_answer_dependency = {
+      question_id: quest._deps[0].question_id,
+      required_value: quest._deps[0].required_value,
+    };
   } else if (quest._deps.length > 1) {
     out.quest_answer_dependency = quest._deps.map((dependency) => ({
-      ...dependency,
+      question_id: dependency.question_id,
+      required_value: dependency.required_value,
     }));
   }
 
@@ -828,16 +865,30 @@ export const useQuestStore = defineStore("quest", () => {
     element.quests.forEach((quest) => {
       quest._deps = (quest._deps || []).map((dependency) => {
         const parentQuest =
-          dependency.question_id == null
+          (dependency.question_id == null
             ? null
-            : questionsById.get(dependency.question_id) || null;
+            : questionsById.get(dependency.question_id)) ||
+          (typeof dependency._templateQuestionId === "string"
+            ? element.quests.find(
+                (candidate) =>
+                  candidate._templateQuestId === dependency._templateQuestionId
+              )
+            : null) ||
+          null;
 
         return {
-          question_id: parentQuest ? dependency.question_id : null,
-          required_value: normalizeDependencyRequiredValue(
-            parentQuest,
-            dependency.required_value
-          ),
+          question_id: parentQuest ? parentQuest.quest_id : null,
+          required_value: parentQuest
+            ? normalizeDependencyRequiredValue(
+                  parentQuest,
+                  dependency.required_value
+              )
+            : dependency._templateQuestionId
+              ? dependency.required_value
+              : "",
+          ...(typeof dependency._templateQuestionId === "string"
+            ? { _templateQuestionId: dependency._templateQuestionId }
+            : {}),
         };
       });
     });
@@ -1451,8 +1502,13 @@ export const useQuestStore = defineStore("quest", () => {
     if (!element || !templateQuest) return null;
 
     const questId = (elementIndex + 1) * 100 + element.quests.length + 1;
+    const templateQuestionIdMap = new Map(
+      element.quests
+        .filter((quest) => typeof quest._templateQuestId === "string")
+        .map((quest) => [quest._templateQuestId, quest.quest_id])
+    );
     element.quests.push(
-      createQuestFromTemplate(templateQuest, questId, new Map())
+      createQuestFromTemplate(templateQuest, questId, templateQuestionIdMap)
     );
 
     normalizeDependenciesForElement(elementIndex);
