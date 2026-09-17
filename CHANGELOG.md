@@ -32,7 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Changed
 
-- Updated styling to emphasize preset buttons
+- Updated UI to improve use of screen space and emphasize presets
 - Updated the quest review prompt for LFQD Schema v3.2.0
 
 ### Fixed

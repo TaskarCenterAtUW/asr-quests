@@ -249,11 +249,11 @@ function toggleQuest(questIndex) {
             </div>
         </div>
 
-        <p class="small text-muted mb-2">{{ questPresetHint }}</p>
+        <p class="small text-muted mb-1">{{ questPresetHint }}</p>
 
         <div
             v-if="quests.length === 0"
-            class="creator-empty-subpanel text-muted small fst-italic border rounded p-3"
+            class="creator-empty-subpanel text-muted small fst-italic border rounded p-2"
         >
             No quests yet. Add one manually or apply a matching quest preset.
         </div>
@@ -520,7 +520,7 @@ function toggleQuest(questIndex) {
 }
 
 .ql-dep-panel-body {
-    padding: 1rem 1rem 1.15rem;
+    padding: 0.65rem 0.7rem 0.75rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
