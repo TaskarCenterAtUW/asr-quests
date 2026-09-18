@@ -1236,7 +1236,7 @@
           "quest_id": 210,
           "quest_title": "Who can functionally use or detect the median/refuge?",
           "quest_description": "Identify whether the median or refuge appears usable or detectable for people using mobility devices and/or white canes.",
-          "quest_type": "MultipleChoice",
+          "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_median_refuge_user_usability",
           "quest_answer_choices": [
             {
