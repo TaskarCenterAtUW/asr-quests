@@ -159,9 +159,9 @@
             "quest_id": 106,
             "quest_title": "[CC] What is the width of this sidewalk (in feet)?",
             "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
             "quest_type": "Numeric",
             "quest_tag": "ext:sidewalk_width",
-            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
             "quest_answer_validation": {
               "min": 0,
               "max": 100
@@ -188,9 +188,9 @@
             "quest_id": 108,
             "quest_title": "[AP][ADA] What is the cross slope of this sidewalk (in percent)?",
             "quest_description": "Measure or estimate the cross slope of the sidewalk from edge to edge, expressed as a percentage of rise over run",
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
             "quest_type": "Numeric",
             "quest_tag": "ext:sidewalk_cross_slope",
-            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
             "quest_answer_validation": {
               "min": 0,
               "max": 20
@@ -663,11 +663,11 @@
             "quest_title": "[ADA][AP][CtT][S&R] Why do you feel the signal does or does not provide enough time to cross?",
             "quest_description": "Briefly explain your observation (e.g., you had to hurry or run, the signal changed while you were still in the crosswalk, plenty of time was given).",
             "quest_type": "TextEntry",
+            "quest_tag": "ext:crossing_signal_timing_explanation",
             "quest_answer_dependency": {
               "question_id": 212,
               "required_value": "yes"
-            },
-            "quest_tag": "ext:crossing_signal_timing_explanation"
+            }
           },
           {
             "quest_id": 216,
@@ -1480,9 +1480,9 @@
               "question_id": 502,
               "required_value": "curb_ramp"
             },
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/running_slope_square.png",
             "quest_type": "Numeric",
             "quest_tag": "ext:ramp_running_slope",
-            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/running_slope_square.png",
             "quest_answer_validation": {
               "min": 0,
               "max": 50

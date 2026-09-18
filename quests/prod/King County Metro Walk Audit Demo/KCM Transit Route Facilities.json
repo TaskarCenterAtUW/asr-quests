@@ -142,9 +142,9 @@
             "quest_id": 106,
             "quest_title": "[CC] What is the width of this sidewalk (in feet)?",
             "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
             "quest_type": "Numeric",
             "quest_tag": "ext:sidewalk_width",
-            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
             "quest_answer_validation": {
               "min": 0,
               "max": 100

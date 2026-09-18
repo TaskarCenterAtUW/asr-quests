@@ -146,9 +146,9 @@
             "quest_id": 105,
             "quest_title": "[CC] What is the width of this sidewalk (in feet)?",
             "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
             "quest_type": "Numeric",
             "quest_tag": "ext:sidewalk_width",
-            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
             "quest_answer_validation": {
               "min": 0,
               "max": 100
@@ -175,9 +175,9 @@
             "quest_id": 107,
             "quest_title": "[AP][ADA] What is the cross slope of this sidewalk (in percent)?",
             "quest_description": "Measure or estimate the cross slope of the sidewalk from edge to edge, expressed as a percentage of rise over run",
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
             "quest_type": "Numeric",
             "quest_tag": "ext:sidewalk_cross_slope",
-            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
             "quest_answer_validation": {
               "min": 0,
               "max": 20
@@ -1258,9 +1258,9 @@
             "quest_id": 606,
             "quest_title": "[AP] What is the width of this sidewalk (in feet)?",
             "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
+            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
             "quest_type": "Numeric",
             "quest_tag": "ext:sidewalk_width",
-            "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
             "quest_answer_validation": {
               "min": 0,
               "max": 100
