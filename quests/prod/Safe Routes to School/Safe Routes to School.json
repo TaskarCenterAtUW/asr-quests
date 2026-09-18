@@ -128,6 +128,11 @@
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/eroded_2_original.png"
             },
             {
+              "value": "loose_gravel",
+              "choice_text": "Loose Gravel",
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Gravel_road_with_loose_gravel_in_the_middle_and_sunken_gravel_in_tracks.jpg/330px-Gravel_road_with_loose_gravel_in_the_middle_and_sunken_gravel_in_tracks.jpg"
+            },
+            {
               "value": "trip_hazard_present",
               "choice_text": "Trip Hazard Present"
             },
@@ -190,11 +195,6 @@
               "choice_text": "Unknown"
             },
             {
-              "value": "loose_gravel",
-              "choice_text": "Loose Gravel",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Gravel_road_with_loose_gravel_in_the_middle_and_sunken_gravel_in_tracks.jpg/330px-Gravel_road_with_loose_gravel_in_the_middle_and_sunken_gravel_in_tracks.jpg"
-            },
-            {
               "value": "dirt_grass_natural",
               "choice_text": "Dirt, grass, or natural surface",
               "image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/condition/slippery_2_landscape.png"
@@ -238,9 +238,9 @@
           "quest_id": 107,
           "quest_title": "What is the width at the narrowest point of this sidewalk (in feet)?",
           "quest_description": "Estimate or measure the clear, usable walking width of the sidewalk",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:sidewalk_width",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 100
@@ -474,9 +474,9 @@
           "quest_id": 113,
           "quest_title": "What is the cross slope of this sidewalk (in percent)?",
           "quest_description": "Measure or estimate the cross slope of the sidewalk from edge to edge, expressed as a percentage of rise over run",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:sidewalk_cross_slope_home",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 20
@@ -492,9 +492,9 @@
           "quest_id": 114,
           "quest_title": "What is the cross slope of this sidewalk (in percent)? (only answer if there is an additional instance of this feature)",
           "quest_description": "Measure or estimate the cross slope of the sidewalk from edge to edge, expressed as a percentage of rise over run",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:sidewalk_cross_slope_additional",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/cross_slope_square.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 20
@@ -2789,9 +2789,9 @@
           "quest_id": 330,
           "quest_title": "What is the posted speed limit near this bus stop?",
           "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_speed_limit_home",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 100
@@ -2801,9 +2801,9 @@
           "quest_id": 331,
           "quest_title": "What is the posted speed limit near this bus stop? (only answer if there is an additional instance of this feature)",
           "quest_description": "Enter the posted speed limit near this bus stop in miles per hour (mph)",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_speed_limit_additional",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 100
@@ -4283,9 +4283,9 @@
           "quest_id": 4017,
           "quest_title": "What is the posted speed limit on this roadway?",
           "quest_description": "Enter the posted speed limit for the intersecting roadway in miles per hour (mph)",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:intersection_speed_limit_home",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 100
@@ -4295,9 +4295,9 @@
           "quest_id": 4018,
           "quest_title": "What is the posted speed limit on this roadway? (only answer if there is an additional instance of this feature)",
           "quest_description": "Enter the posted speed limit for the intersecting roadway in miles per hour (mph)",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:intersection_speed_limit_additional",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/roadway/maxspeed/signed/yes_squared.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 100
