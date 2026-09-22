@@ -4,25 +4,52 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
-<!--
+<!-- Do not remove this commented-out block!
 
 ## [Unreleased] - 2026-00-00
 
 ### Added
 
--
+- **Core**:
+- **Schema**:
+- **Examples**:
+- **Components**:
+- **Quests**:
+- **Creator**:
 
 ### Changed
 
--
+- **Core**:
+- **Schema**:
+- **Examples**:
+- **Components**:
+- **Quests**:
+- **Creator**:
 
 ### Fixed
 
--
+- **Core**:
+- **Schema**:
+- **Examples**:
+- **Components**:
+- **Quests**:
+- **Creator**:
 
 -->
+
+## Schema: [v4.0.0] - 2026-09-17
+
+### Added
+
+- **Schema**: Updated schema to new major version: v4.0.0
+- **Examples**: Added example for v4.0.0
+
+### Changed
+
+- **Core**: Refreshed agent-facing resources
+- **Core**: Updated readme
 
 ## Creator: [v0.10.0] - 2026-09-16
 
