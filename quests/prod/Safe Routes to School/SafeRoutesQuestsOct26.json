@@ -36,12 +36,6 @@
           "quest_description": "Select what you can see. Do not walk into traffic to investigate.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:sidewalk_gap_access_consequence",
-          "quest_answer_dependency": {
-            "question_id": 101,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "shoulder_travel",
@@ -63,15 +57,19 @@
               "value": "unable_to_determine",
               "choice_text": "Cannot tell"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 101,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 103,
           "quest_title": "What is the narrowest clear walking width (in inches)?",
           "quest_description": "Find the tightest spot along this mapped sidewalk. If safe, open your phone's Measure app and measure the open space between obstacles, not the full concrete width. Enter inches; leave blank if you cannot measure. Phone measurements are approximate.",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:sidewalk_width",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 240
@@ -439,12 +437,6 @@
           "quest_description": "Choose the closest pattern.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_marking_type",
-          "quest_answer_dependency": {
-            "question_id": 202,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "parallel",
@@ -469,7 +461,11 @@
               "value": "unsure",
               "choice_text": "Cannot tell"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 202,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 204,
@@ -477,12 +473,6 @@
           "quest_description": "Only assess visible paint, not whether crossing feels safe.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_marking_worn",
-          "quest_answer_dependency": {
-            "question_id": 202,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -498,7 +488,11 @@
               "value": "unsure",
               "choice_text": "Not sure"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 202,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 205,
@@ -804,12 +798,6 @@
           "quest_description": "Choose the most obvious marker.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_indicator_type",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "pole",
@@ -834,7 +822,11 @@
               "value": "none",
               "choice_text": "No visible marker"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 303,
@@ -842,12 +834,6 @@
           "quest_description": "Look for a level-looking area next to the bus stopping location, free of obstacles. Do not judge actual slope.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_boarding_zone_present",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -861,7 +847,11 @@
               "value": "unsure",
               "choice_text": "Not sure"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 304,
@@ -869,15 +859,13 @@
           "quest_description": "If safe, use your phone's Measure app across the open area beside the curb, excluding benches or poles. Approximate only; leave blank if it cannot be measured.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_boarding_width",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_validation": {
             "min": 0,
             "max": 240
+          },
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
           }
         },
         {
@@ -886,15 +874,13 @@
           "quest_description": "If safe, open your phone's Measure app and measure the clear length parallel to the curb. Approximate only; leave blank if unsafe or unclear.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_boarding_length",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_validation": {
             "min": 0,
             "max": 480
+          },
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
           }
         },
         {
@@ -903,12 +889,6 @@
           "quest_description": "Check whether someone can reach the boarding area without walking in a vehicle lane.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_path_present",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -922,7 +902,11 @@
               "value": "unsure",
               "choice_text": "Not sure"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 307,
@@ -930,6 +914,10 @@
           "quest_description": "If safe, use your phone's Measure app at the narrowest place between the sidewalk and boarding area. Leave blank if you cannot measure.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_access_path_width",
+          "quest_answer_validation": {
+            "min": 0,
+            "max": 240
+          },
           "quest_answer_dependency": [
             {
               "question_id": 301,
@@ -939,11 +927,7 @@
               "question_id": 306,
               "required_value": "yes"
             }
-          ],
-          "quest_answer_validation": {
-            "min": 0,
-            "max": 240
-          }
+          ]
         },
         {
           "quest_id": 308,
@@ -951,12 +935,6 @@
           "quest_description": "Select everything visible.",
           "quest_type": "MultipleChoice",
           "quest_tag": "ext:bus_stop_access_issues",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "none",
@@ -1001,7 +979,11 @@
               "value": "other",
               "choice_text": "Other"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 309,
@@ -1009,12 +991,6 @@
           "quest_description": "Look for a roofed waiting structure.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_shelter",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1029,7 +1005,11 @@
               "value": "unsure",
               "choice_text": "Not sure"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 310,
@@ -1037,12 +1017,6 @@
           "quest_description": "Look for a bench or built-in seat at the stop.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_seating",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1057,7 +1031,11 @@
               "value": "unsure",
               "choice_text": "Not sure"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 311,
@@ -1065,12 +1043,6 @@
           "quest_description": "Look from a safe position; do not walk into the roadway to investigate.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_nearby_crossing",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1085,7 +1057,11 @@
               "value": "unsure",
               "choice_text": "Not sure"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          }
         },
         {
           "quest_id": 312,
@@ -1093,12 +1069,6 @@
           "quest_description": "Try to show the stop marker, clear boarding space and path to the sidewalk.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:bus_stop_picture",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1108,7 +1078,11 @@
               "value": "no",
               "choice_text": "Skip photo"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 301,
+            "required_value": "yes"
+          }
         }
       ]
     },
@@ -1269,12 +1243,6 @@
           "quest_description": "Only answer if a curb ramp exists. Look at where the ramp leads, not whether it meets ADA rules.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:ramp_alignment_with_crossing",
-          "quest_answer_dependency": {
-            "question_id": 501,
-            "required_value": [
-              "curb_ramp"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "aligned",
@@ -1292,24 +1260,26 @@
               "value": "unsure",
               "choice_text": "Cannot tell"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 501,
+            "required_value": "curb_ramp"
+          }
         },
         {
           "quest_id": 503,
           "quest_title": "How wide is the ramp's clear path (in inches)?",
           "quest_description": "If safe, open your phone's Measure app and measure across the usable ramp, excluding raised edges and obstacles. Leave blank if you cannot measure.",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/width_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:ramp_width",
-          "quest_answer_dependency": {
-            "question_id": 501,
-            "required_value": [
-              "curb_ramp"
-            ]
-          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/width_square.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 240
+          },
+          "quest_answer_dependency": {
+            "question_id": 501,
+            "required_value": "curb_ramp"
           }
         },
         {
@@ -1318,51 +1288,45 @@
           "quest_description": "If safe, open your phone's Measure app. Measure along the ground from the top of the sloped ramp to where it meets the street. Do not measure or estimate slope angle. Leave blank if unsafe.",
           "quest_type": "Numeric",
           "quest_tag": "ext:ramp_length",
-          "quest_answer_dependency": {
-            "question_id": 501,
-            "required_value": [
-              "curb_ramp"
-            ]
-          },
           "quest_answer_validation": {
             "min": 0,
             "max": 360
+          },
+          "quest_answer_dependency": {
+            "question_id": 501,
+            "required_value": "curb_ramp"
           }
         },
         {
           "quest_id": 505,
           "quest_title": "How wide is the clear flat-looking area at the top (in inches)?",
           "quest_description": "If safe, use the phone's Measure app across the open area at the top. A photo and approximate dimension do not establish that it is level. Leave blank if it cannot be measured.",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/width_landscape.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:landing_width",
-          "quest_answer_dependency": {
-            "question_id": 501,
-            "required_value": [
-              "curb_ramp"
-            ]
-          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/width_landscape.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 240
+          },
+          "quest_answer_dependency": {
+            "question_id": 501,
+            "required_value": "curb_ramp"
           }
         },
         {
           "quest_id": 506,
           "quest_title": "How deep is that clear area from front to back (in inches)?",
           "quest_description": "If safe, use the phone's Measure app from the back of the ramp toward the sidewalk. Do not use a phone level. Leave blank if it cannot be measured.",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/depth_landscape.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:landing_depth",
-          "quest_answer_dependency": {
-            "question_id": 501,
-            "required_value": [
-              "curb_ramp"
-            ]
-          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/depth_landscape.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 240
+          },
+          "quest_answer_dependency": {
+            "question_id": 501,
+            "required_value": "curb_ramp"
           }
         },
         {
@@ -1371,12 +1335,6 @@
           "quest_description": "Look for raised sides that may help keep wheels from leaving the ramp.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:ramp_edge_protection",
-          "quest_answer_dependency": {
-            "question_id": 501,
-            "required_value": [
-              "curb_ramp"
-            ]
-          },
           "quest_answer_choices": [
             {
               "value": "yes",
@@ -1392,7 +1350,11 @@
               "value": "unsure",
               "choice_text": "Not sure"
             }
-          ]
+          ],
+          "quest_answer_dependency": {
+            "question_id": 501,
+            "required_value": "curb_ramp"
+          }
         },
         {
           "quest_id": 508,
@@ -1419,18 +1381,16 @@
           "quest_id": 509,
           "quest_title": "How deep is the bumpy warning strip (in inches)?",
           "quest_description": "If safe, use the phone's Measure app from the front to the back of the bumpy strip, in the direction of travel. Leave blank if unsafe.",
-          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/dimension/depth_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:tactile_paving_depth",
-          "quest_answer_dependency": {
-            "question_id": 508,
-            "required_value": [
-              "yes"
-            ]
-          },
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/dimension/depth_square.png",
           "quest_answer_validation": {
             "min": 0,
             "max": 120
+          },
+          "quest_answer_dependency": {
+            "question_id": 508,
+            "required_value": "yes"
           }
         },
         {
