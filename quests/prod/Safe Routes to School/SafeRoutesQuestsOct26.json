@@ -68,7 +68,7 @@
         {
           "quest_id": 103,
           "quest_title": "What is the narrowest clear walking width (in inches)?",
-          "quest_description": "Find the tightest spot along this mapped sidewalk. If safe, open your phone’s Measure app and measure the open space between obstacles, not the full concrete width. Enter inches; leave blank if you cannot measure. Phone measurements are approximate.",
+          "quest_description": "Find the tightest spot along this mapped sidewalk. If safe, open your phone's Measure app and measure the open space between obstacles, not the full concrete width. Enter inches; leave blank if you cannot measure. Phone measurements are approximate.",
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/dimension/width_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:sidewalk_width",
@@ -540,7 +540,7 @@
           "quest_answer_choices": [
             {
               "value": "walk_dont_walk",
-              "choice_text": "WALK / DON’T WALK display",
+              "choice_text": "WALK / DON'T WALK display",
               "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Countdown_pedestrian_signal.jpg/330px-Countdown_pedestrian_signal.jpg"
             },
             {
@@ -860,7 +860,7 @@
         {
           "quest_id": 304,
           "quest_title": "What is the clear boarding area width (in inches)?",
-          "quest_description": "If safe, use your phone’s Measure app across the open area beside the curb, excluding benches or poles. Approximate only; leave blank if it cannot be measured.",
+          "quest_description": "If safe, use your phone's Measure app across the open area beside the curb, excluding benches or poles. Approximate only; leave blank if it cannot be measured.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_boarding_width",
           "quest_answer_dependency": {
@@ -877,7 +877,7 @@
         {
           "quest_id": 305,
           "quest_title": "What is the clear boarding area length along the curb (in inches)?",
-          "quest_description": "If safe, open your phone’s Measure app and measure the clear length parallel to the curb. Approximate only; leave blank if unsafe or unclear.",
+          "quest_description": "If safe, open your phone's Measure app and measure the clear length parallel to the curb. Approximate only; leave blank if unsafe or unclear.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_boarding_length",
           "quest_answer_dependency": {
@@ -921,7 +921,7 @@
         {
           "quest_id": 307,
           "quest_title": "What is the narrowest clear width on that path (in inches)?",
-          "quest_description": "If safe, use your phone’s Measure app at the narrowest place between the sidewalk and boarding area. Leave blank if you cannot measure.",
+          "quest_description": "If safe, use your phone's Measure app at the narrowest place between the sidewalk and boarding area. Leave blank if you cannot measure.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_access_path_width",
           "quest_answer_dependency": {
@@ -1286,8 +1286,8 @@
         },
         {
           "quest_id": 503,
-          "quest_title": "How wide is the ramp’s clear path (in inches)?",
-          "quest_description": "If safe, open your phone’s Measure app and measure across the usable ramp, excluding raised edges and obstacles. Leave blank if you cannot measure.",
+          "quest_title": "How wide is the ramp's clear path (in inches)?",
+          "quest_description": "If safe, open your phone's Measure app and measure across the usable ramp, excluding raised edges and obstacles. Leave blank if you cannot measure.",
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/ramp/dimension/width_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:ramp_width",
@@ -1305,7 +1305,7 @@
         {
           "quest_id": 504,
           "quest_title": "How long is the sloped part of the ramp (in inches)?",
-          "quest_description": "If safe, open your phone’s Measure app. Measure along the ground from the top of the sloped ramp to where it meets the street. Do not measure or estimate slope angle. Leave blank if unsafe.",
+          "quest_description": "If safe, open your phone's Measure app. Measure along the ground from the top of the sloped ramp to where it meets the street. Do not measure or estimate slope angle. Leave blank if unsafe.",
           "quest_type": "Numeric",
           "quest_tag": "ext:ramp_length",
           "quest_answer_dependency": {
@@ -1322,7 +1322,7 @@
         {
           "quest_id": 505,
           "quest_title": "How wide is the clear flat-looking area at the top (in inches)?",
-          "quest_description": "If safe, use the phone’s Measure app across the open area at the top. A photo and approximate dimension do not establish that it is level. Leave blank if it cannot be measured.",
+          "quest_description": "If safe, use the phone's Measure app across the open area at the top. A photo and approximate dimension do not establish that it is level. Leave blank if it cannot be measured.",
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/width_landscape.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:landing_width",
@@ -1340,7 +1340,7 @@
         {
           "quest_id": 506,
           "quest_title": "How deep is that clear area from front to back (in inches)?",
-          "quest_description": "If safe, use the phone’s Measure app from the back of the ramp toward the sidewalk. Do not use a phone level. Leave blank if it cannot be measured.",
+          "quest_description": "If safe, use the phone's Measure app from the back of the ramp toward the sidewalk. Do not use a phone level. Leave blank if it cannot be measured.",
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/landing/dimension/depth_landscape.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:landing_depth",
@@ -1408,7 +1408,7 @@
         {
           "quest_id": 509,
           "quest_title": "How deep is the bumpy warning strip (in inches)?",
-          "quest_description": "If safe, use the phone’s Measure app from the front to the back of the bumpy strip, in the direction of travel. Leave blank if unsafe.",
+          "quest_description": "If safe, use the phone's Measure app from the front to the back of the bumpy strip, in the direction of travel. Leave blank if unsafe.",
           "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/kerb/tactile_paving/dimension/depth_square.png",
           "quest_type": "Numeric",
           "quest_tag": "ext:tactile_paving_depth",
