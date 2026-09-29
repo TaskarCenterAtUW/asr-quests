@@ -1440,6 +1440,56 @@
           ]
         }
       ]
+    },
+    {
+      "element_type": "Bench",
+      "element_type_icon": "bench_poi",
+      "quest_query": "nodes with (amenity=bench)",
+      "quests": [
+        {
+          "quest_id": 601,
+          "quest_title": "Are the seats separated by a middle armrest or other barrier?",
+          "quest_description": "Determine whether the seats of this bench are separated by a middle armrest or other barrier which prevents laying down.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:seats:separated",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Bench_in_Vancouver_%2811%29.jpg/960px-Bench_in_Vancouver_%2811%29.jpg"
+            },
+            {
+              "value": "no",
+              "choice_text": "No",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Bench_in_Central_Park_%284%29.jpg/960px-Bench_in_Central_Park_%284%29.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "element_type": "Bathroom",
+      "element_type_icon": "toilets",
+      "quest_query": "nodes with (ext:amenity=toilets)",
+      "quests": [
+        {
+          "quest_id": 701,
+          "quest_title": "Is there a clear path to this bathroom from the sidewalk?",
+          "quest_description": "Determine whether there is a clear path to this bathroom from the sidewalk.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:bathroom_clear_path",
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes"
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        }
+      ]
     }
   ],
   "feature-presets": [
@@ -1477,6 +1527,32 @@
       "tags": {
         "barrier": "kerb"
       }
+    },
+    {
+      "name": "Bench",
+      "icon": "custom_bench",
+      "tags": {
+        "amenity": "bench"
+      }
+    },
+    {
+      "name": "Bathroom",
+      "icon": "custom_bathroom",
+      "tags": {
+        "ext:amenity": "toilets"
+      }
+    }
+  ],
+  "custom-icons": [
+    {
+      "name": "custom_bench",
+      "url": "https://pinhead.ink/v25/bench_with_armrests_and_backrest_with_plaque.svg",
+      "type": "feature-preset"
+    },
+    {
+      "name": "custom_bathroom",
+      "url": "https://pinhead.ink/v25/sitting_tank_toilet_with_droplet.svg",
+      "type": "feature-preset"
     }
   ]
 }
