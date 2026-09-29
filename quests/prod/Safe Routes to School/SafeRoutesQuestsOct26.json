@@ -477,6 +477,12 @@
           "quest_description": "Only assess visible paint, not whether crossing feels safe.",
           "quest_type": "ExclusiveChoice",
           "quest_tag": "ext:crossing_marking_worn",
+          "quest_answer_dependency": {
+            "question_id": 202,
+            "required_value": [
+              "yes"
+            ]
+          },
           "quest_answer_choices": [
             {
               "value": "yes",
