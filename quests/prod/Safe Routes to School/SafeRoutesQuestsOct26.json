@@ -1149,11 +1149,11 @@
           "quest_answer_choices": [
             {
               "value": "left",
-              "choice_text": "Dedicated left-turn lane"
+              "choice_text": "Dedicated left-turn lane only"
             },
             {
               "value": "right",
-              "choice_text": "Dedicated right-turn lane"
+              "choice_text": "Dedicated right-turn lane only"
             },
             {
               "value": "both",
