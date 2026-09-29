@@ -930,12 +930,16 @@
           "quest_description": "If safe, use your phone's Measure app at the narrowest place between the sidewalk and boarding area. Leave blank if you cannot measure.",
           "quest_type": "Numeric",
           "quest_tag": "ext:bus_stop_access_path_width",
-          "quest_answer_dependency": {
-            "question_id": 301,
-            "required_value": [
-              "yes"
-            ]
-          },
+          "quest_answer_dependency": [
+            {
+              "question_id": 301,
+              "required_value": "yes"
+            },
+            {
+              "question_id": 306,
+              "required_value": "yes"
+            }
+          ],
           "quest_answer_validation": {
             "min": 0,
             "max": 240
