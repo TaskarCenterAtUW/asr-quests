@@ -1,6 +1,6 @@
 {
   "version": "3.2.0",
-  "recency_period": 90,
+  "recency_period": 1,
   "elements": [
     {
       "element_type": "Sidewalks",
