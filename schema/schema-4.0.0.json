@@ -1,0 +1,321 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/TaskarCenterAtUW/asr-quests/main/schema/schema.json",
+  "title": "AVIV ScoutRoute Long Form Quest Definition Schema",
+  "version": "4.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "description": "Version of the AVIV ScoutRoute Long Form Quest Definition Schema.",
+      "const": "4.0.0"
+    },
+    "elements": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/Element" }
+    },
+    "feature-presets": {
+      "description": "Feature presets for the Add New Feature functionality. If absent, the app will not show the Add New Feature button. If present, the app will show the Add New Feature button and display only the configured presets.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/FeaturePresets" }
+    },
+    "custom-icons": {
+      "description": "Custom icons for elements and feature presets. The app fetches icons from the given URLs and displays them in the app.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/CustomIcons" }
+    }
+  },
+  "required": ["version", "elements"],
+  "definitions": {
+    "Element": {
+      "type": "object",
+      "description": "Element type. The base element that describes the type of element and the quests that are associated with it.",
+      "additionalProperties": false,
+      "properties": {
+        "element_type": { "type": "string", "pattern": ".*\\S.*" },
+        "quest_query": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_:\\s!~=|<>()\\\".,'\\-\\\\]+$"
+        },
+        "element_type_icon": { "type": "string", "pattern": "^[a-z_]+$" },
+        "resurvey_interval": {
+          "description": "Number of days after an element was last surveyed (ext:gig_last_updated) before its quests become visible again. A value of 0 means the element is immediately resurveyable. If absent, the app defaults to 90 days.",
+          "default": 90,
+          "type": "integer",
+          "minimum": 0,
+          "examples": [7, 14, 30]
+        },
+        "quests": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/Question" }
+        }
+      },
+      "required": ["element_type", "quest_query", "quests", "element_type_icon"]
+    },
+    "FeaturePresets": {
+      "type": "object",
+      "description": "Feature preset for the Add New Feature functionality. The user can upload images for the feature; if added, the image URLs are appended as a single tag ext:image_url with the URLs separated by semicolons.",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Name of the feature displayed in the Add New Feature screen. Names must be unique within this file.",
+          "type": "string",
+          "pattern": ".*\\S.*",
+          "examples": ["Dustbin", "Streetlight", "Bench"]
+        },
+        "icon": {
+          "description": "Icon displayed for the feature type. The value may be a built-in feature-preset icon name or the name of a custom icon defined in custom-icons with type feature-preset. Icon asset validation is handled by the application.",
+          "type": "string",
+          "pattern": "^[a-z_]+$",
+          "examples": [
+            "preset_fas_dumpster",
+            "preset_temaki_bench",
+            "preset_temaki_traffic_signals"
+          ]
+        },
+        "tags": {
+          "description": "Tags for the feature as key/value pairs. Keys may contain colons, for example \"plant:source\".",
+          "type": "object",
+          "additionalProperties": { "type": "string", "pattern": ".*\\S.*" },
+          "minProperties": 1,
+          "examples": [
+            { "amenity": "dustbin" },
+            { "highway": "streetlight" },
+            { "amenity": "bench" },
+            {
+              "power": "plant",
+              "plant:source": "solar",
+              "plant:method": "photovoltaic"
+            }
+          ]
+        }
+      },
+      "required": ["name", "icon", "tags"]
+    },
+    "CustomIcons": {
+      "type": "object",
+      "description": "A custom icon that can be referenced by an element or feature preset.",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Unique name used to reference the custom icon.",
+          "type": "string",
+          "pattern": "^[a-z_]+$"
+        },
+        "url": {
+          "description": "URL of the custom icon.",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://[^\\s]+$"
+        },
+        "type": {
+          "description": "The kind of content that may use this custom icon.",
+          "type": "string",
+          "enum": ["element", "feature-preset"]
+        }
+      },
+      "required": ["name", "url", "type"]
+    },
+    "AnswerChoice": {
+      "type": "object",
+      "description": "Answer choice for a single quest.",
+      "additionalProperties": false,
+      "properties": {
+        "value": { "type": "string", "pattern": ".*\\S.*" },
+        "choice_text": { "type": "string", "pattern": ".*\\S.*" },
+        "image_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://[^\\s]+$"
+        },
+        "choice_follow_up": { "type": "string", "pattern": ".*\\S.*" }
+      },
+      "required": ["value", "choice_text"]
+    },
+    "dependencyCondition": {
+      "type": "object",
+      "description": "A single leaf condition for controlling question visibility.",
+      "additionalProperties": false,
+      "properties": {
+        "question_id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+        "operator": { "type": "string", "enum": ["equals", "contains"] },
+        "value": { "type": "string", "pattern": ".*\\S.*" }
+      },
+      "required": ["question_id", "operator", "value"]
+    },
+    "dependencyConditionList": {
+      "type": "array",
+      "description": "A non-empty list of simple dependency conditions. Conditions in the list are evaluated with implicit AND semantics.",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/dependencyCondition" }
+    },
+    "dependencyGroup": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "all": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/definitions/dependencyCondition" },
+                  { "$ref": "#/definitions/dependencyGroup" }
+                ]
+              },
+              "minItems": 1
+            }
+          },
+          "required": ["all"]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "any": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/definitions/dependencyCondition" },
+                  { "$ref": "#/definitions/dependencyGroup" }
+                ]
+              },
+              "minItems": 2
+            }
+          },
+          "required": ["any"]
+        }
+      ]
+    },
+    "AutoCaptureAttributes": {
+      "type": "object",
+      "description": "Attribute-to-tag mapping for AutoCapture quests. The seven supported attributes are ac_width, ac_incline, ac_cross_slope, ac_surface_integrity, ac_surface_disruption, ac_height_from_ground, and ac_lidar_depth. Additional attributes using the ac_ prefix are permitted for forward compatibility and must be supported by the consuming application.",
+      "patternProperties": {
+        "^ac_[a-z_]+$": { "type": "string", "pattern": ".*\\S.*" }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "ac_width": { "type": "string", "pattern": ".*\\S.*" },
+        "ac_incline": { "type": "string", "pattern": ".*\\S.*" },
+        "ac_cross_slope": { "type": "string", "pattern": ".*\\S.*" },
+        "ac_surface_integrity": { "type": "string", "pattern": ".*\\S.*" },
+        "ac_surface_disruption": { "type": "string", "pattern": ".*\\S.*" },
+        "ac_height_from_ground": { "type": "string", "pattern": ".*\\S.*" },
+        "ac_lidar_depth": { "type": "string", "pattern": ".*\\S.*" }
+      },
+      "minProperties": 1
+    },
+    "Question": {
+      "type": "object",
+      "description": "Question for a single quest. Each quest type has its own shape.",
+      "additionalProperties": false,
+      "properties": {
+        "quest_id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+        "quest_title": { "type": "string", "pattern": ".*\\S.*" },
+        "quest_description": { "type": "string", "pattern": ".*\\S.*" },
+        "quest_image_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://[^\\s]+$"
+        },
+        "quest_type": {
+          "type": "string",
+          "enum": [
+            "ExclusiveChoice",
+            "Numeric",
+            "MultipleChoice",
+            "TextEntry",
+            "AutoCapture"
+          ]
+        },
+        "quest_tag": { "type": "string", "pattern": ".*\\S.*" },
+        "quest_answer_choices": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/AnswerChoice" }
+        },
+        "quest_answer_validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min": { "type": "number" },
+            "max": { "type": "number" }
+          },
+          "minProperties": 1
+        },
+        "quest_answer_dependency": {
+          "description": "Dependency conditions controlling question visibility. A single condition, a non-empty array of simple conditions with implicit AND semantics, or a recursive all/any dependency group may be used. Dependencies are supported by every quest type.",
+          "oneOf": [
+            { "$ref": "#/definitions/dependencyCondition" },
+            { "$ref": "#/definitions/dependencyConditionList" },
+            { "$ref": "#/definitions/dependencyGroup" }
+          ]
+        },
+        "required": { "type": "boolean" },
+        "auto_capture_attributes": {
+          "$ref": "#/definitions/AutoCaptureAttributes"
+        }
+      },
+      "required": [
+        "quest_id",
+        "quest_title",
+        "quest_description",
+        "quest_type",
+        "required"
+      ],
+      "oneOf": [
+        {
+          "title": "ExclusiveChoice quest",
+          "properties": {
+            "quest_type": { "const": "ExclusiveChoice" },
+            "quest_answer_validation": false,
+            "auto_capture_attributes": false
+          },
+          "required": ["quest_tag", "quest_answer_choices"]
+        },
+        {
+          "title": "MultipleChoice quest",
+          "properties": {
+            "quest_type": { "const": "MultipleChoice" },
+            "quest_answer_validation": false,
+            "auto_capture_attributes": false
+          },
+          "required": ["quest_tag", "quest_answer_choices"]
+        },
+        {
+          "title": "Numeric quest",
+          "properties": {
+            "quest_type": { "const": "Numeric" },
+            "quest_answer_choices": false,
+            "auto_capture_attributes": false
+          },
+          "required": ["quest_tag"]
+        },
+        {
+          "title": "TextEntry quest",
+          "properties": {
+            "quest_type": { "const": "TextEntry" },
+            "quest_answer_choices": false,
+            "quest_answer_validation": false,
+            "auto_capture_attributes": false
+          },
+          "required": ["quest_tag"]
+        },
+        {
+          "title": "AutoCapture quest",
+          "properties": {
+            "quest_type": { "const": "AutoCapture" },
+            "quest_tag": false,
+            "quest_answer_choices": false,
+            "quest_answer_validation": false
+          },
+          "required": ["auto_capture_attributes"]
+        }
+      ]
+    }
+  }
+}

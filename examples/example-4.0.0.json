@@ -1,0 +1,136 @@
+{
+  "version": "4.0.0",
+  "elements": [
+    {
+      "element_type": "Sidewalks",
+      "element_type_icon": "custom_sidewalk_icon",
+      "quest_query": "ways with (highway=footway and footway=sidewalk)",
+      "resurvey_interval": 30,
+      "quests": [
+        {
+          "quest_id": "101",
+          "quest_title": "Are there any obstructions on this sidewalk?",
+          "quest_description": "Select yes when an object blocks or narrows the pedestrian route, or no when the sidewalk is clear.",
+          "quest_type": "ExclusiveChoice",
+          "quest_tag": "ext:sidewalk:obstruction",
+          "quest_image_url": "https://raw.githubusercontent.com/TaskarCenterAtUW/tdei-tools/main/images/sidewalk/obstruction/utility_2_portrait.png",
+          "required": true,
+          "quest_answer_choices": [
+            {
+              "value": "yes",
+              "choice_text": "Yes",
+              "choice_follow_up": "Take a photo showing the obstruction or narrowed section of sidewalk."
+            },
+            {
+              "value": "no",
+              "choice_text": "No"
+            }
+          ]
+        },
+        {
+          "quest_id": "102",
+          "quest_title": "Which types of sidewalk obstruction are present?",
+          "quest_description": "Select every obstruction that blocks or narrows the walking route.",
+          "quest_type": "MultipleChoice",
+          "quest_tag": "ext:sidewalk:obstruction_types",
+          "required": false,
+          "quest_answer_dependency": {
+            "question_id": "101",
+            "operator": "equals",
+            "value": "yes"
+          },
+          "quest_answer_choices": [
+            { "value": "parked_vehicle", "choice_text": "Parked vehicle" },
+            {
+              "value": "utility_pole",
+              "choice_text": "Utility pole"
+            },
+            {
+              "value": "overgrown_vegetation",
+              "choice_text": "Overgrown vegetation"
+            }
+          ]
+        },
+        {
+          "quest_id": "103",
+          "quest_title": "What is the clear sidewalk width in feet?",
+          "quest_description": "Measure the narrowest unobstructed width of the sidewalk and enter the result as measured in feet.",
+          "quest_type": "Numeric",
+          "quest_tag": "ext:sidewalk:clear_width_ft",
+          "required": true,
+          "quest_answer_dependency": [
+            { "question_id": "101", "operator": "equals", "value": "yes" },
+            {
+              "question_id": "102",
+              "operator": "contains",
+              "value": "utility_pole"
+            }
+          ],
+          "quest_answer_validation": { "min": 0, "max": 10 }
+        },
+        {
+          "quest_id": "104",
+          "quest_title": "What additional details should be reported about the obstruction?",
+          "quest_description": "Describe relevant details about the obstruction that are not captured by the structured options.",
+          "quest_type": "TextEntry",
+          "quest_tag": "ext:sidewalk:obstruction_note",
+          "required": false,
+          "quest_answer_dependency": {
+            "all": [
+              { "question_id": "101", "operator": "equals", "value": "yes" },
+              {
+                "any": [
+                  {
+                    "question_id": "102",
+                    "operator": "contains",
+                    "value": "parked_vehicle"
+                  },
+                  {
+                    "question_id": "102",
+                    "operator": "contains",
+                    "value": "overgrown_vegetation"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "quest_id": "105",
+          "quest_title": "Automatically capture measurements using LiDAR-assisted scanning with your camera.",
+          "quest_description": "The application records available automated measurements.",
+          "quest_type": "AutoCapture",
+          "required": false,
+          "auto_capture_attributes": {
+            "ac_width": "ext:ac:sidewalk:width",
+            "ac_incline": "ext:ac:sidewalk:incline",
+            "ac_cross_slope": "ext:ac:sidewalk:cross_slope",
+            "ac_surface_integrity": "ext:ac:sidewalk:surface_integrity",
+            "ac_surface_disruption": "ext:ac:sidewalk:surface_disruption",
+            "ac_height_from_ground": "ext:ac:sidewalk:height_from_ground",
+            "ac_lidar_depth": "ext:ac:sidewalk:lidar_depth"
+          }
+        }
+      ]
+    }
+  ],
+  "feature-presets": [
+    {
+      "name": "Drinking Fountain",
+      "icon": "custom_drinking_fountain_icon",
+      "tags": { "ext:amenity": "drinking_water", "ext:fountain": "bubbler" }
+    }
+  ],
+  "custom-icons": [
+    {
+      "name": "custom_sidewalk_icon",
+      "url": "https://pinhead.ink/v25/person_walking_with_white_cane.svg",
+      "type": "element"
+    },
+    {
+      "name": "custom_drinking_fountain_icon",
+      "url": "https://pinhead.ink/v25/water_tap_with_drinking_glass.svg",
+      "type": "feature-preset"
+    }
+  ]
+}
