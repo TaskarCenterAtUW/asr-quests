@@ -176,6 +176,7 @@ function toggleQuest(questIndex) {
             <div class="d-flex gap-2 flex-wrap justify-content-end">
                 <button
                     ref="addQuestButton"
+                    :id="`add-quest-${elementIndex}`"
                     type="button"
                     class="btn btn-sm btn-primary creator-add-button creator-add-button-inline"
                     @click="addQuest"

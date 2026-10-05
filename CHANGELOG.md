@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 ### Added
 
 - Added a "Minify" toggle to the Export panel that updates the JSON preview and export output
+- Added internal links from validation errors to corresponding fields in the editor
 
 ### Changed
 

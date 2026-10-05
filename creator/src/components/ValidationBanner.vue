@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <script setup>
-import { computed } from "vue";
+import { computed, nextTick } from "vue";
 import { useQuestStore } from "../stores/questStore";
 
 const store = useQuestStore();
@@ -58,7 +58,7 @@ function elementLabel(index) {
     return elementType || `Element #${index + 1}`;
 }
 
-function formatPath(error) {
+function errorPathSegments(error) {
     const segments = String(error.instancePath ?? "")
         .split("/")
         .filter(Boolean)
@@ -72,6 +72,12 @@ function formatPath(error) {
     ) {
         segments.push(error.params.additionalProperty);
     }
+
+    return segments;
+}
+
+function formatPath(error) {
+    const segments = errorPathSegments(error);
 
     if (segments.length === 0) {
         return "Definition";
@@ -113,6 +119,219 @@ function formatPath(error) {
     return breadcrumbs.join(" > ");
 }
 
+function arrayIndex(segment) {
+    return isArrayIndex(segment) ? Number(segment) : null;
+}
+
+function dependencyTargetId(elementIndex, questIndex, segments, fieldIndex) {
+    const dependencySegment = segments[fieldIndex + 1];
+    const dependencyIndex = arrayIndex(dependencySegment) ?? 0;
+    const dependencyField =
+        dependencyIndex === 0 && dependencySegment !== "0"
+            ? dependencySegment
+            : segments[fieldIndex + 2];
+    const quest =
+        store.definition.elements[elementIndex]?.quests[questIndex];
+    const dependency = quest?._deps?.[dependencyIndex];
+
+    if (dependencyField !== "required_value") {
+        return `dependency-question-${elementIndex}-${questIndex}-${dependencyIndex}`;
+    }
+
+    if (dependency?.question_id == null) {
+        return `dependency-question-${elementIndex}-${questIndex}-${dependencyIndex}`;
+    }
+
+    const dependentQuest = store.definition.elements[elementIndex]?.quests.find(
+        (item) => item.quest_id === dependency.question_id
+    );
+    if (
+        dependentQuest &&
+        ["ExclusiveChoice", "MultipleChoice"].includes(
+            dependentQuest.quest_type
+        )
+    ) {
+        const firstChoice = dependentQuest.quest_answer_choices?.[0];
+        if (firstChoice) {
+            return `dependency-choice-${elementIndex}-${questIndex}-${dependencyIndex}-${firstChoice.value}`;
+        }
+    }
+
+    return `dependency-value-${elementIndex}-${questIndex}-${dependencyIndex}`;
+}
+
+function fieldTargetId(error) {
+    const segments = errorPathSegments(error);
+
+    if (segments[0] === "elements") {
+        const elementIndex = arrayIndex(segments[1]);
+        if (elementIndex === null) {
+            return "add-element-button";
+        }
+
+        const questPosition = segments.indexOf("quests", 2);
+        if (questPosition < 0) {
+            const elementField = segments[2];
+            if (elementField === "quest_query") {
+                return `el-query-${elementIndex}`;
+            }
+            if (elementField === "element_type_icon") {
+                return `element-icon-${elementIndex}`;
+            }
+            return `el-type-${elementIndex}`;
+        }
+
+        const questIndex = arrayIndex(segments[questPosition + 1]);
+        if (questIndex === null) {
+            return `add-quest-${elementIndex}`;
+        }
+
+        const fieldIndex = questPosition + 2;
+        const questField = segments[fieldIndex];
+        if (questField === "quest_answer_choices") {
+            const choiceIndex = arrayIndex(segments[fieldIndex + 1]);
+            if (choiceIndex === null) {
+                return `add-choice-${elementIndex}-${questIndex}`;
+            }
+
+            const choiceField = segments[fieldIndex + 2];
+            const choiceTargets = {
+                choice_text: "choice-text",
+                choice_follow_up: "choice-followup",
+                image_url: "choice-image",
+                value: "choice-value",
+            };
+            return `${choiceTargets[choiceField] ?? "choice-value"}-${elementIndex}-${questIndex}-${choiceIndex}`;
+        }
+
+        if (questField === "quest_answer_validation") {
+            const bound = segments[fieldIndex + 1];
+            return `numeric-${bound === "max" ? "max" : "min"}-${elementIndex}-${questIndex}`;
+        }
+
+        if (questField === "auto_capture_attributes") {
+            const attribute = segments[fieldIndex + 1];
+            return attribute
+                ? `auto-capture-tag-${elementIndex}-${questIndex}-${attribute}`
+                : `auto-capture-enabled-${elementIndex}-${questIndex}-ac_width`;
+        }
+
+        if (questField === "quest_answer_dependency") {
+            return dependencyTargetId(
+                elementIndex,
+                questIndex,
+                segments,
+                fieldIndex
+            );
+        }
+
+        const questTargets = {
+            quest_description: "quest-desc",
+            quest_id: "quest-id",
+            quest_image_url: "quest-image",
+            quest_tag: "quest-tag",
+            quest_title: "quest-title",
+            quest_type: "quest-type",
+        };
+        return `${questTargets[questField] ?? "quest-title"}-${elementIndex}-${questIndex}`;
+    }
+
+    if (segments[0] === "feature-presets") {
+        const presetIndex = arrayIndex(segments[1]);
+        if (presetIndex === null) {
+            return "feature-presets-add";
+        }
+
+        const presetField = segments[2];
+        if (presetField === "icon") {
+            return `feature-preset-icon-${presetIndex}`;
+        }
+        if (presetField === "tags") {
+            const tagKey = segments[3];
+            const tagKeys = Object.keys(
+                store.definition["feature-presets"]?.[presetIndex]?.tags ?? {}
+            );
+            const tagIndex = tagKeys.indexOf(tagKey);
+            if (tagIndex >= 0) {
+                return `preset-${presetIndex}-tag-value-${tagIndex}`;
+            }
+            return tagKeys.length > 0
+                ? `preset-${presetIndex}-tag-key-0`
+                : `preset-${presetIndex}-add-tag`;
+        }
+        return `feature-preset-name-${presetIndex}`;
+    }
+
+    if (segments[0] === "custom-icons") {
+        const iconIndex = arrayIndex(segments[1]);
+        if (iconIndex === null) {
+            return "custom-icons-add";
+        }
+        const iconField = segments[2];
+        const iconTargets = {
+            name: "name",
+            type: "type",
+            url: "url",
+        };
+        return `custom-icon-${iconTargets[iconField] ?? "name"}-${iconIndex}`;
+    }
+
+    if (segments[0] === "recency_period") {
+        return "recency-period";
+    }
+
+    if (segments[0] === "version") {
+        return "upgrade-definition-version";
+    }
+
+    return null;
+}
+
+function expandPanel(panelId) {
+    const toggle = document.querySelector(`[aria-controls="${panelId}"]`);
+    if (toggle?.getAttribute("aria-expanded") === "false") {
+        toggle.click();
+    }
+}
+
+async function focusIssue(error) {
+    const segments = errorPathSegments(error);
+    const targetId = fieldTargetId(error);
+
+    if (segments[0] === "elements") {
+        const elementIndex = arrayIndex(segments[1]);
+        if (elementIndex !== null) {
+            store.selectElement(elementIndex);
+            const questPosition = segments.indexOf("quests", 2);
+            const questIndex =
+                questPosition < 0
+                    ? null
+                    : arrayIndex(segments[questPosition + 1]);
+            if (questIndex !== null) {
+                store.selectQuest(questIndex);
+            }
+        }
+    }
+
+    await nextTick();
+
+    if (segments[0] === "feature-presets") {
+        expandPanel("feature-presets-panel");
+    } else if (segments[0] === "custom-icons") {
+        expandPanel("custom-icons-panel");
+    }
+
+    await nextTick();
+    const target = targetId ? document.getElementById(targetId) : null;
+    if (!target) {
+        console.error(`No focus target found for validation path: ${error.instancePath}`);
+        return;
+    }
+
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    target.focus({ preventScroll: true });
+}
+
 const validationErrors = computed(() => store.validationErrors);
 const validationWarnings = computed(() => store.validationWarnings);
 const canUpgradeVersion = computed(() =>
@@ -147,6 +366,30 @@ const canUpgradeVersion = computed(() =>
                         formatPath(error)
                     }}</span>
                     <span class="text-muted">: {{ error.message }}</span>
+                    <button
+                        v-if="fieldTargetId(error)"
+                        type="button"
+                        class="validation-focus-link"
+                        :aria-label="`Focus ${formatPath(error)}`"
+                        :title="`Focus ${formatPath(error)}`"
+                        @click="focusIssue(error)"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            viewBox="0 0 16 16"
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="m6.5 9.5 3-3M5.5 11H4a3 3 0 0 1 0-6h2m4 0h2a3 3 0 0 1 0 6h-2"
+                            />
+                        </svg>
+                    </button>
                 </li>
             </ul>
         </div>
@@ -167,6 +410,7 @@ const canUpgradeVersion = computed(() =>
                     <button
                         v-if="canUpgradeVersion"
                         type="button"
+                        id="upgrade-definition-version"
                         class="btn btn-sm btn-outline-secondary"
                         @click="store.upgradeDefinitionVersion()"
                     >
@@ -201,6 +445,33 @@ const canUpgradeVersion = computed(() =>
 </template>
 
 <style>
+.validation-focus-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex: 0 0 auto;
+    margin-inline-start: 0.35rem;
+    padding: 0;
+    color: inherit;
+    vertical-align: middle;
+    border: 0;
+    background: transparent;
+    opacity: 0.75;
+}
+
+.validation-focus-link:hover {
+    opacity: 1;
+}
+
+.validation-focus-link:focus-visible {
+    border-radius: 0.15rem;
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    opacity: 1;
+}
+
 /* wrap long validation paths instead of underflowing off the right edge,
    matching the JSON Preview line-wrapping behavior */
 .creator-validation-body li {

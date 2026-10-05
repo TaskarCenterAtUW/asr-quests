@@ -163,6 +163,7 @@ onBeforeUnmount(() => {
             <div class="d-flex align-items-center gap-2 ms-auto">
                 <button
                     type="button"
+                    id="custom-icons-add"
                     class="btn btn-sm btn-outline-primary"
                     @click="addCustomIcon"
                 >

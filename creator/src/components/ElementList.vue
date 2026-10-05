@@ -556,6 +556,7 @@ watch(
             <div class="creator-sidebar-footer">
                 <button
                     ref="addElementButton"
+                    id="add-element-button"
                     type="button"
                     class="btn btn-sm btn-primary creator-add-button w-100"
                     @click="addElement"

@@ -9,6 +9,7 @@ import featureIcons from "../assets/featureIcons.json";
 const props = defineProps({
     modelValue: { type: String, default: "" },
     context: { type: String, default: "quest" },
+    focusId: { type: String, default: "" },
 });
 const emit = defineEmits(["update:modelValue"]);
 const store = useQuestStore();
@@ -179,6 +180,7 @@ watch(open, (isOpen) => {
 
             <button
                 ref="triggerButton"
+                :id="props.focusId || undefined"
                 type="button"
                 class="btn btn-sm btn-outline-secondary"
                 @click="openPicker"

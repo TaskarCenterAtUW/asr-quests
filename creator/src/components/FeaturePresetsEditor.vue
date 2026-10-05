@@ -125,6 +125,7 @@ function removeTag(index, key) {
                 <button
                     v-if="!hasSection"
                     type="button"
+                    id="feature-presets-add"
                     class="btn btn-sm btn-outline-primary"
                     @click="addFeaturePreset"
                 >
@@ -133,6 +134,7 @@ function removeTag(index, key) {
                 <button
                     v-else
                     type="button"
+                    id="feature-presets-add"
                     class="btn btn-sm btn-outline-primary"
                     @click="addFeaturePreset"
                 >
@@ -306,6 +308,7 @@ function removeTag(index, key) {
                         <IconPicker
                             :model-value="preset.icon"
                             context="feature-preset"
+                            :focus-id="`feature-preset-icon-${index}`"
                             @update:model-value="
                                 store.updateFeaturePreset(index, {
                                     icon: $event,
@@ -333,6 +336,7 @@ function removeTag(index, key) {
                         >
                         <button
                             type="button"
+                            :id="`preset-${index}-add-tag`"
                             class="btn btn-sm btn-outline-secondary"
                             @click="addTag(index)"
                         >
