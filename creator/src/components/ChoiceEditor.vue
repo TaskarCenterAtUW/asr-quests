@@ -169,7 +169,9 @@ function setFollowUpEnabled(enabled) {
                         :for="`choice-followup-${elementIndex}-${questIndex}-${choiceIndex}`"
                         class="form-label small mb-1"
                         >Picture-Taking Prompt Text
-                        <span aria-hidden="true" class="text-danger">*</span></label
+                        <span aria-hidden="true" class="text-danger"
+                            >*</span
+                        ></label
                     >
                     <div class="form-text small mb-1">
                         This text is shown with the picture-taking prompt for

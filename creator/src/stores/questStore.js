@@ -158,8 +158,7 @@ function normalizeDependencyList(dependencies) {
     };
 
     if (typeof dependency?._templateQuestionId === "string") {
-      normalizedDependency._templateQuestionId =
-        dependency._templateQuestionId;
+      normalizedDependency._templateQuestionId = dependency._templateQuestionId;
     }
 
     return normalizedDependency;
@@ -962,8 +961,8 @@ export const useQuestStore = defineStore("quest", () => {
           question_id: parentQuest ? parentQuest.quest_id : null,
           required_value: parentQuest
             ? normalizeDependencyRequiredValue(
-                  parentQuest,
-                  dependency.required_value
+                parentQuest,
+                dependency.required_value
               )
             : dependency._templateQuestionId
               ? dependency.required_value

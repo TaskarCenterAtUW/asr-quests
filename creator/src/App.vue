@@ -276,8 +276,8 @@ watch(
                 rel="noopener noreferrer"
                 class="creator-footer-link"
                 >User Manual</a
+            >&#8226; <span>Creator v{{ appVersion }}</span
             >&#8226;
-            <span>Creator v{{ appVersion }}</span>&#8226;
             <span>Schema v{{ schemaVersion }}</span>
         </footer>
     </div>

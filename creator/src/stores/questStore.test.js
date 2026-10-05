@@ -429,13 +429,15 @@ describe("quest preset dependencies", () => {
     store.insertSingleQuestTemplate(0, preset.quests[1]);
     store.insertSingleQuestTemplate(0, preset.quests[0]);
 
-    expect(store.fullJson.elements[0].quests[0].quest_answer_dependency).toEqual(
-      {
-        question_id: 102,
-        required_value: "other",
-      }
-    );
-    expect(store.fullJson.elements[0].quests[0]._templateQuestionId).toBeUndefined();
+    expect(
+      store.fullJson.elements[0].quests[0].quest_answer_dependency
+    ).toEqual({
+      question_id: 102,
+      required_value: "other",
+    });
+    expect(
+      store.fullJson.elements[0].quests[0]._templateQuestionId
+    ).toBeUndefined();
     expect(store.validationErrors).toEqual([]);
   });
 });
@@ -536,11 +538,23 @@ describe("drag-and-drop reordering", () => {
     const store = useQuestStore();
     store.resetDefinition();
     store.addFeaturePreset();
-    store.updateFeaturePreset(0, { name: "A", icon: "", tags: { amenity: "a" } });
+    store.updateFeaturePreset(0, {
+      name: "A",
+      icon: "",
+      tags: { amenity: "a" },
+    });
     store.addFeaturePreset();
-    store.updateFeaturePreset(1, { name: "B", icon: "", tags: { amenity: "b" } });
+    store.updateFeaturePreset(1, {
+      name: "B",
+      icon: "",
+      tags: { amenity: "b" },
+    });
     store.addFeaturePreset();
-    store.updateFeaturePreset(2, { name: "C", icon: "", tags: { amenity: "c" } });
+    store.updateFeaturePreset(2, {
+      name: "C",
+      icon: "",
+      tags: { amenity: "c" },
+    });
 
     store.moveFeaturePresetTo(2, 0);
 
@@ -559,9 +573,10 @@ describe("drag-and-drop reordering", () => {
 
     store.moveCustomIconTo(0, 1);
 
-    expect(
-      store.definition["custom-icons"].map((icon) => icon.name)
-    ).toEqual(["b", "a"]);
+    expect(store.definition["custom-icons"].map((icon) => icon.name)).toEqual([
+      "b",
+      "a",
+    ]);
   });
 
   it("moves a choice to an arbitrary index", () => {
@@ -601,11 +616,9 @@ describe("duplicate actions", () => {
 
     store.duplicateElement(0);
 
-    expect(store.definition.elements.map((element) => element.element_type)).toEqual([
-      "A",
-      "A",
-      "B",
-    ]);
+    expect(
+      store.definition.elements.map((element) => element.element_type)
+    ).toEqual(["A", "A", "B"]);
     expect(store.definition.elements[1].quests[0]).toMatchObject({
       quest_id: 201,
       quest_title: "Q0",
@@ -668,10 +681,9 @@ describe("duplicate actions", () => {
         (choice) => choice.value
       )
     ).toEqual(["yes", "copied"]);
-    expect(store.definition["feature-presets"].map((preset) => preset.name)).toEqual([
-      "Bench",
-      "Copied bench",
-    ]);
+    expect(
+      store.definition["feature-presets"].map((preset) => preset.name)
+    ).toEqual(["Bench", "Copied bench"]);
     expect(store.definition["custom-icons"].map((icon) => icon.name)).toEqual([
       "lamp",
       "copied-lamp",

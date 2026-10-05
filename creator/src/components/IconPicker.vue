@@ -53,7 +53,9 @@ const filtered = computed(() => {
 
 const selected = computed(() => {
     if (!props.modelValue) return null;
-    return availableIcons.value.find((i) => i.name === props.modelValue) || null;
+    return (
+        availableIcons.value.find((i) => i.name === props.modelValue) || null
+    );
 });
 
 function applyPreviewUrl(url) {

@@ -355,8 +355,7 @@ watch(
                         :key="el"
                         class="creator-tree-item"
                         :class="{
-                            'creator-dragging':
-                                draggingIndex === i,
+                            'creator-dragging': draggingIndex === i,
                             'creator-drag-over': overIndex === i,
                             'creator-drag-over-before':
                                 overIndex === i && overBefore,
@@ -475,9 +474,7 @@ watch(
                                         overQuestIndex === questIndex &&
                                         !overQuestBefore,
                                 }"
-                                @dragover="
-                                    dragOverQuest(i, questIndex, $event)
-                                "
+                                @dragover="dragOverQuest(i, questIndex, $event)"
                                 @dragleave="dragLeaveQuest($event)"
                                 @drop="dropQuest(i, questIndex, $event)"
                             >
@@ -1228,5 +1225,4 @@ watch(
     overflow-y: auto;
     overflow-x: hidden;
 }
-
 </style>

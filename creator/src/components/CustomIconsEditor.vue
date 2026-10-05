@@ -79,11 +79,13 @@ function usedBy(name) {
             usages.push(`quest elements (${elementIndex + 1})`);
         }
     });
-    (store.definition["feature-presets"] || []).forEach((preset, presetIndex) => {
-        if (preset.icon === name) {
-            usages.push(`feature presets (${presetIndex + 1})`);
+    (store.definition["feature-presets"] || []).forEach(
+        (preset, presetIndex) => {
+            if (preset.icon === name) {
+                usages.push(`feature presets (${presetIndex + 1})`);
+            }
         }
-    });
+    );
     return usages;
 }
 
@@ -92,9 +94,7 @@ function markImageError(icon) {
 }
 
 function getPreviewUrl(icon, fallbackUrl) {
-    return previewUrls.has(icon)
-        ? previewUrls.get(icon)
-        : fallbackUrl;
+    return previewUrls.has(icon) ? previewUrls.get(icon) : fallbackUrl;
 }
 
 function updateUrl(index, value) {
@@ -137,26 +137,26 @@ onBeforeUnmount(() => {
         >
             <div class="creator-panel-heading flex-grow-1">
                 <div class="creator-card-info-wrap">
-                <button
-                    type="button"
-                    class="creator-card-info-btn"
-                    aria-label="About Custom Icons: Enable optional custom feature or quest icons."
-                >
-                    <svg
-                        aria-hidden="true"
-                        viewBox="0 0 16 16"
-                        width="15"
-                        height="15"
-                        fill="currentColor"
+                    <button
+                        type="button"
+                        class="creator-card-info-btn"
+                        aria-label="About Custom Icons: Enable optional custom feature or quest icons."
                     >
-                        <path
-                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507a.905.905 0 0 0-1.1 0zM8.002 10a1 1 0 1 0 0 2 1 1 0 0 0-1 0 1 1 0 0 0 0-2z"
-                        />
-                    </svg>
-                </button>
-                <div role="tooltip" class="creator-card-tooltip">
-                    Enable optional custom feature or quest icons.
-                </div>
+                        <svg
+                            aria-hidden="true"
+                            viewBox="0 0 16 16"
+                            width="15"
+                            height="15"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507a.905.905 0 0 0-1.1 0zM8.002 10a1 1 0 1 0 0 2 1 1 0 0 0-1 0 1 1 0 0 0 0-2z"
+                            />
+                        </svg>
+                    </button>
+                    <div role="tooltip" class="creator-card-tooltip">
+                        Enable optional custom feature or quest icons.
+                    </div>
                 </div>
                 <h2 class="h6 mb-0">Custom Icons</h2>
             </div>
@@ -427,7 +427,7 @@ onBeforeUnmount(() => {
                                 'creator-icon-preview-art--hidden':
                                     imageErrors.get(icon),
                             }"
-                                @error="markImageError(icon)"
+                            @error="markImageError(icon)"
                         />
                         <span
                             v-if="
@@ -455,8 +455,7 @@ onBeforeUnmount(() => {
                                 <path d="m5 17 4-4 3 3 2-2 5 5" />
                                 <path d="m4 4 16 16" />
                             </svg>
-                        </span
-                        >
+                        </span>
                     </div>
                     <div class="small text-muted creator-icon-preview-usage">
                         <span v-if="usedBy(icon.name).length > 0">

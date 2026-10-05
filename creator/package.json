@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "format": "prettier --write src scripts index.html vite.config.js package.json",
     "scrape-icons": "bun scripts/scrape-icons.js",
     "scrape-feature-icons": "bun scripts/scrape-feature-icons.js",
     "test": "vitest run"
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.9",
+    "prettier": "^3.9.9",
     "vite": "^8.3.2",
     "vitest": "^5.0.3"
   },

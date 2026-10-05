@@ -84,7 +84,7 @@ function formatPath(error) {
     }
 
     const breadcrumbs = [];
-    for (let index = 0; index < segments.length; ) {
+    for (let index = 0; index < segments.length;) {
         const segment = segments[index];
         const itemIndex = segments[index + 1];
 
@@ -130,8 +130,7 @@ function dependencyTargetId(elementIndex, questIndex, segments, fieldIndex) {
         dependencyIndex === 0 && dependencySegment !== "0"
             ? dependencySegment
             : segments[fieldIndex + 2];
-    const quest =
-        store.definition.elements[elementIndex]?.quests[questIndex];
+    const quest = store.definition.elements[elementIndex]?.quests[questIndex];
     const dependency = quest?._deps?.[dependencyIndex];
 
     if (dependencyField !== "required_value") {
@@ -324,7 +323,9 @@ async function focusIssue(error) {
     await nextTick();
     const target = targetId ? document.getElementById(targetId) : null;
     if (!target) {
-        console.error(`No focus target found for validation path: ${error.instancePath}`);
+        console.error(
+            `No focus target found for validation path: ${error.instancePath}`
+        );
         return;
     }
 
@@ -362,9 +363,7 @@ const canUpgradeVersion = computed(() =>
                     v-for="error in validationErrors"
                     :key="`${error.instancePath}-${error.keyword}-${error.message}`"
                 >
-                    <span class="fw-semibold">{{
-                        formatPath(error)
-                    }}</span>
+                    <span class="fw-semibold">{{ formatPath(error) }}</span>
                     <span class="text-muted">: {{ error.message }}</span>
                     <button
                         v-if="fieldTargetId(error)"
@@ -424,9 +423,7 @@ const canUpgradeVersion = computed(() =>
                     v-for="warning in validationWarnings"
                     :key="`${warning.instancePath}-${warning.keyword}-${warning.message}`"
                 >
-                    <span class="fw-semibold">{{
-                        formatPath(warning)
-                    }}</span>
+                    <span class="fw-semibold">{{ formatPath(warning) }}</span>
                     <span class="text-muted">: {{ warning.message }}</span>
                 </li>
             </ul>
