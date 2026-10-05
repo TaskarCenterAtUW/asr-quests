@@ -33,6 +33,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 ### Changed
 
 - Shortened the clipboard export button label to "Copy"
+- Improved validation error breadcrumb display
 
 ### Fixed
 

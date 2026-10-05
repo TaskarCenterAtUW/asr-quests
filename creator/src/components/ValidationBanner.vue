@@ -6,21 +6,111 @@ import { useQuestStore } from "../stores/questStore";
 
 const store = useQuestStore();
 
-function formatPath(instancePath) {
-    if (!instancePath) {
-        return "root";
-    }
+const arrayItemLabels = new Map([
+    ["quests", "Quest"],
+    ["quest_answer_choices", "Answer Choice"],
+    ["feature-presets", "Feature Preset"],
+    ["custom-icons", "Custom Icon"],
+]);
 
-    return instancePath
+const fieldLabels = {
+    recency_period: "Resurvey Interval",
+    element_type_icon: "Element Icon",
+    quest_id: "Quest ID",
+    quest_title: "Quest Title",
+    quest_description: "Quest Description",
+    quest_type: "Quest Type",
+    quest_tag: "Quest Tag",
+    quest_image_url: "Quest Image URL",
+    quest_answer_validation: "Answer Validation",
+    quest_answer_dependency: "Answer Dependency",
+    auto_capture_attributes: "AutoCapture Attributes",
+    choice_text: "Choice Text",
+    choice_follow_up: "Picture-Taking Prompt Text",
+    url: "URL",
+    min: "Minimum",
+    max: "Maximum",
+};
+
+function decodePointerSegment(segment) {
+    return segment.replace(/~1/g, "/").replace(/~0/g, "~");
+}
+
+function humanizeField(segment) {
+    return (
+        fieldLabels[segment] ??
+        segment
+            .replace(/[_-]+/g, " ")
+            .replace(/\b[a-z]/g, (letter) => letter.toUpperCase())
+    );
+}
+
+function isArrayIndex(segment) {
+    return /^\d+$/.test(segment ?? "");
+}
+
+function elementLabel(index) {
+    const element = store.definition.elements[index];
+    const elementType =
+        typeof element?.element_type === "string"
+            ? element.element_type.trim()
+            : "";
+    return elementType || `Element #${index + 1}`;
+}
+
+function formatPath(error) {
+    const segments = String(error.instancePath ?? "")
         .split("/")
         .filter(Boolean)
-        .map((segment) =>
-            String(Number(segment)) === segment
-                ? `[${Number(segment) + 1}]`
-                : segment
-        )
-        .join(".")
-        .replace(/\.\[(\d+)\]/g, "[$1]");
+        .map(decodePointerSegment);
+
+    if (error.keyword === "required" && error.params?.missingProperty) {
+        segments.push(error.params.missingProperty);
+    } else if (
+        error.keyword === "additionalProperties" &&
+        error.params?.additionalProperty
+    ) {
+        segments.push(error.params.additionalProperty);
+    }
+
+    if (segments.length === 0) {
+        return "Definition";
+    }
+
+    const breadcrumbs = [];
+    for (let index = 0; index < segments.length; ) {
+        const segment = segments[index];
+        const itemIndex = segments[index + 1];
+
+        if (segment === "elements" && isArrayIndex(itemIndex)) {
+            breadcrumbs.push(elementLabel(Number(itemIndex)));
+            index += 2;
+            continue;
+        }
+
+        const itemLabel = arrayItemLabels.get(segment);
+        if (itemLabel && isArrayIndex(itemIndex)) {
+            breadcrumbs.push(`${itemLabel} #${Number(itemIndex) + 1}`);
+            index += 2;
+            continue;
+        }
+
+        if (segment === "tags" && index + 1 < segments.length) {
+            breadcrumbs.push("Tags");
+            breadcrumbs.push(`Tag "${segments[index + 1]}"`);
+            index += 2;
+            continue;
+        }
+
+        breadcrumbs.push(
+            isArrayIndex(segment)
+                ? `Item #${Number(segment) + 1}`
+                : humanizeField(segment)
+        );
+        index += 1;
+    }
+
+    return breadcrumbs.join(" > ");
 }
 
 const validationErrors = computed(() => store.validationErrors);
@@ -54,7 +144,7 @@ const canUpgradeVersion = computed(() =>
                     :key="`${error.instancePath}-${error.keyword}-${error.message}`"
                 >
                     <span class="fw-semibold">{{
-                        formatPath(error.instancePath)
+                        formatPath(error)
                     }}</span>
                     <span class="text-muted">: {{ error.message }}</span>
                 </li>
@@ -91,7 +181,7 @@ const canUpgradeVersion = computed(() =>
                     :key="`${warning.instancePath}-${warning.keyword}-${warning.message}`"
                 >
                     <span class="fw-semibold">{{
-                        formatPath(warning.instancePath)
+                        formatPath(warning)
                     }}</span>
                     <span class="text-muted">: {{ warning.message }}</span>
                 </li>
