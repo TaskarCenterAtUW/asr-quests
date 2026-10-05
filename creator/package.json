@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.9",
-    "vite": "^8.3.1",
-    "vitest": "^5.0.1"
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
   },
   "overrides": {
     "fast-uri": "3.1.5",
