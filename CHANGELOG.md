@@ -24,6 +24,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.11.0] - 2026-10-05
+
+### Added
+
+- Added a "Minify" toggle to the Export panel that updates the JSON preview and export output
+
+### Changed
+
+- Shortened the clipboard export button label to "Copy"
+
 ## Creator: [v0.10.0] - 2026-09-16
 
 ### Added

@@ -5,6 +5,14 @@ import { computed, ref, watch } from "vue";
 import { useClipboard } from "@vueuse/core";
 import { useQuestStore } from "../stores/questStore";
 
+const props = defineProps({
+    minified: {
+        type: Boolean,
+        default: false,
+    },
+});
+const emit = defineEmits(["update:minified"]);
+
 const store = useQuestStore();
 const { copy, copied } = useClipboard({ copiedDuring: 3500 });
 
@@ -39,7 +47,9 @@ watch(
     { immediate: true }
 );
 
-const exportJson = computed(() => JSON.stringify(store.fullJson, null, 2));
+const exportJson = computed(() =>
+    JSON.stringify(store.fullJson, null, props.minified ? 0 : 2)
+);
 
 function resolvedFilename() {
     const raw = filename.value.trim() || suggestedFilename.value;
@@ -61,6 +71,10 @@ async function downloadJson() {
 async function copyJson() {
     if (!canExport.value) return;
     await copy(exportJson.value);
+}
+
+function toggleMinified() {
+    emit("update:minified", !props.minified);
 }
 
 function onFilenameInput(event) {
@@ -134,7 +148,38 @@ function onFilenameInput(event) {
                         d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"
                     />
                 </svg>
-                Copy to Clipboard
+                Copy
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-sm btn-outline-primary py-1 px-2 d-inline-flex align-items-center gap-2"
+                :aria-pressed="minified"
+                @click="toggleMinified"
+            >
+                <svg
+                    aria-hidden="true"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path
+                        d="M2 2l4 4m0-4v4H2m12-4l-4 4m0-4v4h4M2 14l4-4m0 4v-4H2m12 4l-4-4m0 4v-4h4"
+                    />
+                </svg>
+                <span
+                    class="export-minify-toggle"
+                    :class="{ 'is-on': minified }"
+                    aria-hidden="true"
+                >
+                    <span class="export-minify-toggle-thumb"></span>
+                </span>
+                Minify
             </button>
 
             <span v-if="copied" class="small text-success align-self-center"
@@ -143,3 +188,37 @@ function onFilenameInput(event) {
         </div>
     </div>
 </template>
+
+<style scoped>
+.export-minify-toggle {
+    display: inline-flex;
+    align-items: center;
+    width: 1.625rem;
+    height: 1rem;
+    flex: 0 0 auto;
+    padding: 2px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    opacity: 0.72;
+    transition:
+        background-color 0.16s ease,
+        opacity 0.16s ease;
+}
+
+.export-minify-toggle.is-on {
+    background-color: rgba(var(--creator-primary-rgb), 0.2);
+    opacity: 1;
+}
+
+.export-minify-toggle-thumb {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: currentColor;
+    transition: transform 0.16s ease;
+}
+
+.export-minify-toggle.is-on .export-minify-toggle-thumb {
+    transform: translateX(0.625rem);
+}
+</style>

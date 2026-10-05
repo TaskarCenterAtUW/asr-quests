@@ -16,6 +16,7 @@ import { elementPresetLibrary } from "../assets/questTemplates";
 
 const store = useQuestStore();
 const addElementButton = ref(null);
+const minifyJson = ref(false);
 const elementButtons = ref([]);
 const questTreeButtons = ref({});
 const expandedElements = ref(new Set());
@@ -872,7 +873,7 @@ watch(
                             </div>
                         </div>
                         <div class="card-body">
-                            <JsonPreview />
+                            <JsonPreview :minified="minifyJson" />
                         </div>
                     </div>
 
@@ -912,7 +913,7 @@ watch(
                             </div>
                         </div>
                         <div class="card-body">
-                            <ExportPanel />
+                            <ExportPanel v-model:minified="minifyJson" />
                         </div>
                     </div>
                 </aside>
