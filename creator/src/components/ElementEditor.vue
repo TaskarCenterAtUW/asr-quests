@@ -80,6 +80,7 @@ function update(fields) {
             <IconPicker
                 :model-value="el().element_type_icon"
                 context="quest"
+                :focus-id="`element-icon-${elementIndex}`"
                 @update:model-value="update({ element_type_icon: $event })"
             />
         </div>

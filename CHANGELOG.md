@@ -24,6 +24,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.11.0] - 2026-10-05
+
+### Added
+
+- Added a "Minify" toggle to the Export panel that updates the JSON preview and export output
+- Added internal links from validation errors to corresponding fields in the editor
+
+### Changed
+
+- Shortened the clipboard export button label to "Copy"
+- Improved validation error breadcrumb display
+- Improved code formatting consistency
+
+### Fixed
+
+- Fixed empty strings not raising validation errors
+
 ## Creator: [v0.10.0] - 2026-09-16
 
 ### Added

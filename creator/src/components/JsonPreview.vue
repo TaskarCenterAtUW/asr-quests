@@ -4,6 +4,13 @@
 import { computed } from "vue";
 import { useQuestStore } from "../stores/questStore";
 
+const props = defineProps({
+    minified: {
+        type: Boolean,
+        default: false,
+    },
+});
+
 const store = useQuestStore();
 
 function classifyToken(token) {
@@ -50,7 +57,9 @@ function syntaxHighlight(lineText) {
     return tokens;
 }
 
-const prettyJson = computed(() => JSON.stringify(store.fullJson, null, 2));
+const prettyJson = computed(() =>
+    JSON.stringify(store.fullJson, null, props.minified ? 0 : 2)
+);
 
 const lines = computed(() => prettyJson.value.split("\n").map(syntaxHighlight));
 </script>

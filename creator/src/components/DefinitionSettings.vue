@@ -10,9 +10,8 @@ const recencyInputValue = ref("");
 const hasError = computed(() => store.hasValidationError(fieldPath));
 const errorMessage = computed(
     () =>
-        store.validationErrors.find(
-            (error) => error.instancePath === fieldPath
-        )?.message || ""
+        store.validationErrors.find((error) => error.instancePath === fieldPath)
+            ?.message || ""
 );
 
 watch(
@@ -80,7 +79,9 @@ function updateRecency(event) {
                         placeholder="90 (default)"
                         :value="recencyInputValue"
                         :class="{ 'is-invalid': hasError }"
-                        :aria-describedby="hasError ? 'recency-period-error' : undefined"
+                        :aria-describedby="
+                            hasError ? 'recency-period-error' : undefined
+                        "
                         @input="updateRecency"
                     />
                     <div

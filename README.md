@@ -99,15 +99,21 @@ Capabilities:
 - View live validation errors and warnings while editing.
 - Export valid JSON by downloading it or copying it to the clipboard.
 
-The creator bundles the latest supported schema and keeps optional `feature-presets` and `custom-icons` sections hidden until they are enabled. Legacy definitions remain loadable and can be upgraded from the validation panel.
+The Creator bundles the latest supported schema and keeps optional `feature-presets` and `custom-icons` sections hidden until they are enabled. Legacy definitions remain loadable and can be upgraded from the validation panel.
 
-### Run the creator locally
+### Run the Creator locally
 
 From the [creator/](creator/) directory:
 
 ```bash
 bun install
 bun run dev
+```
+
+To format the Creator source and package configuration, run:
+
+```bash
+bun run format
 ```
 
 To regenerate the checked-in feature icon catalog, run:
@@ -123,9 +129,9 @@ bun run build
 bun run preview
 ```
 
-### Basic creator workflow
+### Basic Creator workflow
 
-1. Open the creator and choose `Create New Definition` or `Load Existing JSON`.
+1. Open the Creator and choose `Create New Definition` or `Load Existing JSON`.
 2. Add an element, then add quests under it.
 3. Use element and quest presets to scaffold common blocks more quickly.
 4. Resolve any validation errors shown in the editor.

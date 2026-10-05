@@ -16,6 +16,7 @@ import { elementPresetLibrary } from "../assets/questTemplates";
 
 const store = useQuestStore();
 const addElementButton = ref(null);
+const minifyJson = ref(false);
 const elementButtons = ref([]);
 const questTreeButtons = ref({});
 const expandedElements = ref(new Set());
@@ -354,8 +355,7 @@ watch(
                         :key="el"
                         class="creator-tree-item"
                         :class="{
-                            'creator-dragging':
-                                draggingIndex === i,
+                            'creator-dragging': draggingIndex === i,
                             'creator-drag-over': overIndex === i,
                             'creator-drag-over-before':
                                 overIndex === i && overBefore,
@@ -474,9 +474,7 @@ watch(
                                         overQuestIndex === questIndex &&
                                         !overQuestBefore,
                                 }"
-                                @dragover="
-                                    dragOverQuest(i, questIndex, $event)
-                                "
+                                @dragover="dragOverQuest(i, questIndex, $event)"
                                 @dragleave="dragLeaveQuest($event)"
                                 @drop="dropQuest(i, questIndex, $event)"
                             >
@@ -555,6 +553,7 @@ watch(
             <div class="creator-sidebar-footer">
                 <button
                     ref="addElementButton"
+                    id="add-element-button"
                     type="button"
                     class="btn btn-sm btn-primary creator-add-button w-100"
                     @click="addElement"
@@ -872,7 +871,7 @@ watch(
                             </div>
                         </div>
                         <div class="card-body">
-                            <JsonPreview />
+                            <JsonPreview :minified="minifyJson" />
                         </div>
                     </div>
 
@@ -912,7 +911,7 @@ watch(
                             </div>
                         </div>
                         <div class="card-body">
-                            <ExportPanel />
+                            <ExportPanel v-model:minified="minifyJson" />
                         </div>
                     </div>
                 </aside>
@@ -1226,5 +1225,4 @@ watch(
     overflow-y: auto;
     overflow-x: hidden;
 }
-
 </style>

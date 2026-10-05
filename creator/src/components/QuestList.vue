@@ -176,6 +176,7 @@ function toggleQuest(questIndex) {
             <div class="d-flex gap-2 flex-wrap justify-content-end">
                 <button
                     ref="addQuestButton"
+                    :id="`add-quest-${elementIndex}`"
                     type="button"
                     class="btn btn-sm btn-primary creator-add-button creator-add-button-inline"
                     @click="addQuest"
@@ -259,179 +260,187 @@ function toggleQuest(questIndex) {
         </div>
 
         <div v-else class="accordion" :id="`quest-accordion-${elementIndex}`">
-            <template
-                v-for="(quest, questIndex) in quests"
-                :key="quest"
-            >
-            <div
-                class="accordion-item"
-                :class="{
-                    'creator-dragging': draggingIndex === questIndex,
-                    'creator-drag-over': overIndex === questIndex,
-                    'creator-drag-over-before':
-                        overIndex === questIndex && overBefore,
-                    'creator-drag-over-after':
-                        overIndex === questIndex && !overBefore,
-                }"
-                @dragover="handleDragOver(questIndex, $event)"
-                @dragleave="handleDragLeave($event)"
-                @drop="handleDrop(questIndex, $event)"
-            >
-                <h4 class="accordion-header">
-                    <span
-                        class="creator-drag-handle"
-                        aria-hidden="true"
-                        title="Drag to reorder"
-                        draggable="true"
-                        @dragstart.stop="startDrag(questIndex, $event)"
-                        @dragend.stop="endDrag"
-                    >
-                        <svg
-                            viewBox="0 0 16 16"
-                            width="14"
-                            height="14"
-                            fill="currentColor"
-                        >
-                            <circle cx="5" cy="3" r="1.5" />
-                            <circle cx="11" cy="3" r="1.5" />
-                            <circle cx="5" cy="8" r="1.5" />
-                            <circle cx="11" cy="8" r="1.5" />
-                            <circle cx="5" cy="13" r="1.5" />
-                            <circle cx="11" cy="13" r="1.5" />
-                        </svg>
-                    </span>
-                    <button
-                        :ref="
-                            (elementRef) =>
-                                setQuestButtonRef(elementRef, questIndex)
-                        "
-                        class="accordion-button py-2 px-3 small"
-                        :class="{ collapsed: openQuestIndex !== questIndex }"
-                        type="button"
-                        :aria-expanded="openQuestIndex === questIndex"
-                        :aria-controls="`quest-panel-${elementIndex}-${questIndex}`"
-                        @click="toggleQuest(questIndex)"
-                    >
-                        <span class="me-2 fw-semibold"
-                            >#{{ quest.quest_id }}</span
-                        >
-                        <span>{{
-                            quest.quest_title || "(untitled quest)"
-                        }}</span>
-                    </button>
-                </h4>
-
+            <template v-for="(quest, questIndex) in quests" :key="quest">
                 <div
-                    v-show="openQuestIndex === questIndex"
-                    :id="`quest-panel-${elementIndex}-${questIndex}`"
-                    class="accordion-collapse show"
+                    class="accordion-item"
+                    :class="{
+                        'creator-dragging': draggingIndex === questIndex,
+                        'creator-drag-over': overIndex === questIndex,
+                        'creator-drag-over-before':
+                            overIndex === questIndex && overBefore,
+                        'creator-drag-over-after':
+                            overIndex === questIndex && !overBefore,
+                    }"
+                    @dragover="handleDragOver(questIndex, $event)"
+                    @dragleave="handleDragLeave($event)"
+                    @drop="handleDrop(questIndex, $event)"
                 >
-                    <div class="accordion-body">
-                        <div
-                            class="d-flex gap-1 justify-content-end mb-2 flex-wrap"
+                    <h4 class="accordion-header">
+                        <span
+                            class="creator-drag-handle"
+                            aria-hidden="true"
+                            title="Drag to reorder"
+                            draggable="true"
+                            @dragstart.stop="startDrag(questIndex, $event)"
+                            @dragend.stop="endDrag"
                         >
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-outline-secondary py-1 px-2"
-                                :disabled="questIndex === 0"
-                                :aria-label="`Move quest ${questIndex + 1} up`"
-                                @click="moveQuestUp(questIndex)"
+                            <svg
+                                viewBox="0 0 16 16"
+                                width="14"
+                                height="14"
+                                fill="currentColor"
                             >
-                                Move Up
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-outline-secondary py-1 px-2"
-                                :disabled="questIndex === quests.length - 1"
-                                :aria-label="`Move quest ${questIndex + 1} down`"
-                                @click="moveQuestDown(questIndex)"
+                                <circle cx="5" cy="3" r="1.5" />
+                                <circle cx="11" cy="3" r="1.5" />
+                                <circle cx="5" cy="8" r="1.5" />
+                                <circle cx="11" cy="8" r="1.5" />
+                                <circle cx="5" cy="13" r="1.5" />
+                                <circle cx="11" cy="13" r="1.5" />
+                            </svg>
+                        </span>
+                        <button
+                            :ref="
+                                (elementRef) =>
+                                    setQuestButtonRef(elementRef, questIndex)
+                            "
+                            class="accordion-button py-2 px-3 small"
+                            :class="{
+                                collapsed: openQuestIndex !== questIndex,
+                            }"
+                            type="button"
+                            :aria-expanded="openQuestIndex === questIndex"
+                            :aria-controls="`quest-panel-${elementIndex}-${questIndex}`"
+                            @click="toggleQuest(questIndex)"
+                        >
+                            <span class="me-2 fw-semibold"
+                                >#{{ quest.quest_id }}</span
                             >
-                                Move Down
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-outline-secondary py-1 px-2 creator-icon-action"
-                                :aria-label="`Duplicate quest ${questIndex + 1}`"
-                                title="Duplicate quest"
-                                @click="duplicateQuest(questIndex)"
-                            >
-                                <svg
-                                    aria-hidden="true"
-                                    viewBox="0 0 16 16"
-                                    width="14"
-                                    height="14"
-                                    fill="currentColor"
-                                >
-                                    <path
-                                        d="M4 1.5A1.5 1.5 0 0 0 2.5 3v8A1.5 1.5 0 0 0 4 12.5h1v-1H4a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1h1V3A1.5 1.5 0 0 0 10 1.5H4z"
-                                    />
-                                    <path
-                                        d="M7 4.5A1.5 1.5 0 0 0 5.5 6v7A1.5 1.5 0 0 0 7 14.5h5A1.5 1.5 0 0 0 13.5 13V6A1.5 1.5 0 0 0 12 4.5H7zM6.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V6z"
-                                    />
-                                </svg>
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-outline-secondary py-1 px-2"
-                                :class="{ active: showDepGraph }"
-                                :aria-expanded="showDepGraph"
-                                :aria-controls="`dep-graph-${elementIndex}-${questIndex}`"
-                                :aria-label="depGraphToggleLabel"
-                                @click="showDepGraph = !showDepGraph"
-                            >
-                                <svg
-                                    aria-hidden="true"
-                                    viewBox="0 0 16 16"
-                                    width="12"
-                                    height="12"
-                                    class="ql-dep-toggle-icon"
-                                    :class="{ 'ql-dep-toggle-icon-open': showDepGraph }"
-                                >
-                                    <path fill="currentColor" d="M2 5l6 6 6-6H2z" />
-                                </svg>
-                                Dependencies
-                            </button>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-outline-danger py-1 px-2"
-                                aria-label="Delete quest"
-                                @click="removeQuest(questIndex)"
-                            >
-                                Delete
-                            </button>
-                        </div>
+                            <span>{{
+                                quest.quest_title || "(untitled quest)"
+                            }}</span>
+                        </button>
+                    </h4>
 
-                        <QuestEditor
-                            :element-index="elementIndex"
-                            :quest-index="questIndex"
-                        />
+                    <div
+                        v-show="openQuestIndex === questIndex"
+                        :id="`quest-panel-${elementIndex}-${questIndex}`"
+                        class="accordion-collapse show"
+                    >
+                        <div class="accordion-body">
+                            <div
+                                class="d-flex gap-1 justify-content-end mb-2 flex-wrap"
+                            >
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary py-1 px-2"
+                                    :disabled="questIndex === 0"
+                                    :aria-label="`Move quest ${questIndex + 1} up`"
+                                    @click="moveQuestUp(questIndex)"
+                                >
+                                    Move Up
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary py-1 px-2"
+                                    :disabled="questIndex === quests.length - 1"
+                                    :aria-label="`Move quest ${questIndex + 1} down`"
+                                    @click="moveQuestDown(questIndex)"
+                                >
+                                    Move Down
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary py-1 px-2 creator-icon-action"
+                                    :aria-label="`Duplicate quest ${questIndex + 1}`"
+                                    title="Duplicate quest"
+                                    @click="duplicateQuest(questIndex)"
+                                >
+                                    <svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 16 16"
+                                        width="14"
+                                        height="14"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            d="M4 1.5A1.5 1.5 0 0 0 2.5 3v8A1.5 1.5 0 0 0 4 12.5h1v-1H4a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v1h1V3A1.5 1.5 0 0 0 10 1.5H4z"
+                                        />
+                                        <path
+                                            d="M7 4.5A1.5 1.5 0 0 0 5.5 6v7A1.5 1.5 0 0 0 7 14.5h5A1.5 1.5 0 0 0 13.5 13V6A1.5 1.5 0 0 0 12 4.5H7zM6.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V6z"
+                                        />
+                                    </svg>
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary py-1 px-2"
+                                    :class="{ active: showDepGraph }"
+                                    :aria-expanded="showDepGraph"
+                                    :aria-controls="`dep-graph-${elementIndex}-${questIndex}`"
+                                    :aria-label="depGraphToggleLabel"
+                                    @click="showDepGraph = !showDepGraph"
+                                >
+                                    <svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 16 16"
+                                        width="12"
+                                        height="12"
+                                        class="ql-dep-toggle-icon"
+                                        :class="{
+                                            'ql-dep-toggle-icon-open':
+                                                showDepGraph,
+                                        }"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M2 5l6 6 6-6H2z"
+                                        />
+                                    </svg>
+                                    Dependencies
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-danger py-1 px-2"
+                                    aria-label="Delete quest"
+                                    @click="removeQuest(questIndex)"
+                                >
+                                    Delete
+                                </button>
+                            </div>
+
+                            <QuestEditor
+                                :element-index="elementIndex"
+                                :quest-index="questIndex"
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Inline dependency view, rendered below the open quest -->
-            <div
-                v-if="openQuestIndex === questIndex && showDepGraph"
-                :id="`dep-graph-${elementIndex}-${questIndex}`"
-                class="ql-dep-panel"
-                role="region"
-                :aria-label="`Dependency relationships for quest #${quest.quest_id}`"
-            >
-                <div class="ql-dep-panel-header">
-                    <span class="ql-dep-panel-label">
-                        Dependency chain for <strong>#{{ quest.quest_id }}</strong>
-                    </span>
-                    <button
-                        type="button"
-                        class="ql-dep-panel-close"
-                        aria-label="Close dependency view"
-                        @click="showDepGraph = false"
-                    >✕</button>
+                <!-- Inline dependency view, rendered below the open quest -->
+                <div
+                    v-if="openQuestIndex === questIndex && showDepGraph"
+                    :id="`dep-graph-${elementIndex}-${questIndex}`"
+                    class="ql-dep-panel"
+                    role="region"
+                    :aria-label="`Dependency relationships for quest #${quest.quest_id}`"
+                >
+                    <div class="ql-dep-panel-header">
+                        <span class="ql-dep-panel-label">
+                            Dependency chain for
+                            <strong>#{{ quest.quest_id }}</strong>
+                        </span>
+                        <button
+                            type="button"
+                            class="ql-dep-panel-close"
+                            aria-label="Close dependency view"
+                            @click="showDepGraph = false"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                    <div class="ql-dep-panel-body">
+                        <DependencyGraph :element-index="elementIndex" />
+                    </div>
                 </div>
-                <div class="ql-dep-panel-body">
-                    <DependencyGraph :element-index="elementIndex" />
-                </div>
-            </div>
             </template>
         </div>
     </section>
@@ -446,7 +455,8 @@ function toggleQuest(questIndex) {
 .ql-dep-panel {
     border: 1px solid var(--creator-surface-border, rgba(88, 35, 173, 0.18));
     border-top: 3px solid rgba(var(--creator-primary-rgb, 95, 34, 201), 0.35);
-    border-radius: 0 0 var(--creator-radius-md, 0.75rem) var(--creator-radius-md, 0.75rem);
+    border-radius: 0 0 var(--creator-radius-md, 0.75rem)
+        var(--creator-radius-md, 0.75rem);
     margin-top: -1px;
     background: linear-gradient(
         180deg,
@@ -496,7 +506,9 @@ function toggleQuest(questIndex) {
     line-height: 1;
     color: var(--creator-ink-muted, #9ca3af);
     cursor: pointer;
-    transition: background 0.15s, color 0.15s;
+    transition:
+        background 0.15s,
+        color 0.15s;
 }
 
 .ql-dep-panel-close:hover {

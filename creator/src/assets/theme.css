@@ -1108,7 +1108,9 @@ textarea.form-control {
   opacity: 0.55;
   border-radius: var(--creator-radius-sm);
   user-select: none;
-  transition: opacity 0.18s ease, color 0.18s ease;
+  transition:
+    opacity 0.18s ease,
+    color 0.18s ease;
 }
 
 .creator-drag-handle:hover,
