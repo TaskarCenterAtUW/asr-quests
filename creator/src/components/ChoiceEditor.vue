@@ -26,6 +26,9 @@ const choiceBase = computed(
 const choiceValuePath = computed(() => `${choiceBase.value}/value`);
 const choiceTextPath = computed(() => `${choiceBase.value}/choice_text`);
 const choiceImagePath = computed(() => `${choiceBase.value}/image_url`);
+const choiceFollowUpPath = computed(
+    () => `${choiceBase.value}/choice_follow_up`
+);
 
 const followUpEnabled = computed({
     get() {
@@ -178,6 +181,12 @@ function setFollowUpEnabled(enabled) {
                         rows="3"
                         :value="choice.choice_follow_up"
                         placeholder="Enter the text shown with the picture-taking prompt"
+                        required
+                        aria-required="true"
+                        :class="{
+                            'is-invalid':
+                                store.hasValidationError(choiceFollowUpPath),
+                        }"
                         @input="
                             update({ choice_follow_up: $event.target.value })
                         "

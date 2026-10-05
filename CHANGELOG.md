@@ -34,6 +34,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 - Shortened the clipboard export button label to "Copy"
 
+### Fixed
+
+- Fixed empty strings not raising validation errors
+
 ## Creator: [v0.10.0] - 2026-09-16
 
 ### Added

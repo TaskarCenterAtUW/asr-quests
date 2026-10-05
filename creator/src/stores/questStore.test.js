@@ -181,6 +181,71 @@ describe("v3.2 definition state", () => {
 });
 
 describe("semantic v3.2 validation", () => {
+  it("requires non-empty values for all required text fields", () => {
+    const store = useQuestStore();
+    const definition = validV32Definition();
+    definition.elements[0].quests = [
+      {
+        quest_id: 101,
+        quest_title: "Surface type",
+        quest_description: "Choose a surface type.",
+        quest_type: "ExclusiveChoice",
+        quest_tag: "surface",
+        quest_answer_choices: [{ value: "concrete", choice_text: "Concrete" }],
+      },
+    ];
+    store.loadFromJson(definition);
+    store.updateElement(0, {
+      element_type: "  ",
+      quest_query: "",
+    });
+    store.updateQuest(0, 0, {
+      quest_title: "",
+      quest_description: "",
+      quest_tag: "",
+    });
+    store.updateChoice(0, 0, 0, {
+      value: "",
+      choice_text: "",
+      choice_follow_up: "",
+      _followUpEnabled: true,
+    });
+
+    const expectedErrors = [
+      ["/elements/0/element_type", "Element type is required."],
+      ["/elements/0/quest_query", "Quest query is required."],
+      ["/elements/0/quests/0/quest_title", "Quest title is required."],
+      [
+        "/elements/0/quests/0/quest_description",
+        "Quest description is required.",
+      ],
+      ["/elements/0/quests/0/quest_tag", "Quest tag is required."],
+      [
+        "/elements/0/quests/0/quest_answer_choices/0/value",
+        "Choice value is required.",
+      ],
+      [
+        "/elements/0/quests/0/quest_answer_choices/0/choice_text",
+        "Choice text is required.",
+      ],
+      [
+        "/elements/0/quests/0/quest_answer_choices/0/choice_follow_up",
+        "Picture-taking prompt text is required.",
+      ],
+    ];
+    const errors = store.validationErrors;
+    expect(errors).toEqual(
+      expect.arrayContaining(
+        expectedErrors.map(([instancePath, message]) =>
+          expect.objectContaining({ instancePath, message })
+        )
+      )
+    );
+    expectedErrors.forEach(([instancePath]) => {
+      expect(store.hasValidationError(instancePath)).toBe(true);
+    });
+  });
+
   it("reports field-specific icon, URL, duplicate, and tag errors", () => {
     const store = useQuestStore();
     store.loadFromJson({
@@ -331,6 +396,7 @@ describe("quest preset dependencies", () => {
     store.updateElement(0, {
       element_type: "Sidewalk",
       element_type_icon: "sidewalk",
+      quest_query: "ways with highway=footway",
     });
 
     store.insertSingleQuestTemplate(0, preset.quests[0]);
@@ -357,6 +423,7 @@ describe("quest preset dependencies", () => {
     store.updateElement(0, {
       element_type: "Sidewalk",
       element_type_icon: "sidewalk",
+      quest_query: "ways with highway=footway",
     });
 
     store.insertSingleQuestTemplate(0, preset.quests[1]);
