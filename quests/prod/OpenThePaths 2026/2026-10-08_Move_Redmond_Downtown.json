@@ -1175,110 +1175,16 @@
       ]
     },
     {
-      "element_type": "Survey Point #1",
+      "element_type": "Survey Point",
       "element_type_icon": "notes",
-      "quest_query": "nodes with (ext:survey_point=1)",
+      "quest_query": "nodes with (ext:survey_point)",
       "quests": [
         {
           "quest_id": 801,
-          "quest_title": "Wayfinding Comment",
-          "quest_description": "Comment on access to Marymoor Park.",
+          "quest_title": "Comment",
+          "quest_description": "Comment on the pedestrian network at this location.",
           "quest_type": "TextEntry",
-          "quest_tag": "sp1:wayfinding_comment"
-        }
-      ]
-    },
-    {
-      "element_type": "Survey Point #2",
-      "element_type_icon": "notes",
-      "quest_query": "nodes with (ext:survey_point=2)",
-      "quests": [
-        {
-          "quest_id": 901,
-          "quest_title": "Traffic Signal Wait Time",
-          "quest_description": "Do the traffic signals at this location cycle frequently enough to prevent unnecessary wait times for pedestrians?",
-          "quest_type": "ExclusiveChoice",
-          "quest_tag": "sp2:acceptable_wait_time",
-          "quest_answer_choices": [
-            {
-              "value": "yes",
-              "choice_text": "Yes - Pedestrians wait a reasonable time"
-            },
-            {
-              "value": "no",
-              "choice_text": "No - Pedestrians have to wait too long"
-            }
-          ]
-        },
-        {
-          "quest_id": 902,
-          "quest_title": "Intersection Traversability Comment",
-          "quest_description": "Comment on intersection traversability. Are pedestrians able to safely navigate this space?",
-          "quest_type": "TextEntry",
-          "quest_tag": "sp2:intersection_traversability_comment"
-        },
-        {
-          "quest_id": 903,
-          "quest_title": "Bike Access Comment",
-          "quest_description": "Comment on how the city could improve bike access between Redmond Central Connector trail and the East Lake Sammamish Trail.",
-          "quest_type": "TextEntry",
-          "quest_tag": "sp2:bike_access_comment"
-        }
-      ]
-    },
-    {
-      "element_type": "Survey Point #3",
-      "element_type_icon": "notes",
-      "quest_query": "nodes with (ext:survey_point=3)",
-      "quests": [
-        {
-          "quest_id": 1001,
-          "quest_title": "Daycare Access Comment",
-          "quest_description": "Comment on drop-off and pick-up behavior by the daycare.",
-          "quest_type": "TextEntry",
-          "quest_tag": "sp3:daycare_access_comment"
-        }
-      ]
-    },
-    {
-      "element_type": "Survey Point #4",
-      "element_type_icon": "notes",
-      "quest_query": "nodes with (ext:survey_point=4)",
-      "quests": [
-        {
-          "quest_id": 1101,
-          "quest_title": "Youth Light Rail Access Comment",
-          "quest_description": "Comment on youth access to light rail connections in this area.",
-          "quest_type": "TextEntry",
-          "quest_tag": "sp4:youth_light_rail_access_comment"
-        },
-        {
-          "quest_id": 1102,
-          "quest_title": "Lighting Comment",
-          "quest_description": "Comment on the lighting levels at this location.",
-          "quest_type": "TextEntry",
-          "quest_tag": "sp4:lighting_comment"
-        }
-      ]
-    },
-    {
-      "element_type": "Survey Point #5",
-      "element_type_icon": "notes",
-      "quest_query": "nodes with (ext:survey_point=5)",
-      "quests": [
-        {
-          "quest_id": 1201,
-          "quest_title": "Placemaking Comment",
-          "quest_description": "Comment on placemaking in the new building. What features, such as seating or landscaping, are important to you?",
-          "quest_type": "TextEntry",
-          "quest_tag": "sp5:placemaking_comment"
-        },
-        {
-          "quest_id": 1202,
-          "quest_title": "Friday Traffic Comment",
-          "quest_description": "Comment on the impact of increased traffic volumes on Fridays.",
-          "quest_type": "TextEntry",
-          "quest_tag": "sp5:friday_traffic_comment"
+          "quest_tag": "sp:comment"
         }
       ]
     }
