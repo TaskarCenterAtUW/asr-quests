@@ -24,6 +24,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Schema: [v3.2.1] - 2026-10-12
+
+### Changed
+
+- Updated `recency_period` to support a minimum value of 0 days instead of 1
+
 ## Creator: [v0.11.0] - 2026-10-05
 
 ### Added
