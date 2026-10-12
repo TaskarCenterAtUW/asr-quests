@@ -24,11 +24,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.12.0] - 2026-10-12
+
+### Added
+
+- Added support for LFQD Schema v3.2.1
+
 ## Schema: [v3.2.1] - 2026-10-12
 
 ### Changed
 
-- Updated `recency_period` to support a minimum value of 0 days instead of 1
+- Lowered minimum supported `recency_period` value to 0 days, which makes all quests immediately re-surveyable even if all questions for an element have been answered
 
 ## Creator: [v0.11.0] - 2026-10-05
 
