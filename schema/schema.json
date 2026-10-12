@@ -21,7 +21,7 @@
       "description": "Number of days after an element was last surveyed (ext:gig_last_updated) before its quests become visible again. If absent, the app defaults to 90 days.",
       "default": 90,
       "type": "integer",
-      "minimum": 1,
+      "minimum": 0,
       "examples": [
         7,
         14,
