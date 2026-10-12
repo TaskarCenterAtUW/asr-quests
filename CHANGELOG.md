@@ -24,6 +24,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.12.1] - 2026-10-12
+
+### Fixed
+
+- Fixed Quest Presets dropdowns not reopening after switching between elements
+
 ## Creator: [v0.12.0] - 2026-10-12
 
 ### Added
