@@ -28,6 +28,7 @@ Snapshots:
 - [schema/schema-3.0.0.json](schema/schema-3.0.0.json)
 - [schema/schema-3.1.0.json](schema/schema-3.1.0.json)
 - [schema/schema-3.2.0.json](schema/schema-3.2.0.json)
+- [schema/schema-3.2.1.json](schema/schema-3.2.1.json)
 
 ## Examples
 
@@ -44,6 +45,7 @@ Snapshots:
 - [examples/example-3.0.0.json](examples/example-3.0.0.json)
 - [examples/example-3.1.0.json](examples/example-3.1.0.json)
 - [examples/example-3.2.0.json](examples/example-3.2.0.json)
+- [examples/example-3.2.1.json](examples/example-3.2.1.json)
 
 ## Validation
 

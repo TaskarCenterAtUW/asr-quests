@@ -212,7 +212,7 @@ function toggleQuest(questIndex) {
                     </button>
 
                     <ul
-                        v-if="hasQuestPresets"
+                        v-show="hasQuestPresets"
                         class="dropdown-menu dropdown-menu-end quest-template-menu"
                     >
                         <li>

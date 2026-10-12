@@ -23,7 +23,7 @@ function createStorage() {
 
 function validV32Definition() {
   return {
-    version: "3.2.0",
+    version: "3.2.1",
     recency_period: 30,
     "feature-presets": [
       {
@@ -97,7 +97,7 @@ describe("v3.2 definition state", () => {
     const store = useQuestStore();
 
     expect(store.definition).toEqual({
-      version: "3.2.0",
+      version: "3.2.1",
       recency_period: 90,
       elements: [],
     });
@@ -126,6 +126,16 @@ describe("v3.2 definition state", () => {
   it("round-trips v3.2 fields and custom references", () => {
     const store = useQuestStore();
     const input = validV32Definition();
+
+    store.loadFromJson(input);
+
+    expect(store.fullJson).toEqual(input);
+    expect(store.validationErrors).toEqual([]);
+  });
+
+  it("accepts zero as an immediately re-surveyable interval", () => {
+    const store = useQuestStore();
+    const input = { ...validV32Definition(), recency_period: 0 };
 
     store.loadFromJson(input);
 
@@ -250,7 +260,7 @@ describe("semantic v3.2 validation", () => {
     const store = useQuestStore();
     store.loadFromJson({
       version: "3.2.0",
-      recency_period: 0,
+      recency_period: -1,
       "feature-presets": [
         { name: "Bench", icon: "missing", tags: {} },
         { name: " Bench ", icon: "missing", tags: { amenity: "" } },

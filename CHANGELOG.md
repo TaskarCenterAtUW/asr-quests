@@ -24,6 +24,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.12.1] - 2026-10-12
+
+### Fixed
+
+- Fixed Quest Presets dropdowns not reopening after switching between elements
+
+## Creator: [v0.12.0] - 2026-10-12
+
+### Added
+
+- Added support for LFQD Schema v3.2.1
+
+## Schema: [v3.2.1] - 2026-10-12
+
+### Changed
+
+- Lowered minimum supported `recency_period` value to 0 days, which makes all quests immediately re-surveyable even if all questions for an element have been answered
+
 ## Creator: [v0.11.0] - 2026-10-05
 
 ### Added
