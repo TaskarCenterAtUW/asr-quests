@@ -24,6 +24,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 -->
 
+## Creator: [v0.12.0] - 2026-10-12
+
+### Added
+
+- Added support for LFQD Schema v3.2.1
+
 ## Schema: [v3.2.1] - 2026-10-12
 
 ### Changed
