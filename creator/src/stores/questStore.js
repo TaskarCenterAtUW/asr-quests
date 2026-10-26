@@ -175,9 +175,7 @@ function normalizeDependencyRequiredValue(parentQuest, requiredValue) {
       const values = requiredValue.filter(
         (value) => value != null && value !== ""
       );
-      return parentQuest.quest_type === "ExclusiveChoice"
-        ? (values[0] ?? "")
-        : values;
+      return values;
     }
 
     return requiredValue ?? "";
@@ -372,6 +370,16 @@ function questFromDraft(quest) {
 
   return {
     ...normalizedQuest,
+    quest_answer_choices: normalizedQuest.quest_answer_choices.map(
+      (choice, choiceIndex) => ({
+        ...choice,
+        _followUpEnabled:
+          typeof quest?.quest_answer_choices?.[choiceIndex]
+            ?._followUpEnabled === "boolean"
+            ? quest.quest_answer_choices[choiceIndex]._followUpEnabled
+            : choice._followUpEnabled,
+      })
+    ),
     _validEnableMin:
       typeof quest?._validEnableMin === "boolean"
         ? quest._validEnableMin
@@ -531,7 +539,7 @@ function questToJson(quest) {
         serializedChoice.image_url = choice.image_url;
       }
 
-      if (choice.choice_follow_up) {
+      if (choice._followUpEnabled && choice.choice_follow_up) {
         serializedChoice.choice_follow_up = choice.choice_follow_up;
       }
 
