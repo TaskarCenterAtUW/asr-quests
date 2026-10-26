@@ -6,23 +6,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
-<!--
-
-## [Unreleased] - 2026-00-00
-
-### Added
-
--
-
-### Changed
-
--
+## Creator: [v0.12.2] - 2026-10-26
 
 ### Fixed
 
--
-
--->
+- Fixed quest dependency loss when reordering elements
 
 ## Creator: [v0.12.1] - 2026-10-12
 

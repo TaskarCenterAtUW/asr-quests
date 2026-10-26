@@ -923,6 +923,7 @@ watch(
 <style scoped>
 .creator-workspace {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 0.5rem;
     padding: 0.25rem;
 }
@@ -930,6 +931,7 @@ watch(
 .creator-sidebar,
 .creator-main {
     min-height: 0;
+    min-width: 0;
 }
 
 .creator-sidebar {

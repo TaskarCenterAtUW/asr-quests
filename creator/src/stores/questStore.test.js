@@ -162,6 +162,66 @@ describe("v3.2 definition state", () => {
     expect(restoredStore.fullJson.elements[0].quests[0]).toBeUndefined();
   });
 
+  it("keeps disabled picture prompts out of exports and drafts", async () => {
+    const store = useQuestStore();
+    const definition = validV32Definition();
+    definition.elements[0].quests = [
+      {
+        quest_id: 101,
+        quest_title: "Surface type",
+        quest_description: "Choose a surface type.",
+        quest_type: "ExclusiveChoice",
+        quest_tag: "surface",
+        quest_answer_choices: [
+          {
+            value: "concrete",
+            choice_text: "Concrete",
+            choice_follow_up: "Take a picture of the surface?",
+          },
+        ],
+      },
+    ];
+
+    store.loadFromJson(definition);
+    store.updateChoice(0, 0, 0, { _followUpEnabled: false });
+
+    expect(
+      store.definition.elements[0].quests[0].quest_answer_choices[0]
+        .choice_follow_up
+    ).toBe("Take a picture of the surface?");
+    expect(
+      store.fullJson.elements[0].quests[0].quest_answer_choices[0]
+    ).not.toHaveProperty("choice_follow_up");
+
+    store.duplicateQuest(0, 0);
+    expect(
+      store.definition.elements[0].quests[1].quest_answer_choices[0]
+        ._followUpEnabled
+    ).toBe(false);
+    expect(
+      store.fullJson.elements[0].quests[1].quest_answer_choices[0]
+    ).not.toHaveProperty("choice_follow_up");
+
+    await nextTick();
+    const savedDraft = JSON.parse(
+      window.localStorage.getItem("quest-creator:draft:v1")
+    );
+    expect(
+      savedDraft.definition.elements[0].quests[0].quest_answer_choices[0]
+        ._followUpEnabled
+    ).toBe(false);
+
+    setActivePinia(createPinia());
+    const restoredStore = useQuestStore();
+    expect(
+      restoredStore.definition.elements[0].quests[0].quest_answer_choices[0]
+        ._followUpEnabled
+    ).toBe(false);
+    expect(
+      restoredStore.fullJson.elements[0].quests[0].quest_answer_choices[0]
+    ).not.toHaveProperty("choice_follow_up");
+  });
+
   it("persists preset and custom icon mutations through autosave", async () => {
     const store = useQuestStore();
     store.resetDefinition();
@@ -503,6 +563,99 @@ describe("drag-and-drop reordering", () => {
     ).toEqual([301, 302]);
     // C is empty.
     expect(store.definition.elements[1].quests).toEqual([]);
+  });
+
+  it("preserves every required choice value when moving an element", () => {
+    const store = useQuestStore();
+    const choiceQuest = (questId, questTitle, values) => ({
+      quest_id: questId,
+      quest_title: questTitle,
+      quest_description: questTitle,
+      quest_type: "ExclusiveChoice",
+      quest_tag: `test:${questId}`,
+      quest_answer_choices: values.map((value) => ({
+        value,
+        choice_text: value,
+      })),
+    });
+
+    store.loadFromJson({
+      version: "3.2.1",
+      recency_period: 90,
+      elements: [
+        {
+          element_type: "Curb ramp",
+          element_type_icon: "access_point",
+          quest_query: "ways with highway=footway",
+          quests: [
+            choiceQuest(101, "Ramp present", ["yes", "nearby", "no"]),
+            choiceQuest(102, "Ramp width", ["narrow", "wide"]),
+            choiceQuest(103, "Ramp slope", ["low", "high"]),
+            choiceQuest(104, "Curb ramp type", [
+              "perpendicular",
+              "parallel",
+              "parallel_one_r",
+              "parallel_one_l",
+              "combination",
+              "cutthru",
+              "end",
+              "unknown",
+            ]),
+            {
+              ...choiceQuest(105, "Detectable warning surface", ["yes", "no"]),
+              quest_answer_dependency: [
+                {
+                  question_id: 101,
+                  required_value: ["yes", "nearby"],
+                },
+                {
+                  question_id: 104,
+                  required_value: [
+                    "perpendicular",
+                    "parallel",
+                    "parallel_one_r",
+                    "parallel_one_l",
+                    "combination",
+                    "cutthru",
+                    "unknown",
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          element_type: "Other",
+          element_type_icon: "access_point",
+          quest_query: "ways with highway=footway",
+          quests: [choiceQuest(201, "Other question", ["yes", "no"])],
+        },
+      ],
+    });
+
+    store.moveElementTo(0, 1);
+
+    expect(store.fullJson.elements[1].quests[4]).toMatchObject({
+      quest_id: 205,
+      quest_answer_dependency: [
+        {
+          question_id: 201,
+          required_value: ["yes", "nearby"],
+        },
+        {
+          question_id: 204,
+          required_value: [
+            "perpendicular",
+            "parallel",
+            "parallel_one_r",
+            "parallel_one_l",
+            "combination",
+            "cutthru",
+            "unknown",
+          ],
+        },
+      ],
+    });
   });
 
   it("moves a quest to an arbitrary index and remaps dependencies", () => {

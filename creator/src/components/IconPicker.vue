@@ -185,6 +185,8 @@ watch(open, (isOpen) => {
                 :id="props.focusId || undefined"
                 type="button"
                 class="btn btn-sm btn-outline-secondary"
+                :aria-expanded="open"
+                aria-haspopup="dialog"
                 @click="openPicker"
             >
                 {{ selected ? "Change Icon" : "Pick Icon" }}
@@ -205,7 +207,6 @@ watch(open, (isOpen) => {
             v-if="open"
             class="creator-icon-picker-dialog p-2"
             role="dialog"
-            aria-modal="true"
             :aria-label="`${props.context} icon picker`"
             @keydown.esc.prevent="closePicker"
         >
