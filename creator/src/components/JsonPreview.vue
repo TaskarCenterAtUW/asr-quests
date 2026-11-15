@@ -73,8 +73,7 @@ const lines = computed(() => prettyJson.value.split("\n").map(syntaxHighlight));
         >
             <span class="json-line-number" aria-hidden="true">{{
                 lineIndex + 1
-            }}</span
-            ><span class="json-line-code"
+            }}</span><span class="json-line-code"
                 ><span
                     v-for="(token, tokenIndex) in lineTokens"
                     :key="tokenIndex"

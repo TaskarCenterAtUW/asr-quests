@@ -564,18 +564,21 @@ function questToJson(quest) {
   }
 
   if (quest._deps.length === 1) {
-    out.quest_answer_dependency = {
-      question_id: quest._deps[0].question_id,
-      required_value: quest._deps[0].required_value,
-    };
+    out.quest_answer_dependency = dependencyToJson(quest._deps[0]);
   } else if (quest._deps.length > 1) {
-    out.quest_answer_dependency = quest._deps.map((dependency) => ({
-      question_id: dependency.question_id,
-      required_value: dependency.required_value,
-    }));
+    out.quest_answer_dependency = quest._deps.map(dependencyToJson);
   }
 
   return out;
+}
+
+function dependencyToJson(dependency) {
+  return {
+    question_id: dependency.question_id,
+    required_value: Array.isArray(dependency.required_value)
+      ? [...dependency.required_value]
+      : dependency.required_value,
+  };
 }
 
 function semanticError(instancePath, message, params = {}) {
