@@ -105,6 +105,7 @@ function moveChoiceDown(choiceIndex) {
             <h3 class="h6 mb-0 fw-semibold">Answer Choices</h3>
             <button
                 ref="addChoiceButton"
+                :id="`add-choice-${elementIndex}-${questIndex}`"
                 type="button"
                 class="btn btn-sm btn-primary"
                 @click="addChoice"

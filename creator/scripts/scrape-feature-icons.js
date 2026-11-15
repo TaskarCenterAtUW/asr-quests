@@ -61,7 +61,9 @@ async function main() {
 
     const name = slugFromPath(record.path);
     if (!name) {
-      throw new Error(`feature-icons.json record ${index} has an invalid path.`);
+      throw new Error(
+        `feature-icons.json record ${index} has an invalid path.`
+      );
     }
 
     return {

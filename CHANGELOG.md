@@ -6,23 +6,52 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
-<!--
-
-## [Unreleased] - 2026-00-00
-
-### Added
-
--
-
-### Changed
-
--
+## Creator: [v0.12.3] - 2026-11-15
 
 ### Fixed
 
--
+- Fixed serialization of multi-value quest dependencies after element reordering
 
--->
+## Creator: [v0.12.2] - 2026-10-26
+
+### Fixed
+
+- Fixed quest dependency loss when reordering elements
+
+## Creator: [v0.12.1] - 2026-10-12
+
+### Fixed
+
+- Fixed Quest Presets dropdowns not reopening after switching between elements
+
+## Creator: [v0.12.0] - 2026-10-12
+
+### Added
+
+- Added support for LFQD Schema v3.2.1
+
+## Schema: [v3.2.1] - 2026-10-12
+
+### Changed
+
+- Lowered minimum supported `recency_period` value to 0 days, which makes all quests immediately re-surveyable even if all questions for an element have been answered
+
+## Creator: [v0.11.0] - 2026-10-05
+
+### Added
+
+- Added a "Minify" toggle to the Export panel that updates the JSON preview and export output
+- Added internal links from validation errors to corresponding fields in the editor
+
+### Changed
+
+- Shortened the clipboard export button label to "Copy"
+- Improved validation error breadcrumb display
+- Improved code formatting consistency
+
+### Fixed
+
+- Fixed empty strings not raising validation errors
 
 ## Creator: [v0.10.0] - 2026-09-16
 

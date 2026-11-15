@@ -158,8 +158,7 @@ function normalizeDependencyList(dependencies) {
     };
 
     if (typeof dependency?._templateQuestionId === "string") {
-      normalizedDependency._templateQuestionId =
-        dependency._templateQuestionId;
+      normalizedDependency._templateQuestionId = dependency._templateQuestionId;
     }
 
     return normalizedDependency;
@@ -176,9 +175,7 @@ function normalizeDependencyRequiredValue(parentQuest, requiredValue) {
       const values = requiredValue.filter(
         (value) => value != null && value !== ""
       );
-      return parentQuest.quest_type === "ExclusiveChoice"
-        ? (values[0] ?? "")
-        : values;
+      return values;
     }
 
     return requiredValue ?? "";
@@ -373,6 +370,16 @@ function questFromDraft(quest) {
 
   return {
     ...normalizedQuest,
+    quest_answer_choices: normalizedQuest.quest_answer_choices.map(
+      (choice, choiceIndex) => ({
+        ...choice,
+        _followUpEnabled:
+          typeof quest?.quest_answer_choices?.[choiceIndex]
+            ?._followUpEnabled === "boolean"
+            ? quest.quest_answer_choices[choiceIndex]._followUpEnabled
+            : choice._followUpEnabled,
+      })
+    ),
     _validEnableMin:
       typeof quest?._validEnableMin === "boolean"
         ? quest._validEnableMin
@@ -532,7 +539,7 @@ function questToJson(quest) {
         serializedChoice.image_url = choice.image_url;
       }
 
-      if (choice.choice_follow_up) {
+      if (choice._followUpEnabled && choice.choice_follow_up) {
         serializedChoice.choice_follow_up = choice.choice_follow_up;
       }
 
@@ -557,18 +564,21 @@ function questToJson(quest) {
   }
 
   if (quest._deps.length === 1) {
-    out.quest_answer_dependency = {
-      question_id: quest._deps[0].question_id,
-      required_value: quest._deps[0].required_value,
-    };
+    out.quest_answer_dependency = dependencyToJson(quest._deps[0]);
   } else if (quest._deps.length > 1) {
-    out.quest_answer_dependency = quest._deps.map((dependency) => ({
-      question_id: dependency.question_id,
-      required_value: dependency.required_value,
-    }));
+    out.quest_answer_dependency = quest._deps.map(dependencyToJson);
   }
 
   return out;
+}
+
+function dependencyToJson(dependency) {
+  return {
+    question_id: dependency.question_id,
+    required_value: Array.isArray(dependency.required_value)
+      ? [...dependency.required_value]
+      : dependency.required_value,
+  };
 }
 
 function semanticError(instancePath, message, params = {}) {
@@ -578,6 +588,14 @@ function semanticError(instancePath, message, params = {}) {
     message,
     params,
   };
+}
+
+function requiredStringErrors(value, instancePath, fieldName) {
+  if (typeof value !== "string" || value.trim()) {
+    return [];
+  }
+
+  return [semanticError(instancePath, `${fieldName} is required.`)];
 }
 
 function isAbsoluteHttpUrl(value) {
@@ -625,7 +643,10 @@ function validateIconReference(
   return [];
 }
 
-function semanticValidationErrors(currentDefinition) {
+function semanticValidationErrors(
+  currentDefinition,
+  draftDefinition = currentDefinition
+) {
   const errors = [];
   const customIcons = currentDefinition["custom-icons"] || [];
   const customIconsByName = new Map();
@@ -736,6 +757,20 @@ function semanticValidationErrors(currentDefinition) {
   });
 
   currentDefinition.elements.forEach((element, elementIndex) => {
+    const elementPath = `/elements/${elementIndex}`;
+    errors.push(
+      ...requiredStringErrors(
+        element.element_type,
+        `${elementPath}/element_type`,
+        "Element type"
+      ),
+      ...requiredStringErrors(
+        element.quest_query,
+        `${elementPath}/quest_query`,
+        "Quest query"
+      )
+    );
+
     errors.push(
       ...validateIconReference(
         element.element_type_icon,
@@ -744,6 +779,63 @@ function semanticValidationErrors(currentDefinition) {
         customIconsByName
       )
     );
+
+    element.quests.forEach((quest, questIndex) => {
+      const questPath = `${elementPath}/quests/${questIndex}`;
+      errors.push(
+        ...requiredStringErrors(
+          quest.quest_title,
+          `${questPath}/quest_title`,
+          "Quest title"
+        ),
+        ...requiredStringErrors(
+          quest.quest_description,
+          `${questPath}/quest_description`,
+          "Quest description"
+        )
+      );
+
+      if (quest.quest_type !== "AutoCapture") {
+        errors.push(
+          ...requiredStringErrors(
+            quest.quest_tag,
+            `${questPath}/quest_tag`,
+            "Quest tag"
+          )
+        );
+      }
+
+      if (isChoiceQuestType(quest.quest_type)) {
+        quest.quest_answer_choices.forEach((choice, choiceIndex) => {
+          const choicePath = `${questPath}/quest_answer_choices/${choiceIndex}`;
+          errors.push(
+            ...requiredStringErrors(
+              choice.value,
+              `${choicePath}/value`,
+              "Choice value"
+            ),
+            ...requiredStringErrors(
+              choice.choice_text,
+              `${choicePath}/choice_text`,
+              "Choice text"
+            )
+          );
+
+          const draftChoice =
+            draftDefinition.elements?.[elementIndex]?.quests?.[questIndex]
+              ?.quest_answer_choices?.[choiceIndex];
+          if (draftChoice?._followUpEnabled) {
+            errors.push(
+              ...requiredStringErrors(
+                draftChoice.choice_follow_up,
+                `${choicePath}/choice_follow_up`,
+                "Picture-taking prompt text"
+              )
+            );
+          }
+        });
+      }
+    });
   });
 
   return errors;
@@ -880,8 +972,8 @@ export const useQuestStore = defineStore("quest", () => {
           question_id: parentQuest ? parentQuest.quest_id : null,
           required_value: parentQuest
             ? normalizeDependencyRequiredValue(
-                  parentQuest,
-                  dependency.required_value
+                parentQuest,
+                dependency.required_value
               )
             : dependency._templateQuestionId
               ? dependency.required_value
@@ -965,7 +1057,10 @@ export const useQuestStore = defineStore("quest", () => {
   const validationErrors = computed(() => {
     validate(fullJson.value);
     const structuralErrors = validate.errors ? [...validate.errors] : [];
-    return [...structuralErrors, ...semanticValidationErrors(fullJson.value)];
+    return [
+      ...structuralErrors,
+      ...semanticValidationErrors(fullJson.value, definition.value),
+    ];
   });
 
   const validationWarnings = computed(() => {

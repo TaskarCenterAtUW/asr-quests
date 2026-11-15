@@ -10,9 +10,8 @@ const recencyInputValue = ref("");
 const hasError = computed(() => store.hasValidationError(fieldPath));
 const errorMessage = computed(
     () =>
-        store.validationErrors.find(
-            (error) => error.instancePath === fieldPath
-        )?.message || ""
+        store.validationErrors.find((error) => error.instancePath === fieldPath)
+            ?.message || ""
 );
 
 watch(
@@ -70,19 +69,26 @@ function updateRecency(event) {
                     >Resurvey Interval:</label
                 >
                 <div>
-                    <input
-                        id="recency-period"
-                        type="number"
-                        class="form-control form-control-sm creator-recency-input"
-                        min="1"
-                        step="1"
-                        inputmode="numeric"
-                        placeholder="90 (default)"
-                        :value="recencyInputValue"
-                        :class="{ 'is-invalid': hasError }"
-                        :aria-describedby="hasError ? 'recency-period-error' : undefined"
-                        @input="updateRecency"
-                    />
+                    <div class="d-flex align-items-center gap-2">
+                        <input
+                            id="recency-period"
+                            type="number"
+                            class="form-control form-control-sm creator-recency-input"
+                            min="0"
+                            step="1"
+                            inputmode="numeric"
+                            placeholder="90 (default)"
+                            :value="recencyInputValue"
+                            :class="{ 'is-invalid': hasError }"
+                            :aria-describedby="
+                                hasError
+                                    ? 'recency-period-help recency-period-error'
+                                    : 'recency-period-help'
+                            "
+                            @input="updateRecency"
+                        />
+                        <span>(days)</span>
+                    </div>
                     <div
                         v-if="hasError"
                         id="recency-period-error"
@@ -90,8 +96,15 @@ function updateRecency(event) {
                     >
                         {{ errorMessage }}
                     </div>
+                    <div id="recency-period-help" class="form-text">
+                        Number of days after an element was last fully surveyed
+                        before its quests become visible again.
+                        <br />
+                        Setting this to 0 makes all quests immediately
+                        re-surveyable, even when all questions for an element
+                        have been answered.
+                    </div>
                 </div>
-                <span>(days)</span>
             </div>
         </div>
     </section>

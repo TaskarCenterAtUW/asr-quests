@@ -23,7 +23,7 @@ function createStorage() {
 
 function validV32Definition() {
   return {
-    version: "3.2.0",
+    version: "3.2.1",
     recency_period: 30,
     "feature-presets": [
       {
@@ -97,7 +97,7 @@ describe("v3.2 definition state", () => {
     const store = useQuestStore();
 
     expect(store.definition).toEqual({
-      version: "3.2.0",
+      version: "3.2.1",
       recency_period: 90,
       elements: [],
     });
@@ -133,6 +133,16 @@ describe("v3.2 definition state", () => {
     expect(store.validationErrors).toEqual([]);
   });
 
+  it("accepts zero as an immediately re-surveyable interval", () => {
+    const store = useQuestStore();
+    const input = { ...validV32Definition(), recency_period: 0 };
+
+    store.loadFromJson(input);
+
+    expect(store.fullJson).toEqual(input);
+    expect(store.validationErrors).toEqual([]);
+  });
+
   it("keeps v3.2 fields in a hydrated draft without UI-only fields", async () => {
     const firstStore = useQuestStore();
     firstStore.loadFromJson(validV32Definition());
@@ -150,6 +160,66 @@ describe("v3.2 definition state", () => {
     const restoredStore = useQuestStore();
     expect(restoredStore.fullJson).toEqual(validV32Definition());
     expect(restoredStore.fullJson.elements[0].quests[0]).toBeUndefined();
+  });
+
+  it("keeps disabled picture prompts out of exports and drafts", async () => {
+    const store = useQuestStore();
+    const definition = validV32Definition();
+    definition.elements[0].quests = [
+      {
+        quest_id: 101,
+        quest_title: "Surface type",
+        quest_description: "Choose a surface type.",
+        quest_type: "ExclusiveChoice",
+        quest_tag: "surface",
+        quest_answer_choices: [
+          {
+            value: "concrete",
+            choice_text: "Concrete",
+            choice_follow_up: "Take a picture of the surface?",
+          },
+        ],
+      },
+    ];
+
+    store.loadFromJson(definition);
+    store.updateChoice(0, 0, 0, { _followUpEnabled: false });
+
+    expect(
+      store.definition.elements[0].quests[0].quest_answer_choices[0]
+        .choice_follow_up
+    ).toBe("Take a picture of the surface?");
+    expect(
+      store.fullJson.elements[0].quests[0].quest_answer_choices[0]
+    ).not.toHaveProperty("choice_follow_up");
+
+    store.duplicateQuest(0, 0);
+    expect(
+      store.definition.elements[0].quests[1].quest_answer_choices[0]
+        ._followUpEnabled
+    ).toBe(false);
+    expect(
+      store.fullJson.elements[0].quests[1].quest_answer_choices[0]
+    ).not.toHaveProperty("choice_follow_up");
+
+    await nextTick();
+    const savedDraft = JSON.parse(
+      window.localStorage.getItem("quest-creator:draft:v1")
+    );
+    expect(
+      savedDraft.definition.elements[0].quests[0].quest_answer_choices[0]
+        ._followUpEnabled
+    ).toBe(false);
+
+    setActivePinia(createPinia());
+    const restoredStore = useQuestStore();
+    expect(
+      restoredStore.definition.elements[0].quests[0].quest_answer_choices[0]
+        ._followUpEnabled
+    ).toBe(false);
+    expect(
+      restoredStore.fullJson.elements[0].quests[0].quest_answer_choices[0]
+    ).not.toHaveProperty("choice_follow_up");
   });
 
   it("persists preset and custom icon mutations through autosave", async () => {
@@ -181,11 +251,76 @@ describe("v3.2 definition state", () => {
 });
 
 describe("semantic v3.2 validation", () => {
+  it("requires non-empty values for all required text fields", () => {
+    const store = useQuestStore();
+    const definition = validV32Definition();
+    definition.elements[0].quests = [
+      {
+        quest_id: 101,
+        quest_title: "Surface type",
+        quest_description: "Choose a surface type.",
+        quest_type: "ExclusiveChoice",
+        quest_tag: "surface",
+        quest_answer_choices: [{ value: "concrete", choice_text: "Concrete" }],
+      },
+    ];
+    store.loadFromJson(definition);
+    store.updateElement(0, {
+      element_type: "  ",
+      quest_query: "",
+    });
+    store.updateQuest(0, 0, {
+      quest_title: "",
+      quest_description: "",
+      quest_tag: "",
+    });
+    store.updateChoice(0, 0, 0, {
+      value: "",
+      choice_text: "",
+      choice_follow_up: "",
+      _followUpEnabled: true,
+    });
+
+    const expectedErrors = [
+      ["/elements/0/element_type", "Element type is required."],
+      ["/elements/0/quest_query", "Quest query is required."],
+      ["/elements/0/quests/0/quest_title", "Quest title is required."],
+      [
+        "/elements/0/quests/0/quest_description",
+        "Quest description is required.",
+      ],
+      ["/elements/0/quests/0/quest_tag", "Quest tag is required."],
+      [
+        "/elements/0/quests/0/quest_answer_choices/0/value",
+        "Choice value is required.",
+      ],
+      [
+        "/elements/0/quests/0/quest_answer_choices/0/choice_text",
+        "Choice text is required.",
+      ],
+      [
+        "/elements/0/quests/0/quest_answer_choices/0/choice_follow_up",
+        "Picture-taking prompt text is required.",
+      ],
+    ];
+    const errors = store.validationErrors;
+    expect(errors).toEqual(
+      expect.arrayContaining(
+        expectedErrors.map(([instancePath, message]) =>
+          expect.objectContaining({ instancePath, message })
+        )
+      )
+    );
+    expectedErrors.forEach(([instancePath]) => {
+      expect(store.hasValidationError(instancePath)).toBe(true);
+    });
+  });
+
   it("reports field-specific icon, URL, duplicate, and tag errors", () => {
     const store = useQuestStore();
     store.loadFromJson({
       version: "3.2.0",
-      recency_period: 0,
+      recency_period: -1,
       "feature-presets": [
         { name: "Bench", icon: "missing", tags: {} },
         { name: " Bench ", icon: "missing", tags: { amenity: "" } },
@@ -331,6 +466,7 @@ describe("quest preset dependencies", () => {
     store.updateElement(0, {
       element_type: "Sidewalk",
       element_type_icon: "sidewalk",
+      quest_query: "ways with highway=footway",
     });
 
     store.insertSingleQuestTemplate(0, preset.quests[0]);
@@ -357,18 +493,21 @@ describe("quest preset dependencies", () => {
     store.updateElement(0, {
       element_type: "Sidewalk",
       element_type_icon: "sidewalk",
+      quest_query: "ways with highway=footway",
     });
 
     store.insertSingleQuestTemplate(0, preset.quests[1]);
     store.insertSingleQuestTemplate(0, preset.quests[0]);
 
-    expect(store.fullJson.elements[0].quests[0].quest_answer_dependency).toEqual(
-      {
-        question_id: 102,
-        required_value: "other",
-      }
-    );
-    expect(store.fullJson.elements[0].quests[0]._templateQuestionId).toBeUndefined();
+    expect(
+      store.fullJson.elements[0].quests[0].quest_answer_dependency
+    ).toEqual({
+      question_id: 102,
+      required_value: "other",
+    });
+    expect(
+      store.fullJson.elements[0].quests[0]._templateQuestionId
+    ).toBeUndefined();
     expect(store.validationErrors).toEqual([]);
   });
 });
@@ -426,6 +565,99 @@ describe("drag-and-drop reordering", () => {
     expect(store.definition.elements[1].quests).toEqual([]);
   });
 
+  it("preserves every required choice value when moving an element", () => {
+    const store = useQuestStore();
+    const choiceQuest = (questId, questTitle, values) => ({
+      quest_id: questId,
+      quest_title: questTitle,
+      quest_description: questTitle,
+      quest_type: "ExclusiveChoice",
+      quest_tag: `test:${questId}`,
+      quest_answer_choices: values.map((value) => ({
+        value,
+        choice_text: value,
+      })),
+    });
+
+    store.loadFromJson({
+      version: "3.2.1",
+      recency_period: 90,
+      elements: [
+        {
+          element_type: "Curb ramp",
+          element_type_icon: "access_point",
+          quest_query: "ways with highway=footway",
+          quests: [
+            choiceQuest(101, "Ramp present", ["yes", "nearby", "no"]),
+            choiceQuest(102, "Ramp width", ["narrow", "wide"]),
+            choiceQuest(103, "Ramp slope", ["low", "high"]),
+            choiceQuest(104, "Curb ramp type", [
+              "perpendicular",
+              "parallel",
+              "parallel_one_r",
+              "parallel_one_l",
+              "combination",
+              "cutthru",
+              "end",
+              "unknown",
+            ]),
+            {
+              ...choiceQuest(105, "Detectable warning surface", ["yes", "no"]),
+              quest_answer_dependency: [
+                {
+                  question_id: 101,
+                  required_value: ["yes", "nearby"],
+                },
+                {
+                  question_id: 104,
+                  required_value: [
+                    "perpendicular",
+                    "parallel",
+                    "parallel_one_r",
+                    "parallel_one_l",
+                    "combination",
+                    "cutthru",
+                    "unknown",
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          element_type: "Other",
+          element_type_icon: "access_point",
+          quest_query: "ways with highway=footway",
+          quests: [choiceQuest(201, "Other question", ["yes", "no"])],
+        },
+      ],
+    });
+
+    store.moveElementTo(0, 1);
+
+    expect(store.fullJson.elements[1].quests[4]).toMatchObject({
+      quest_id: 205,
+      quest_answer_dependency: [
+        {
+          question_id: 201,
+          required_value: ["yes", "nearby"],
+        },
+        {
+          question_id: 204,
+          required_value: [
+            "perpendicular",
+            "parallel",
+            "parallel_one_r",
+            "parallel_one_l",
+            "combination",
+            "cutthru",
+            "unknown",
+          ],
+        },
+      ],
+    });
+  });
+
   it("moves a quest to an arbitrary index and remaps dependencies", () => {
     const store = useQuestStore();
     store.resetDefinition();
@@ -469,11 +701,23 @@ describe("drag-and-drop reordering", () => {
     const store = useQuestStore();
     store.resetDefinition();
     store.addFeaturePreset();
-    store.updateFeaturePreset(0, { name: "A", icon: "", tags: { amenity: "a" } });
+    store.updateFeaturePreset(0, {
+      name: "A",
+      icon: "",
+      tags: { amenity: "a" },
+    });
     store.addFeaturePreset();
-    store.updateFeaturePreset(1, { name: "B", icon: "", tags: { amenity: "b" } });
+    store.updateFeaturePreset(1, {
+      name: "B",
+      icon: "",
+      tags: { amenity: "b" },
+    });
     store.addFeaturePreset();
-    store.updateFeaturePreset(2, { name: "C", icon: "", tags: { amenity: "c" } });
+    store.updateFeaturePreset(2, {
+      name: "C",
+      icon: "",
+      tags: { amenity: "c" },
+    });
 
     store.moveFeaturePresetTo(2, 0);
 
@@ -492,9 +736,10 @@ describe("drag-and-drop reordering", () => {
 
     store.moveCustomIconTo(0, 1);
 
-    expect(
-      store.definition["custom-icons"].map((icon) => icon.name)
-    ).toEqual(["b", "a"]);
+    expect(store.definition["custom-icons"].map((icon) => icon.name)).toEqual([
+      "b",
+      "a",
+    ]);
   });
 
   it("moves a choice to an arbitrary index", () => {
@@ -534,11 +779,9 @@ describe("duplicate actions", () => {
 
     store.duplicateElement(0);
 
-    expect(store.definition.elements.map((element) => element.element_type)).toEqual([
-      "A",
-      "A",
-      "B",
-    ]);
+    expect(
+      store.definition.elements.map((element) => element.element_type)
+    ).toEqual(["A", "A", "B"]);
     expect(store.definition.elements[1].quests[0]).toMatchObject({
       quest_id: 201,
       quest_title: "Q0",
@@ -601,10 +844,9 @@ describe("duplicate actions", () => {
         (choice) => choice.value
       )
     ).toEqual(["yes", "copied"]);
-    expect(store.definition["feature-presets"].map((preset) => preset.name)).toEqual([
-      "Bench",
-      "Copied bench",
-    ]);
+    expect(
+      store.definition["feature-presets"].map((preset) => preset.name)
+    ).toEqual(["Bench", "Copied bench"]);
     expect(store.definition["custom-icons"].map((icon) => icon.name)).toEqual([
       "lamp",
       "copied-lamp",

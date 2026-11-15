@@ -68,7 +68,9 @@ const attributes = [
     },
 ];
 
-const knownAttributeKeys = new Set(attributes.map((attribute) => attribute.key));
+const knownAttributeKeys = new Set(
+    attributes.map((attribute) => attribute.key)
+);
 
 const currentAttributes = computed(() => {
     const value = quest.value?.auto_capture_attributes;
@@ -110,7 +112,9 @@ function toggleAttribute(attributeKey, enabled) {
     const nextAttributes = { ...currentAttributes.value };
 
     if (enabled) {
-        if (!Object.prototype.hasOwnProperty.call(nextAttributes, attributeKey)) {
+        if (
+            !Object.prototype.hasOwnProperty.call(nextAttributes, attributeKey)
+        ) {
             nextAttributes[attributeKey] = defaultTagFor(attributeKey);
         }
     } else {
@@ -144,7 +148,9 @@ function attributePath(attributeKey) {
         class="col-12 mt-2 pt-1 border-top"
         :aria-labelledby="`auto-capture-heading-${elementIndex}-${questIndex}`"
     >
-        <div class="d-flex align-items-center justify-content-between gap-2 mb-1">
+        <div
+            class="d-flex align-items-center justify-content-between gap-2 mb-1"
+        >
             <h3
                 :id="`auto-capture-heading-${elementIndex}-${questIndex}`"
                 class="h6 mb-0 fw-semibold"
@@ -190,8 +196,12 @@ function attributePath(attributeKey) {
                                 :for="`auto-capture-enabled-${elementIndex}-${questIndex}-${attribute.key}`"
                                 class="form-check-label fw-semibold"
                             >
-                                <span class="d-block">{{ attribute.label }}</span>
-                                <code class="d-block small text-muted">{{ attribute.key }}</code>
+                                <span class="d-block">{{
+                                    attribute.label
+                                }}</span>
+                                <code class="d-block small text-muted">{{
+                                    attribute.key
+                                }}</code>
                             </label>
                         </div>
                         <div class="form-text small ms-4">
@@ -218,7 +228,9 @@ function attributePath(attributeKey) {
                                     attributePath(attribute.key)
                                 ),
                             }"
-                            @input="updateTag(attribute.key, $event.target.value)"
+                            @input="
+                                updateTag(attribute.key, $event.target.value)
+                            "
                         />
                         <div
                             :id="`auto-capture-tag-hint-${elementIndex}-${questIndex}-${attribute.key}`"

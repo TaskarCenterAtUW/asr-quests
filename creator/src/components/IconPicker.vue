@@ -9,6 +9,7 @@ import featureIcons from "../assets/featureIcons.json";
 const props = defineProps({
     modelValue: { type: String, default: "" },
     context: { type: String, default: "quest" },
+    focusId: { type: String, default: "" },
 });
 const emit = defineEmits(["update:modelValue"]);
 const store = useQuestStore();
@@ -52,7 +53,9 @@ const filtered = computed(() => {
 
 const selected = computed(() => {
     if (!props.modelValue) return null;
-    return availableIcons.value.find((i) => i.name === props.modelValue) || null;
+    return (
+        availableIcons.value.find((i) => i.name === props.modelValue) || null
+    );
 });
 
 function applyPreviewUrl(url) {
@@ -179,8 +182,11 @@ watch(open, (isOpen) => {
 
             <button
                 ref="triggerButton"
+                :id="props.focusId || undefined"
                 type="button"
                 class="btn btn-sm btn-outline-secondary"
+                :aria-expanded="open"
+                aria-haspopup="dialog"
                 @click="openPicker"
             >
                 {{ selected ? "Change Icon" : "Pick Icon" }}
@@ -201,7 +207,6 @@ watch(open, (isOpen) => {
             v-if="open"
             class="creator-icon-picker-dialog p-2"
             role="dialog"
-            aria-modal="true"
             :aria-label="`${props.context} icon picker`"
             @keydown.esc.prevent="closePicker"
         >

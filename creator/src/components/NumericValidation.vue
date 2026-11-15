@@ -92,6 +92,11 @@ function toggleMax(enabled) {
                         Enable minimum
                     </label>
                 </div>
+                <label
+                    class="visually-hidden"
+                    :for="`numeric-min-${elementIndex}-${questIndex}`"
+                    >Minimum value</label
+                >
                 <input
                     v-if="quest._validEnableMin"
                     :id="`numeric-min-${elementIndex}-${questIndex}`"
@@ -122,6 +127,11 @@ function toggleMax(enabled) {
                         Enable maximum
                     </label>
                 </div>
+                <label
+                    class="visually-hidden"
+                    :for="`numeric-max-${elementIndex}-${questIndex}`"
+                    >Maximum value</label
+                >
                 <input
                     v-if="quest._validEnableMax"
                     :id="`numeric-max-${elementIndex}-${questIndex}`"

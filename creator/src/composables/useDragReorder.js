@@ -14,105 +14,102 @@ import { ref } from "vue";
  * assistive-technology alternative, satisfying WCAG 2.5.7 (Dragging Movements).
  */
 export function useDragReorder(onMove) {
-    const draggingIndex = ref(null);
-    const overIndex = ref(null);
-    const overBefore = ref(false);
+  const draggingIndex = ref(null);
+  const overIndex = ref(null);
+  const overBefore = ref(false);
 
-    function startDrag(index, event) {
-        draggingIndex.value = index;
-        overIndex.value = null;
-        overBefore.value = false;
+  function startDrag(index, event) {
+    draggingIndex.value = index;
+    overIndex.value = null;
+    overBefore.value = false;
 
-        if (event?.dataTransfer) {
-            event.dataTransfer.effectAllowed = "move";
-            try {
-                event.dataTransfer.setData("text/plain", String(index));
-            } catch {
-                // Some browsers disallow setData outside a drag gesture.
-            }
-        }
+    if (event?.dataTransfer) {
+      event.dataTransfer.effectAllowed = "move";
+      try {
+        event.dataTransfer.setData("text/plain", String(index));
+      } catch {
+        // Some browsers disallow setData outside a drag gesture.
+      }
+    }
+  }
+
+  function isBefore(index, event) {
+    const rect = event?.currentTarget?.getBoundingClientRect();
+    if (!rect) {
+      return false;
     }
 
-    function isBefore(index, event) {
-        const rect = event?.currentTarget?.getBoundingClientRect();
-        if (!rect) {
-            return false;
-        }
+    return event.clientY < rect.top + rect.height / 2;
+  }
 
-        return event.clientY < rect.top + rect.height / 2;
+  function handleDragOver(index, event) {
+    if (draggingIndex.value == null || index == null) {
+      return;
     }
 
-    function handleDragOver(index, event) {
-        if (draggingIndex.value == null || index == null) {
-            return;
-        }
-
-        event.preventDefault();
-        if (event.dataTransfer) {
-            event.dataTransfer.dropEffect = "move";
-        }
-
-        overIndex.value = index;
-        overBefore.value = isBefore(index, event);
+    event.preventDefault();
+    if (event.dataTransfer) {
+      event.dataTransfer.dropEffect = "move";
     }
 
-    function handleDragLeave(event) {
-        const related = event?.relatedTarget;
-        const current = event?.currentTarget;
-        if (
-            related &&
-            current?.contains?.(related)
-        ) {
-            return;
-        }
+    overIndex.value = index;
+    overBefore.value = isBefore(index, event);
+  }
 
-        overIndex.value = null;
-        overBefore.value = false;
+  function handleDragLeave(event) {
+    const related = event?.relatedTarget;
+    const current = event?.currentTarget;
+    if (related && current?.contains?.(related)) {
+      return;
     }
 
-    function resolveTargetIndex(fromIndex, index, before) {
-        let insertPos = before ? index : index + 1;
-        if (fromIndex < insertPos) {
-            insertPos -= 1;
-        }
+    overIndex.value = null;
+    overBefore.value = false;
+  }
 
-        return insertPos;
+  function resolveTargetIndex(fromIndex, index, before) {
+    let insertPos = before ? index : index + 1;
+    if (fromIndex < insertPos) {
+      insertPos -= 1;
     }
 
-    function handleDrop(index, event) {
-        const fromIndex = draggingIndex.value;
-        if (fromIndex == null || index == null) {
-            endDrag();
-            return;
-        }
+    return insertPos;
+  }
 
-        event.preventDefault();
-        const before = isBefore(index, event);
-        const targetIndex = resolveTargetIndex(fromIndex, index, before);
-
-        endDrag();
-
-        if (targetIndex === fromIndex) {
-            return;
-        }
-
-        onMove(fromIndex, targetIndex);
+  function handleDrop(index, event) {
+    const fromIndex = draggingIndex.value;
+    if (fromIndex == null || index == null) {
+      endDrag();
+      return;
     }
 
-    function endDrag() {
-        draggingIndex.value = null;
-        overIndex.value = null;
-        overBefore.value = false;
+    event.preventDefault();
+    const before = isBefore(index, event);
+    const targetIndex = resolveTargetIndex(fromIndex, index, before);
+
+    endDrag();
+
+    if (targetIndex === fromIndex) {
+      return;
     }
 
-    return {
-        draggingIndex,
-        overIndex,
-        overBefore,
-        startDrag,
-        handleDragOver,
-        handleDragLeave,
-        handleDrop,
-        endDrag,
-    };
+    onMove(fromIndex, targetIndex);
+  }
+
+  function endDrag() {
+    draggingIndex.value = null;
+    overIndex.value = null;
+    overBefore.value = false;
+  }
+
+  return {
+    draggingIndex,
+    overIndex,
+    overBefore,
+    startDrag,
+    handleDragOver,
+    handleDragLeave,
+    handleDrop,
+    endDrag,
+  };
 }
